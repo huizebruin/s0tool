@@ -3,13 +3,16 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord]  | 
 
 
-## Installation: Manual
-1. .
-2. .
-3. .
+## Installatie: 
+1. Installeer Home Assistant & Esphome .
+2. connect de wemos d1 mini aan een usblader.
+3. ga naar ```192.168.4.1```.
+4. zet de juiste SSID en Wachtwoord in de velden
+5. wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
+6. ga naar je home assistant instalatie, dez zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
 ```
-sensor:
-  - platform: formulaone_api
+
+  code
 ```
 4. Restart Home Assistant one final time.
 
