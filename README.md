@@ -16,9 +16,9 @@ sensor:
 
 
 [commits-shield]: https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg
-[commits]: https://github.com/huizebruin/s0tool/
+[commits]: https://github.com/huizebruin/s0tool/commits/main
 [github-last-commit]: https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=plasticr
-[github-master]: https://github.com/huizebruin/s0tool/
+[github-master]: https://github.com/huizebruin/s0tool/commits/main
 
 [discord-shield]: https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=7289da
 [discord]: https://discord.gg/bN8rC7gEng
