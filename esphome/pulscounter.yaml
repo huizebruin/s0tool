@@ -70,12 +70,12 @@ globals:
   - id: totalWaterUsage
     type: float
     restore_value: yes       # When updating below value, change this to no for 1 run.
-    initial_value: '245.111' # 31-8-2021 12:00
+    initial_value: '245.111' # begin stand
     
   - id: totalkwhUsage
     type: float
     restore_value: yes       # When updating below value, change this to no for 1 run.
-    initial_value: '100.001' # 31-8-2021 12:00
+    initial_value: '100.001' # begin stand
 
 ota:
 
