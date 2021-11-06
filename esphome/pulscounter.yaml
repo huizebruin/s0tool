@@ -1,9 +1,9 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  version: "1.50_b"
+  version: "1.50_b3"
   vdate: "31-10-2021"
   device_description: s0 kwh meter en watermeter
-  friendly_name_water: watermeter
+  friendly_name_water: Watermeter
   friendly_name_s0: kwh_meter
   name: S0 & Water Meter
   
@@ -21,12 +21,14 @@ dashboard_import:
 
 wifi:
   networks: []
-# hieronder kan je je eigen hgegeven invullen voor je wifi netwerk en ip-adres  
+# hieronder kan je je eigen gegeven invullen voor je wifi netwerk en ip-adres 
+# dit zijn de hekjes voor de regels 27,28,31,33,35 en plaatst een # voor regel 23
+
 #  ssid: !secret ssid
 #  password: !secret password
 #  manual_ip:
     # Set this to the IP of the ESP
-#    static_ip: 192.168.178.190
+#    static_ip: 192.168.178.123
     # Set this to the IP address of the router. Often ends with .1
 #    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
@@ -115,18 +117,17 @@ sensor:
 #kwh meter s0
   - platform: pulse_meter
     pin: D5
-    name:  "${friendly_name_s0} Current Usage in W "
+    name:  "Actuele energie "
     id: W_opbrengst
     icon: "mdi:flash"
     accuracy_decimals: 0
     unit_of_measurement: 'W'
     filters:
       - lambda: return x * atoi(id(Select_multiply).state.c_str());
-#      - multiply: 32 # at 2000 pulsen at kw
 
     total:
       unit_of_measurement: 'kWh'
-      name: "${friendly_name_s0} Current Usage in kWh "
+      name: "Actuele vermogen "
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
@@ -134,7 +135,7 @@ sensor:
 
   - platform: template
     id: kwh_total
-    name: ${friendly_name_s0} kWh
+    name: Actuele meterstand
     icon: "mdi:flash"
     update_interval: 1s
     unit_of_measurement: kWh
@@ -186,7 +187,7 @@ text_sensor:
       return {"${version}"};
       
   - platform: template
-    name: " ${name} datum versie"
+    name: " Versiedatum"
     icon: "mdi:label-outline"
     update_interval: 6h
     lambda: |-
@@ -202,7 +203,10 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: IP-adres
+      icon: mdi:ip-network
     ssid:
       name: Netwerk
+      icon: mdi:access-point-network
     mac_address:
       name: Mac-adres
+      icon: mdi:folder-key-network-outline
