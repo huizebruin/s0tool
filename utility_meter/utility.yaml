@@ -1,0 +1,46 @@
+#utility_meter:
+
+### watermeter  S0 meter
+  waterverbruik_kwartier:
+    source: sensor.watermeter_totaal
+    cycle: quarter-hourly
+  waterverbruik_per_uur:
+    source: sensor.watermeter_totaal
+    cycle: hourly
+  waterverbruik_per_dag:
+    source: sensor.watermeter_totaal
+    cycle: daily    
+  waterverbruik_per_week:
+    source: sensor.watermeter_totaal
+    cycle: weekly
+  waterverbruik_per_maand:
+    source: sensor.watermeter_totaal
+    cycle: monthly
+  waterverbruik_per_kwartaal:
+    source: sensor.watermeter_totaal
+    cycle: quarterly
+  waterverbruik_per_jaar:
+    source: sensor.watermeter_totaal
+    cycle: yearly   
+### zonnepanelen S0 meter
+  zonnepanelen_kwartier:
+    source: sensor.actuele_vermogen
+    cycle: quarter-hourly
+  zonnepanelen_per_uur:
+    source: sensor.actuele_vermogen
+    cycle: hourly
+  zonnepanelen_per_dag:
+    source: sensor.actuele_vermogen
+    cycle: daily
+  zonnepanelen_per_week:
+    source: sensor.actuele_vermogen
+    cycle: weekly
+  zonnepanelen_per_maand:
+    source: sensor.actuele_vermogen
+    cycle: monthly 
+  zonnepanelen_per_kwartaal:
+    source: sensor.actuele_vermogen
+    cycle: quarterly
+  zonnepanelen_per_jaar:
+    source: sensor.actuele_vermogen
+    cycle: yearly   
