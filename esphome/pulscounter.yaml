@@ -1,0 +1,202 @@
+substitutions:
+  time_timezone: "Europe/Amsterdam"
+  version: "1.50_b"
+  vdate: "31-10-2021"
+  device_description: s0 kwh meter en watermeter
+  friendly_name_water: watermeter
+  friendly_name_s0: kwh_meter
+  name: S0 & Water Meter
+  
+esphome:
+  name: pulsmeters-
+  platform: ESP8266
+  board: d1_mini
+  
+  project:
+    name: huizebruin.S0_meter
+    version: "${version}_${vdate}"
+
+dashboard_import:
+  package_import_url: github://huizebruin/Home-Assistant-Config/tree/main/esphomepulscounter.yaml
+
+wifi:
+  networks: []
+# hieronder kan je je eigen hgegeven invullen voor je wifi netwerk en ip-adres  
+#  ssid: !secret ssid
+#  password: !secret password
+#  manual_ip:
+    # Set this to the IP of the ESP
+#    static_ip: 192.168.178.190
+    # Set this to the IP address of the router. Often ends with .1
+#    gateway: 192.168.178.2 
+    # The subnet of the network. 255.255.255.0 works for most home networks.
+#    subnet: 255.255.255.0  
+
+
+# Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "S0-Meter Fallback Hotspot"
+    password: "s0watermeter"
+    
+web_server:
+  port: 80
+  
+captive_portal:
+
+# Enable logging
+logger:
+  level: INFO
+
+# Enable Home Assistant API
+api:
+  services:
+    - service: set_water_usage
+      variables:
+        meter_value: float
+      then:
+        - globals.set:
+            id: totalWaterUsage
+            value: !lambda "return meter_value;"
+
+    - service: set_kwh_usage
+      variables:
+        meter_value: float
+      then:
+        - globals.set:
+            id: totalkwhUsage
+            value: !lambda "return meter_value;"
+
+globals:
+  - id: totalWaterUsage
+    type: float
+    restore_value: yes       # When updating below value, change this to no for 1 run.
+    initial_value: '245.111' # 31-8-2021 12:00
+    
+  - id: totalkwhUsage
+    type: float
+    restore_value: yes       # When updating below value, change this to no for 1 run.
+    initial_value: '100.001' # 31-8-2021 12:00
+
+ota:
+
+# Enable time component to reset energy at midnight
+time:
+  - platform: homeassistant
+    id: time_homeassistant
+    timezone: "${time_timezone}"
+
+  - platform: sntp
+    id: time_sntp
+    timezone: "${time_timezone}"
+
+select:
+  - platform: template
+    name: "multiply kWh meter"
+    id: Select_multiply
+    optimistic: true
+    options:
+      - "33"
+      - "32" #2000 puls
+      - "31"
+      - "17"
+      - "16" #1000 puls
+      - "15"
+      - "9"
+      - "8" #500 puls
+      - "7"
+      - "6"
+    initial_option: "32"
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
+sensor:
+#kwh meter s0
+  - platform: pulse_meter
+    pin: D5
+    name:  "${friendly_name_s0} Current Usage in W "
+    id: W_opbrengst
+    icon: "mdi:flash"
+    accuracy_decimals: 0
+    unit_of_measurement: 'W'
+    filters:
+      - lambda: return x * atoi(id(Select_multiply).state.c_str());
+#      - multiply: 32 # at 2000 pulsen at kw
+
+    total:
+      unit_of_measurement: 'kWh'
+      name: "${friendly_name_s0} Current Usage in kWh "
+      icon: "mdi:flash"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0005
+
+  - platform: template
+    id: kwh_total
+    name: ${friendly_name_s0} kWh
+    icon: "mdi:flash"
+    update_interval: 1s
+    unit_of_measurement: kWh
+    accuracy_decimals: 2
+    lambda: |-
+      return id(W_opbrengst).state + id(totalkwhUsage);
+
+        
+#watermeter 
+  - platform: pulse_counter
+    pin: D2
+    id: watermeter_pulse
+    name: ${friendly_name_water} pulse
+    update_interval: 1s
+    unit_of_measurement: L
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.016666667
+    total:
+      id: sensor_pulse_meter_total
+      name: "${friendly_name_water} Totaal"
+      icon: "mdi:cube-outline"
+      unit_of_measurement: "M3"
+      accuracy_decimals: 3
+      filters:
+      - multiply: 0.001
+
+  - platform: template
+    id: watermeter_total
+    name: ${friendly_name_water} totaal meter
+    icon: mdi:water
+    update_interval: 1s
+    unit_of_measurement: m³
+    accuracy_decimals: 3
+    lambda: |-
+      if (id(watermeter_pulse).state >= 1) {
+        id(totalWaterUsage) += 0.001;
+      }
+      return id(totalWaterUsage);
+
+    
+#versie sensor voor in ha
+text_sensor:
+  - platform: template
+    name: " ${name} Version"
+    icon: "mdi:label-outline"
+    update_interval: 6h
+    lambda: |-
+      return {"${version}"};
+      
+  - platform: template
+    name: " ${name} datum versie"
+    icon: "mdi:label-outline"
+    update_interval: 6h
+    lambda: |-
+      return {"${vdate}"};
+#      return {"id(time_homeassistant).state.now()"}; 
+#        {"it.strftime "%Y-%m-%d", id(time_homeassistant).now())"};      
+ 
+  - platform: template
+    name: "multiply info"
+    lambda: |-
+      return {"2000 puls is 32, 1000 puls is 16, 500 puls is 8"};
+      
+ 
