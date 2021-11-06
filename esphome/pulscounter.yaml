@@ -193,10 +193,16 @@ text_sensor:
       return {"${vdate}"};
 #      return {"id(time_homeassistant).state.now()"}; 
 #        {"it.strftime "%Y-%m-%d", id(time_homeassistant).now())"};      
- 
+
   - platform: template
     name: "multiply info"
     lambda: |-
       return {"2000 puls is 32, 1000 puls is 16, 500 puls is 8"};
       
- 
+  - platform: wifi_info
+    ip_address:
+      name: IP-adres
+    ssid:
+      name: Netwerk
+    mac_address:
+      name: Mac-adres
