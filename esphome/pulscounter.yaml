@@ -17,7 +17,7 @@ esphome:
     version: "${version}_${vdate}"
 
 dashboard_import:
-  package_import_url: github://huizebruin/Home-Assistant-Config/tree/main/esphomepulscounter.yaml
+  package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
 
 wifi:
   networks: []
