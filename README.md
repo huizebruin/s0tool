@@ -9,7 +9,9 @@
 3. ga naar ```192.168.4.1```.
 4. zet de juiste SSID en Wachtwoord in de velden
 5. wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
-6. ga naar je home assistant instalatie, dez zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
+6. ga naar je home assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
+7. als het goed is gaat de print connectie maken met github om de laatste versie binnen te halen en daardoor ook toe te voegen aan esphome
+8. zet het ipadres vast in je router en in de config file binnen esphome. lees de info regels bij de wifi info.
 ```
 
   code
