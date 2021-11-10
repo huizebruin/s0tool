@@ -1,14 +1,14 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  version: "1.50_b3"
-  vdate: "31-10-2021"
+  version: "1.55"
+  vdate: "08-11-2021"
   device_description: s0 kwh meter en watermeter
   friendly_name_water: Watermeter
   friendly_name_s0: kwh_meter
   name: S0 & Water Meter
   
 esphome:
-  name: pulsmeters-
+  name: pulsmeters-190
   platform: ESP8266
   board: d1_mini
   
@@ -21,8 +21,8 @@ dashboard_import:
 
 wifi:
   networks: []
-# hieronder kan je je eigen gegeven invullen voor je wifi netwerk en ip-adres 
-# dit zijn de hekjes voor de regels 27,28,31,33,35 en plaatst een # voor regel 23
+# Hieronder kan je je eigen gegeven invullen voor je wifi netwerk en ip-adres 
+# dit zijn de hekjes voor de regels 27,28,31,33,35. En plaatst een # voor regel 23
 
 #  ssid: !secret ssid
 #  password: !secret password
@@ -33,7 +33,6 @@ wifi:
 #    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
 #    subnet: 255.255.255.0  
-
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -48,7 +47,7 @@ captive_portal:
 # Enable logging
 logger:
   level: INFO
-
+  
 # Enable Home Assistant API
 api:
   services:
@@ -77,7 +76,7 @@ globals:
   - id: totalkwhUsage
     type: float
     restore_value: yes       # When updating below value, change this to no for 1 run.
-    initial_value: '100.001' # begin stand
+    initial_value: '1000.001' # begin stand
 
 ota:
 
@@ -127,7 +126,8 @@ sensor:
 
     total:
       unit_of_measurement: 'kWh'
-      name: "Actuele vermogen "
+      name: "Totaal opgebracht "
+      id: W_opbrengst_totaal
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
@@ -141,8 +141,7 @@ sensor:
     unit_of_measurement: kWh
     accuracy_decimals: 2
     lambda: |-
-      return id(W_opbrengst).state + id(totalkwhUsage);
-
+      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
         
 #watermeter 
   - platform: pulse_counter
@@ -165,7 +164,7 @@ sensor:
 
   - platform: template
     id: watermeter_total
-    name: ${friendly_name_water} totaal meter
+    name: "${friendly_name_water} stand"
     icon: mdi:water
     update_interval: 1s
     unit_of_measurement: m³
@@ -185,21 +184,19 @@ text_sensor:
     update_interval: 6h
     lambda: |-
       return {"${version}"};
-      
+
   - platform: template
     name: " Versiedatum"
     icon: "mdi:label-outline"
     update_interval: 6h
     lambda: |-
       return {"${vdate}"};
-#      return {"id(time_homeassistant).state.now()"}; 
-#        {"it.strftime "%Y-%m-%d", id(time_homeassistant).now())"};      
 
   - platform: template
     name: "multiply info"
     lambda: |-
       return {"2000 puls is 32, 1000 puls is 16, 500 puls is 8"};
-      
+
   - platform: wifi_info
     ip_address:
       name: IP-adres
