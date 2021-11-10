@@ -8,7 +8,7 @@ substitutions:
   name: S0 & Water Meter
   
 esphome:
-  name: pulsmeters-190
+  name: pulsmeters
   platform: ESP8266
   board: d1_mini
   
