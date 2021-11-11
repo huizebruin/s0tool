@@ -6,17 +6,65 @@
 ## Installatie: 
 1. Installeer Home Assistant & Esphome .
 2. connect de wemos d1 mini aan een usblader.
-3. ga naar ```192.168.4.1```.
-4. zet de juiste SSID en Wachtwoord in de velden
-5. wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
-6. ga naar je home assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
-7. als het goed is gaat de print connectie maken met github om de laatste versie binnen te halen en daardoor ook toe te voegen aan esphome
-8. zet het ipadres vast in je router en in de config file binnen esphome. lees de info regels bij de wifi info.
+3. ga met je laptop of telefoon naar     <b>ssid:</b> ```S0-Meter Fallback Hotspot``` &   <b> password:</b> ```s0watermeter```
+4. ga naar ```192.168.4.1```.
+5. zet de juiste SSID en Wachtwoord in de velden
+6. wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
+7. ga naar je home assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
+8. als het goed is gaat de print connectie maken met github om de laatste versie binnen te halen en daardoor ook toe te voegen aan esphome
+9. zet het ipadres vast in je router en in de config file binnen esphome. lees de info regels bij de wifi info.
+10. voeg de volgende code toe aan je ``` configuration.yaml   ```  ``` utility_meter: !include utility_meter/utility.yaml ```
+11. maak een map aan in je config map via de verkenner en noem deze ``` utiliy_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml en voeg onderstaande code daar in en sla deze op( of download hem uit deze repro) en plaats hem in die map.
+
+```
+#utility_meter:
+### watermeter  S0 meter
+  waterverbruik_kwartier:
+    source: sensor.watermeter_totaal
+    cycle: quarter-hourly
+  waterverbruik_per_uur:
+    source: sensor.watermeter_totaal
+    cycle: hourly
+  waterverbruik_per_dag:
+    source: sensor.watermeter_totaal
+    cycle: daily    
+  waterverbruik_per_week:
+    source: sensor.watermeter_totaal
+    cycle: weekly
+  waterverbruik_per_maand:
+    source: sensor.watermeter_totaal
+    cycle: monthly
+  waterverbruik_per_kwartaal:
+    source: sensor.watermeter_totaal
+    cycle: quarterly
+  waterverbruik_per_jaar:
+    source: sensor.watermeter_totaal
+    cycle: yearly   
+### zonnepanelen S0 meter
+  zonnepanelen_kwartier:
+    source: sensor.actuele_vermogen
+    cycle: quarter-hourly
+  zonnepanelen_per_uur:
+    source: sensor.actuele_vermogen
+    cycle: hourly
+  zonnepanelen_per_dag:
+    source: sensor.actuele_vermogen
+    cycle: daily
+  zonnepanelen_per_week:
+    source: sensor.actuele_vermogen
+    cycle: weekly
+  zonnepanelen_per_maand:
+    source: sensor.actuele_vermogen
+    cycle: monthly 
+  zonnepanelen_per_kwartaal:
+    source: sensor.actuele_vermogen
+    cycle: quarterly
+  zonnepanelen_per_jaar:
+    source: sensor.actuele_vermogen
+    cycle: yearly   
 ```
 
-  code
-```
-4. Restart Home Assistant one final time.
+12. Restart Home Assistant one final time.
 
 
 
