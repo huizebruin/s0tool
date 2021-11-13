@@ -1,7 +1,7 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  version: "v1.6"
-  vdate: "08-11-2021"
+  version: "v1.61"
+  vdate: "13-11-2021"
   device_description: s0 kwh meter en watermeter
   friendly_name_water: Watermeter
   friendly_name_s0: kwh_meter
