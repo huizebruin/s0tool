@@ -3,6 +3,9 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord]  | 
 
 
+![S0tool-print](./s0tool-huizebruin.jpg) 
+
+
 ## Installatie: 
 1. Installeer Home Assistant & Esphome .
 2. connect de wemos d1 mini aan een usblader.
