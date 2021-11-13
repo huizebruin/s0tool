@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  version: "1.55"
+  version: "v1.6"
   vdate: "08-11-2021"
   device_description: s0 kwh meter en watermeter
   friendly_name_water: Watermeter
@@ -17,7 +17,7 @@ esphome:
     version: "${version}_${vdate}"
 
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml
 
 wifi:
   networks: []
@@ -153,6 +153,16 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.016666667
+      
+  - platform: pulse_counter
+    name: "watermeter Flow rate"
+    id: "watermeter_flow"
+    pin: D2
+    update_interval: 60s
+    filters:
+    - lambda: return (x / 27.0) * 60.0;
+    unit_of_measurement: "L/hr" 
+      
     total:
       id: sensor_pulse_meter_total
       name: "${friendly_name_water} Totaal"
@@ -184,7 +194,7 @@ text_sensor:
     update_interval: 6h
     lambda: |-
       return {"${version}"};
-
+      
   - platform: template
     name: " Versiedatum"
     icon: "mdi:label-outline"
@@ -196,7 +206,7 @@ text_sensor:
     name: "multiply info"
     lambda: |-
       return {"2000 puls is 32, 1000 puls is 16, 500 puls is 8"};
-
+      
   - platform: wifi_info
     ip_address:
       name: IP-adres
