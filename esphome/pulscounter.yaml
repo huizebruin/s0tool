@@ -119,6 +119,7 @@ sensor:
     name:  "Actuele energie "
     id: W_opbrengst
     icon: "mdi:flash"
+    internal_filter: "30ms"
     accuracy_decimals: 0
     unit_of_measurement: 'W'
     filters:
