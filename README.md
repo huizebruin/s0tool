@@ -4,6 +4,7 @@
 
 
 ![S0tool-print](./s0tool-huizebruin.jpg) 
+![dashboard](./s0tool-dashboard.jpg)
 
 
 ## Installatie: 
