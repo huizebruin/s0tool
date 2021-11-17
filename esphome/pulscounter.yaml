@@ -37,7 +37,7 @@ wifi:
     ssid: "S0-Meter Fallback Hotspot"
     password: "s0watermeter"
     
-wweb_server:
+web_server:
   port: 80
   
 captive_portal:
@@ -128,7 +128,7 @@ sensor:
     unit_of_measurement: 'W'
     filters:
       - lambda: return x * atoi(id(Select_multiply).state.c_str());
-
+    
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht "
@@ -136,16 +136,7 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - multiply: 0.0001 #0.0005
-        
-  - platform: total_daily_energy
-    name: "Totaal dag energie"
-    icon: "mdi:circle-slice-3"
-    power_id: W_opbrengst
-    filters:
-      # Multiplication factor from W to kW is 0.001
-      - multiply: 0.001
-    unit_of_measurement: kWh
+        - multiply: 0.0001 
 
   - platform: template
     id: kwh_total
@@ -156,8 +147,7 @@ sensor:
     accuracy_decimals: 2
     lambda: |-
       return id(W_opbrengst_totaal).state + id(totalkwhUsage) ;
-
-        
+  
 #watermeter 
   - platform: pulse_counter
     pin: D2
@@ -191,16 +181,6 @@ sensor:
       }
       return id(totalWaterUsage);
     
-#  - platform: pulse_counter
-#    name: "watermeter Flow rate"
-#    id: "watermeter_flow"
-#    pin: D2
-#    update_interval: 60s
-#    unit_of_measurement: "L/hr" 
-#    filters:
-#      lambda: return (x / 27.0) * 60.0;
-  
-
 #versie sensor voor in ha
 text_sensor:
   - platform: template
@@ -220,4 +200,3 @@ text_sensor:
     mac_address:
       name: Mac-adres
       icon: mdi:folder-key-network-outline
-
