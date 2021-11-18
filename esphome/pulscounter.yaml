@@ -2,7 +2,8 @@ substitutions:
   time_timezone: "Europe/Amsterdam"
   vdate: "18/11/2021_v1.70"
   device_description: s0 kwh meter en watermeter
-  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
+  #30ms of 50ms zie datasheet van het type meter ⬇ #
+  impulslengte: "50ms" 
   name: S0 & Water Meter
   # imp/kWh rate ⬇ #
   pulse_rate: '2000'
