@@ -1,17 +1,19 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "16/11/2021_v1.68"
+  vdate: "18/11/2021_v1.70"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
+  # imp/kWh rate ⬇ #
+  pulse_rate: '2000'
     
 esphome:
   name: pulsmeters
   platform: ESP8266
   board: d1_mini
-  
+  comment: '${device_description}'
   project:
-    name: huizebruin.S0_meter
+    name: huizebruin.${name}
     version: "${vdate}"
 
 dashboard_import:
@@ -88,29 +90,17 @@ time:
     id: time_sntp
     timezone: "${time_timezone}"
 
-select:
+select: # werkt momenteen nog niet 18-11-2021
   - platform: template
-    name: "multiply kWh meter"
+    name: "pulse_rate kWh meter"
     id: Select_multiply
     optimistic: true
     options:
-      - "33"
-      - "32" 
-      - "31"
-      - "30" #2000 puls
-      - "29"
-      - "28"
-      - "17"
-      - "16" 
-      - "15"#1000 puls
-      - "14"
-      - "13"       
-      - "9"
-      - "8" 
-      - "7"#500 puls
-      - "6"
-      - "5"
-    initial_option: "30"
+      - "2000"
+      - "1500" 
+      - "1000"
+      - "500" 
+    initial_option: "2000"
     on_value:
       then:
         - logger.log:
@@ -126,17 +116,24 @@ sensor:
     internal_filter: ${impulslengte} 
     accuracy_decimals: 0
     unit_of_measurement: 'W'
+    state_class: measurement
+    device_class: power
     filters:
-      - lambda: return x * atoi(id(Select_multiply).state.c_str());
+      - lambda: return x * ((60.0 / ${pulse_rate}) * 1000.0);
+    # oude sensor met Select_multiply
+#      - lambda: return x * atoi(id(Select_multiply).state.c_str());
     
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht "
       id: W_opbrengst_totaal
+      state_class: total_increasing
+      device_class: energy
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - multiply: 0.0001 
+        - lambda: return x * (1.0 / ${pulse_rate});
+#        - multiply: 0.0001 
 
   - platform: template
     id: kwh_total
