@@ -1,11 +1,9 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "18/11/2021_v1.70"
+  vdate: "18/11/2021_v1.71"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
-  # imp/kWh rate ⬇ #
-  pulse_rate: '2000'
   
 esphome:
   name: pulsmeters-190
@@ -90,9 +88,10 @@ time:
     timezone: "${time_timezone}"
 
 select:
+  # imp/kWh rate ⬇ #
   - platform: template
     name: "pulse_rate kWh meter"
-    id: Select_multiply
+    id: Select_pulse_rate
     optimistic: true
     options:
       - "2000"
@@ -118,7 +117,6 @@ sensor:
     state_class: measurement
     device_class: power
     filters:
-#      - lambda: return x * ((60.0 / ${Select_pulse_rate}) * 1000.0);
       - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str())) * 1000.0);
       
     # oude sensor met Select_multiply
@@ -133,11 +131,8 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-#        - lambda: return x * (1.0 / ${Select_pulse_rate});
         - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
         
-#        - multiply: 0.0001 
-
   - platform: template
     id: kwh_total
     name: "Actuele meterstand"
