@@ -40,7 +40,6 @@ web_server:
   port: 80
   
 captive_portal:
-
 # Enable logging
 logger:
   level: INFO
@@ -73,7 +72,7 @@ globals:
   - id: totalkwhUsage
     type: float
     restore_value: yes       # When updating below value, change this to no for 1 run.
-    initial_value: '1000.001' # begin stand
+    initial_value: '00001.01' # begin stand
 
 ota:
 
@@ -99,6 +98,23 @@ select:
       - "1000"
       - "500" 
     initial_option: "2000"
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
+            
+  # impulslengte imp/kWh rate ⬇ #
+  - platform: template
+    name: "impulslengte kWh meter"
+    id: Select_impulslengte
+    optimistic: true
+    options:
+      - "50ms"
+      - "40ms" 
+      - "30ms"
+      - "20ms" 
+    initial_option: "50ms"
     on_value:
       then:
         - logger.log:
