@@ -1,10 +1,10 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "18/11/2021_v1.71"
+  vdate: "20/11/2021_v1.74"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
-  
+
 esphome:
   name: pulsmeters-190
   platform: ESP8266
@@ -14,24 +14,19 @@ esphome:
     name: huizebruin.${name}
     version: "${vdate}"
 
-dashboard_import:
-  package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
-
 wifi:
-  networks: []
-# hieronder kan je je eigen hgegeven invullen voor je wifi netwerk en ip-adres  
-#  ssid: !secret ssid
-#  password: !secret password
-#  manual_ip:
+  ssid: !secret ssid
+  password: !secret password
+  manual_ip:
     # Set this to the IP of the ESP
-#    static_ip: 192.168.178.190
+    static_ip: 192.168.178.190
     # Set this to the IP address of the router. Often ends with .1
-#    gateway: 192.168.178.2 
+    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
-#    subnet: 255.255.255.0  
+    subnet: 255.255.255.0  
 
-
-# Enable fallback hotspot (captive portal) in case wifi connection fails
+# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
     ssid: "S0-Meter Fallback Hotspot"
     password: "s0watermeter"
@@ -40,11 +35,11 @@ web_server:
   port: 80
   
 captive_portal:
-# Enable logging
+# ⬇ Enable logging ⬇ # 
 logger:
   level: INFO
   
-# Enable Home Assistant API
+#  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
     - service: set_water_usage
@@ -66,17 +61,20 @@ api:
 globals:
   - id: totalWaterUsage
     type: float
-    restore_value: yes       # When updating below value, change this to no for 1 run.
-    initial_value: '100.001' # begin stand
+# ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
+    restore_value: yes       
+# ⬇ begin stand ⬇ #    
+    initial_value: '100.001' 
     
   - id: totalkwhUsage
     type: float
-    restore_value: yes       # When updating below value, change this to no for 1 run.
-    initial_value: '00001.01' # begin stand
+# ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
+    restore_value: yes  
+# ⬇ begin stand ⬇ # 
+    initial_value: '00001.01' 
 
 ota:
-
-# Enable time component to reset energy at midnight
+#  ⬇ Enable time component voor reset elke nacht ⬇ #
 time:
   - platform: homeassistant
     id: time_homeassistant
@@ -87,7 +85,7 @@ time:
     timezone: "${time_timezone}"
 
 select:
-  # imp/kWh rate ⬇ #
+  # ⬇ imp/kWh rate ⬇ #
   - platform: template
     name: "pulse_rate kWh meter"
     id: Select_pulse_rate
@@ -104,7 +102,7 @@ select:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
             
-  # impulslengte imp/kWh rate ⬇ #
+  # ⬇ impulslengte imp/kWh rate ⬇ # dit werkt nog niet.
   - platform: template
     name: "impulslengte kWh meter"
     id: Select_impulslengte
@@ -121,7 +119,7 @@ select:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
 sensor:
-#kwh meter s0
+# ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
     pin: D5
     name:  "Actuele energie "
@@ -134,10 +132,8 @@ sensor:
     device_class: power
     filters:
       - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str())) * 1000.0);
-      
-    # oude sensor met Select_multiply
-#      - lambda: return x * atoi(id(Select_pulse_rate).state.c_str());
-    
+
+# ⬇ Totaal opgebracht ⬇ #    
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht "
@@ -148,7 +144,8 @@ sensor:
       accuracy_decimals: 2
       filters:
         - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
-        
+
+# ⬇ Kwh meterstand ⬇ #        
   - platform: template
     id: kwh_total
     name: "Actuele meterstand"
@@ -160,7 +157,7 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-#watermeter 
+# ⬇ watermeter ⬇ #
   - platform: pulse_counter
     pin: D2
     id: watermeter_pulse
@@ -170,7 +167,7 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.016666667
-      
+# ⬇ Totaal watermeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
       name: "watermeter Totaal"
@@ -180,6 +177,7 @@ sensor:
       filters:
       - multiply: 0.001
 
+# ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
     id: watermeter_total
     name: "watermeter stand"
@@ -193,7 +191,7 @@ sensor:
       }
       return id(totalWaterUsage);
     
-#versie sensor voor in ha
+# ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
     name: " Versie"
