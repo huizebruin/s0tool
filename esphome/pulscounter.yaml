@@ -118,9 +118,11 @@ sensor:
     state_class: measurement
     device_class: power
     filters:
-      - lambda: return x * ((60.0 / ${pulse_rate}) * 1000.0);
+#      - lambda: return x * ((60.0 / ${Select_pulse_rate}) * 1000.0);
+      - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str())) * 1000.0);
+      
     # oude sensor met Select_multiply
-#      - lambda: return x * atoi(id(Select_multiply).state.c_str());
+#      - lambda: return x * atoi(id(Select_pulse_rate).state.c_str());
     
     total:
       unit_of_measurement: 'kWh'
@@ -131,7 +133,9 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - lambda: return x * (1.0 / ${pulse_rate});
+#        - lambda: return x * (1.0 / ${Select_pulse_rate});
+        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
+        
 #        - multiply: 0.0001 
 
   - platform: template
