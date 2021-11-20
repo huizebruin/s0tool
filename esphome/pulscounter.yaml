@@ -2,14 +2,13 @@ substitutions:
   time_timezone: "Europe/Amsterdam"
   vdate: "18/11/2021_v1.70"
   device_description: s0 kwh meter en watermeter
-  #30ms of 50ms zie datasheet van het type meter ⬇ #
-  impulslengte: "50ms" 
+  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
   # imp/kWh rate ⬇ #
   pulse_rate: '2000'
-    
+  
 esphome:
-  name: pulsmeters
+  name: pulsmeters-190
   platform: ESP8266
   board: d1_mini
   comment: '${device_description}'
@@ -18,22 +17,21 @@ esphome:
     version: "${vdate}"
 
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml
+  package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
 
 wifi:
   networks: []
-# Hieronder kan je je eigen gegeven invullen voor je wifi netwerk en ip-adres 
-# dit zijn de hekjes voor de regels 27,28,31,33,35. En plaatst een # voor regel 23
-
+# hieronder kan je je eigen hgegeven invullen voor je wifi netwerk en ip-adres  
 #  ssid: !secret ssid
 #  password: !secret password
 #  manual_ip:
     # Set this to the IP of the ESP
-#    static_ip: 192.168.178.123
+#    static_ip: 192.168.178.190
     # Set this to the IP address of the router. Often ends with .1
 #    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
 #    subnet: 255.255.255.0  
+
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -91,7 +89,7 @@ time:
     id: time_sntp
     timezone: "${time_timezone}"
 
-select: # werkt momenteen nog niet 18-11-2021
+select:
   - platform: template
     name: "pulse_rate kWh meter"
     id: Select_multiply
@@ -139,13 +137,14 @@ sensor:
   - platform: template
     id: kwh_total
     name: "Actuele meterstand"
+    state_class: "total_increasing"
     icon: "mdi:flash"
     update_interval: 1s
     unit_of_measurement: kWh
     accuracy_decimals: 2
-    lambda: |-
-      return id(W_opbrengst_totaal).state + id(totalkwhUsage) ;
-  
+    lambda: 
+      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
+
 #watermeter 
   - platform: pulse_counter
     pin: D2
