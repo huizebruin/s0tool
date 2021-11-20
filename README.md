@@ -1,6 +1,7 @@
 | Repository Status | ESPHome S0tool discord Community |
 | :--- | :--- |
-| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord]  | 
+| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord]  
+|  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] |
 
 
 ![S0tool-print](./s0tool-huizebruin.jpg) 
@@ -8,6 +9,15 @@
 <br>
 # update <br>
  20-11-2021:  code bijna zoals ik het hebben wil, totaal kwh meterstand wordt nu nog gereset tijdens update ( flashen) <br> ben er mee bezig zodat deze behouden blijft.
+
+## Hardware
+Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
+
+- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AVaoGrb) of [Aliexpress](https://s.click.aliexpress.com/e/_AYLXKJ) (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!)
+- Onderstaande is niet nodig als je de print compleet hebt aangeschaft.
+-  Wemos D1 mini ep8266 [Aliexpress](https://tc.tradetracker.net/?c=15640&m=12&a=385034&r=Wemos-d1-mini&u=%2Fitem%2F32651747570.html) of [Aliexpress](https://s.click.aliexpress.com/e/_AO3xES) of [uit Nederland](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ)
+- 10K weerstand [100 stuks vanaf aliexpress](https://s.click.aliexpress.com/e/_A10BHz) of [10 stuks uit nl](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ) of [100stuks uit nl](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-100-stuks?affiliate=1VL4KIAMBZ)
+
 
 ## Installatie: 
 1. Installeer Home Assistant & Esphome .
@@ -75,11 +85,21 @@
 
 
 
+
+
+
 [commits-shield]: https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg
 [commits]: https://github.com/huizebruin/s0tool/commits/main
 [github-last-commit]: https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=plasticr
 [github-master]: https://github.com/huizebruin/s0tool/commits/main
-
+[license-shield]: https://img.shields.io/github/license/huizebruin/s0tool.svg
 [discord-shield]: https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=7289da
 [discord]: https://discord.gg/bN8rC7gEng
-
+[contributors-url]: https://github.com/huizebruin/s0tool/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/huizebruin/s0tool.svg
+[forks-shield]: https://img.shields.io/github/forks/huizebruin/s0tool.svg
+[forks-url]: https://github.com/huizebruin/s0tool/network/members
+[stars-shield]: https://img.shields.io/github/stars/huizebruin/s0tool.svg
+[stars-url]: https://github.com/huizebruin/s0tool/stargazers
+[issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
+[issues-url]: https://github.com/huizebruin/s0tool/issues
