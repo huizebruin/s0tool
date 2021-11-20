@@ -13,8 +13,9 @@
 ## Hardware
 Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 
-- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AVaoGrb) of [Aliexpress](https://s.click.aliexpress.com/e/_AYLXKJ) (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!)
-- Onderstaande is niet nodig als je de print compleet hebt aangeschaft.
+- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AVaoGrb) of [Aliexpress](https://s.click.aliexpress.com/e/_AYLXKJ) (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!)<br> ![afbeelding](https://user-images.githubusercontent.com/62996429/142737498-0ea1c461-6ea3-403c-9614-f9e70c809134.png)<br>
+
+## Onderstaande is niet nodig als je de print compleet hebt aangeschaft.
 -  Wemos D1 mini ep8266 [Aliexpress](https://tc.tradetracker.net/?c=15640&m=12&a=385034&r=Wemos-d1-mini&u=%2Fitem%2F32651747570.html) of [Aliexpress](https://s.click.aliexpress.com/e/_AO3xES) of [uit Nederland](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ)
 - 10K weerstand [100 stuks vanaf aliexpress](https://s.click.aliexpress.com/e/_A10BHz) of [10 stuks uit nl](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ) of [100stuks uit nl](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-100-stuks?affiliate=1VL4KIAMBZ)
 
