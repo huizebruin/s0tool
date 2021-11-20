@@ -5,7 +5,9 @@
 
 ![S0tool-print](./s0tool-huizebruin.jpg) 
 ![dashboard](./s0tool-dashboard.jpg)
-
+<br>
+# update <br>
+ 20-11-2021:  code bijna zoals ik het hebben wil, totaal kwh meterstand wordt nu nog gereset tijdens update ( flashen) <br> ben er mee bezig zodat deze behouden blijft.
 
 ## Installatie: 
 1. Installeer Home Assistant & Esphome .
