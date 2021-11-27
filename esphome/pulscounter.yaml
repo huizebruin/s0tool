@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "20/11/2021_v1.74"
+  vdate: "27/11/2021_v1.9"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
@@ -9,28 +9,39 @@ esphome:
   name: pulsmeters-190
   platform: ESP8266
   board: d1_mini
+  esp8266_restore_from_flash: true
   comment: '${device_description}'
   project:
     name: huizebruin.${name}
     version: "${vdate}"
+  on_boot:
+    priority: -10
+    then:
+      - script.execute: publish_states
+
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
 
 wifi:
-  ssid: !secret ssid
-  password: !secret password
-  manual_ip:
+  networks: []
+# Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
+#  ssid: !secret ssid
+#  password: !secret password
+#  manual_ip:
     # Set this to the IP of the ESP
-    static_ip: 192.168.178.190
+#    static_ip: 192.168.178.123
     # Set this to the IP address of the router. Often ends with .1
-    gateway: 192.168.178.2 
+#    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
-    subnet: 255.255.255.0  
-
+#    subnet: 255.255.255.0  
+####################################################################
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+####################################################################
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
-    ssid: "S0-Meter Fallback Hotspot"
+    ssid: "${name}"
     password: "s0watermeter"
-    
+
 web_server:
   port: 80
   
@@ -62,16 +73,26 @@ globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: yes       
+    restore_value: yes      
 # ⬇ begin stand ⬇ #    
-    initial_value: '100.001' 
+    initial_value: '200.001' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: yes  
+    restore_value: yes
 # ⬇ begin stand ⬇ # 
-    initial_value: '00001.01' 
+    initial_value: '14957.39' 
+    
+  - id: kwh_counter
+    type: float
+    restore_value: yes
+    initial_value: '0'
+  - id: water_counter
+    type: float
+    restore_value: yes
+    initial_value: '0'
+
 
 ota:
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
@@ -101,23 +122,14 @@ select:
         - logger.log:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
-            
-  # ⬇ impulslengte imp/kWh rate ⬇ # dit werkt nog niet.
-  - platform: template
-    name: "impulslengte kWh meter"
-    id: Select_impulslengte
-    optimistic: true
-    options:
-      - "50ms"
-      - "40ms" 
-      - "30ms"
-      - "20ms" 
-    initial_option: "50ms"
-    on_value:
-      then:
-        - logger.log:
-            format: "Chosen option: %s "
-            args: ["x.c_str()"]
+#27-11-2021 script toegevoegd
+script:
+  - id: publish_states
+    then:
+      - lambda: |-
+          id(watermeter_total).publish_state(id(water_counter));
+          id(kwh_total).publish_state(id(kwh_counter));
+
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
@@ -144,6 +156,19 @@ sensor:
       accuracy_decimals: 2
       filters:
         - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
+#27-11-2021 test 
+  - platform: integration
+    name: "Total Energy"
+    sensor: W_opbrengst
+    unit_of_measurement: 'kWh'
+    time_unit: h
+    state_class: total_increasing
+    device_class: energy
+    icon: "mdi:flash"
+    accuracy_decimals: 2
+    filters:
+        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
+        
 
 # ⬇ Kwh meterstand ⬇ #        
   - platform: template
@@ -176,6 +201,7 @@ sensor:
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
+      
 
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
