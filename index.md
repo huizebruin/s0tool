@@ -87,8 +87,6 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 ```
 
 ### Support or Contact
-| Repository Status | ESPHome S0tool discord Community |
-| :--- | :--- |
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord]  
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] |
 
