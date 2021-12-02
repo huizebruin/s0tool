@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "27/11/2021_v1.9"
+  vdate: "02/12/2021_v1.96"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
@@ -34,9 +34,7 @@ wifi:
 #    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
 #    subnet: 255.255.255.0  
-####################################################################
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
-####################################################################
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
     ssid: "${name}"
@@ -85,11 +83,11 @@ globals:
     initial_value: '14957.39' 
     
   - id: kwh_counter
-    type: float
+    type: int
     restore_value: yes
     initial_value: '0'
   - id: water_counter
-    type: float
+    type: int
     restore_value: yes
     initial_value: '0'
 
@@ -100,6 +98,8 @@ time:
   - platform: homeassistant
     id: time_homeassistant
     timezone: "${time_timezone}"
+    on_time_sync:
+      - component.update: sensor_uptime_timestamp
 
   - platform: sntp
     id: time_sntp
@@ -122,14 +122,13 @@ select:
         - logger.log:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
-#27-11-2021 script toegevoegd
 script:
   - id: publish_states
     then:
       - lambda: |-
           id(watermeter_total).publish_state(id(water_counter));
           id(kwh_total).publish_state(id(kwh_counter));
-
+########################## Kwh meter ###############################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
@@ -181,7 +180,8 @@ sensor:
     accuracy_decimals: 2
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
-
+      
+########################## Watermeter ###############################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
     pin: D2
@@ -202,7 +202,6 @@ sensor:
       filters:
       - multiply: 0.001
       
-
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
     id: watermeter_total
@@ -216,7 +215,23 @@ sensor:
         id(totalWaterUsage) += 0.001;
       }
       return id(totalWaterUsage);
+##########################  sensoren ###############################################################
+
+  - platform: uptime
+    id: sensor_uptime
     
+  - platform: template
+    id: sensor_uptime_timestamp
+    name: "Uptime"
+    device_class: "timestamp"
+    accuracy_decimals: 0
+    update_interval: never
+    lambda: |-
+      static float timestamp = (
+        id(time_homeassistant).utcnow().timestamp - id(sensor_uptime).state
+      );
+      return timestamp;  
+      
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
@@ -225,7 +240,7 @@ text_sensor:
     update_interval: 12h
     lambda: |-
       return {"${vdate}"};
-      
+
   - platform: wifi_info
     ip_address:
       name: IP-adres
