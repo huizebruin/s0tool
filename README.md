@@ -4,8 +4,8 @@
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
 
-![S0tool-print](./s0tool-huizebruin.jpg) 
-![dashboard](./s0tool-dashboard.jpg)
+![S0tool-print](./assets/s0tool-huizebruin.jpg) 
+![dashboard](./assets/s0tool-dashboard.jpg)
 <br>
 # Update <br>
  27-11-2021:<br>
@@ -18,11 +18,11 @@
 ## Hardware
 Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 ### Voor de watermeter
-- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AVaoGrb) of [Aliexpress](https://s.click.aliexpress.com/e/_AYLXKJ) (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!)<br> ![afbeelding](https://user-images.githubusercontent.com/62996429/142737498-0ea1c461-6ea3-403c-9614-f9e70c809134.png)<br><br>
+- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AVaoGrb) of [Aliexpress](https://s.click.aliexpress.com/e/_AYLXKJ) (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!)<br> ![afbeelding](./assets/water-npn.png)<br><br>
 ### Voor het bijhouden van zonnepanelen etc.
 - kwh meter met 1000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
 - kwh meter met 2000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
-![afbeelding](https://user-images.githubusercontent.com/62996429/143722261-440e03e8-7acc-443e-9eca-86f815fd9181.png)
+![afbeelding](./assets/kwh-s0.png)
 
 <br><br>
 ## Onderstaande is niet nodig als je de print compleet hebt aangeschaft.
