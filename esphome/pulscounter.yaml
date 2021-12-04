@@ -23,7 +23,7 @@ dashboard_import:
   package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
 
 wifi:
-  networks: []
+  networks: []  #[] verwijderen bij het invullen van je eigen wifi info.
 # Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
 #  ssid: !secret ssid
 #  password: !secret password
