@@ -7,6 +7,13 @@
 ![S0tool-print](./assets/s0tool-huizebruin.jpg) 
 ![dashboard](./assets/s0tool-dashboard.jpg)
 <br>
+## De s0tool bestellen?
+https://www.huizebruin.nl/s0tool-bestellen/<br>
+Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
+En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
+
+in <b>v1</b> zit een klein foutje in bij de s0 aansluiting zit de gnd.<br> Dat werkt niet, is een ontwerpfoutje dus dan moet er een kabeltje vanaf de 5v ( bij de watermeter aansluiting) en de andere op de D5 waar s0 poort bij staat.
+<br>
 # Update <br>
  27-11-2021:<br>
  kwh meters toegevoegd aan deze file. Code toevoegingen gedaan, 
