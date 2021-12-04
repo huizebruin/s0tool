@@ -7,7 +7,7 @@
 ![S0tool-print](./assets/s0tool-huizebruin.jpg) 
 ![dashboard](./assets/s0tool-dashboard.jpg)
  
-<br>
+<br><br>
 ## De s0tool bestellen?
 https://www.huizebruin.nl/s0tool-bestellen/<br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
@@ -34,7 +34,9 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 ![afbeelding](./assets/kwh-s0.png)
 
 <br>
+
 ## Installatie: 
+
 1. Installeer Home Assistant & Esphome .
 2. connect de wemos d1 mini aan een usblader.
 3. ga met je laptop of telefoon naar     <b>ssid:</b> ```S0 & Water Meter``` &   <b> password:</b> ```s0watermeter```
