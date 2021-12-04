@@ -26,20 +26,14 @@ in <b>v1</b> zit een klein foutje in bij de s0 aansluiting zit de gnd.<br> Dat w
 ## Hardware
 Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 ### Voor de watermeter
-- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AVaoGrb) of [Aliexpress](https://s.click.aliexpress.com/e/_AYLXKJ) (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!)<br> ![afbeelding](./assets/water-npn.png)<br><br>
+- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) 
+- (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./assets/water-npn.png)<br><br>
 ### Voor het bijhouden van zonnepanelen etc.
 - kwh meter met 1000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
 - kwh meter met 2000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
 ![afbeelding](./assets/kwh-s0.png)
 
-<br><br>
-## Onderstaande is niet nodig als je de print compleet hebt aangeschaft.
-
--  Wemos D1 mini ep8266 [Aliexpress](https://tc.tradetracker.net/?c=15640&m=12&a=385034&r=Wemos-d1-mini&u=%2Fitem%2F32651747570.html) of [Aliexpress](https://s.click.aliexpress.com/e/_AO3xES) of [uit Nederland](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ)
-- 10K weerstand [100 stuks vanaf aliexpress](https://s.click.aliexpress.com/e/_A10BHz) of [10 stuks uit nl](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ) of [100stuks uit nl](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-100-stuks?affiliate=1VL4KIAMBZ)
--  Experimenteer print 5x7cm dubbelzijdig  [opencircuit NL](https://opencircuit.nl/product/Experimenteer-print-5x7cm-dubbelzijdig-5-stuks?affiliate=1VL4KIAMBZ) [Aliexpress](https://s.click.aliexpress.com/e/_AFuE8Y) Of 7x9cm [Aliexpress](https://s.click.aliexpress.com/e/_9A1JWg)
-
-
+<br>
 ## Installatie: 
 1. Installeer Home Assistant & Esphome .
 2. connect de wemos d1 mini aan een usblader.
