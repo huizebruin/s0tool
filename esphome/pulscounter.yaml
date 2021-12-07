@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "02/12/2021_v1.97"
+  vdate: "07/12/2021_v1.97"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms  of 100ms   zie datasheet van het type kwh meter
   name: S0 & Water Meter
@@ -34,6 +34,9 @@ wifi:
 #    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
 #    subnet: 255.255.255.0  
+# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
+
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
@@ -78,19 +81,10 @@ globals:
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: yes
+    restore_value: no
 # ⬇ begin stand ⬇ # 
     initial_value: '14957.39' 
     
-  - id: kwh_counter
-    type: int
-    restore_value: yes
-    initial_value: '0'
-  - id: water_counter
-    type: int
-    restore_value: yes
-    initial_value: '0'
-
 
 ota:
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
@@ -116,20 +110,18 @@ select:
       - "1500" 
       - "1000"
       - "500" 
-      - "200" 
-      - "100" 
     initial_option: "2000"
     on_value:
       then:
         - logger.log:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
-script:
-  - id: publish_states
-    then:
-      - lambda: |-
-          id(watermeter_total).publish_state(id(water_counter));
-          id(kwh_total).publish_state(id(kwh_counter));
+#script:
+#  - id: publish_states
+#    then:
+#      - lambda: |-
+#          id(watermeter_total).publish_state(id(water_counter));
+#          id(kwh_total).publish_state(id(kwh_counter));
 ########################## Kwh meter ###############################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
@@ -148,7 +140,7 @@ sensor:
 
 # ⬇ Totaal opgebracht ⬇ #    
     total:
-      unit_of_measurement: 'kWh'
+      unit_of_measurement: 'kW'
       name: "Totaal opgebracht "
       id: W_opbrengst_totaal
       state_class: total_increasing
@@ -156,20 +148,36 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
-#27-11-2021 test 
+        - lambda: return x * (1.0 / 1000.0); # atoi(id(Select_pulse_rate).state.c_str()));
+
+# deze sensor blijft behouden ook na flashen(updaten)  7-12-2021
+  - platform: total_daily_energy
+    name: "Total Daily Energy"
+    power_id: W_opbrengst
+    state_class: total_increasing
+    device_class: energy
+    filters:
+        # Multiplication factor from W to kW is 0.001
+        - multiply: 0.001
+    unit_of_measurement: kW 
+
+    
+#7-12-2021 test met oude multiply
   - platform: integration
     name: "Total Energy"
     sensor: W_opbrengst
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: 'kW'
     time_unit: h
     state_class: total_increasing
     device_class: energy
     icon: "mdi:flash"
     accuracy_decimals: 2
     filters:
-        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
-        
+        # Multiplication factor from W to kW is 0.001
+        - multiply: 0.001
+#    filters:
+#        - lambda: return x * (1.0 / 500.0);
+#        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
 
 # ⬇ Kwh meterstand ⬇ #        
   - platform: template
@@ -178,7 +186,7 @@ sensor:
     state_class: "total_increasing"
     icon: "mdi:flash"
     update_interval: 1s
-    unit_of_measurement: kWh
+    unit_of_measurement: kW
     accuracy_decimals: 2
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
