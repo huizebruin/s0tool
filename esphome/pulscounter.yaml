@@ -4,6 +4,7 @@ substitutions:
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms  of 100ms   zie datasheet van het type kwh meter
   name: S0 & Water Meter
+  pulse_rate: '2000' #test
 
 esphome:
   name: pulsmeters
@@ -11,13 +12,13 @@ esphome:
   board: d1_mini
   esp8266_restore_from_flash: true
   comment: '${device_description}'
+  name_add_mac_suffix: true
   project:
     name: huizebruin.${name}
     version: "${vdate}"
 
-
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
 
 wifi:
 # Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
@@ -25,11 +26,14 @@ wifi:
   password: !secret password
   manual_ip:
     # Set this to the IP of the ESP
-    static_ip: 192.168.178.123
+    static_ip: 192.168.178.123  #veranderen naar eigen Router instellingen.
     # Set this to the IP address of the router. Often ends with .1
-    gateway: 192.168.178.2 
+    gateway: 192.168.178.2 #veranderen naar eigen Router instellingen.
     # The subnet of the network. 255.255.255.0 works for most home networks.
-    subnet: 255.255.255.0  
+    subnet: 255.255.255.0  #veranderen naar eigen Router instellingen.
+# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
+
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
 
@@ -106,6 +110,7 @@ select:
       - "1500" 
       - "1000"
       - "500" 
+      - "100"
     initial_option: "2000"
     on_value:
       then:
@@ -149,10 +154,9 @@ sensor:
     device_class: energy
     filters:
         # Multiplication factor from W to kW is 0.001
-        - multiply: 0.001
+        - multiply: 0.002
     unit_of_measurement: kW 
 
-    
 #7-12-2021 test met oude multiply
   - platform: integration
     name: "Total Energy"
@@ -169,6 +173,19 @@ sensor:
 #    filters:
 #        - lambda: return x * (1.0 / 500.0);
 #        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
+
+#11-12-2021 test met oude multiply
+  - platform: integration
+    name: "Total Energy 002"
+    sensor: W_opbrengst
+    unit_of_measurement: 'kW'
+    time_unit: h
+    state_class: total_increasing
+    device_class: energy
+    icon: "mdi:flash"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.002
 
 # ⬇ Kwh meterstand ⬇ #        
   - platform: template
@@ -188,6 +205,7 @@ sensor:
     pin: D2
     id: watermeter_pulse
     name: "watermeter pulse"
+    state_class: measurement
     update_interval: 1s
     unit_of_measurement: L
     accuracy_decimals: 1
@@ -198,6 +216,7 @@ sensor:
       id: sensor_pulse_meter_total
       name: "watermeter Totaal"
       icon: "mdi:cube-outline"
+      state_class: "total_increasing"
       unit_of_measurement: "M3"
       accuracy_decimals: 3
       filters:
@@ -207,6 +226,7 @@ sensor:
   - platform: template
     id: watermeter_total
     name: "watermeter stand"
+    state_class: "total_increasing"
     icon: mdi:water
     update_interval: 1s
     unit_of_measurement: m³
