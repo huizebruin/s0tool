@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "07/12/2021_v1.97"
+  vdate: "11/12/2021_v2.01"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms  of 100ms   zie datasheet van het type kwh meter
   name: S0 & Water Meter
@@ -20,7 +20,6 @@ dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml
 
 wifi:
-#  networks: []  # Nadat je je eigen ssid etc. hebt ingevuld haal je deze regel weg.
 # Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
   ssid: !secret ssid
   password: !secret password
