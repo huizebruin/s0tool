@@ -22,15 +22,15 @@ dashboard_import:
 wifi:
 #  networks: []  # Nadat je je eigen ssid etc. hebt ingevuld haal je deze regel weg.
 # Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
-#  ssid: !secret ssid
-#  password: !secret password
-#  manual_ip:
+  ssid: !secret ssid
+  password: !secret password
+  manual_ip:
     # Set this to the IP of the ESP
-#    static_ip: 192.168.178.123
+    static_ip: 192.168.178.123
     # Set this to the IP address of the router. Often ends with .1
-#    gateway: 192.168.178.2 
+    gateway: 192.168.178.2 
     # The subnet of the network. 255.255.255.0 works for most home networks.
-#    subnet: 255.255.255.0  
+    subnet: 255.255.255.0  
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
 
