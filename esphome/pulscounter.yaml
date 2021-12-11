@@ -14,13 +14,10 @@ esphome:
   project:
     name: huizebruin.${name}
     version: "${vdate}"
-  on_boot:
-    priority: -10
-    then:
-      - script.execute: publish_states
+
 
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/blob/main/esphome/pulscounter.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml
 
 wifi:
   networks: []  # Nadat je je eigen ssid etc. hebt ingevuld haal je deze regel weg.
@@ -116,12 +113,7 @@ select:
         - logger.log:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
-#script:
-#  - id: publish_states
-#    then:
-#      - lambda: |-
-#          id(watermeter_total).publish_state(id(water_counter));
-#          id(kwh_total).publish_state(id(kwh_counter));
+
 ########################## Kwh meter ###############################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
