@@ -20,22 +20,19 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
 
+improv_serial:
+
 wifi:
 # Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
-  ssid: !secret ssid
-  password: !secret password
-  manual_ip:
-    # Set this to the IP of the ESP
-    static_ip: 192.168.178.123  #veranderen naar eigen Router instellingen.
-    # Set this to the IP address of the router. Often ends with .1
-    gateway: 192.168.178.2 #veranderen naar eigen Router instellingen.
-    # The subnet of the network. 255.255.255.0 works for most home networks.
-    subnet: 255.255.255.0  #veranderen naar eigen Router instellingen.
-# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
-# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
-
-# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
-# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
+#  ssid: !secret ssid
+#  password: !secret password
+#  manual_ip:
+    # #veranderen naar eigen Router instellingen.
+#    static_ip: 192.168.178.123  
+    # #veranderen naar eigen Router instellingen. begint meetstal met .1
+#    gateway: 192.168.178.2 
+    # #veranderen naar eigen Router instellingen.
+#    subnet: 255.255.255.0  
 
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
