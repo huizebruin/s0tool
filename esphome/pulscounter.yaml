@@ -1,10 +1,9 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "11/12/2021_v2.01"
+  vdate: "18/12/2021_v2.02"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms  of 100ms   zie datasheet van het type kwh meter
   name: S0 & Water Meter
-  pulse_rate: '2000' #test
 
 esphome:
   name: pulsmeters
@@ -72,14 +71,14 @@ globals:
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
     restore_value: yes      
-# ⬇ begin stand ⬇ #    
+# ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '200.001' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no
-# ⬇ begin stand ⬇ # 
+    restore_value: yes
+# ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14957.39' 
     
 
@@ -128,6 +127,7 @@ sensor:
     unit_of_measurement: 'W'
     state_class: measurement
     device_class: power
+    timeout: 1 min
     filters:
       - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str())) * 1000.0);
 
@@ -153,6 +153,19 @@ sensor:
         # Multiplication factor from W to kW is 0.001
         - multiply: 0.002
     unit_of_measurement: kW 
+    
+#11-12-2021 test met oude multiply
+  - platform: integration
+    name: "Total Energy 002"
+    sensor: W_opbrengst
+    unit_of_measurement: 'kW'
+    time_unit: h
+    state_class: total_increasing
+    device_class: energy
+    icon: "mdi:flash"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.002
 
 #7-12-2021 test met oude multiply
   - platform: integration
@@ -170,19 +183,6 @@ sensor:
 #    filters:
 #        - lambda: return x * (1.0 / 500.0);
 #        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
-
-#11-12-2021 test met oude multiply
-  - platform: integration
-    name: "Total Energy 002"
-    sensor: W_opbrengst
-    unit_of_measurement: 'kW'
-    time_unit: h
-    state_class: total_increasing
-    device_class: energy
-    icon: "mdi:flash"
-    accuracy_decimals: 2
-    filters:
-      - multiply: 0.002
 
 # ⬇ Kwh meterstand ⬇ #        
   - platform: template
@@ -207,14 +207,19 @@ sensor:
     unit_of_measurement: L
     accuracy_decimals: 1
     filters:
-      - multiply: 0.016666667
+      lambda: return x * ((60.0 / 1000.0) * 1000.0);
+       # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
+#    filters:
+#      - multiply: 0.016666667
+
+
 # ⬇ Totaal watermeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
       name: "watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
-      unit_of_measurement: "M3"
+      unit_of_measurement: "m³"
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
