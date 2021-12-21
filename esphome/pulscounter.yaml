@@ -1,8 +1,8 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "18/12/2021_v2.02"
+  vdate: "21/12/2021_v2.0.2"
   device_description: s0 kwh meter en watermeter
-  impulslengte: "50ms" #30ms of 50ms  of 100ms   zie datasheet van het type kwh meter
+  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
 
 esphome:
@@ -11,28 +11,34 @@ esphome:
   board: d1_mini
   esp8266_restore_from_flash: true
   comment: '${device_description}'
-  name_add_mac_suffix: true
   project:
     name: huizebruin.${name}
     version: "${vdate}"
 
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
-
+ 
 improv_serial:
-
+  
 wifi:
+#  networks: []  # Nadat je je eigen ssid etc. hebt ingevuld haal je deze regel weg.
+# secrets rechts boven binnen esphome
+#  ssid: "wifissid"
+#  password: "wifiwachtwoord"
+#
 # Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
 #  ssid: !secret ssid
 #  password: !secret password
 #  manual_ip:
-    # #veranderen naar eigen Router instellingen.
-#    static_ip: 192.168.178.123  
-    # #veranderen naar eigen Router instellingen. begint meetstal met .1
+    # Set this to the IP of the ESP
+#    static_ip: 192.168.178.123
+    # Set this to the IP address of the router. Often ends with .1
 #    gateway: 192.168.178.2 
-    # #veranderen naar eigen Router instellingen.
+    # The subnet of the network. 255.255.255.0 works for most home networks.
 #    subnet: 255.255.255.0  
 
+# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
@@ -133,7 +139,7 @@ sensor:
 
 # ⬇ Totaal opgebracht ⬇ #    
     total:
-      unit_of_measurement: 'kW'
+      unit_of_measurement: 'kWh'
       name: "Totaal opgebracht "
       id: W_opbrengst_totaal
       state_class: total_increasing
@@ -151,27 +157,15 @@ sensor:
     device_class: energy
     filters:
         # Multiplication factor from W to kW is 0.001
-        - multiply: 0.002
-    unit_of_measurement: kW 
+        - multiply: 0.001
+    unit_of_measurement: 'kWh' 
     
-#11-12-2021 test met oude multiply
-  - platform: integration
-    name: "Total Energy 002"
-    sensor: W_opbrengst
-    unit_of_measurement: 'kW'
-    time_unit: h
-    state_class: total_increasing
-    device_class: energy
-    icon: "mdi:flash"
-    accuracy_decimals: 2
-    filters:
-      - multiply: 0.002
 
 #7-12-2021 test met oude multiply
   - platform: integration
     name: "Total Energy"
     sensor: W_opbrengst
-    unit_of_measurement: 'kW'
+    unit_of_measurement: 'kWh'
     time_unit: h
     state_class: total_increasing
     device_class: energy
@@ -191,7 +185,7 @@ sensor:
     state_class: "total_increasing"
     icon: "mdi:flash"
     update_interval: 1s
-    unit_of_measurement: kW
+    unit_of_measurement: 'kWh'
     accuracy_decimals: 2
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
@@ -263,6 +257,17 @@ text_sensor:
     update_interval: 12h
     lambda: |-
       return {"${vdate}"};
+
+  - platform: wifi_info
+    ip_address:
+      name: IP-adres
+      icon: mdi:ip-network
+    ssid:
+      name: Netwerk
+      icon: mdi:access-point-network
+    mac_address:
+      name: Mac-adres
+      icon: mdi:folder-key-network-outline
 
   - platform: wifi_info
     ip_address:
