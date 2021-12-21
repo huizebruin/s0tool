@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "21/12/2021_v2.0.2"
+  vdate: "21/12/2021_v2.0.4"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
@@ -9,12 +9,13 @@ esphome:
   name: pulsmeters
   platform: ESP8266
   board: d1_mini
-  esp8266_restore_from_flash: true
+#  esp8266_restore_from_flash: true
   comment: '${device_description}'
+  name_add_mac_suffix: true
   project:
     name: huizebruin.${name}
     version: "${vdate}"
-
+  
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
  
@@ -25,20 +26,7 @@ wifi:
 # secrets rechts boven binnen esphome
 #  ssid: "wifissid"
 #  password: "wifiwachtwoord"
-#
-# Hieronder kan je je eigen gegevens invullen voor je wifi netwerk en ip-adres  
-#  ssid: !secret ssid
-#  password: !secret password
-#  manual_ip:
-    # Set this to the IP of the ESP
-#    static_ip: 192.168.178.123
-    # Set this to the IP address of the router. Often ends with .1
-#    gateway: 192.168.178.2 
-    # The subnet of the network. 255.255.255.0 works for most home networks.
-#    subnet: 255.255.255.0  
 
-# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
-# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
@@ -62,7 +50,9 @@ api:
       then:
         - globals.set:
             id: totalWaterUsage
-            value: !lambda "return meter_value;"
+#            value: !lambda "return meter_value;"
+            value: !lambda "return ( meter_value - id(sensor_pulse_meter_total).state ) ;"
+
 
     - service: set_kwh_usage
       variables:
@@ -70,7 +60,9 @@ api:
       then:
         - globals.set:
             id: totalkwhUsage
-            value: !lambda "return meter_value;"
+#            value: !lambda "return meter_value;"
+            value: !lambda "return ( meter_value - id(W_opbrengst_totaal).state );"
+
 
 globals:
   - id: totalWaterUsage
@@ -78,17 +70,20 @@ globals:
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
     restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '200.001' 
+    initial_value: '200' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
     restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '14957.39' 
+    initial_value: '14957' 
     
 
 ota:
+  safe_mode: true
+  reboot_timeout: 10min
+  num_attempts: 5
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
 time:
   - platform: homeassistant
@@ -148,17 +143,18 @@ sensor:
       accuracy_decimals: 2
       filters:
         - lambda: return x * (1.0 / 1000.0); # atoi(id(Select_pulse_rate).state.c_str()));
+        
+## deze sensor blijft behouden ook na flashen(updaten)  7-12-2021
+#  - platform: total_daily_energy
+#    name: "Total Daily Energy"
+#    power_id: W_opbrengst
+#    state_class: total_increasing
+#    device_class: energy
+#    filters:
+#        # Multiplication factor from W to kW is 0.001
+#        - multiply: 0.001
+#    unit_of_measurement: 'kWh' 
 
-# deze sensor blijft behouden ook na flashen(updaten)  7-12-2021
-  - platform: total_daily_energy
-    name: "Total Daily Energy"
-    power_id: W_opbrengst
-    state_class: total_increasing
-    device_class: energy
-    filters:
-        # Multiplication factor from W to kW is 0.001
-        - multiply: 0.001
-    unit_of_measurement: 'kWh' 
     
 
 #7-12-2021 test met oude multiply
@@ -257,17 +253,6 @@ text_sensor:
     update_interval: 12h
     lambda: |-
       return {"${vdate}"};
-
-  - platform: wifi_info
-    ip_address:
-      name: IP-adres
-      icon: mdi:ip-network
-    ssid:
-      name: Netwerk
-      icon: mdi:access-point-network
-    mac_address:
-      name: Mac-adres
-      icon: mdi:folder-key-network-outline
 
   - platform: wifi_info
     ip_address:
