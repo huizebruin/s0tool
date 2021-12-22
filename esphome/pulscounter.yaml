@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "21/12/2021_v2.0.4"
+  vdate: "22/12/2021_v2.0.5"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
@@ -9,7 +9,6 @@ esphome:
   name: pulsmeters
   platform: ESP8266
   board: d1_mini
-#  esp8266_restore_from_flash: true
   comment: '${device_description}'
   name_add_mac_suffix: true
   project:
@@ -18,7 +17,7 @@ esphome:
   
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
- 
+
 improv_serial:
   
 wifi:
@@ -128,7 +127,7 @@ sensor:
     unit_of_measurement: 'W'
     state_class: measurement
     device_class: power
-    timeout: 1 min
+#    timeout: 1 min
     filters:
       - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str())) * 1000.0);
 
@@ -144,34 +143,34 @@ sensor:
       filters:
         - lambda: return x * (1.0 / 1000.0); # atoi(id(Select_pulse_rate).state.c_str()));
         
-## deze sensor blijft behouden ook na flashen(updaten)  7-12-2021
-#  - platform: total_daily_energy
-#    name: "Total Daily Energy"
-#    power_id: W_opbrengst
+## deze sensor blijft behouden ook na flashen (updaten)  7-12-2021
+  - platform: total_daily_energy
+    name: "Total Daily Energy"
+    power_id: W_opbrengst
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: 'kWh' 
+    filters:
+        - lambda: return x * (1.0 / 1000.0);
+#        # Multiplication factor from W to kW is 0.001
+#        - multiply: 0.001
+
+
+#7-12-2021 test met oude multiply
+#  - platform: integration
+#    name: "Total Energy"
+#    sensor: W_opbrengst
+#    unit_of_measurement: 'kWh'
+#    time_unit: h
 #    state_class: total_increasing
 #    device_class: energy
+#    icon: "mdi:flash"
+#    accuracy_decimals: 2
 #    filters:
 #        # Multiplication factor from W to kW is 0.001
 #        - multiply: 0.001
-#    unit_of_measurement: 'kWh' 
-
-    
-
-#7-12-2021 test met oude multiply
-  - platform: integration
-    name: "Total Energy"
-    sensor: W_opbrengst
-    unit_of_measurement: 'kWh'
-    time_unit: h
-    state_class: total_increasing
-    device_class: energy
-    icon: "mdi:flash"
-    accuracy_decimals: 2
-    filters:
-        # Multiplication factor from W to kW is 0.001
-        - multiply: 0.001
 #    filters:
-#        - lambda: return x * (1.0 / 500.0);
+#        - lambda: return x * (1.0 / 1000.0);
 #        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
 
 # ⬇ Kwh meterstand ⬇ #        
@@ -198,7 +197,7 @@ sensor:
     accuracy_decimals: 1
     filters:
       lambda: return x * ((60.0 / 1000.0) * 1000.0);
-       # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
+      # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
 #    filters:
 #      - multiply: 0.016666667
 
