@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "22/12/2021_v2.0.5"
+  vdate: "23/12/2021_v2.0.6"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
@@ -15,16 +15,15 @@ esphome:
     name: huizebruin.${name}
     version: "${vdate}"
   
-dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+#dashboard_import:
+#  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
 
 improv_serial:
   
 wifi:
-#  networks: []  # Nadat je je eigen ssid etc. hebt ingevuld haal je deze regel weg.
 # secrets rechts boven binnen esphome
-#  ssid: "wifissid"
-#  password: "wifiwachtwoord"
+  ssid: "wifissid"
+  password: "wifiwachtwoord"
 
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
@@ -67,14 +66,14 @@ globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: yes      
+    restore_value: no      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '200' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: yes
+    restore_value: no
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14957' 
     
@@ -141,17 +140,31 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - lambda: return x * (1.0 / 1000.0); # atoi(id(Select_pulse_rate).state.c_str()));
-        
+        - lambda: return x * (1.0 / 1000.0); 
+#        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str())); 
+
+# ⬇ Kwh meterstand ⬇ #        
+  - platform: template
+    id: kwh_total
+    name: "Actuele meterstand"
+    state_class: "total_increasing"
+    icon: "mdi:flash"
+    update_interval: 1s
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 2
+    lambda: 
+      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
+
+################## deze 2 sensoren werken momenteel nog niet. ##############################       
 ## deze sensor blijft behouden ook na flashen (updaten)  7-12-2021
-  - platform: total_daily_energy
-    name: "Total Daily Energy"
-    power_id: W_opbrengst
-    state_class: total_increasing
-    device_class: energy
-    unit_of_measurement: 'kWh' 
-    filters:
-        - lambda: return x * (1.0 / 1000.0);
+#  - platform: total_daily_energy
+#    name: "Total Daily Energy"
+#    power_id: W_opbrengst
+#    state_class: total_increasing
+#    device_class: energy
+#    unit_of_measurement: 'kWh' 
+#    filters:
+#        - lambda: return x * (1.0 / 1000.0);
 #        # Multiplication factor from W to kW is 0.001
 #        - multiply: 0.001
 
@@ -167,24 +180,11 @@ sensor:
 #    icon: "mdi:flash"
 #    accuracy_decimals: 2
 #    filters:
-#        # Multiplication factor from W to kW is 0.001
-#        - multiply: 0.001
-#    filters:
 #        - lambda: return x * (1.0 / 1000.0);
 #        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
-
-# ⬇ Kwh meterstand ⬇ #        
-  - platform: template
-    id: kwh_total
-    name: "Actuele meterstand"
-    state_class: "total_increasing"
-    icon: "mdi:flash"
-    update_interval: 1s
-    unit_of_measurement: 'kWh'
-    accuracy_decimals: 2
-    lambda: 
-      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
-      
+#    filters:
+#        # Multiplication factor from W to kW is 0.001
+#        - multiply: 0.001      
 ########################## Watermeter ###############################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
