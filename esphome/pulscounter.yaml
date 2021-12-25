@@ -15,8 +15,8 @@ esphome:
     name: huizebruin.${name}
     version: "${vdate}"
   
-#dashboard_import:
-#  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
 
 improv_serial:
   
