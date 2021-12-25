@@ -6,7 +6,7 @@ substitutions:
   name: S0 & Water Meter
 
 esphome:
-  name: pulsmeters
+  name: s0tool
   platform: ESP8266
   board: d1_mini
   comment: '${device_description}'
