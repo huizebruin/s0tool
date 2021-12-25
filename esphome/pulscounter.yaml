@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "23/12/2021_v2.0.6"
+  vdate: "25/12/2021_v2.0.7"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0 & Water Meter
@@ -21,9 +21,9 @@ esphome:
 improv_serial:
   
 wifi:
-# secrets rechts boven binnen esphome
-  ssid: "wifissid"
-  password: "wifiwachtwoord"
+# secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)
+  ssid: "wifi_ssid"
+  password: "wifi_password"
 
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
@@ -51,7 +51,6 @@ api:
 #            value: !lambda "return meter_value;"
             value: !lambda "return ( meter_value - id(sensor_pulse_meter_total).state ) ;"
 
-
     - service: set_kwh_usage
       variables:
         meter_value: float
@@ -61,22 +60,20 @@ api:
 #            value: !lambda "return meter_value;"
             value: !lambda "return ( meter_value - id(W_opbrengst_totaal).state );"
 
-
 globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no      
+    restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '200' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no
+    restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14957' 
-    
 
 ota:
   safe_mode: true
@@ -143,7 +140,7 @@ sensor:
         - lambda: return x * (1.0 / 1000.0); 
 #        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str())); 
 
-# ⬇ Kwh meterstand ⬇ #        
+# ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
     id: kwh_total
     name: "Actuele meterstand"
@@ -200,7 +197,6 @@ sensor:
       # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
 #    filters:
 #      - multiply: 0.016666667
-
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
