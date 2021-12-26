@@ -45,10 +45,8 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 6. wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
 7. ga naar je home assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
 8. als het goed is gaat de print connectie maken met github om de laatste versie binnen te halen en daardoor ook toe te voegen aan esphome
-9. zet het ipadres vast in je router en in de config file binnen esphome. lees de info regels bij de wifi info.
-```  dit zijn de hekjes voor de regels 27,28,31,33,35. En plaatst een # voor regel 23 ( doe je deze laatste niet dan komt hij weer online na een reboot of update naar 192.168.4.1 ```
-10. voeg de volgende code toe aan je ``` configuration.yaml   ```  ``` utility_meter: !include utility_meter/utility.yaml ```
-11. maak een map aan in je config map via de verkenner en noem deze ``` utiliy_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml en voeg onderstaande code daar in en sla deze op( of download hem uit deze repro) en plaats hem in die map.
+9. voeg de volgende code toe aan je ``` configuration.yaml   ```  ``` utility_meter: !include utility_meter/utility.yaml ```
+10. maak een map aan in je config map via de verkenner en noem deze ``` utiliy_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml en voeg onderstaande code daar in en sla deze op( of download hem uit deze repro) en plaats hem in die map.
 
 ```
 #utility_meter:
@@ -74,7 +72,7 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
   waterverbruik_per_jaar:
     source: sensor.watermeter_totaal
     cycle: yearly   
-### zonnepanelen S0 meter
+### als je een zonnepanelen op de S0tool hebt aangesloten 
   zonnepanelen_kwartier:
     source: sensor.actuele_vermogen
     cycle: quarter-hourly
@@ -85,6 +83,29 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
     source: sensor.actuele_vermogen
     cycle: daily
   zonnepanelen_per_week:
+  
+### als je een Warmtepomp op de S0tool hebt aangesloten
+  warmtepomp_kwartier:
+    source: sensor.totaal_opgebracht
+    cycle: quarter-hourly
+  warmtepomp_per_uur:
+    source: sensor.totaal_opgebracht
+    cycle: hourly
+  warmtepomp_per_dag:
+    source: sensor.totaal_opgebracht
+    cycle: daily
+  warmtepomp_per_week:
+    source: sensor.totaal_opgebracht
+    cycle: weekly
+  warmtepomp_per_maand:
+    source: sensor.totaal_opgebracht
+    cycle: monthly 
+  warmtepomp_per_kwartaal:
+    source: sensor.totaal_opgebracht
+    cycle: quarterly
+  warmtepomp_per_jaar:
+    source: sensor.totaal_opgebracht
+    cycle: yearly 
     source: sensor.actuele_vermogen
     cycle: weekly
   zonnepanelen_per_maand:
@@ -95,7 +116,7 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
     cycle: quarterly
   zonnepanelen_per_jaar:
     source: sensor.actuele_vermogen
-    cycle: yearly   
+    cycle: yearly    
 ```
 
 12. Restart Home Assistant one final time.
