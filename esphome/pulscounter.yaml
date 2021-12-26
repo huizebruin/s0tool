@@ -1,7 +1,7 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
   vdate: "26/12/2021_v2.1.0"
-  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl
+  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie "${vdate}"
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
 
@@ -84,7 +84,7 @@ time:
     id: time_homeassistant
     timezone: "${time_timezone}"
     on_time_sync:
-      - component.update: sensor_uptime_timestamp
+      - component.update: s0tool_uptime_timestamp
 
   - platform: sntp
     id: time_sntp
@@ -151,36 +151,7 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-################## deze 2 sensoren werken momenteel nog niet. ##############################       
-## deze sensor blijft behouden ook na flashen (updaten)  7-12-2021
-#  - platform: total_daily_energy
-#    name: "Total Daily Energy"
-#    power_id: W_opbrengst
-#    state_class: total_increasing
-#    device_class: energy
-#    unit_of_measurement: 'kWh' 
-#    filters:
-#        - lambda: return x * (1.0 / 1000.0);
-#        # Multiplication factor from W to kW is 0.001
-#        - multiply: 0.001
 
-
-#7-12-2021 test met oude multiply
-#  - platform: integration
-#    name: "Total Energy"
-#    sensor: W_opbrengst
-#    unit_of_measurement: 'kWh'
-#    time_unit: h
-#    state_class: total_increasing
-#    device_class: energy
-#    icon: "mdi:flash"
-#    accuracy_decimals: 2
-#    filters:
-#        - lambda: return x * (1.0 / 1000.0);
-#        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
-#    filters:
-#        # Multiplication factor from W to kW is 0.001
-#        - multiply: 0.001      
 ########################## Watermeter s0 poort D2 ###########################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
@@ -258,9 +229,7 @@ text_sensor:
       name: Netwerk
       id: s0tool_netwerk
       icon: mdi:access-point-network
-      update_interval: 2h
     mac_address:
       name: Mac-adres
       id: s0tool_mac_adres
       icon: mdi:folder-key-network-outline
-      update_interval: never
