@@ -1,9 +1,9 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "25/12/2021_v2.0.7"
+  vdate: "26/12/2021_v2.0.8"
   device_description: s0 kwh meter en watermeter
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: S0 & Water Meter
+  name: S0tool
 
 esphome:
   name: s0tool
