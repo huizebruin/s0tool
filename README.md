@@ -57,66 +57,7 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
   waterverbruik_per_uur:
     source: sensor.watermeter_totaal
     cycle: hourly
-  waterverbruik_per_dag:
-    source: sensor.watermeter_totaal
-    cycle: daily    
-  waterverbruik_per_week:
-    source: sensor.watermeter_totaal
-    cycle: weekly
-  waterverbruik_per_maand:
-    source: sensor.watermeter_totaal
-    cycle: monthly
-  waterverbruik_per_kwartaal:
-    source: sensor.watermeter_totaal
-    cycle: quarterly
-  waterverbruik_per_jaar:
-    source: sensor.watermeter_totaal
-    cycle: yearly   
-### als je een zonnepanelen op de S0tool hebt aangesloten 
-  zonnepanelen_kwartier:
-    source: sensor.actuele_vermogen
-    cycle: quarter-hourly
-  zonnepanelen_per_uur:
-    source: sensor.actuele_vermogen
-    cycle: hourly
-  zonnepanelen_per_dag:
-    source: sensor.actuele_vermogen
-    cycle: daily
-  zonnepanelen_per_week:
-  
-### als je een Warmtepomp op de S0tool hebt aangesloten
-  warmtepomp_kwartier:
-    source: sensor.totaal_opgebracht
-    cycle: quarter-hourly
-  warmtepomp_per_uur:
-    source: sensor.totaal_opgebracht
-    cycle: hourly
-  warmtepomp_per_dag:
-    source: sensor.totaal_opgebracht
-    cycle: daily
-  warmtepomp_per_week:
-    source: sensor.totaal_opgebracht
-    cycle: weekly
-  warmtepomp_per_maand:
-    source: sensor.totaal_opgebracht
-    cycle: monthly 
-  warmtepomp_per_kwartaal:
-    source: sensor.totaal_opgebracht
-    cycle: quarterly
-  warmtepomp_per_jaar:
-    source: sensor.totaal_opgebracht
-    cycle: yearly 
-    source: sensor.actuele_vermogen
-    cycle: weekly
-  zonnepanelen_per_maand:
-    source: sensor.actuele_vermogen
-    cycle: monthly 
-  zonnepanelen_per_kwartaal:
-    source: sensor.actuele_vermogen
-    cycle: quarterly
-  zonnepanelen_per_jaar:
-    source: sensor.actuele_vermogen
-    cycle: yearly    
+enz... die in de file staan in de map utility_meter/utility.yaml  
 ```
 
 12. Restart Home Assistant one final time.
