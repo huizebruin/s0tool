@@ -1,7 +1,7 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
   vdate: "26/12/2021_v2.0.8"
-  device_description: s0 kwh meter en watermeter
+  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
 
@@ -10,7 +10,6 @@ esphome:
   platform: ESP8266
   board: d1_mini
   comment: '${device_description}'
-#  name_add_mac_suffix: true
   project:
     name: huizebruin.${name}
     version: "${vdate}"
@@ -243,7 +242,8 @@ sensor:
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
-    name: " Versie"
+    name: "versie"
+    id: s0tool_versie
     icon: "mdi:label-outline"
     update_interval: 12h
     lambda: |-
@@ -252,10 +252,13 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: IP-adres
+      id: s0tool_ip_adres
       icon: mdi:ip-network
     ssid:
       name: Netwerk
+      id: s0tool_netwerk
       icon: mdi:access-point-network
     mac_address:
       name: Mac-adres
+      id: s0tool_mac_adres
       icon: mdi:folder-key-network-outline
