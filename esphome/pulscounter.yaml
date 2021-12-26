@@ -10,7 +10,7 @@ esphome:
   platform: ESP8266
   board: d1_mini
   comment: '${device_description}'
-  name_add_mac_suffix: true
+#  name_add_mac_suffix: true
   project:
     name: huizebruin.${name}
     version: "${vdate}"
