@@ -39,7 +39,7 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 
 1. Installeer Home Assistant & Esphome .
 2. connect de wemos d1 mini aan een usblader.
-3. ga met je laptop of telefoon naar     <b>ssid:</b> ```S0 & Water Meter``` &   <b> password:</b> ```s0watermeter```
+3. ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter```
 4. ga naar ```192.168.4.1```.
 5. zet de juiste SSID en Wachtwoord in de velden
 6. wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
