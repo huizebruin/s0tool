@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "26/12/2021_v2.0.8"
+  vdate: "26/12/2021_v2.1.0"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
@@ -109,7 +109,7 @@ select:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
 
-########################## Kwh meter ###############################################################
+########################## Kwh meter s0poort D5 #######################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
@@ -181,7 +181,7 @@ sensor:
 #    filters:
 #        # Multiplication factor from W to kW is 0.001
 #        - multiply: 0.001      
-########################## Watermeter ###############################################################
+########################## Watermeter s0 poort D2 ###########################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
     pin: D2
@@ -225,17 +225,17 @@ sensor:
 ##########################  sensoren ###############################################################
 
   - platform: uptime
-    id: sensor_uptime
+    id: s0tool_uptime
     
   - platform: template
-    id: sensor_uptime_timestamp
+    id: s0tool_uptime_timestamp
     name: "Uptime"
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
     lambda: |-
       static float timestamp = (
-        id(time_homeassistant).utcnow().timestamp - id(sensor_uptime).state
+        id(time_homeassistant).utcnow().timestamp - id(s0tool_uptime).state
       );
       return timestamp;  
       
@@ -245,7 +245,7 @@ text_sensor:
     name: "versie"
     id: s0tool_versie
     icon: "mdi:label-outline"
-    update_interval: 12h
+    update_interval: 6h
     lambda: |-
       return {"${vdate}"};
 
@@ -258,7 +258,9 @@ text_sensor:
       name: Netwerk
       id: s0tool_netwerk
       icon: mdi:access-point-network
+      update_interval: 2h
     mac_address:
       name: Mac-adres
       id: s0tool_mac_adres
       icon: mdi:folder-key-network-outline
+      update_interval: never
