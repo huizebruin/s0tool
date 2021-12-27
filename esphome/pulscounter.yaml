@@ -48,7 +48,7 @@ api:
         - globals.set:
             id: totalWaterUsage
 #            value: !lambda "return meter_value;"
-            value: !lambda "return ( meter_value - id(sensor_pulse_meter_total).state ) ;"
+            value: !lambda "return ( meter_value ) ;"
 
     - service: set_kwh_usage
       variables:
@@ -57,20 +57,20 @@ api:
         - globals.set:
             id: totalkwhUsage
 #            value: !lambda "return meter_value;"
-            value: !lambda "return ( meter_value - id(W_opbrengst_totaal).state );"
+            value: !lambda "return ( meter_value );"
 
 globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: yes      
+    restore_value: no       
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '200' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: yes
+    restore_value: no 
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14957' 
 
@@ -157,7 +157,7 @@ sensor:
   - platform: pulse_counter
     pin: D2
     id: watermeter_pulse
-    name: "watermeter pulse"
+    name: "Watermeter pulse"
     state_class: measurement
     update_interval: 1s
     unit_of_measurement: L
@@ -171,7 +171,7 @@ sensor:
 # ⬇ Totaal watermeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
-      name: "watermeter Totaal"
+      name: "Watermeter totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
       unit_of_measurement: "m³"
@@ -182,7 +182,7 @@ sensor:
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
     id: watermeter_total
-    name: "watermeter stand"
+    name: "Watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
     update_interval: 1s
@@ -213,7 +213,7 @@ sensor:
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
-    name: "versie"
+    name: "Versie"
     id: s0tool_versie
     icon: "mdi:label-outline"
     update_interval: 6h
