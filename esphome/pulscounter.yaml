@@ -1,7 +1,7 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
   vdate: "28/12/2021_v2.21"
-  device_description: s0 kwh meter en watermeter s0tool gemaakt door huizebruin.nl versie ${vdate}.
+  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
 
@@ -17,6 +17,9 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
 
+packages:
+ remote_package_three: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+ 
 improv_serial:
   
 wifi:
@@ -48,7 +51,7 @@ api:
         - globals.set:
             id: totalWaterUsage
 #            value: !lambda "return meter_value;"
-            value: !lambda "return ( meter_value ) ;"
+            value: !lambda "return ( meter_value - id(sensor_pulse_meter_total).state ) ;"
 
     - service: set_kwh_usage
       variables:
@@ -57,20 +60,20 @@ api:
         - globals.set:
             id: totalkwhUsage
 #            value: !lambda "return meter_value;"
-            value: !lambda "return ( meter_value );"
+            value: !lambda "return ( meter_value - id(W_opbrengst_totaal).state );"
 
 globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no       
+    restore_value: no      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '200' 
+    initial_value: '207' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no 
+    restore_value: no
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14957' 
 
@@ -109,7 +112,7 @@ select:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
 
-########################## Kwh meter s0poort D5 #######################################################
+########################## Kwh meter S0 poort D5 ###############################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
@@ -151,13 +154,13 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-
-########################## Watermeter s0 poort D2 ###########################################################
+   
+########################## Watermeter ###############################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
     pin: D2
     id: watermeter_pulse
-    name: "Watermeter pulse"
+    name: "watermeter pulse"
     state_class: measurement
     update_interval: 1s
     unit_of_measurement: L
@@ -171,7 +174,7 @@ sensor:
 # ⬇ Totaal watermeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
-      name: "Watermeter totaal"
+      name: "watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
       unit_of_measurement: "m³"
@@ -182,7 +185,7 @@ sensor:
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
     id: watermeter_total
-    name: "Watermeter stand"
+    name: "watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
     update_interval: 1s
@@ -213,12 +216,13 @@ sensor:
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
-    name: "Versie"
+    name: "versie"
     id: s0tool_versie
     icon: "mdi:label-outline"
     update_interval: 6h
     lambda: |-
       return {"${vdate}"};
+
   - platform: wifi_info
     ip_address:
       name: IP-adres
@@ -232,3 +236,4 @@ text_sensor:
       name: Mac-adres
       id: s0tool_mac_adres
       icon: mdi:folder-key-network-outline
+
