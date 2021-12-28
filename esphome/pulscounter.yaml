@@ -17,8 +17,8 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
 
-#packages:
-# remote_package_three: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+packages:
+ remote_package_three: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
  
 improv_serial:
   
@@ -66,14 +66,14 @@ globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no      
+    restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '207' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no
+    restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14957' 
 
@@ -112,7 +112,7 @@ select:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
 
-########################## Kwh meter S0 poort D5 ###############################################################
+########################## Kwh meter S0 poort 1 ###############################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
@@ -154,7 +154,36 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-   
+################## deze 2 sensoren werken momenteel nog niet. ##############################       
+## deze sensor blijft behouden ook na flashen (updaten)  7-12-2021
+#  - platform: total_daily_energy
+#    name: "Total Daily Energy"
+#    power_id: W_opbrengst
+#    state_class: total_increasing
+#    device_class: energy
+#    unit_of_measurement: 'kWh' 
+#    filters:
+#        - lambda: return x * (1.0 / 1000.0);
+#        # Multiplication factor from W to kW is 0.001
+#        - multiply: 0.001
+
+
+#7-12-2021 test met oude multiply
+#  - platform: integration
+#    name: "Total Energy"
+#    sensor: W_opbrengst
+#    unit_of_measurement: 'kWh'
+#    time_unit: h
+#    state_class: total_increasing
+#    device_class: energy
+#    icon: "mdi:flash"
+#    accuracy_decimals: 2
+#    filters:
+#        - lambda: return x * (1.0 / 1000.0);
+#        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str()));
+#    filters:
+#        # Multiplication factor from W to kW is 0.001
+#        - multiply: 0.001      
 ########################## Watermeter ###############################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
