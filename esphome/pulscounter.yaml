@@ -1,7 +1,7 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "27/12/2021_v2.1.2"
-  device_description: "s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}."
+  vdate: "28/12/2021_v2.1.2"
+  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
 
