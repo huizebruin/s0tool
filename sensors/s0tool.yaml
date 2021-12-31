@@ -1,0 +1,27 @@
+# s0tool template sensoren.
+
+# # s0tool de data van gisteren
+#  - platform: template
+#    sensors:
+#      opbrengst_energie_gisteren
+#        friendly_name: "opbrengst zonnepanelen gisteren"
+#       unit_of_measurement: "kWh"
+#       icon_template: "mdi:counter"
+#       value_template: "{{ (state_attr('sensor.totaal_opgebracht','last_period')|float) }}"
+
+# s0tool sensor watt naar kw
+  - platform: template
+    sensors:
+      huidig_energie_opbrengst:
+        value_template: '{{ (states("sensor.opbrengst_actuele_energie")| int // 1000) }}'
+        icon_template: mdi:flash
+        unit_of_measurement: "kW"
+        friendly_name: "Huidig Energieverbruik"
+        
+# sensor github versie S0tool
+  - platform: command_line
+    command: 'curl https://api.github.com/repos/huizebruin/s0tool/releases/latest'
+    name: s0tool versie github
+    scan_interval: 3600
+    value_template: '{{ value_json.tag_name }}'
+    icon_template: mdi:github
