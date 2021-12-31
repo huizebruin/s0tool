@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "29/12/2021_v2.23"
+  vdate: "31.12.2021.v2.24"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
@@ -48,7 +48,6 @@ api:
       then:
         - globals.set:
             id: totalWaterUsage
-#            value: !lambda "return meter_value;"
             value: !lambda "return ( meter_value ) ;"
 #            value: !lambda "return ( meter_value - id(sensor_pulse_meter_total).state ) ;"
 
@@ -58,7 +57,6 @@ api:
       then:
         - globals.set:
             id: totalkwhUsage
-#            value: !lambda "return meter_value;"
             value: !lambda "return ( meter_value ) ;"
 #            value: !lambda "return ( meter_value - id(W_opbrengst_totaal).state );"
 
@@ -111,7 +109,7 @@ select:
         - logger.log:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
-
+#-------------------------------------------------#
 ########################## Kwh meter S0 poort D5 ###############################################################
 sensor:
 # ⬇ kwh meter s0 ⬇ #
@@ -125,7 +123,6 @@ sensor:
     unit_of_measurement: 'W'
     state_class: measurement
     device_class: power
-#    timeout: 1 min
     filters:
       - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str())) * 1000.0);
 
@@ -154,7 +151,7 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-   
+#-------------------------------------------------#
 ########################## Watermeter ###############################################################
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
@@ -196,6 +193,7 @@ sensor:
         id(totalWaterUsage) += 0.001;
       }
       return id(totalWaterUsage);
+
 ##########################  sensoren ###############################################################
 
   - platform: uptime
@@ -212,7 +210,7 @@ sensor:
         id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
       );
       return timestamp;  
-      
+#-------------------------------------------------#      
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
@@ -236,3 +234,14 @@ text_sensor:
       name: Mac-adres
       id: S0tool_mac_adres
       icon: mdi:folder-key-network-outline
+
+## button ###
+button:
+  - platform: ...
+    name: Update
+    id: S0tool_update
+
+    # Optional variables:
+    icon: "mdi:update"
+    on_press:
+      - logger.log: "Update Button pressed"
