@@ -235,13 +235,3 @@ text_sensor:
       id: S0tool_mac_adres
       icon: mdi:folder-key-network-outline
 
-## button ###
-button:
-  - platform: ...
-    name: Update
-    id: S0tool_update
-
-    # Optional variables:
-    icon: "mdi:update"
-    on_press:
-      - logger.log: "Update Button pressed"
