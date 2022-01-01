@@ -59,8 +59,18 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
     cycle: hourly
 enz... die in de file staan in de map utility_meter/utility.yaml  
 ```
+12. Optioneel om te zien of er nieuwe updates zijn, kun je de volgende sensor aanmaken in je configuration.yaml:
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    name: s0tool_versie_github
+    value_template: '​{{ value_json.tag_name }}​'
 
-12. Restart Home Assistant one final time.
+```
+Deze versie kun je dan vergelijken met de entity "sensor.versie".
+
+13. Restart Home Assistant one final time.
 
 
 ## License
