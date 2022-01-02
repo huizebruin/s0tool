@@ -14,7 +14,7 @@
   - platform: rest
     resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
     name: s0tool_versie_github
-    value_template: '​{{ value_json.tag_name }}​'
+    value_template: '{{ value_json.tag_name }}'
     
   - platform: template
     sensors:
