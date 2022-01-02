@@ -1,0 +1,7 @@
+## s0tool informatie en icons in customize.yaml
+sensor.s0tool_versie_github:
+  friendly_name: Laatste versie github
+  icon: mdi:github
+sensor.s0tool_versie:
+  friendly_name: Huidige versie
+  icon: mdi:label-outline

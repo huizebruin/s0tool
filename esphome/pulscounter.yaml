@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.01.2"
+  vdate: "v22.01.3"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
@@ -24,7 +24,7 @@ wifi:
 # secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)
   ssid: "wifi_ssid"
   password: "wifi_password"
-
+#------------------------##------------------------##------------------------##------------------------#
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
@@ -49,7 +49,6 @@ api:
         - globals.set:
             id: totalWaterUsage
             value: !lambda "return ( meter_value ) ;"
-#            value: !lambda "return ( meter_value - id(sensor_pulse_meter_total).state ) ;"
 
     - service: set_kwh_usage
       variables:
@@ -58,7 +57,6 @@ api:
         - globals.set:
             id: totalkwhUsage
             value: !lambda "return ( meter_value ) ;"
-#            value: !lambda "return ( meter_value - id(W_opbrengst_totaal).state );"
 
 globals:
   - id: totalWaterUsage
@@ -109,8 +107,8 @@ select:
         - logger.log:
             format: "Chosen option: %s "
             args: ["x.c_str()"]
-#-------------------------------------------------#
-########################## Kwh meter S0 poort D5 ###############################################################
+
+#------------------------# Kwh meter S0 poort D5 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
@@ -137,7 +135,6 @@ sensor:
       accuracy_decimals: 2
       filters:
         - lambda: return x * (1.0 / 1000.0); 
-#        - lambda: return x * (1.0 / atoi(id(Select_pulse_rate).state.c_str())); 
 
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
@@ -151,8 +148,7 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-#-------------------------------------------------#
-########################## Watermeter ###############################################################
+#------------------------# Watermeter #------------------------#
 # ⬇ watermeter ⬇ #
   - platform: pulse_counter
     pin: D2
@@ -165,8 +161,6 @@ sensor:
     filters:
       lambda: return x * ((60.0 / 1000.0) * 1000.0);
       # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
-#    filters:
-#      - multiply: 0.016666667
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
@@ -194,7 +188,7 @@ sensor:
       }
       return id(totalWaterUsage);
 
-##########################  sensoren ###############################################################
+#------------------------#  sensoren #------------------------#
 
   - platform: uptime
     id: S0tool_uptime
@@ -214,7 +208,7 @@ sensor:
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
-    name: "Versie"
+    name: "s0tool_versie"
     id: S0tool_versie
     icon: "mdi:label-outline"
     update_interval: 6h

@@ -1,0 +1,11 @@
+#------------------------# deze code via kaart plaatsen #------------------------#
+
+type: conditional
+conditions:
+  - entity: sensor.s0tool_gelijk_github
+    state_not: 'true'
+card:
+  type: markdown
+  content: De s0tool is niet up to date met de GitHub versie.
+
+#------------------------#
