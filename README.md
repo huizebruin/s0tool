@@ -91,6 +91,13 @@ eventuweel toevoegingen / verbeteringen mogen via Pull requests aangevuld worden
 
 Wobbe van Huizebruin.nl
 ***
+
+## Meewerken.
+Dit is een actief open-sourceproject. We staan ​​altijd open voor mensen die de code willen gebruiken of eraan willen bijdragen.
+
+We hebben een apart document opgesteld voor onze richtlijnen voor bijdragen.
+
+Bedankt voor het meedoen <br>
 Wie werken er nog meer aan dit project :<br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)
 ****
