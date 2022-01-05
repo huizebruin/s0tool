@@ -13,7 +13,7 @@ https://www.huizebruin.nl/s0tool-bestellen/<br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
-In <b>v1</b> zit een klein foutje in bij de s0 aansluiting zit de gnd.<br> Dat werkt niet, is een ontwerpfoutje dus dan moet er een kabeltje vanaf de 5v ( bij de watermeter aansluiting) en de andere op de D5 waar s0 poort bij staat.
+In <b>v1</b> zit een klein foutje in bij de s0 aansluiting zit de gnd.<br> Dat werkt niet, is een ontwerpfoutje dus dan moet er een kabeltje vanaf de 5v poort 20 op je kwh meter met de s0 poort ( bij de watermeter aansluiting) en de andere op de D5 waar s0 poort bij staat dat is de aansluiting 21 op je kwh meter met s0 poort.
 
 ***
 
