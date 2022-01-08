@@ -30,6 +30,9 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 - kwh meter met 1000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
 - kwh meter met 2000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
 ![afbeelding](./assets/kwh-s0.png)<br>
+## De s0 aansluiting <br>
+![afbeelding](./assets/kwh_Meter_Pulse.jpg)<br>
+Op versie 1 van de print moet je de draad vanaf de 5V bij de watermeter pakken naar poort 20 op je meter. (versie 2 van de print is dit verholpen en zit er 5v aansluiting naast de D5 aansluiting) <br> En vanaf poort 21 ga je naar D5 op de s0tool.
 ***
 <br>
 
@@ -81,7 +84,7 @@ Deze 2 staan ook in de sensor map op deze github.
 type: conditional
 conditions:
   - entity: sensor.s0tool_gelijk_github
-    state_not: 'true'
+    state_not: 'True'
 card:
   type: markdown
   content: De s0tool is niet up to date met de GitHub versie.
@@ -93,13 +96,14 @@ Wobbe van Huizebruin.nl
 ***
 
 ## Meewerken.
-Dit is een actief open-sourceproject. We staan ​​altijd open voor mensen die de code willen gebruiken of eraan willen bijdragen.
+Dit is een actief open-sourceproject. <br>
+We staan ​​altijd open voor mensen die de code willen gebruiken of eraan willen bijdragen.
 
-We hebben een apart document opgesteld voor onze richtlijnen voor bijdragen.
+We hebben een apart [document](​Contributing.md) opgesteld voor onze richtlijnen voor bijdragen.
 
 Bedankt voor het meedoen <br>
 Wie werken er nog meer aan dit project :<br>
-![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)
+![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
 ****
 
 ## License
