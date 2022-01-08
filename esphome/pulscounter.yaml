@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.01.3"
+  vdate: "v22.01.4"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
@@ -228,4 +228,10 @@ text_sensor:
       name: Mac-adres
       id: S0tool_mac_adres
       icon: mdi:folder-key-network-outline
+
+# ⬇ restart button voor de s0tool ⬇ #
+button:  
+  - platform: restart
+    name: "Restart device"
+
 
