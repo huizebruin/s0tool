@@ -195,7 +195,7 @@ sensor:
     
   - platform: template
     id: S0tool_uptime_timestamp
-    name: "Uptime"
+    name: "online sinds"
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
