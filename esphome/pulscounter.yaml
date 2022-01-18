@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.01.4"
+  vdate: "v22.01.5"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: S0tool
@@ -168,7 +168,7 @@ sensor:
       name: "Watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
-      unit_of_measurement: "m³"
+      unit_of_measurement: "L" # test 18-01-2022
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
@@ -195,7 +195,7 @@ sensor:
     
   - platform: template
     id: S0tool_uptime_timestamp
-    name: "Uptime"
+    name: "online sinds"
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
