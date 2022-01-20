@@ -6,7 +6,7 @@ substitutions:
   name: s0tool
 
 esphome:
-  name: s0tool
+  name: ${name}
   platform: ESP8266
   board: d1_mini
   comment: '${device_description}'
