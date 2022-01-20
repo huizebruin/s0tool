@@ -3,7 +3,7 @@ substitutions:
   vdate: "v22.01.5"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: S0tool
+  name: s0tool
 
 esphome:
   name: s0tool
@@ -22,8 +22,8 @@ improv_serial:
   
 wifi:
 # secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)
-  ssid: "wifi_ssid"
-  password: "wifi_password"
+  # ssid: "wifi_ssid"
+  # password: "wifi_password"
 #------------------------##------------------------##------------------------##------------------------#
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
