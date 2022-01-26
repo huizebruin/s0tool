@@ -13,7 +13,7 @@ https://www.huizebruin.nl/s0tool-bestellen/<br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
-In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de<b>GND</b> I.P.V <b>5v+</b>.<br>
+In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de <b>GND</b> I.P.V <b>5v+</b>.<br>
 Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
 En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
