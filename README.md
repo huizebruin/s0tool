@@ -94,7 +94,7 @@ card:
   content: De s0tool is niet up to date met de GitHub versie.
 ```
 Veel plezier met deze tool.<br>
-eventuele toevoegingen / verbeteringen mogen via Pull requests aangevuld worden.
+Eventuele toevoegingen / verbeteringen mogen via Pull requests aangevuld worden.
 
 Wobbe van Huizebruin.nl
 ***
