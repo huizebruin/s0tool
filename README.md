@@ -13,7 +13,11 @@ https://www.huizebruin.nl/s0tool-bestellen/<br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
-In <b>v1</b> zit een klein foutje in bij de s0 aansluiting zit de gnd.<br> Dat werkt niet, is een ontwerpfoutje dus dan moet er een kabeltje vanaf de 5v poort 20 op je kwh meter met de s0 poort ( bij de watermeter aansluiting) en de andere op de D5 waar s0 poort bij staat dat is de aansluiting 21 op je kwh meter met s0 poort.
+In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de <b>GND</b> I.P.V <b>5v+</b>.<br>
+Dat werkt niet,  dit is een ontwerpfoutje. <br>
+Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
+En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
+
 
 ***
 
@@ -34,13 +38,13 @@ Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/produc
 - (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./assets/water-npn.png)<br>![watermeteraansluiting](./assets/s0tool-watermeter.jpg)<br>
 ***
 ## Voor het bijhouden van zonnepanelen of warmtepomp etc.
-- kwh meter met 1000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
-- kwh meter met 2000 pulsen per kwh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
+- kWh meter met 1000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
+- kWh meter met 2000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
 ![afbeelding](./assets/kwh-s0.png)<br>
 #
 ## De s0 aansluiting <br>
 ![afbeelding](./assets/kwh_Meter_Pulse.jpg)<br>
-Op versie 1 van de print moet je de draad vanaf de 5V bij de watermeter pakken naar poort 20 op je meter. (versie 2 van de print is dit verholpen en zit er 5v aansluiting naast de D5 aansluiting) <br> En vanaf poort 21 ga je naar D5 op de s0tool.
+Op versie 1 van de print moet je de draad vanaf de 5V bij de watermeter pakken naar poort 20 op je meter. <br> (versie 2 van de print is dit verholpen, en zit er een 5v aansluiting naast de D5 aansluiting) <br> En vanaf poort 21 ga je naar D5 op de s0tool.
 ***
 <br>
 
@@ -51,13 +55,13 @@ Op versie 1 van de print moet je de draad vanaf de 5V bij de watermeter pakken n
 3. Ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter```
 4. Ga naar ```192.168.4.1```.
 5. Zet de juiste SSID en Wachtwoord in de velden
-6. Wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden iss ( zet die vast in je router)
-7. Ga naar je home assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld zal zijn. en voeg deze toe.
-8. Als het goed is gaat de print connectie maken met github om de laatste versie binnen te halen en daardoor ook toe te voegen aan esphome
+6. Wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden is ( zet die vast in je router)
+7. Ga naar je Home Assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld is. En voeg deze toe.
+8. Als het goed is gaat de print connectie maken met Github om de laatste versie binnen te halen, en daardoor ook toe te voegen aan Esphome
 9. Voeg de volgende code toe aan je 
 ``` configuration.yaml   ```
 <br> ``` utility_meter: !include utility_meter/utility.yaml ```
-10. Maak een map aan in je config map via de verkenner en noem deze ``` utiliy_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml en voeg onderstaande code daar in en sla deze op( of download hem uit deze repro) en plaats hem in die map.
+10. Maak een map aan in je config map via de verkenner en noem deze ``` utiliy_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml, en voeg onderstaande code daar in toe. En sla deze op( of download hem uit deze repro) en plaats hem in die map.
 
 ``` yaml
 #utility_meter:
@@ -82,11 +86,11 @@ Die in de file staan in de map utility_meter/utility.yaml
 
 ```
 Deze versie kun je dan vergelijken met de entity "sensor.s0tool_versie".<br>
-Deze 2 staan ook in de sensor map op deze github.
+Deze 2 staan ook in de sensor map op deze Github.
 
-13. Herstart Home Assistant nog een maal om alles toe te kunnen voegen aan je lovelace scherm.
+13. Herstart Home Assistant nog een maal om alles toe te kunnen voegen aan je Lovelace scherm.
 
-14. Voeg deze kaart toe om automatisch een update te krijgen op je dashboard daarmee weet je of je de laatste versie gebruikt.
+14. Voeg deze kaart toe om automatisch een update te krijgen op je dashboard, daarmee weet je of je de laatste versie gebruikt.
 
 ``` yaml
 type: conditional
@@ -98,7 +102,7 @@ card:
   content: De s0tool is niet up to date met de GitHub versie.
 ```
 Veel plezier met deze tool.<br>
-eventuweel toevoegingen / verbeteringen mogen via Pull requests aangevuld worden.
+Eventuele toevoegingen / verbeteringen mogen via Pull requests aangevuld worden.
 
 Wobbe van Huizebruin.nl
 ***
