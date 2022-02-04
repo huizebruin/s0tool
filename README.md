@@ -44,7 +44,10 @@ Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/produc
 #
 ## De s0 aansluiting <br>
 ![afbeelding](./assets/kwh_Meter_Pulse.jpg)<br>
-Op versie 1 van de print moet je de draad vanaf de 5V bij de watermeter pakken naar poort 20 op je meter. <br> (versie 2 van de print is dit verholpen, en zit er een 5v aansluiting naast de D5 aansluiting) <br> En vanaf poort 21 ga je naar D5 op de s0tool.
+In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de<b>GND</b> I.P.V <b>5v+</b>.<br>
+Dat werkt niet,  dit is een ontwerpfoutje. <br>
+Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
+En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
 ***
 <br>
 
