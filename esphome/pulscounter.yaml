@@ -62,14 +62,14 @@ globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: yes      
+    restore_value: no      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '001' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: yes
+    restore_value: no
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '00001' 
 
