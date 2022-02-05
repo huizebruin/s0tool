@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.01.5"
+  vdate: "v22.01.6"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -42,7 +42,7 @@ logger:
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
-    - service: set_water_usage
+    - service: meterstand_water
       variables:
         meter_value: float
       then:
@@ -50,7 +50,7 @@ api:
             id: totalWaterUsage
             value: !lambda "return ( meter_value ) ;"
 
-    - service: set_kwh_usage
+    - service: meterstand_kwh
       variables:
         meter_value: float
       then:
@@ -62,16 +62,16 @@ globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no      
+    restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '207' 
+    initial_value: '001' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no
+    restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '14957' 
+    initial_value: '00001' 
 
 ota:
   safe_mode: true
