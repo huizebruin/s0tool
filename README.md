@@ -64,7 +64,7 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 9. Voeg de volgende code toe aan je 
 ``` configuration.yaml   ```
 <br> ``` utility_meter: !include utility_meter/utility.yaml ```
-10. Maak een map aan in je config map via de verkenner en noem deze ``` utiliy_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml, en voeg onderstaande code daar in toe. En sla deze op( of download hem uit deze repro) en plaats hem in die map.
+10. Maak een map aan in je config map via de verkenner en noem deze ``` utility_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml, en voeg onderstaande code daar in toe. En sla deze op( of download hem uit deze repro) en plaats hem in die map.
 
 ``` yaml
 #utility_meter:
