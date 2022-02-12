@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.01.6"
+  vdate: "v22.01.6b1"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate}.
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -62,14 +62,14 @@ globals:
   - id: totalWaterUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no      
+    restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '001' 
     
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no
+    restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '00001' 
 
