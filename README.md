@@ -5,7 +5,7 @@
 
 
 ![S0tool-print](./assets/s0tool-huizebruin.jpg) 
-![dashboard](./assets/s0tool-dashboard.jpg)
+![dashboard](./assets/s0tool-dashboard.png)
  
 <br><br>
 # De s0tool bestellen?
@@ -109,7 +109,13 @@ Eventuele toevoegingen / verbeteringen mogen via Pull requests aangevuld worden.
 
 Wobbe van Huizebruin.nl
 ***
+## blueprint voor update meldingen.
+Hiermee kun je een automation maken waardoor je melding krijgt als er een nieuwe versie online staat op Github.
+Je moet dan wel alle bovenstaande sensoren hebben toegevoegd.
+<br>
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e)
 
+***
 ## Meewerken.
 Dit is een actief open-sourceproject. <br>
 We staan ​​altijd open voor mensen die de code willen gebruiken of eraan willen bijdragen.
@@ -117,7 +123,8 @@ We staan ​​altijd open voor mensen die de code willen gebruiken of eraan wil
 We hebben een apart [document](​Contributing.md) opgesteld voor onze richtlijnen voor bijdragen.
 
 Bedankt voor het meedoen <br>
-Wie werken er nog meer aan dit project :<br>
+
+Wie werken er nog meer aan dit project : <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
 ****
 
