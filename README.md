@@ -104,18 +104,30 @@ card:
   type: markdown
   content: De s0tool is niet up to date met de GitHub versie.
 ```
-Veel plezier met deze tool.<br>
-Eventuele toevoegingen / verbeteringen mogen via Pull requests aangevuld worden.
 
-Wobbe van Huizebruin.nl
 ***
-## blueprint voor update meldingen.
+
+## Blueprint voor update meldingen.
 Hiermee kun je een automation maken waardoor je melding krijgt als er een nieuwe versie online staat op Github.
 Je moet dan wel alle bovenstaande sensoren hebben toegevoegd.
 <br>
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e)
 
+
 ***
+## Aanpassen van de meter stand
+Voor het aan passen van de water meter stand : 
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
+<br><br>
+Voor het aanpassen van je kwh meter stand : [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
+***
+
+<center>Veel plezier met deze tool.<br>
+Eventuele toevoegingen / verbeteringen <br> mogen via Pull requests aangevuld worden.
+<br><br><b>
+Wobbe van Huizebruin.nl</b>
+<br><br></center>
+
 ## Meewerken.
 Dit is een actief open-sourceproject. <br>
 We staan ​​altijd open voor mensen die de code willen gebruiken of eraan willen bijdragen.
