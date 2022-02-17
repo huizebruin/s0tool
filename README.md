@@ -122,11 +122,12 @@ Voor het aan passen van de water meter stand :
 Voor het aanpassen van je kwh meter stand : [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
 ***
 
-<center>Veel plezier met deze tool.<br>
-Eventuele toevoegingen / verbeteringen <br> mogen via Pull requests aangevuld worden.
+Veel plezier met deze tool.<br>
+Eventuele toevoegingen / verbeteringen <br> mogen via <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b> aangevuld worden.<br> 
+Of via <b>[issues](https://github.com/huizebruin/s0tool/issues) </b> aangevraagd en of toegevoegd worden.
 <br><br><b>
 Wobbe van Huizebruin.nl</b>
-<br><br></center>
+<br><br>
 
 ***
 
