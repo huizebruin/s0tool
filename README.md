@@ -104,6 +104,15 @@ card:
   type: markdown
   content: De s0tool is niet up to date met de GitHub versie.
 ```
+***
+Wemos flashen via deze website:
+<script
+  type="module"
+  src="https://unpkg.com/esp-web-tools@7.1.0/dist/web/install-button.js?module"
+></script>
+<esp-web-install-button
+  manifest="/static/firmware_build/manifest.json"
+></esp-web-install-button>
 
 ***
 
