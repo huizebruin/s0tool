@@ -9,7 +9,7 @@
  
 <br><br>
 # De s0tool bestellen?
-https://www.huizebruin.nl/product/s0tool/<br>
+https://www.huizebruin.nl/home-assistant/s0tool-bestellen/br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
@@ -76,8 +76,9 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
     source: sensor.watermeter_totaal
     cycle: hourly
 enz...
-Die in de file staan in de map utility_meter/utility.yaml  
 ```
+Die in de file staan in de map [utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
+
 12. Optioneel om te zien of er nieuwe updates zijn, kun je de volgende sensor aanmaken in je configuration.yaml:<br>
 (of je kopieert de sensor file uit de sensor map en plaatst dat allemaal in je eigen configuratie).
 ```yaml
