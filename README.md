@@ -9,7 +9,7 @@
  
 <br><br>
 # De s0tool bestellen?
-https://www.huizebruin.nl/home-assistant/s0tool-bestellen/br>
+https://www.huizebruin.nl/home-assistant/s0tool-bestellen </br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
