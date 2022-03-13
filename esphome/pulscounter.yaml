@@ -1,6 +1,6 @@
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.03.8"
+  vdate: "v22.03.9"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -134,7 +134,7 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - lambda: return x * (1.0 / 1000.0); 
+        - lambda: return x * ((1.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
 
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
