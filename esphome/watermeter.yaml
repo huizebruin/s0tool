@@ -1,0 +1,161 @@
+substitutions:
+  time_timezone: "Europe/Amsterdam"
+  vdate: "v22.03.9"
+  device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
+  name: s0tool
+
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: d1_mini
+  comment: '${device_description}'
+  project:
+    name: huizebruin.${name}
+    version: "${vdate}"
+  
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/esphome/watermeter.yaml@main
+
+improv_serial:
+  
+wifi:
+# secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)
+  # ssid: "wifi_ssid"
+  # password: "wifi_password"
+#------------------------##------------------------##------------------------##------------------------#
+# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
+  ap:
+    ssid: "${name}"
+    password: "s0watermeter"
+
+web_server:
+  port: 80
+  
+captive_portal:
+# ⬇ Enable logging ⬇ # 
+logger:
+  level: INFO
+  
+#  # ⬇ Enable Home Assistant API ⬇ # 
+api:
+  services:
+    - service: meterstand_water
+      variables:
+        meter_value: float
+      then:
+        - globals.set:
+            id: totalWaterUsage
+            value: !lambda "return ( meter_value ) ;"
+
+globals:
+  - id: totalWaterUsage
+    type: float
+# ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
+    restore_value: yes      
+# ⬇ Bij het flashen,pas dit aan! ⬇ #        
+    initial_value: '001' 
+
+ota:
+  safe_mode: true
+  reboot_timeout: 10min
+  num_attempts: 5
+#  ⬇ Enable time component voor reset elke nacht ⬇ #
+time:
+  - platform: homeassistant
+    id: time_homeassistant
+    timezone: "${time_timezone}"
+    on_time_sync:
+      - component.update: S0tool_uptime_timestamp
+
+  - platform: sntp
+    id: time_sntp
+    timezone: "${time_timezone}"
+
+#------------------------# Watermeter #------------------------#
+# ⬇ watermeter ⬇ #
+  - platform: pulse_counter
+    pin: D2
+    id: watermeter_pulse
+    name: "Watermeter pulse"
+    state_class: measurement
+    update_interval: 1s
+    unit_of_measurement: L
+    accuracy_decimals: 1
+    filters:
+      lambda: return x * ((60.0 / 1000.0) * 1000.0);
+      # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
+
+# ⬇ Totaal watermeter ⬇ #      
+    total:
+      id: sensor_pulse_meter_total
+      name: "Watermeter Totaal"
+      icon: "mdi:cube-outline"
+      state_class: "total_increasing"
+      unit_of_measurement: "L" # test 18-01-2022
+      accuracy_decimals: 3
+      filters:
+      - multiply: 0.001
+      
+# ⬇ Watermeter stand bij benadering ⬇ #
+  - platform: template
+    id: watermeter_total
+    name: "Watermeter stand"
+    state_class: "total_increasing"
+    icon: mdi:water
+    update_interval: 1s
+    unit_of_measurement: m³
+    accuracy_decimals: 3
+    lambda: |-
+      if (id(watermeter_pulse).state >= 1) {
+        id(totalWaterUsage) += 0.001;
+      }
+      return id(totalWaterUsage);
+
+#------------------------#  sensoren #------------------------#
+
+  - platform: uptime
+    id: S0tool_uptime
+    
+  - platform: template
+    id: S0tool_uptime_timestamp
+    name: "online sinds"
+    device_class: "timestamp"
+    accuracy_decimals: 0
+    update_interval: never
+    lambda: |-
+      static float timestamp = (
+        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
+      );
+      return timestamp;  
+#-------------------------------------------------#      
+# ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+text_sensor:
+  - platform: template
+    name: "s0tool_versie"
+    id: S0tool_versie
+    icon: "mdi:label-outline"
+    update_interval: 6h
+    lambda: |-
+      return {"${vdate}"};
+
+  - platform: wifi_info
+    ip_address:
+      name: IP-adres
+      id: S0tool_ip_adres
+      icon: mdi:ip-network
+    ssid:
+      name: Netwerk
+      id: S0tool_netwerk
+      icon: mdi:access-point-network
+    mac_address:
+      name: Mac-adres
+      id: S0tool_mac_adres
+      icon: mdi:folder-key-network-outline
+
+# ⬇ restart button voor de s0tool ⬇ #
+button:  
+  - platform: restart
+    name: "Restart device"
+
+
