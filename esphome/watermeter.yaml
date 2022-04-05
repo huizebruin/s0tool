@@ -4,7 +4,7 @@
 # © Huizebruin.nl
 substitutions:
   time_timezone: "Europe/Amsterdam"
-  vdate: "v22.03.9"
+  vdate: "v22.04.10"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool
 
@@ -82,22 +82,22 @@ sensor:
   - platform: pulse_counter
     pin: D2
     id: watermeter_pulse
-    name: "Watermeter pulse"
+    name: "watermeter pulse"
     state_class: measurement
     update_interval: 1s
-    unit_of_measurement: L
+    unit_of_measurement: "L/min"
     accuracy_decimals: 1
     filters:
-      lambda: return x * ((60.0 / 1000.0) * 1000.0);
+      lambda: return x * (60.0 / 1000.0);
       # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
-      name: "Watermeter Totaal"
+      name: "watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
-      unit_of_measurement: "L" # test 18-01-2022
+      unit_of_measurement: "m3" #"m³"
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
@@ -105,11 +105,11 @@ sensor:
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
     id: watermeter_total
-    name: "Watermeter stand"
+    name: "watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
     update_interval: 1s
-    unit_of_measurement: m³
+    unit_of_measurement: "m3"
     accuracy_decimals: 3
     lambda: |-
       if (id(watermeter_pulse).state >= 1) {
@@ -162,4 +162,3 @@ text_sensor:
 button:  
   - platform: restart
     name: "Restart device"
-
