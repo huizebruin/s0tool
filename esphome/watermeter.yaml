@@ -3,8 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  time_timezone: "Europe/Amsterdam"
-  vdate: "v22.04.10"
+  vdate: "v22.04.11"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool
 
@@ -64,17 +63,11 @@ ota:
   safe_mode: true
   reboot_timeout: 10min
   num_attempts: 5
+
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
 time:
   - platform: homeassistant
     id: time_homeassistant
-    timezone: "${time_timezone}"
-    on_time_sync:
-      - component.update: S0tool_uptime_timestamp
-
-  - platform: sntp
-    id: time_sntp
-    timezone: "${time_timezone}"
 
 sensor:
 #------------------------# Watermeter #------------------------#
@@ -119,20 +112,6 @@ sensor:
 
 #------------------------#  sensoren #------------------------#
 
-  - platform: uptime
-    id: S0tool_uptime
-    
-  - platform: template
-    id: S0tool_uptime_timestamp
-    name: "online sinds"
-    device_class: "timestamp"
-    accuracy_decimals: 0
-    update_interval: never
-    lambda: |-
-      static float timestamp = (
-        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
-      );
-      return timestamp;  
 #-------------------------------------------------#      
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
