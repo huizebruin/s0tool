@@ -4,7 +4,7 @@
 # © Huizebruin.nl
 substitutions:
   vdate: "v22.04.11"
-  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
+  device_description: s0 kwh meter gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
 
@@ -18,7 +18,7 @@ esphome:
     version: "${vdate}"
   
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-teller.yaml@main
 
 
 improv_serial:
@@ -94,7 +94,7 @@ select:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    pin: D5
+    pin: D5 
     name:  "Actuele energie"
     id: W_opbrengst
     icon: "mdi:flash"
