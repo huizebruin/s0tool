@@ -3,8 +3,8 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.04.12"
-  device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
+  vdate: "v22.04.11"
+  device_description: s0 kwh meter gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
 
@@ -18,7 +18,7 @@ esphome:
     version: "${vdate}"
   
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-teller.yaml@main
 
 
 improv_serial:
@@ -45,14 +45,6 @@ logger:
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
-    - service: meterstand_water
-      variables:
-        meter_value: float
-      then:
-        - globals.set:
-            id: totalWaterUsage
-            value: !lambda "return ( meter_value ) ;"
-
     - service: meterstand_kwh
       variables:
         meter_value: float
@@ -62,13 +54,6 @@ api:
             value: !lambda "return ( meter_value ) ;"
 
 globals:
-  - id: totalWaterUsage
-    type: float
-# ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: yes      
-# ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '001' 
-    
   - id: totalkwhUsage
     type: float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
@@ -109,7 +94,7 @@ select:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    pin: D5
+    pin: D5 
     name:  "Actuele energie"
     id: W_opbrengst
     icon: "mdi:flash"
@@ -146,52 +131,6 @@ sensor:
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
-#------------------------# Watermeter #------------------------#
-# ⬇ watermeter pulsen ⬇ #
-  - platform: pulse_counter
-    pin: D2
-    id: watermeter_pulse
-    name: "watermeter pulse"
-    state_class: measurement
-    update_interval: 6s
-    accuracy_decimals: 1
-
-
-# ⬇ Totaal watermeter ⬇ #      
-    total:
-      id: sensor_pulse_meter_total
-      name: "watermeter Totaal"
-      icon: "mdi:cube-outline"
-      state_class: "total_increasing"
-      unit_of_measurement: "m3" #"m³"
-      accuracy_decimals: 3
-      filters:
-      - multiply: 0.001
-      
-# ⬇ Watermeter stand bij benadering ⬇ #
-  - platform: template
-    id: watermeter_total
-    name: "watermeter stand"
-    state_class: "total_increasing"
-    icon: mdi:water
-    update_interval: 1s
-    unit_of_measurement: "m3"
-    accuracy_decimals: 3
-    lambda: |-
-      if (id(watermeter_pulse).state >= 1) {
-        id(totalWaterUsage) += 0.001;
-      }
-      return id(totalWaterUsage);
-      
-# ⬇ watermeter l/min ⬇ #
-  - platform: template
-    name: "Water verbruik Liter"
-    id: watermeter_flow
-    accuracy_decimals: 1
-    unit_of_measurement: "l/min"
-    icon: "mdi:water"
-    lambda: return (id(watermeter_pulse).state * 10);
-    update_interval: 6s
 #------------------------#  sensoren #------------------------#
 
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
