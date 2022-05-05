@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.04.11"
+  vdate: "v22.05.12"
   device_description: s0 kwh meter gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -20,7 +20,6 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/S0-puls-teller.yaml@main
 
-
 improv_serial:
   
 wifi:
@@ -32,7 +31,6 @@ wifi:
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
     ssid: "${name}"
-    password: "s0watermeter"
 
 web_server:
   port: 80
@@ -106,7 +104,6 @@ sensor:
     filters:
       - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
 
-
 # ⬇ Totaal opgebracht ⬇ #    
     total:
       unit_of_measurement: 'kWh'
@@ -132,7 +129,6 @@ sensor:
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
 
 #------------------------#  sensoren #------------------------#
-
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template

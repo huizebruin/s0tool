@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.04.11"
+  vdate: "v22.05.12"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool
 
@@ -30,7 +30,6 @@ wifi:
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
     ssid: "${name}"
-    password: "s0watermeter"
 
 web_server:
   port: 80
@@ -71,18 +70,14 @@ time:
 
 sensor:
 #------------------------# Watermeter #------------------------#
-# ⬇ watermeter ⬇ #
+# ⬇ watermeter pulsen ⬇ #
   - platform: pulse_counter
     pin: D2
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    update_interval: 1s
-    unit_of_measurement: "L/min"
+    update_interval: 6s
     accuracy_decimals: 1
-    filters:
-      lambda: return x * (60.0 / 1000.0);
-      # 60 min in 1 hr (update interval is by default 1 min), 1000 pulses/m³ and 1000 L in 1 m³.     
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
@@ -109,9 +104,17 @@ sensor:
         id(totalWaterUsage) += 0.001;
       }
       return id(totalWaterUsage);
-
+      
+# ⬇ watermeter l/min ⬇ #
+  - platform: template
+    name: "Water verbruik Liter"
+    id: watermeter_flow
+    accuracy_decimals: 1
+    unit_of_measurement: "l/min"
+    icon: "mdi:water"
+    lambda: return (id(watermeter_pulse).state * 10);
+    update_interval: 6s
 #------------------------#  sensoren #------------------------#
-
 #-------------------------------------------------#      
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
