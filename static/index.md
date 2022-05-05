@@ -6,7 +6,7 @@
 # S0tool
 
 <p align="center">
-  <img width="80%" src="./assets/images/s0tool-logo.jpg">
+  <img width="50%" src="./assets/s0tool-logo.jpg">
 </p>
 
 S0tool makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]! <br>

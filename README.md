@@ -4,7 +4,7 @@
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
 <p align="center">
-  <img width="80%" src="./assets/images/s0tool-logo.jpg">
+  <img width="50%" src="./assets/s0tool-logo.jpg">
 </p>
 
 ![S0tool-print](./assets/s0tool-huizebruin.jpg) 
