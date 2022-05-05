@@ -9,7 +9,8 @@
  
 <br><br>
 # De s0tool bestellen?
-https://www.huizebruin.nl/home-assistant/s0tool-bestellen </br>
+[https://www.huizebruin.nl/product/s0tool/](https://www.huizebruin.nl/product/s0tool/?v=796834e7a283)
+ </br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
@@ -18,6 +19,8 @@ Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
 En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
 
+## Update: 
+05/05/2022 :  V2 is binnen maar moet nog getest worden.
 
 ***
 
