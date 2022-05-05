@@ -55,7 +55,7 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 
 1. Installeer Home Assistant & Esphome .
 2. Connect de wemos d1 mini aan een usblader.
-3. Ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter```
+3. Ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter``` password is bij versie 2022.05.12 komen te vervallen!
 4. Ga naar ```192.168.4.1```.
 5. Zet de juiste SSID en Wachtwoord in de velden
 6. Wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden is ( zet die vast in je router)
@@ -155,7 +155,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ***
-
+We gebruiken affiliate links voor de componenten en de tools.
+Sommige ad-blockers kunnen deze links blokkeren, waardoor ze eruit zien alsof ze niet werken.
+U moet adblocker tijdelijk uitschakelen om deze links te openen.
 <a href="https://tc.tradetracker.net/?c=27&amp;m=39668&amp;a=385034&amp;r=&amp;u=" target="_blank" rel="sponsored nofollow">Geld verdienen met je site. Start nu, meldt je hier aan.</a>
 
 
