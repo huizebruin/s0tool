@@ -14,12 +14,15 @@ a case has been designed that you can 3D print yourself.
 
 ## Installation
 
-You can use the button below to install the home assistant glow firmware directly to your device via USB from the browser.
+You can use the button below to install the S0tool firmware directly to your device via USB from the browser.
+| :--- | :--- |
+| <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
 
-<esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |
+update: 
+| <esp-web-install-button manifest="./manifest1.json"></esp-web-install-button>
 
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>
-
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |
 [esphome]: https://esphome.io/
 
 [commits-shield]: https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg
