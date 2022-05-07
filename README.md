@@ -3,17 +3,13 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
-<p align="center">
-  <img width="40%" src="./assets/s0tool-logo.jpg">
-</p>
 
 ![S0tool-print](./assets/s0tool-huizebruin.jpg) 
 ![dashboard](./assets/s0tool-dashboard.png)
  
 <br><br>
-# De s0tool bestellen?
-[https://www.huizebruin.nl/product/s0tool/](https://www.huizebruin.nl/product/s0tool/?v=796834e7a283)
- </br>
+# De <b>s0tool</b> bestellen?
+https://www.huizebruin.nl/home-assistant/s0tool-bestellen </br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
@@ -22,9 +18,11 @@ Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
 En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
 
-## Update: 
-05/05/2022 :  V2 is binnen maar moet nog getest worden.
-
+# Update:
+| Datum | Informatie |
+| :--- | :--- |
+| 05/05/2022 | V2 is binnen maar moet nog getest worden.|
+| 06/05/2022 | Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen. [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 ***
 
 ### Software update informatie zie de [releases](https://github.com/huizebruin/s0tool/releases) sectie op github.
@@ -59,9 +57,14 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 
 ## Installatie: 
 
+06/05/2022: <br> Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen.<br>
+alleen mogelijk met een chrome of edge browser. <br>
+Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.
+ [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
+
 1. Installeer Home Assistant & Esphome .
 2. Connect de wemos d1 mini aan een usblader.
-3. Ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter``` password is bij versie 2022.05.12 komen te vervallen!
+3. Ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter```
 4. Ga naar ```192.168.4.1```.
 5. Zet de juiste SSID en Wachtwoord in de velden
 6. Wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden is ( zet die vast in je router)
@@ -161,9 +164,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ***
-We gebruiken affiliate links voor de componenten en de tools.
-Sommige ad-blockers kunnen deze links blokkeren, waardoor ze eruit zien alsof ze niet werken.
-U moet adblocker tijdelijk uitschakelen om deze links te openen.
+
 <a href="https://tc.tradetracker.net/?c=27&amp;m=39668&amp;a=385034&amp;r=&amp;u=" target="_blank" rel="sponsored nofollow">Geld verdienen met je site. Start nu, meldt je hier aan.</a>
 
 
@@ -184,3 +185,4 @@ U moet adblocker tijdelijk uitschakelen om deze links te openen.
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
+
