@@ -3,12 +3,18 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
+<p align="left">
+  <img width="40%" src="./assets/s0tool-logo.jpg">
+</p>
 
-![S0tool-print](./assets/s0tool-huizebruin.jpg) 
-![dashboard](./assets/s0tool-dashboard.png)
+|  S0tool | Dashboard  |
+| :--- | :--- |
+|  ![S0tool-print](./assets/s0tool-huizebruin.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
+
+
  
 <br><br>
-# De s0tool bestellen?
+# De <b>s0tool</b> bestellen?
 https://www.huizebruin.nl/home-assistant/s0tool-bestellen </br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
@@ -18,7 +24,11 @@ Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
 En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
 
-
+# Update:
+| Datum | Informatie |
+| :--- | :--- |
+| 05/05/2022 | V2 is binnen maar moet nog getest worden.|
+| 06/05/2022 | Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen. [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 ***
 
 ### Software update informatie zie de [releases](https://github.com/huizebruin/s0tool/releases) sectie op github.
@@ -52,6 +62,11 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 <br>
 
 ## Installatie: 
+
+06/05/2022: <br> Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen.<br>
+alleen mogelijk met een chrome of edge browser. <br>
+Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.
+ [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 
 1. Installeer Home Assistant & Esphome .
 2. Connect de wemos d1 mini aan een usblader.
@@ -176,3 +191,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
+

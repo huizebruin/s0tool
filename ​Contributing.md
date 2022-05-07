@@ -1,13 +1,29 @@
-Als u een bijdrage levert aan deze repository, bespreek dan eerst de wijziging die u wilt aanbrengen via uitgifte, e-mail of een andere methode met de eigenaren van deze repository voordat u een wijziging aanbrengt.
+# Contributing
 
-Houd er rekening mee dat we een gedragscode hebben, volg deze in al uw interacties met het project.
+When contributing to this repository, please first discuss the change you wish
+to make via issue, email, or any other method with the owners of this repository
+before making a change.
 
-Problemen en functieverzoeken
-Je hebt een bug in de broncode gevonden, een fout in de documentatie of misschien wil je een nieuwe functie? Je kunt ons helpen door een probleem in te dienen bij onze GitHub-repository. Voordat u een probleem aanmaakt, moet u eerst in het archief zoeken, misschien is uw vraag al beantwoord.
+Please note we have a code of conduct, please follow it in all your interactions
+with the project.
 
-Nog beter: je zou een pull-verzoek kunnen indienen met een fix / nieuwe functie!
+## Issues and feature requests
 
-Pull-aanvraagproces
-Zoek in onze repository naar open of gesloten pull-verzoeken die betrekking hebben op uw inzending. U wilt geen dubbele inspanning.
+You've found a bug in the source code, a mistake in the documentation or maybe
+you'd like a new feature? You can help us by submitting an issue to our
+[GitHub Repository][github]. Before you create an issue, make sure you search
+the archive, maybe your question was already answered.
 
-U kunt het pull-verzoek samenvoegen zodra u de goedkeuring heeft van twee andere ontwikkelaars, of als u geen toestemming heeft om dat te doen, kunt u de tweede reviewer vragen het voor u samen te voegen.
+Even better: You could submit a pull request with a fix / new feature!
+
+## Pull request process
+
+1. Search our repository for open or closed [pull requests][prs] that relates
+   to your submission. You don't want to duplicate effort.
+
+1. You may merge the pull request in once you have the sign-off of two other
+   developers, or if you do not have permission to do that, you may request
+   the second reviewer to merge it for you.
+
+[github]: https://github.com/huizebruin/s0tool/issues
+[prs]: https://github.com/huizebruin/s0tool/pulls
