@@ -3,9 +3,15 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
+<p align="left">
+  <img width="40%" src="./assets/s0tool-logo.jpg">
+</p>
 
-![S0tool-print](./assets/s0tool-huizebruin.jpg) 
-![dashboard](./assets/s0tool-dashboard.png)
+|  S0tool | Dashboard  |
+| :--- | :--- |
+|  ![S0tool-print](./assets/s0tool-huizebruin.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
+
+
  
 <br><br>
 # De <b>s0tool</b> bestellen?
