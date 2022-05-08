@@ -14,5 +14,5 @@ jobs:
     name: "🛠️ ESPHome firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      files: esphome/pulscounter.yaml
+      files: https://github.com/huizebruin/s0tool/blob/fea1747bb55551a155032a6106443f715ec011f4/esphome/pulscounter.yaml
       name: S0tool
