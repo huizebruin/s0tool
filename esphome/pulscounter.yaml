@@ -190,6 +190,10 @@ sensor:
     update_interval: 6s
 #------------------------#  sensoren #------------------------#
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s
+    
 text_sensor:
   - platform: template
     name: "s0tool_versie"
