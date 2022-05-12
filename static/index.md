@@ -6,7 +6,7 @@
 # S0tool
 
 <p align="center">
-  <img width="40%" src="https://github.com/huizebruin/s0tool/blob/main/assets/s0tool-logo.jpg">
+  <img width="40%" src="/assets/s0tool-logo.jpg">
 </p>
 Update : v2022-05-05-20:30<br><br>
 With the S0tool you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
