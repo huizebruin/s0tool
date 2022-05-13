@@ -6,23 +6,25 @@
 # S0tool
 
 <p align="center">
-  <img width="40%" src="/assets/s0tool-logo.jpg">
+  <img width="40%" src="./assets/s0tool-logo.jpg">
 </p>
 Update : v2022-05-05-20:30<br><br>
-With the S0tool you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
+With the<b>S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
 A suitable kWh meter with an S0 connection must be installed for this.
 
-S0tool makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]! <br>
+<b>S0tool</b> makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]! <br>
 a case has been designed that you can 3D print yourself, its work in progres.
 
 ## Installation
 
-You can use the button below to install the S0tool firmware directly to your device via USB from the browser.
+You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.
 <br><br>| Clean install:|  <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> wipes the wemos completely. <br> <br>
-
+| Update: |            <esp-web-install-button manifest="./manifest1.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> keep the WiFi settings on it.
+ <br>
 
 
 ***
@@ -34,13 +36,25 @@ For the S0 port of the kwh meter : D5  [![Open your Home Assistant instance and 
 
 ***
 
-Have fun whit the S0tool.<br>
+Have fun with the <b>S0tool</b>.<br>
  <br> For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
 For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) </b> .
 <br><br><b>
 Wobbe From Huizebruin.nl</b>
 <br><br>
 
+## License
+MIT License
+
+Copyright (c) 2021 / 2022 Huizebruin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+***
 
 
 [esphome]: https://esphome.io/
