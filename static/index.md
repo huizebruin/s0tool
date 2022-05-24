@@ -20,9 +20,9 @@ a case has been designed that you can 3D print yourself, its work in progres.
 ## Installation
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.
-<br><br>| Clean install:|  <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+<br><br>| Clean install:|  <esp-web-install-button manifest="./manifest1.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> wipes the wemos completely. <br> <br>
-| Update: |            <esp-web-install-button manifest="./manifest1.json"></esp-web-install-button>
+| Update: |            <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> keep the WiFi settings on it.
  <br>
 
