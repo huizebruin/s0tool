@@ -1,4 +1,5 @@
-  "name": "S0tool",
+{
+"name": "S0tool",
   "version": "2022.5.0",
   "home_assistant_domain": "esphome",
   "funding_url": "https://paypal.me/huizebruin",
