@@ -4,12 +4,12 @@
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
 <p align="left">
-  <img width="40%" src="./assets/s0tool-logo.jpg">
+  <img width="40%" src="./static/assets/s0tool-logo.jpg">
 </p>
 
 |  S0tool | Dashboard  |
 | :--- | :--- |
-|  ![S0tool-print](./assets/s0tool-huizebruin.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
+|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
 
 
  
@@ -45,15 +45,15 @@ Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/produc
 #
 ## Voor de watermeter
 - NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) of in Nederland bij [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)
-- (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./assets/water-npn.png)<br>![watermeteraansluiting](./assets/s0tool-watermeter.jpg)<br>
+- (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
 ***
 ## Voor het bijhouden van zonnepanelen of warmtepomp etc.
 - kWh meter met 1000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
 - kWh meter met 2000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
-![afbeelding](./assets/kwh-s0.png)<br>
+![afbeelding](./static/assets/kwh-s0.png)<br>
 #
 ## De s0 aansluiting <br>
-![afbeelding](./assets/kwh_Meter_Pulse.jpg)<br>
+![afbeelding](./static/assets/kwh_Meter_Pulse.jpg)<br>
 In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de<b>GND</b> I.P.V <b>5v+</b>.<br>
 Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
