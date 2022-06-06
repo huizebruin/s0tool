@@ -156,6 +156,13 @@ We staan ​​altijd open voor mensen die de code willen gebruiken of eraan wil
 
 Wie werken er nog meer aan dit project : <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
+## Collaborators
+
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
+
+## Contributors
+
 <!-- readme: contributors -start -->
 <!-- readme: contributors -end -->
 ****
