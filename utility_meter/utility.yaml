@@ -70,3 +70,4 @@
   warmtepomp_per_jaar:
     source: sensor.totaal_opgebracht
     cycle: yearly 
+
