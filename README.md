@@ -159,11 +159,66 @@ Wie werken er nog meer aan dit project : <br>
 ## Collaborators
 
 <!-- readme: collaborators -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/So871">
+            <img src="https://avatars.githubusercontent.com/u/45521085?v=4" width="100;" alt="So871"/>
+            <br />
+            <sub><b>So871</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/huizebruin">
+            <img src="https://avatars.githubusercontent.com/u/62996429?v=4" width="100;" alt="huizebruin"/>
+            <br />
+            <sub><b>Wobbe </b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: collaborators -end -->
 
 ## Contributors
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/huizebruin">
+            <img src="https://avatars.githubusercontent.com/u/62996429?v=4" width="100;" alt="huizebruin"/>
+            <br />
+            <sub><b>Wobbe </b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/So871">
+            <img src="https://avatars.githubusercontent.com/u/45521085?v=4" width="100;" alt="So871"/>
+            <br />
+            <sub><b>So871</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/TheGabeMan">
+            <img src="https://avatars.githubusercontent.com/u/4741637?v=4" width="100;" alt="TheGabeMan"/>
+            <br />
+            <sub><b>Gabrie Van Zanten</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ImgBotApp">
+            <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
+            <br />
+            <sub><b>Imgbot</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/bas-val">
+            <img src="https://avatars.githubusercontent.com/u/77850026?v=4" width="100;" alt="bas-val"/>
+            <br />
+            <sub><b>bas-val</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
 ****
 
