@@ -15,7 +15,7 @@
  
 <br><br>
 # De <b>s0tool</b> bestellen?
-https://www.huizebruin.nl/home-assistant/s0tool-bestellen </br>
+https://www.huizebruin.nl/webshop </br>
 Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
 En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
 
@@ -24,6 +24,7 @@ Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
 En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
 
+Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 # Update:
 | Datum | Informatie |
 | :--- | :--- |
@@ -155,6 +156,15 @@ We staan ​​altijd open voor mensen die de code willen gebruiken of eraan wil
 
 Wie werken er nog meer aan dit project : <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
+## Collaborators
+
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
+
+## Contributors
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 ****
 
 ## License
