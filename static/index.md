@@ -8,7 +8,7 @@
 <p align="center">
   <img width="40%" src="./assets/s0tool-logo.jpg">
 </p>
-Update : v2022-05-05-20:30<br><br>
+Update : v2022-07-13<br><br>
 With the<b>S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
@@ -20,10 +20,8 @@ a case has been designed that you can 3D print yourself, its work in progres.
 ## Installation
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.
-<br><br>| Clean install:|  <esp-web-install-button manifest="./manifest1.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> wipes the wemos completely. <br> <br>
-| Update: |            <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> keep the WiFi settings on it.
+<br><br>| Install:|  <esp-web-install-button manifest="./manifest1.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> 
  <br>
 
 
