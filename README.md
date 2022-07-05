@@ -215,7 +215,7 @@ Wie werken er nog meer aan dit project : <br>
         <a href="https://github.com/bas-val">
             <img src="https://avatars.githubusercontent.com/u/77850026?v=4" width="100;" alt="bas-val"/>
             <br />
-            <sub><b>bas-val</b></sub>
+            <sub><b>Bas-val</b></sub>
         </a>
     </td></tr>
 </table>
