@@ -83,6 +83,8 @@ ota:
 time:
   - platform: homeassistant
     id: time_homeassistant
+    on_time_sync:
+      - component.update: S0tool_uptime_timestamp
 
 select:
   # ⬇ imp/kWh rate ⬇ #
@@ -189,6 +191,26 @@ sensor:
     lambda: return (id(watermeter_pulse).state * 10);
     update_interval: 6s
 #------------------------#  sensoren #------------------------#
+  - platform: uptime
+    id: S0tool_uptime
+
+  - platform: template
+    id: S0tool_uptime_timestamp
+    name: "online sinds"
+    device_class: "timestamp"
+    accuracy_decimals: 0
+    update_interval: never
+    lambda: |-
+      static float timestamp = (
+        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
+      );
+      return timestamp;  
+
+  # WiFi signal
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s  
+        
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
   - platform: wifi_signal
     name: "${name} - WiFi Signal"
