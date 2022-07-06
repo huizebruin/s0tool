@@ -17,7 +17,7 @@ esphome:
     version: "${vdate}"
   
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/watermeter.yaml@main
+  package_import_url: github://huizebruin/s0tool/esphome/watermeter.yaml
 
 improv_serial:
   

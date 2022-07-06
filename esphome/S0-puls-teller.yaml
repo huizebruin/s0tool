@@ -18,8 +18,7 @@ esphome:
     version: "${vdate}"
   
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-teller.yaml@main
-
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-teller.yaml
 improv_serial:
   
 wifi:
@@ -150,7 +149,7 @@ sensor:
   - platform: wifi_signal
     name: "${name} - WiFi Signal"
     update_interval: 120s  
-        
+
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
 text_sensor:
   - platform: template
