@@ -22,6 +22,8 @@
   waterverbruik_per_jaar:
     source: sensor.watermeter_totaal
     cycle: yearly   
+  water_per_altijd:  
+    source: sensor.watermeter_totaal
     
 ### zonnepanelen S0 meter
   zonnepanelen_kwartier:
@@ -45,7 +47,8 @@
   zonnepanelen_per_jaar:
     source: sensor.totaal_opgebracht
     cycle: yearly   
-
+  zonnepanelen_per_altijd:
+    source: sensor.totaal_opgebracht  
 
   
 ### als je een Warmtepomp op de S0tool hebt aangesloten
@@ -70,4 +73,5 @@
   warmtepomp_per_jaar:
     source: sensor.totaal_opgebracht
     cycle: yearly 
-
+  warmtepomp_per_altijd:
+    source: sensor.totaal_opgebracht 
