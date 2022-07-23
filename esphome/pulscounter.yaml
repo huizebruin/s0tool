@@ -152,7 +152,7 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    update_interval: 6s
+#    update_interval: 6s
     accuracy_decimals: 1
 
 # ⬇ Totaal watermeter ⬇ #      
