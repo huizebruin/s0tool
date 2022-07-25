@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.07.13"
+  vdate: "v22.07.14"
   device_description: s0 kwh meter gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -149,8 +149,12 @@ sensor:
   - platform: wifi_signal
     name: "${name} - WiFi Signal"
     update_interval: 120s  
-
+        
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s
+    
 text_sensor:
   - platform: template
     name: "s0tool_versie"

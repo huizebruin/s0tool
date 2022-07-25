@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.07.13"
+  vdate: "v22.07.14"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool
 
@@ -78,7 +78,7 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    update_interval: 6s
+    update_interval: 2s
     accuracy_decimals: 1
 
 # ⬇ Totaal watermeter ⬇ #      
@@ -87,7 +87,7 @@ sensor:
       name: "watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
-      unit_of_measurement: "m3" #"m³"
+      unit_of_measurement: "m3" 
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
@@ -114,8 +114,8 @@ sensor:
     accuracy_decimals: 1
     unit_of_measurement: "l/min"
     icon: "mdi:water"
-    lambda: return (id(watermeter_pulse).state * 10);
-    update_interval: 6s
+    lambda: return (id(watermeter_pulse).state);
+    update_interval: 2s
 #------------------------#  sensoren #------------------------#
   - platform: uptime
     id: S0tool_uptime
@@ -137,12 +137,15 @@ sensor:
     name: "${name} - WiFi Signal"
     update_interval: 120s  
         
-#-------------------------------------------------#      
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s
+    
 text_sensor:
   - platform: template
     name: "s0tool_versie"
-    id: S0tool_versie
+    id: s0tool_versie
     icon: "mdi:label-outline"
     update_interval: 6h
     lambda: |-
@@ -151,15 +154,15 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: IP-adres
-      id: S0tool_ip_adres
+      id: s0tool_ip_adres
       icon: mdi:ip-network
     ssid:
       name: Netwerk
-      id: S0tool_netwerk
+      id: s0tool_netwerk
       icon: mdi:access-point-network
     mac_address:
       name: Mac-adres
-      id: S0tool_mac_adres
+      id: s0tool_mac_adres
       icon: mdi:folder-key-network-outline
 
 # ⬇ restart button voor de s0tool ⬇ #

@@ -30,6 +30,7 @@ Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https
 | :--- | :--- |
 | 05/05/2022 | V2 is binnen maar moet nog getest worden.|
 | 06/05/2022 | Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen. [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
+| 25/07/2022 | Watermeter geeft nu liter per minuut aan met vertraging van 2 seconden.|
 ***
 
 ### Software update informatie zie de [releases](https://github.com/huizebruin/s0tool/releases) sectie op github.
@@ -47,10 +48,20 @@ Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/produc
 ## Voor de watermeter
 - NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) of in Nederland bij [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)
 - (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
+Binnenkort ook read sensor voor de Elster V100	kogelvorm meter meter bestellen welke ook werkt met de S0tool houd de webshop in de gaten.
+
 ***
 ## Voor het bijhouden van zonnepanelen of warmtepomp etc.
 - kWh meter met 1000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
 - kWh meter met 2000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
+
+Worden er 2000 pulsen per kWh gegeven. Dit wil dus zeggen dat elke plus een waarde van 1/2000 = 0.0005 kWh
+Worden er 1000 pulsen per kWh gegeven. Dit wil dus zeggen dat elke plus een waarde van 1/1000 = 0.001 kWh
+
+2000 imp/kWh : geeft 2.000 impulsen per kWh. is dus nauwkeuriger om een meting te doen dan de 1000 imp/KWh
+Hoe meer energie u verbruikt of terug levert, des te sneller zal hij gaan schakelen.<br>
+
+
 ![afbeelding](./static/assets/kwh-s0.png)<br>
 #
 ## De s0 aansluiting <br>
@@ -59,13 +70,14 @@ In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de<b>GND</b> I.P.V <
 Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
 En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
+<br> Sinds 01-07-2022 wordt alleen nog maar V2 verstuurd.
 ***
 <br>
 
 ## Installatie: 
 
 06/05/2022: <br> Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen.<br>
-alleen mogelijk met een chrome of edge browser. <br>
+Alleen mogelijk met een chrome of edge en opera browser. <br>
 Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.
  [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 
@@ -77,10 +89,10 @@ Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.
 6. Wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden is ( zet die vast in je router)
 7. Ga naar je Home Assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld is. En voeg deze toe.
 8. Als het goed is gaat de print connectie maken met Github om de laatste versie binnen te halen, en daardoor ook toe te voegen aan Esphome
-9. Voeg de volgende code toe aan je 
+9. Maak een map aan in je config map via de verkenner en noem deze ``` utility_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml, en voeg onderstaande code daar in toe. En sla deze op( of download hem uit deze repro) en plaats hem in die map. (Code die onder 10 staat)
+10. Voeg de volgende code toe aan je 
 ``` configuration.yaml   ```
 <br> ``` utility_meter: !include utility_meter/utility.yaml ```
-10. Maak een map aan in je config map via de verkenner en noem deze ``` utility_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml, en voeg onderstaande code daar in toe. En sla deze op( of download hem uit deze repro) en plaats hem in die map.
 
 ``` yaml
 #utility_meter:

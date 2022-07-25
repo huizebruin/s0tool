@@ -8,7 +8,7 @@
 <p align="center">
   <img width="40%" src="./assets/s0tool-logo.jpg">
 </p>
-Update : v2022-07-13<br><br>
+Update : v2022-07-14<br><br>
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
