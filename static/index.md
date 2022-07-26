@@ -33,16 +33,20 @@ For the water counter: D2 [![Open your Home Assistant instance and show your ser
 <br><br>
 For the S0 port of the kwh meter : D5  [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
 
+Or this one.
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate)
+and you can find your readings and reset it. 
+
 ***
 
 Have fun with the <b>S0tool</b>.<br>
  <br> For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
-For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b><br><br>
-For more information about the S0tool <b>[information](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) Dutch</b> .
+For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b><br>
+</b> 
 <br><br><b>
 Wobbe From Huizebruin.nl</b>
 <br><br>
-
+For more information about the S0tool look at my (Dutch) [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 ## License
 MIT License
 

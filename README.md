@@ -52,6 +52,8 @@ Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/produc
 - (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
 Binnenkort ook read sensor voor de Elster V100	kogelvorm meter meter bestellen welke ook werkt met de S0tool houd de webshop in de gaten.
 
+Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
+
 ***
 ## Voor het bijhouden van zonnepanelen of warmtepomp etc.
 - kWh meter met 1000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
@@ -153,6 +155,10 @@ Voor het aan passen van de water meter stand :
 [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
 <br><br>
 Voor het aanpassen van je kwh meter stand : [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
+<br><br>
+Of deze optie en dan zoeken naar de juiste meter en dan aanpassen,<br> hier kan je alle meterstanden updaten: 
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate)
+
 ***
 
 Veel plezier met deze tool.<br>
@@ -161,7 +167,7 @@ Of via <b>[issues](https://github.com/huizebruin/s0tool/issues) </b> aangevraagd
 <br><br><b>
 Wobbe van Huizebruin.nl</b>
 <br><br>
-
+Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 ***
 
 ## Meewerken.
