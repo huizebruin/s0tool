@@ -3,9 +3,11 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
-<p align="left">
-  <img width="40%" src="./static/assets/s0tool-logo.jpg">
-</p>
+
+|  S0tool | ESPHome program  |
+| :--- | :--- |
+|  ![S0tool-logo](./static/assets/s0tool-logo.jpg)  | ![ESPHome](./static/assets/made-for-esphome-black-on-white.png) |
+
 
 |  S0tool | Dashboard  |
 | :--- | :--- |

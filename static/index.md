@@ -5,9 +5,10 @@
 
 # S0tool
 
-<p align="center">
-  <img width="40%" src="./assets/s0tool-logo.jpg">
-</p>
+|  S0tool | ESPHome program  |
+| :--- | :--- |
+|  ![S0tool-logo](./assets/s0tool-logo.jpg)  | ![ESPHome](./assets/made-for-esphome-black-on-white.png) |
+
 Update : v2022-07-14<br><br>
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 
