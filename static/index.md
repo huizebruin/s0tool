@@ -5,7 +5,7 @@
 
 # S0tool
 
-|  S0tool | ESPHome program  |
+|  S0tool | Made for ESPHome program  |
 | :--- | :--- |
 |  ![S0tool-logo](./assets/s0tool-logo.jpg)  | ![ESPHome](./assets/made-for-esphome-black-on-white.png) |
 

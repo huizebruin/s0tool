@@ -4,7 +4,7 @@
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
 
-|  S0tool | ESPHome program  |
+|  S0tool | Made for ESPHome program |
 | :--- | :--- |
 |  ![S0tool-logo](./static/assets/s0tool-logo.jpg)  | ![ESPHome](./static/assets/made-for-esphome-black-on-white.png) |
 
