@@ -13,89 +13,97 @@
 | :--- | :--- |
 |  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
 
-
+## Dutch version
+For the Dutch version look [Here](./README-nl.md) or on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 
  
 <br><br>
-# De <b>s0tool</b> bestellen?
-https://www.huizebruin.nl/webshop </br>
-Ik heb nog een aantal pcb's welke ik kan gaan klaar maken voor verkoop.<br>
-En mocht er meer vraag naar zijn ga ik nieuwe printen bestellen.
+# How to order the <b>S0tool</b> ?
+[https://www.huizebruin.nl/shop](https://www.huizebruin.nl/shop)</br>
+At this moment only to : The Netherlands , België and Luxemburg.
 
-In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de <b>GND</b> I.P.V <b>5v+</b>.<br>
-Dat werkt niet,  dit is een ontwerpfoutje. <br>
-Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
-En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
 
-Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 # Update:
-| Datum | Informatie |
+| Datum | Information |
 | :--- | :--- |
-| 05/05/2022 | V2 is binnen maar moet nog getest worden.|
-| 06/05/2022 | Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen. [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
-| 25/07/2022 | Watermeter geeft nu liter per minuut aan met vertraging van 2 seconden.|
-***
+| 05/05/2022 | V2 is ready at my home for testing.|
+| 06/05/2022 | From now you can flash the  <b>s0tool</b> directly from your browser with a usb micro cable  [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
+| 25/07/2022 | Watercounter gives now you Liters every 2 seconds a update to Home Assistant.|
+| 04/08/2022 | Tekst translate on Github to [English](./README.md) and [Dutch](./README-nl.md).|
+<br>
 
-### Software update informatie zie de [releases](https://github.com/huizebruin/s0tool/releases) sectie op github.
+***
+<br>
+
+### Software update information at [releases](https://github.com/huizebruin/s0tool/releases) here on Github.
 ***
 
 # Hardware
-Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
+Put the sensors ad your 🛒 Look what you need te have te use it.
 #
-## Voeding
-- Minimaal 5v 1A [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Funiversal-usb-adapter-usb-stekker-usb-lader-blokje-universeel-zwart%2F9300000030638594%2F&name=Universal%20USB%20adapter%20-%20USB%20stekker%20-%20USB%20lader) 
-- usb kabel [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fzware-kwaliteit-0-3-m-usb-oplaadkabel-oplaadsnoer-kabel-voor-snelladen-past-ook-op-huawei-ascend-3-ideos-x3-mate-10-lite-mate-8-mate-s-p-smart-p10-lite-p8-lite%2F9200000124489693%2F&name=Zware%20kwaliteit%200%2C3%20m%20USB%20oplaadkabel.%20) of [opencircuit.nl](https://opencircuit.nl/product/Micro-USB-kabel-100cm-blauw-30AWG?affiliate=1VL4KIAMBZ)
+## 5V Power and cable
+- Minimal a 5v 1A [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Funiversal-usb-adapter-usb-stekker-usb-lader-blokje-universeel-zwart%2F9300000030638594%2F&name=Universal%20USB%20adapter%20-%20USB%20stekker%20-%20USB%20lader) 
+- usb kabel [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fzware-kwaliteit-0-3-m-usb-oplaadkabel-oplaadsnoer-kabel-voor-snelladen-past-ook-op-huawei-ascend-3-ideos-x3-mate-10-lite-mate-8-mate-s-p-smart-p10-lite-p8-lite%2F9200000124489693%2F&name=Zware%20kwaliteit%200%2C3%20m%20USB%20oplaadkabel.%20) or [opencircuit.nl](https://opencircuit.nl/product/Micro-USB-kabel-100cm-blauw-30AWG?affiliate=1VL4KIAMBZ)
 
-Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/product/5V-2.5A-Adapter-Micro-USB-B-Raspberry-Pi?affiliate=1VL4KIAMBZ) of bij [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fxssive-usb-lader-met-micro-usb-kabel-voor-motorola-smartphones-o-a-moto-x-moto-g-moto-e-nexus-6%2F9200000055360796%2F&name=Xssive%20USB%20Lader%20met%20Micro%20USB%20Kabel%20).
+Or a 5v 2.5A with cable [Opencircuit.nl](https://opencircuit.nl/product/5V-2.5A-Adapter-Micro-USB-B-Raspberry-Pi?affiliate=1VL4KIAMBZ) or at [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fxssive-usb-lader-met-micro-usb-kabel-voor-motorola-smartphones-o-a-moto-x-moto-g-moto-e-nexus-6%2F9200000055360796%2F&name=Xssive%20USB%20Lader%20met%20Micro%20USB%20Kabel%20).
 #
-## Voor de watermeter
-- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) of in Nederland bij [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)
-- (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
-Binnenkort ook read sensor voor de Elster V100	kogelvorm meter meter bestellen welke ook werkt met de S0tool houd de webshop in de gaten.
+## For the  water counter
+-  a NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) or [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) or [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) or in Nederland at [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)
+- (use npn sensor for 5V not that one thats higher than 6V !!)<br> 
+I am using the LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>
 
-Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
+NPN sensor to the S0tool![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
+
+Cyble sensor V2 to the S0tool![watermeteraansluiting](./static/assets/s0tool-cyble-sensor-v2.jpg)<br>
+Here u must add a 10K Ohm resistor between the GND and D2
+
+Soon also a sensor for  Elster V100	kogelvorm meter for the S0tool at my shop.
+
+For More information about the S0tool look at my [Website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 
 ***
-## Voor het bijhouden van zonnepanelen of warmtepomp etc.
-- kWh meter met 1000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
-- kWh meter met 2000 pulsen per kWh [bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
+## For keeping track of solar panels or heat pump etc.
+- 45A kWh meter with 1000 pulses at kWh [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
+- 40A kWh meter with 2000 pulses at kWh [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
+- 32A kWh meter with 2000 pulses at kWh [Amazon](https://amzn.to/3P6CSg0)
+- 40A kWh meter with 1000 pulses at kWh [Amazon](https://amzn.to/3oV08ms)
 
-Worden er 2000 pulsen per kWh gegeven. Dit wil dus zeggen dat elke plus een waarde van 1/2000 = 0.0005 kWh
-Worden er 1000 pulsen per kWh gegeven. Dit wil dus zeggen dat elke plus een waarde van 1/1000 = 0.001 kWh
+2000 pulses per kWh are given. This means that each plus has a value of 1/2000 = 0.0005 kWh
+1000 pulses per kWh are given. This means that each plus has a value of 1/1000 = 0.001 kWh
 
-2000 imp/kWh : geeft 2.000 impulsen per kWh. is dus nauwkeuriger om een meting te doen dan de 1000 imp/KWh
-Hoe meer energie u verbruikt of terug levert, des te sneller zal hij gaan schakelen.<br>
+2000 imp/kWh : gives 2,000 impulses per kWh. is therefore more accurate to do a measurement than the 1000 imp/KWh
+The more energy you consume or supply back, the faster it will switch.<br>
 
 
 ![afbeelding](./static/assets/kwh-s0.png)<br>
 #
-## De s0 aansluiting <br>
+## The s0 connection <br>
 ![afbeelding](./static/assets/kwh_Meter_Pulse.jpg)<br>
-In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de<b>GND</b> I.P.V <b>5v+</b>.<br>
-Dat werkt niet,  dit is een ontwerpfoutje. <br>
-Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
-En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21 op de kWh meter.
-<br> Sinds 01-07-2022 wordt alleen nog maar V2 verstuurd.
+How to put it to your setup
+![afbeelding](./static/assets/s0tool-s0-kwh-poort.jpg)<br>
+There is a small error in <b>v1</b>, in the s0 connection is the <b>GND</b> I.P.V <b>5v+</b>.<br>
+
+<br> Since 01-07-2022 only V2 is sent out.
 ***
 <br>
 
-## Installatie: 
+## Installation: 
 
-06/05/2022: <br> Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen.<br>
-Alleen mogelijk met een chrome of edge en opera browser. <br>
-Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.
+06/05/2022: <br> Now also possible to flash the <b>s0tool</b> directly via the browser.<br>
+Only possible with a chrome or edge and opera browser. <br>
+Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
  [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 
-1. Installeer Home Assistant & Esphome .
-2. Connect de wemos d1 mini aan een usblader.
-3. Ga met je laptop of telefoon naar     <b>ssid:</b> ```S0tool``` &   <b> password:</b> ```s0watermeter```
-4. Ga naar ```192.168.4.1```.
-5. Zet de juiste SSID en Wachtwoord in de velden
-6. Wacht tot hij klaar is, en dan geeft hij het adres aan waar hij op te vinden is ( zet die vast in je router)
-7. Ga naar je Home Assistant instalatie, deze zal gaan melden dat er een nieuw device gekoppeld is. En voeg deze toe.
-8. Als het goed is gaat de print connectie maken met Github om de laatste versie binnen te halen, en daardoor ook toe te voegen aan Esphome
-9. Maak een map aan in je config map via de verkenner en noem deze ``` utility_meter ``` en plaats daar weer een tekst bestand in en hernoem deze naar utility.yaml, en voeg onderstaande code daar in toe. En sla deze op( of download hem uit deze repro) en plaats hem in die map. (Code die onder 10 staat)
-10. Voeg de volgende code toe aan je 
-``` configuration.yaml   ```
+1. Install Home Assistant & Esphome .
+2. Connect the wemos d1 mini to a USB charger.
+3. Go to <b>ssid:</b> ```S0tool``` & <b> password:</b> ```s0watermeter```
+4. Go to ```192.168.4.1```.
+5. Put the correct SSID and Password in the fields
+6. Wait until it is ready, and then it will indicate the address where it can be found (put it in your router)
+7. Go to your Home Assistant installation, it will report that a new device has been connected. And add this.
+8. If all goes well, the print will connect to Github to download the latest version, and thereby also add it to Esphome
+9. Create a folder in your config folder via explorer and name it ``` utility_meter ``` and put another text file in it and rename it to utility.yaml, and add the code below. And save it (or download it from this repro) and put it in that folder. (Code that is under 10)
+10. Add the following code to your
+``` configuration.yaml ```
 <br> ``` utility_meter: !include utility_meter/utility.yaml ```
 
 ``` yaml
@@ -109,24 +117,24 @@ Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.
     cycle: hourly
 enz...
 ```
-Die in de file staan in de map [utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
+Those in the file are in the folder[utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
 
-12. Optioneel om te zien of er nieuwe updates zijn, kun je de volgende sensor aanmaken in je configuration.yaml:<br>
-(of je kopieert de sensor file uit de sensor map en plaatst dat allemaal in je eigen configuratie).
+12. Optionally to see if there are new updates, you can create the following sensor in your configuration.yaml:<br>
+(or you copy the sensor file from the sensor folder and put it all in your own configuration).
 ```yaml
-#sensor: # ervoor weg als dit je eerste sensor is
+#sensor: # get away if this is your first sensor
   - platform: rest
     resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
     name: s0tool_versie_github
     value_template: '​{{ value_json.tag_name }}​'
 
 ```
-Deze versie kun je dan vergelijken met de entity "sensor.s0tool_versie".<br>
-Deze 2 staan ook in de sensor map op deze Github.
+You can then compare this version with the entity "sensor.s0tool_versie".<br>
+These 2 are also in the sensor folder on this Github.
 
-13. Herstart Home Assistant nog een maal om alles toe te kunnen voegen aan je Lovelace scherm.
+13. Restart Home Assistant one more time to add everything to your Lovelace screen.
 
-14. Voeg deze kaart toe om automatisch een update te krijgen op je dashboard, daarmee weet je of je de laatste versie gebruikt.
+14. Add this card to automatically get an update on your dashboard, so you know if you are using the latest version.
 
 ``` yaml
 type: conditional
@@ -135,46 +143,51 @@ conditions:
     state_not: 'True'
 card:
   type: markdown
-  content: De s0tool is niet up to date met de GitHub versie.
+  content: The s0tool is not up to date with the GitHub version.
 ```
 ***
 
 
 
 
-## Blueprint voor update meldingen.
-Hiermee kun je een automation maken waardoor je melding krijgt als er een nieuwe versie online staat op Github.
-Je moet dan wel alle bovenstaande sensoren hebben toegevoegd.
+## Blueprint for update notifications.
+With this you can create an automation that will notify you when a new version is online on Github.
+You must have added all the above sensors.
 <br>
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e)
 
 
 ***
-## Aanpassen van de meter stand
-Voor het aan passen van de water meter stand : 
+## Adjusting the meter reading
+To adjust the water meter position:
 [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
 <br><br>
-Voor het aanpassen van je kwh meter stand : [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
+To adjust your kWh meter reading: [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
 <br><br>
-Of deze optie en dan zoeken naar de juiste meter en dan aanpassen,<br> hier kan je alle meterstanden updaten: 
+Or this option and then search for the right meter and then adjust, <br> here you can update all meter readings:
 [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate)
+<br>
+
+****
+## Update function
+04-08-2022 : <br> I'm working on a feature to keep this tool always up to date with the latest version on github.
 
 ***
 
-Veel plezier met deze tool.<br>
-Eventuele toevoegingen / verbeteringen <br> mogen via <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b> aangevuld worden.<br> 
-Of via <b>[issues](https://github.com/huizebruin/s0tool/issues) </b> aangevraagd en of toegevoegd worden.
+Have fun with this tool.<br>
+Any additions / improvements <br> may be made via <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b> be supplemented.<br> 
+Or via<b>[issues](https://github.com/huizebruin/s0tool/issues) </b> requested or added.
 <br><br><b>
-Wobbe van Huizebruin.nl</b>
+Wobbe from Huizebruin.nl</b>
 <br><br>
-Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
+For more information and connection diagrams, etc., take a look at the [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 ***
 
-## Meewerken.
-Dit is een actief open-sourceproject. <br>
-We staan ​​altijd open voor mensen die de code willen gebruiken of eraan willen bijdragen.
+## To cooperate. 
+This is an active open source project. <br>
+We are always open to people who want to use or contribute to the code. 
 
-Wie werken er nog meer aan dit project : <br>
+Who else is working on this project : <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
 ## Collaborators
 
@@ -240,13 +253,14 @@ Wie werken er nog meer aan dit project : <br>
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
+
 ****
 
 ## License
 
 MIT License
 
-Copyright (c) 2021 / 2022 Huizebruin
+Copyright (c) 2021 / 2022 Huizebruin.nl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -256,7 +270,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ***
 
-<a href="https://tc.tradetracker.net/?c=27&amp;m=39668&amp;a=385034&amp;r=&amp;u=" target="_blank" rel="sponsored nofollow">Geld verdienen met je site. Start nu, meldt je hier aan.</a>
+<a href="https://tc.tradetracker.net/?c=27&amp;m=39668&amp;a=385034&amp;r=&amp;u=" target="_blank" rel="sponsored nofollow">Make money with your site. Start now, sign up here.</a>
 
 
 
