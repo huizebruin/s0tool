@@ -51,9 +51,11 @@ Or a 5v 2.5A with cable [Opencircuit.nl](https://opencircuit.nl/product/5V-2.5A-
 - (use npn sensor for 5V not that one thats higher than 6V !!)<br> 
 I am using the LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>
 
-NPN sensor to the S0tool![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
+NPN sensor to the S0tool<br>
+![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
 
-Cyble sensor V2 to the S0tool![watermeteraansluiting](./static/assets/s0tool-cyble-sensor-v2.jpg)<br>
+Cyble sensor V2 to the S0tool<br>
+![watermeteraansluiting](./static/assets/s0tool-cyble-sensor-v2.jpg)<br>
 Here u must add a 10K Ohm resistor between the GND and D2
 
 Soon also a sensor for  Elster V100	kogelvorm meter for the S0tool at my shop.
@@ -78,7 +80,7 @@ The more energy you consume or supply back, the faster it will switch.<br>
 #
 ## The s0 connection <br>
 ![afbeelding](./static/assets/kwh_Meter_Pulse.jpg)<br>
-How to put it to your setup
+How to put it to your setup<br>
 ![afbeelding](./static/assets/s0tool-s0-kwh-poort.jpg)<br>
 There is a small error in <b>v1</b>, in the s0 connection is the <b>GND</b> I.P.V <b>5v+</b>.<br>
 

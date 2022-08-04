@@ -49,10 +49,10 @@ Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/produc
 - NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) of in Nederland bij [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)
 - (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>
 
-NPN sensor naar de S0tool
+NPN sensor naar de S0tool<br>
 ![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
 
-Cyble sensor V2 naar de S0tool
+Cyble sensor V2 naar de S0tool<br>
 ![watermeteraansluiting](./static/assets/s0tool-cyble-sensor-v2.jpg)<br>
 Hier moet u een weerstand van 10k Ohm toevoegen tussen de GND en D2
 
@@ -79,6 +79,8 @@ Hoe meer energie u verbruikt of terug levert, des te sneller zal hij gaan schake
 #
 ## De s0 aansluiting <br>
 ![afbeelding](./static/assets/kwh_Meter_Pulse.jpg)<br>
+Hoe de S0 kWh meter te verbinden met de S0tool<br>
+![afbeelding](./static/assets/s0tool-s0-kwh-poort.jpg)<br>
 In <b>v1</b> zit een klein foutje, in de s0 aansluiting zit de<b>GND</b> I.P.V <b>5v+</b>.<br>
 Dat werkt niet,  dit is een ontwerpfoutje. <br>
 Er moet dus een kabeltje vanaf de 5v+ op het printje naar poort 20 op je kWh meter.<br>
