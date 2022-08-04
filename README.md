@@ -19,7 +19,7 @@ For the Dutch version look [Here](./README-nl.md) or on my [website](https://www
 <br><br>
 # How to order the <b>S0tool</b> ?
 [https://www.huizebruin.nl/shop](https://www.huizebruin.nl/shop)</br>
-At this moment only to : The Netherlands , België and Luxemburg.
+At this moment we only ship to : The Netherlands , België and Luxemburg.
 
 
 # Update:
@@ -28,7 +28,7 @@ At this moment only to : The Netherlands , België and Luxemburg.
 | 05/05/2022 | V2 is ready at my home for testing.|
 | 06/05/2022 | From now you can flash the  <b>s0tool</b> directly from your browser with a usb micro cable  [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 | 25/07/2022 | Watercounter gives now you Liters every 2 seconds a update to Home Assistant.|
-| 04/08/2022 | Tekst translate on Github to [English](./README.md) and [Dutch](./README-nl.md).|
+| 04/08/2022 | Text translate on Github to [English](./README.md) and [Dutch](./README-nl.md).|
 <br>
 
 ***
