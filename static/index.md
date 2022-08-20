@@ -42,7 +42,8 @@ and you can find your readings and reset it.
 Have fun with the <b>S0tool</b>.<br>
  <br> For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
 For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b><br>
-</b> 
+
+ 
 <br><br><b>
 Wobbe From Huizebruin.nl</b>
 <br><br>
