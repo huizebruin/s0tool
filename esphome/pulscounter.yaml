@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.07.14"
+  vdate: "v22.07.15.beta"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -164,7 +164,7 @@ sensor:
       unit_of_measurement: "m3" 
       accuracy_decimals: 3
       filters:
-      - multiply: 0.001
+      - multiply: 0.0005
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -177,7 +177,7 @@ sensor:
     accuracy_decimals: 3
     lambda: |-
       if (id(watermeter_pulse).state >= 1) {
-        id(totalWaterUsage) += 0.001;
+        id(totalWaterUsage) += 0.0005;
       }
       return id(totalWaterUsage);
       
