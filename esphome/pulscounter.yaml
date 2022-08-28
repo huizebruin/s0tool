@@ -164,7 +164,7 @@ sensor:
       unit_of_measurement: "m3" 
       accuracy_decimals: 3
       filters:
-      - multiply: 0.0005
+      - multiply: 0.001
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -177,7 +177,7 @@ sensor:
     accuracy_decimals: 3
     lambda: |-
       if (id(watermeter_pulse).state >= 1) {
-        id(totalWaterUsage) += 0.0005;
+        id(watermeter_pulse) += 0.001;
       }
       return id(totalWaterUsage);
       
