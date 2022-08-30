@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.07.15.beta"
+  vdate: "v22.07.15.beta2"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -45,7 +45,7 @@ api:
   services:
     - service: meterstand_water
       variables:
-        meter_value: float
+        meter_value: int #float
       then:
         - globals.set:
             id: totalWaterUsage
@@ -53,7 +53,7 @@ api:
 
     - service: meterstand_kwh
       variables:
-        meter_value: float
+        meter_value: int #float
       then:
         - globals.set:
             id: totalkwhUsage
@@ -61,18 +61,18 @@ api:
 
 globals:
   - id: totalWaterUsage
-    type: float
+    type: int #float
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
     restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '001' 
+    initial_value: '201' 
     
   - id: totalkwhUsage
-    type: float
+    type: int #float
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
     restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '00001' 
+    initial_value: '14968' 
 
 ota:
   safe_mode: true
@@ -152,7 +152,6 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-#    update_interval: 2s
     accuracy_decimals: 1
 
 # ⬇ Totaal watermeter ⬇ #      
@@ -172,17 +171,10 @@ sensor:
     name: "watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
-#    update_interval: 1s
     unit_of_measurement: m3
     accuracy_decimals: 3
     lambda:       
       return id(sensor_pulse_meter_total).state + id(totalWaterUsage);
-
-#    lambda: |-
-#      if (id(watermeter_pulse).state >= 1) {
-#        id(totalWaterUsage) += 0.001;
-#      }
-#      return id(totalWaterUsage);
       
 # ⬇ watermeter l/min ⬇ #
   - platform: template
@@ -192,7 +184,6 @@ sensor:
     unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
-#    update_interval: 2s
 #------------------------#  sensoren #------------------------#
   - platform: uptime
     id: S0tool_uptime
