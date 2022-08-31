@@ -15,8 +15,9 @@ With the<b> S0tool</b> you can keep track of the consumption of both your water 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
 A suitable kWh meter with an S0 connection must be installed for this.
 
-<b>S0tool</b> makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]! <br>
-a case has been designed that you can 3D print yourself, its work in progres.
+<b>S0tool</b> makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome licence <br>
+
+![S0tool-and_case](./assets/S0tool_case.jpg) 
 
 ## Installation
 
