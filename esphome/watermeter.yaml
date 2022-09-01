@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.07.14"
+  vdate: "v22.08.15"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool
 
@@ -44,7 +44,7 @@ api:
   services:
     - service: meterstand_water
       variables:
-        meter_value: float
+        meter_value: int 
       then:
         - globals.set:
             id: totalWaterUsage
@@ -52,11 +52,11 @@ api:
 
 globals:
   - id: totalWaterUsage
-    type: float
+    type: int 
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: yes      
+    restore_value: no      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '001' 
+    initial_value: '201' 
 
 ota:
   safe_mode: true
@@ -78,7 +78,6 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    update_interval: 2s
     accuracy_decimals: 1
 
 # ⬇ Totaal watermeter ⬇ #      
@@ -87,7 +86,7 @@ sensor:
       name: "watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
-      unit_of_measurement: "m3" 
+      unit_of_measurement: m3
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
@@ -98,14 +97,10 @@ sensor:
     name: "watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
-    update_interval: 1s
-    unit_of_measurement: "m3"
+    unit_of_measurement: m3
     accuracy_decimals: 3
-    lambda: |-
-      if (id(watermeter_pulse).state >= 1) {
-        id(totalWaterUsage) += 0.001;
-      }
-      return id(totalWaterUsage);
+    lambda:       
+      return id(sensor_pulse_meter_total).state + id(totalWaterUsage);
       
 # ⬇ watermeter l/min ⬇ #
   - platform: template
@@ -115,7 +110,6 @@ sensor:
     unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
-    update_interval: 2s
 #------------------------#  sensoren #------------------------#
   - platform: uptime
     id: S0tool_uptime
