@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.07.15.beta2"
+  vdate: "v22.07.15"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
   name: s0tool
@@ -45,7 +45,7 @@ api:
   services:
     - service: meterstand_water
       variables:
-        meter_value: int #float
+        meter_value: int 
       then:
         - globals.set:
             id: totalWaterUsage
@@ -53,7 +53,7 @@ api:
 
     - service: meterstand_kwh
       variables:
-        meter_value: int #float
+        meter_value: int 
       then:
         - globals.set:
             id: totalkwhUsage
@@ -61,14 +61,14 @@ api:
 
 globals:
   - id: totalWaterUsage
-    type: int #float
+    type: int 
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
     restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '201' 
     
   - id: totalkwhUsage
-    type: int #float
+    type: int 
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
     restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
