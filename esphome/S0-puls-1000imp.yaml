@@ -1,0 +1,184 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
+substitutions:
+  vdate: "v22.09.15"
+  device_description: s0 kwh meter gemaakt door huizebruin.nl versie ${vdate} .
+#  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
+  name: s0tool
+
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: d1_mini
+  comment: '${device_description}'
+  project:
+    name: huizebruin.${name}
+    version: "${vdate}"
+  
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-1000imp.yaml
+improv_serial:
+  
+wifi:
+# secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)
+  # ssid: "wifi_ssid"
+  # password: "wifi_password"
+#------------------------##------------------------##------------------------##------------------------#
+# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
+# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
+  ap:
+    ssid: "${name}"
+
+web_server:
+  port: 80
+  
+captive_portal:
+# ⬇ Enable logging ⬇ # 
+logger:
+  level: INFO
+  
+#  # ⬇ Enable Home Assistant API ⬇ # 
+api:
+  services:
+    - service: meterstand_kwh
+      variables:
+        meter_value: int
+      then:
+        - globals.set:
+            id: totalkwhUsage
+            value: !lambda "return ( meter_value ) ;"
+
+globals:
+  - id: totalkwhUsage
+    type: int
+# ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
+    restore_value: yes
+# ⬇ Bij het flashen,pas dit aan! ⬇ #        
+    initial_value: '00001' 
+
+ota:
+  safe_mode: true
+  reboot_timeout: 10min
+  num_attempts: 5
+
+#  ⬇ Enable time component voor reset elke nacht ⬇ #
+time:
+  - platform: homeassistant
+    id: time_homeassistant
+    on_time_sync:
+      - component.update: S0tool_uptime_timestamp
+
+select:
+  # ⬇ imp/kWh rate ⬇ #
+  - platform: template
+    name: "Pulse_rate kWh meter"
+    id: Select_pulse_rate
+    optimistic: true
+    options:
+      - "2000"
+      - "1500" 
+      - "1000"
+      - "500" 
+      - "100"
+    initial_option: "1000"
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
+
+#------------------------# Kwh meter S0 poort 1 #------------------------#
+sensor:
+# ⬇ kwh meter s0 ⬇ #
+  - platform: pulse_meter
+    pin: D5 
+    name:  "Actuele energie"
+    id: W_opbrengst
+    icon: "mdi:flash"
+#    internal_filter: ${impulslengte} 
+    accuracy_decimals: 3
+    unit_of_measurement: 'kW'
+    state_class: measurement
+    device_class: power
+    filters:
+      - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
+
+# ⬇ Totaal opgebracht ⬇ #    
+    total:
+      unit_of_measurement: 'kWh'
+      name: "Totaal opgebracht"
+      id: W_opbrengst_totaal
+      state_class: total_increasing
+      device_class: energy
+      icon: "mdi:flash"
+      accuracy_decimals: 2
+      filters:
+        - lambda: return x * ((1.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
+
+# ⬇ Kwh meterstand ⬇ stand bij benadering #        
+  - platform: template
+    id: kwh_total
+    name: "Actuele meterstand"
+    state_class: "total_increasing"
+    icon: "mdi:flash"
+    update_interval: 1s
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 2
+    lambda: 
+      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
+
+#------------------------#  sensoren #------------------------#
+  - platform: uptime
+    id: S0tool_uptime
+
+  - platform: template
+    id: S0tool_uptime_timestamp
+    name: "online sinds"
+    device_class: "timestamp"
+    accuracy_decimals: 0
+    update_interval: never
+    lambda: |-
+      static float timestamp = (
+        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
+      );
+      return timestamp;  
+
+  # WiFi signal
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s  
+        
+# ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s
+    
+text_sensor:
+  - platform: template
+    name: "s0tool_versie"
+    id: s0tool_versie
+    icon: "mdi:label-outline"
+    update_interval: 6h
+    lambda: |-
+      return {"${vdate}"};
+
+  - platform: wifi_info
+    ip_address:
+      name: IP-adres
+      id: s0tool_ip_adres
+      icon: mdi:ip-network
+    ssid:
+      name: Netwerk
+      id: s0tool_netwerk
+      icon: mdi:access-point-network
+    mac_address:
+      name: Mac-adres
+      id: s0tool_mac_adres
+      icon: mdi:folder-key-network-outline
+
+# ⬇ restart button voor de s0tool ⬇ #
+button:  
+  - platform: restart
+    name: "Restart device"
