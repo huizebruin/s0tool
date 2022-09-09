@@ -4,9 +4,9 @@
 # © Huizebruin.nl
 substitutions:
   vdate: "v22.09.15"
-  device_description: s0 kwh meter gemaakt door huizebruin.nl versie ${vdate} .
+  device_description: s0 kwh meter 1000imp gemaakt door huizebruin.nl versie ${vdate} .
 #  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: s0tool 1000imp
+  name: s0tool-1000imp
 
 esphome:
   name: ${name}
