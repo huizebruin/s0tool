@@ -5,7 +5,7 @@
 substitutions:
   vdate: "v22.08.15"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
-  name: s0tool
+  name: s0tool watermeter
 
 esphome:
   name: ${name}
