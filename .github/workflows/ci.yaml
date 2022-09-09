@@ -7,12 +7,19 @@ on:
 
 jobs:
   ci:
-    name: "🛠️ Build check"
+    name: Building ${{ matrix.file }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file:
+          - esphome/pulscounter.yaml
+          - esphome/S0-puls-1000imp.yaml
+          - esphome/S0-puls-2000imp.yaml
+          - esphome/watermeter.yaml
     steps:
-      - name: ⤵️ Check out files from GitHub
+      - name: Checkout source code
         uses: actions/checkout@v3
-      - name: Test firmware build
+      - name: Build ESPHome firmware to verify configuration
         uses: esphome/build-action@v1.5.2
         with:
-          yaml_file: esphome/pulscounter.yaml
+          yaml_file: ${{ matrix.file }}
