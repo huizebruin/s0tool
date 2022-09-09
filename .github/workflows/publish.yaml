@@ -10,7 +10,7 @@ on:
 
 jobs:
   publish-S0tool-compleet:
-    name: "🛠️ ESPHome S0tool firmware"
+    name: "🛠️ S0tool firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       files: ./esphome/pulscounter.yaml
@@ -18,7 +18,7 @@ jobs:
       manifest_filename: s0tool-manifest.json
 
   publish-S0tool-1000imp:
-    name: "🛠️ ESPHome S0tool 1000imp firmware"
+    name: "🛠️ S0tool 1000imp firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       files: ./esphome/S0-puls-1000imp.yaml
@@ -27,7 +27,7 @@ jobs:
 
 
   publish-S0tool-2000imp:
-    name: "🛠️ ESPHome S0tool 2000imp firmware"
+    name: "🛠️ S0tool 2000imp firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       files: ./esphome/S0-puls-2000imp.yaml
@@ -35,7 +35,7 @@ jobs:
       manifest_filename: s0-puls2000imp-manifest.json
       
   publish-S0tool-watermeter:
-    name: "🛠️ ESPHome S0tool watermeter firmware"
+    name: "🛠️ S0tool watermeter firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       files: ./esphome/watermeter.yaml
