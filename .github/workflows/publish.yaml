@@ -9,9 +9,10 @@ on:
       - main
 
 jobs:
-  publish:
-    name: "🛠️ ESPHome firmware"
+  publish-S0tool-compleet:
+    name: "🛠️ ESPHome S0tool firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       files: ./esphome/pulscounter.yaml
       name: S0tool
+      manifest_filename: s0tool-manifest.json
