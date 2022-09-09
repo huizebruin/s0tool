@@ -38,6 +38,6 @@ jobs:
     name: "🛠️ ESPHome S0tool watermeter firmware"
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      files: ./esphome/watermeter.yaml.yaml
+      files: ./esphome/watermeter.yaml
       name: S0tool 
       manifest_filename: s0-watermeter-manifest.json      
