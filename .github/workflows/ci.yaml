@@ -4,10 +4,12 @@
 name: Publish firmware
 
 on:
-  workflow_dispatch:
-  release:
-    types:
-      - published
+  pull_request:
+# on:
+#   workflow_dispatch:
+#   release:
+#     types:
+#       - published
 
 jobs:
   ci:
