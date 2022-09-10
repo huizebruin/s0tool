@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name}
+    name: huizebruin.${name} pulsteller 2000imp
     version: "${vdate}"
   
 dashboard_import:
