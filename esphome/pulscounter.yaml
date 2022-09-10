@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name}_compleet
+    name: huizebruin.${name}(compleet)
     version: "${vdate}"
   
 dashboard_import:
@@ -184,7 +184,7 @@ sensor:
     unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
-    
+
 #------------------------#  sensoren #------------------------#
   - platform: uptime
     id: S0tool_uptime
