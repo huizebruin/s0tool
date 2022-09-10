@@ -1,7 +1,7 @@
 ---
 # Build the ESPHome binary firmware
 # And deploy it to Github Pages.
-name: Publish firmware
+name: Publish firmware pull request
 
 on:
   pull_request:

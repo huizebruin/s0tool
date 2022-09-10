@@ -5,7 +5,7 @@
 substitutions:
   vdate: "v22.09.15"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
-  name: s0tool_watermeter
+  name: s0tool
 
 esphome:
   name: ${name}
@@ -13,7 +13,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name}
+    name: huizebruin.${name}_watermeter
     version: "${vdate}"
   
 dashboard_import:
