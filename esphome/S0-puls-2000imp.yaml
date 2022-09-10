@@ -6,7 +6,7 @@ substitutions:
   vdate: "v22.09.15"
   device_description: s0 kwh meter 2000imp gemaakt door huizebruin.nl versie ${vdate} .
 #  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: s0tool
+  name: s0tool-2000imp
 
 esphome:
   name: ${name}
@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name}.2000imp
+    name: huizebruin.${name}
     version: "${vdate}"
   
 dashboard_import:
