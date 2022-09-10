@@ -16,3 +16,10 @@ jobs:
     with:
       files: esphome/pulscounter.yaml
       name: S0tool compleet
+
+  publish:
+    name: "🛠️ ESPHome S0tool watermeter"
+    uses: esphome/workflows/.github/workflows/publish.yml@main
+    with:
+      files: esphome/watermeter.yaml
+      name: S0tool watermeter
