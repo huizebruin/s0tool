@@ -2,12 +2,12 @@
 # Can we build firmware check
 name: CI
 
+#on:
+#  push:
+#    branches:
+#      - main
 on:
-  push:
-    branches:
-      - main
-# on:
-#   pull_request:
+  pull_request:
 
 jobs:
   ci:
