@@ -8,22 +8,41 @@ on:
     branches:
       - main
 
+name: Build and Publish ESPHome firmware and website
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  publish-S0tool-compleet:
-    name: "🛠️ S0tool compleet firmware"
+  build:
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      files: ./esphome/pulscounter.yaml
-      name: S0tool compleet
-      manifest_filename: s0tool-manifest.json
-      
-  publish-S0tool-watermeter:
-    name: "🛠️ S0tool watermeter firmware"
-    uses: esphome/workflows/.github/workflows/publish.yml@main
-    with:
-      files: ./esphome/watermeter.yaml
-      name: S0tool watermeter
-      manifest_filename: s0-watermeter-manifest.json      
+      # CHANGEME: Set the filenames of your config files here:
+      files: ./esphome/pulscounter.yaml,./esphome/watermeter.yaml,./esphome/S0-puls-1000imp.yaml,./esphome/S0-puls-2000imp.yaml
+      # CHANGEME: Set the name of your project here:
+      name: S0tool
+
+
+
+
+# jobs:
+#   publish-S0tool-compleet:
+#     name: "🛠️ S0tool compleet firmware"
+#     uses: esphome/workflows/.github/workflows/publish.yml@main
+#     with:
+#       files: ./esphome/pulscounter.yaml
+#       name: S0tool compleet
+#       manifest_filename: s0tool-manifest.json
+
+#   publish-S0tool-watermeter:
+#     name: "🛠️ S0tool watermeter firmware"
+#     uses: esphome/workflows/.github/workflows/publish.yml@main
+#     with:
+#       files: ./esphome/watermeter.yaml
+#       name: S0tool watermeter
+#       manifest_filename: s0-watermeter-manifest.json      
 
 
   # publish-S0tool-1000imp:

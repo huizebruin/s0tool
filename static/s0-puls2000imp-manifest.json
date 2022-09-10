@@ -8,7 +8,7 @@
       "chipFamily": "ESP8266",
       "parts": [
         {
-          "path": "s0tool-2000imp/s0tool-puls-2000imp.bin",
+          "path": "s0tool-esp8266/s0tool-puls-2000imp.bin",
           "offset": 0
         }
       ]

@@ -8,7 +8,7 @@
       "chipFamily": "ESP8266",
       "parts": [
         {
-          "path": "s0tool-watermeter/s0tool-watermeter.bin",
+          "path": "s0tool-esp8266/s0tool-watermeter.bin",
           "offset": 0
         }
       ]
