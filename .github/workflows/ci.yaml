@@ -1,29 +1,18 @@
 ---
-# Can we build firmware check
-name: CI
+# Build the ESPHome binary firmware
+# And deploy it to Github Pages.
+name: Publish firmware
 
-#on:
-#  push:
-#    branches:
-#      - main
 on:
-  pull_request:
+  workflow_dispatch:
+  release:
+    types:
+      - published
 
 jobs:
-  ci:
-    name: Building ${{ matrix.file }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        file:
-          - esphome/pulscounter.yaml
-          - esphome/S0-puls-1000imp.yaml
-          - esphome/S0-puls-2000imp.yaml
-          - esphome/watermeter.yaml
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
-      - name: Build ESPHome firmware to verify configuration
-        uses: esphome/build-action@v1.5.2
-        with:
-          yaml_file: ${{ matrix.file }}
+  publish:
+    name: "🛠️ ESPHome S0tool compleet"
+    uses: esphome/workflows/.github/workflows/publish.yml@main
+    with:
+      files: esphome/pulscounter.yaml
+      name: S0tool compleet
