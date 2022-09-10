@@ -5,8 +5,8 @@
 substitutions:
   vdate: "v22.09.15"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
-  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: s0tool compleet
+#  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
+  name: s0tool-compleet
 
 esphome:
   name: ${name}
@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name} 
+    name: huizebruin.${name}.
     version: "${vdate}"
   
 dashboard_import:
@@ -113,7 +113,7 @@ sensor:
     name:  "Actuele energie"
     id: W_opbrengst
     icon: "mdi:flash"
-    internal_filter: ${impulslengte} 
+#    internal_filter: ${impulslengte} 
     accuracy_decimals: 3
     unit_of_measurement: 'kW'
     state_class: measurement
