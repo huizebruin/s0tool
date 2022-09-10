@@ -9,7 +9,7 @@
 | :--- | :--- |
 |  ![S0tool-logo](./assets/s0tool-logo.jpg)  | ![ESPHome](./assets/made-for-esphome-black-on-white.png) |
 
-Update : v2022-08-15 (02-09-2022) <br><br>
+Update : v2022-09-15 ( Date: 10/09/2022 ) <br><br>
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
@@ -21,18 +21,17 @@ A suitable kWh meter with an S0 connection must be installed for this.
 
 ## Installation
 
-You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.
-<br><br>| Install S0tool compleet:|  <esp-web-install-button manifest="./s0tool-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> 
- <br>
-<br>| Install S0tool Watermeter:|  <esp-web-install-button manifest="./s0-watermeter-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> 
- <br>
-<br>| Install S0tool 1000imp kWhmeter:|  <esp-web-install-button manifest="./s0-puls1000imp-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> 
- <br>
-<br>| Install S0tool 2000imp kWhmeter:|  <esp-web-install-button manifest="./s0-puls2000imp-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> 
+You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
+|  Version | Install  | info |
+| :--- | :--- | :--- |
+| Install S0tool compleet:|  <esp-web-install-button manifest="./s0tool-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | complete with watermeter and kwh meter |
+| Install S0tool Watermeter: |  <esp-web-install-button manifest="./s0-watermeter-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | only watermeter  |
+| Install S0tool 1000imp kWhmeter: |  <esp-web-install-button manifest="./s0-puls1000imp-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | only kwh meter 1000imp for solar |
+| Install S0tool 2000imp kWhmeter: |  <esp-web-install-button manifest="./s0-puls2000imp-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | only kwh meter 2000imp for solar |
  <br>
 
 
