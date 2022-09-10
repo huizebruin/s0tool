@@ -12,46 +12,5 @@ jobs:
   build:
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      # CHANGEME: Set the filenames of your config files here:
       files: ./esphome/pulscounter.yaml,./esphome/watermeter.yaml,./esphome/S0-puls-1000imp.yaml,./esphome/S0-puls-2000imp.yaml
-      # CHANGEME: Set the name of your project here:
       name: S0tool
-
-
-
-
-# jobs:
-#   publish-S0tool-compleet:
-#     name: "🛠️ S0tool compleet firmware"
-#     uses: esphome/workflows/.github/workflows/publish.yml@main
-#     with:
-#       files: ./esphome/pulscounter.yaml
-#       name: S0tool compleet
-#       manifest_filename: s0tool-manifest.json
-
-#   publish-S0tool-watermeter:
-#     name: "🛠️ S0tool watermeter firmware"
-#     uses: esphome/workflows/.github/workflows/publish.yml@main
-#     with:
-#       files: ./esphome/watermeter.yaml
-#       name: S0tool watermeter
-#       manifest_filename: s0-watermeter-manifest.json      
-
-
-  # publish-S0tool-1000imp:
-  #   name: "🛠️ S0tool 1000imp firmware"
-  #   uses: esphome/workflows/.github/workflows/publish.yml@main
-  #   with:
-  #     files: ./esphome/S0-puls-1000imp.yaml
-  #     name: S0tool 1000imp puls
-  #     manifest_filename: s0-puls1000imp-manifest.json
-
-
-  # publish-S0tool-2000imp:
-  #   name: "🛠️ S0tool 2000imp firmware"
-  #   uses: esphome/workflows/.github/workflows/publish.yml@main
-  #   with:
-  #     files: ./esphome/S0-puls-2000imp.yaml
-  #     name: S0tool 2000imp puls
-  #     manifest_filename: s0-puls2000imp-manifest.json
-      

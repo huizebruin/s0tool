@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name} pulsteller 2000imp
+    name: huizebruin.${name} 
     version: "${vdate}"
   
 dashboard_import:
@@ -147,12 +147,12 @@ sensor:
 
   # WiFi signal
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "S0tool - WiFi Signal"
     update_interval: 120s  
         
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "S0tool - WiFi Signal"
     update_interval: 120s
     
 text_sensor:

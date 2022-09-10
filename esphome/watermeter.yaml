@@ -13,7 +13,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name} watermeter
+    name: huizebruin.${name} 
     version: "${vdate}"
   
 dashboard_import:
@@ -54,7 +54,7 @@ globals:
   - id: totalWaterUsage
     type: int 
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no      
+    restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '201' 
 
@@ -110,6 +110,7 @@ sensor:
     unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
+
 #------------------------#  sensoren #------------------------#
   - platform: uptime
     id: S0tool_uptime
@@ -128,12 +129,12 @@ sensor:
 
   # WiFi signal
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "S0tool - WiFi Signal"
     update_interval: 120s  
         
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "S0tool - WiFi Signal"
     update_interval: 120s
     
 text_sensor:

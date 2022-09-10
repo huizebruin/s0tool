@@ -6,7 +6,7 @@ substitutions:
   vdate: "v22.09.15"
   device_description: s0 kwh meter en watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: s0tool
+  name: s0tool compleet
 
 esphome:
   name: ${name}
@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name} Compleet water+kwh
+    name: huizebruin.${name} 
     version: "${vdate}"
   
 dashboard_import:
@@ -63,14 +63,14 @@ globals:
   - id: totalWaterUsage
     type: int 
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
-    restore_value: no      
+    restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '201' 
     
   - id: totalkwhUsage
     type: int 
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: no
+    restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '14968' 
 
@@ -202,12 +202,12 @@ sensor:
 
   # WiFi signal
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "S0tool - WiFi Signal"
     update_interval: 120s  
         
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "S0tool - WiFi Signal"
     update_interval: 120s
     
 text_sensor:
