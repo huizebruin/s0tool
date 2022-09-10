@@ -184,6 +184,7 @@ sensor:
     unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
+    
 #------------------------#  sensoren #------------------------#
   - platform: uptime
     id: S0tool_uptime

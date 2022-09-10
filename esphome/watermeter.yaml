@@ -117,7 +117,7 @@ sensor:
 
   - platform: template
     id: S0tool_uptime_timestamp
-    name: "online sinds"
+    name: "sotool_online_sinds"
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
@@ -127,14 +127,10 @@ sensor:
       );
       return timestamp;  
 
-  # WiFi signal
-  - platform: wifi_signal
-    name: "S0tool - WiFi Signal"
-    update_interval: 120s  
-        
+
 # ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
   - platform: wifi_signal
-    name: "S0tool - WiFi Signal"
+    name: "s0tool_WiFi Signal"
     update_interval: 120s
     
 text_sensor:
