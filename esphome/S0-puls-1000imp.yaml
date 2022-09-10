@@ -14,7 +14,7 @@ esphome:
   board: d1_mini
   comment: '${device_description}'
   project:
-    name: huizebruin.${name}_1000imp
+    name: huizebruin.${name}.1000imp
     version: "${vdate}"
   
 dashboard_import:
