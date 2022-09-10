@@ -22,8 +22,9 @@ A suitable kWh meter with an S0 connection must be installed for this.
 ## Installation
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
+
 |  Version | Install  | info | <br>
-|  S0tool compleet:|  <esp-web-install-button manifest="./s0tool-manifest.json"></esp-web-install-button>
+|  S0tool compleet:|  <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | complete with watermeter and kwh meter |<br>
 |  S0tool Watermeter: |  <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | only watermeter  | <br>
