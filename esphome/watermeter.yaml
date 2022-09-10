@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.08.15"
+  vdate: "v22.09.15"
   device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool-watermeter
 
