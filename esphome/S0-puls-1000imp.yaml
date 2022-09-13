@@ -19,6 +19,10 @@ esphome:
   
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/S0-puls-1000imp.yaml
+
+packages:   
+  remote_package_three: github://huizebruin/s0tool/esphome/basis.yml@main
+
 improv_serial:
   
 wifi:
@@ -128,53 +132,3 @@ sensor:
     accuracy_decimals: 2
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
-
-#------------------------#  sensoren #------------------------#
-  - platform: uptime
-    id: S0tool_uptime
-
-  - platform: template
-    id: S0tool_uptime_timestamp
-    name: "sotool_online_sinds"
-    device_class: "timestamp"
-    accuracy_decimals: 0
-    update_interval: never
-    lambda: |-
-      static float timestamp = (
-        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
-      );
-      return timestamp;  
-
-
-# ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
-  - platform: wifi_signal
-    name: "s0tool_WiFi Signal"
-    update_interval: 120s
-    
-text_sensor:
-  - platform: template
-    name: "s0tool_versie"
-    id: s0tool_versie
-    icon: "mdi:label-outline"
-    update_interval: 6h
-    lambda: |-
-      return {"${vdate}"};
-
-  - platform: wifi_info
-    ip_address:
-      name: IP-adres
-      id: s0tool_ip_adres
-      icon: mdi:ip-network
-    ssid:
-      name: Netwerk
-      id: s0tool_netwerk
-      icon: mdi:access-point-network
-    mac_address:
-      name: Mac-adres
-      id: s0tool_mac_adres
-      icon: mdi:folder-key-network-outline
-
-# ⬇ restart button voor de s0tool ⬇ #
-button:  
-  - platform: restart
-    name: "Restart device"
