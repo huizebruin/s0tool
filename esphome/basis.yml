@@ -1,0 +1,65 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
+sensor:
+#------------------------#  sensoren #------------------------#
+  - platform: uptime
+    id: S0tool_uptime
+
+  - platform: template
+    id: S0tool_uptime_timestamp
+    name: "${name} online sinds"
+    device_class: "timestamp"
+    accuracy_decimals: 0
+    update_interval: never
+    lambda: |-
+      static float timestamp = (
+        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
+      );
+      return timestamp;  
+
+# ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+  # WiFi signal
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 120s
+    
+text_sensor:
+  - platform: template
+    name: "${name}_versie"
+    id: s0tool_versie
+    icon: "mdi:label-outline"
+    update_interval: 6h
+    lambda: |-
+      return {"${vdate}"};
+
+  - platform: wifi_info
+    ip_address:
+      name: "${name} IP-adres"
+      id: s0tool_ip_adres
+      icon: mdi:ip-network
+    ssid:
+      name: "${name} Netwerk"
+      id: s0tool_netwerk
+      icon: mdi:access-point-network
+    mac_address:
+      name: "${name} Mac-adres"
+      id: s0tool_mac_adres
+      icon: mdi:folder-key-network-outline
+
+#  restart button  #
+button:  
+  - platform: restart
+    name: "${name} Restart device"
+    
+# safe mode switch
+switch:
+  - platform: safe_mode
+    name: "${name} Safe Mode"   
+    
+# diagnostic button #
+binary_sensor:
+  - platform: status
+    name: "${name} Status"
+    entity_category: diagnostic

@@ -28,6 +28,7 @@ Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https
 | 06/05/2022 | Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen. [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 | 25/07/2022 | Watermeter geeft nu liter per minuut aan met vertraging van 2 seconden.|
 | 04/08/2022 | Tekst vertaald op Github naar [English](./README.md) en [Dutch](./README-nl.md).|
+| 10/09/2022 | Flash pagina geupdate nu keuzemogelijkheden --> standaard / watermeter / 1000imp puls / 2000imp puls .|
 <br>
 
 ***
@@ -192,70 +193,7 @@ We staan ​​altijd open voor mensen die de code willen gebruiken of eraan wil
 
 Wie werken er nog meer aan dit project : <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
-## Collaborators
 
-<!-- readme: collaborators -start -->
-<table>
-<tr>
-    <td align="center">
-        <a href="https://github.com/So871">
-            <img src="https://avatars.githubusercontent.com/u/45521085?v=4" width="100;" alt="So871"/>
-            <br />
-            <sub><b>So871</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/huizebruin">
-            <img src="https://avatars.githubusercontent.com/u/62996429?v=4" width="100;" alt="huizebruin"/>
-            <br />
-            <sub><b>Wobbe </b></sub>
-        </a>
-    </td></tr>
-</table>
-<!-- readme: collaborators -end -->
-
-## Contributors
-
-<!-- readme: contributors -start -->
-<table>
-<tr>
-    <td align="center">
-        <a href="https://github.com/huizebruin">
-            <img src="https://avatars.githubusercontent.com/u/62996429?v=4" width="100;" alt="huizebruin"/>
-            <br />
-            <sub><b>Wobbe </b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/So871">
-            <img src="https://avatars.githubusercontent.com/u/45521085?v=4" width="100;" alt="So871"/>
-            <br />
-            <sub><b>So871</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/TheGabeMan">
-            <img src="https://avatars.githubusercontent.com/u/4741637?v=4" width="100;" alt="TheGabeMan"/>
-            <br />
-            <sub><b>Gabrie Van Zanten</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/ImgBotApp">
-            <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
-            <br />
-            <sub><b>Imgbot</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/bas-val">
-            <img src="https://avatars.githubusercontent.com/u/77850026?v=4" width="100;" alt="bas-val"/>
-            <br />
-            <sub><b>Bas-val</b></sub>
-        </a>
-    </td></tr>
-</table>
-<!-- readme: contributors -end -->
 
 ****
 
