@@ -10,7 +10,6 @@ api:
             id: totalWaterUsage
             value: !lambda "return ( meter_value ) ;"
 
-
 globals:
   - id: totalWaterUsage
     type: float
@@ -27,7 +26,7 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    update_interval: 6s
+#    update_interval: 2s
     accuracy_decimals: 1
 
 # ⬇ Totaal watermeter ⬇ #      
@@ -36,7 +35,7 @@ sensor:
       name: "watermeter Totaal"
       icon: "mdi:cube-outline"
       state_class: "total_increasing"
-      unit_of_measurement: "m3" #"m³"
+      unit_of_measurement: m3
       accuracy_decimals: 3
       filters:
       - multiply: 0.001
@@ -47,14 +46,11 @@ sensor:
     name: "watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
-    update_interval: 1s
-    unit_of_measurement: "m3"
+#    update_interval: 1s
+    unit_of_measurement: m3
     accuracy_decimals: 3
-    lambda: |-
-      if (id(watermeter_pulse).state >= 1) {
-        id(totalWaterUsage) += 0.001;
-      }
-      return id(totalWaterUsage);
+    lambda:       
+      return id(sensor_pulse_meter_total).state + id(totalWaterUsage);
       
 # ⬇ watermeter l/min ⬇ #
   - platform: template
@@ -63,5 +59,5 @@ sensor:
     accuracy_decimals: 1
     unit_of_measurement: "l/min"
     icon: "mdi:water"
-    lambda: return (id(watermeter_pulse).state * 10);
-    update_interval: 6s
+    lambda: return (id(watermeter_pulse).state);
+#    update_interval: 2s
