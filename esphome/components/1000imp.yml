@@ -19,12 +19,6 @@ globals:
     initial_value: '00001' 
 
 
-#  ⬇ Enable time component voor reset elke nacht ⬇ #
-time:
-  - platform: homeassistant
-    id: time_homeassistant
-    on_time_sync:
-      - component.update: S0tool_uptime_timestamp
 
 select:
   # ⬇ imp/kWh rate ⬇ #
