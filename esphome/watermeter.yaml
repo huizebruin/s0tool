@@ -21,10 +21,10 @@ dashboard_import:
 packages:   
 #  remote_package_three: github://huizebruin/s0tool/esphome/basis.yml@main
   remote_package:
-    url: https://github.com/huizebruin/s0tool/esphome
+    url: https://github.com/huizebruin/s0tool/esphome/packages
     ref: main
     files: 
-      - packages/basis.yml
+      - basis.yaml
     refresh: 0d 
 
 improv_serial:
