@@ -1,51 +1,4 @@
-# Delen en bewerken mag maar laat deze eerste regels staan.
-# Bron : https://www.huizebruin.nl
-# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
-# © Huizebruin.nl
-substitutions:
-  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
-#  impulslengte: "50ms" #30ms of 50ms zie datasheet van het type meter
-  name: s0tool-1000imp
-
-esphome:
-  name: ${name}
-  platform: ESP8266
-  board: d1_mini
-  comment: '${device_description}'
-  project:
-    name: huizebruin.${name}
-    version: "${vdate}"
-  
-dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-1000imp.yaml
-
-packages:   
-#  remote_package_three: github://huizebruin/s0tool/esphome/basis.yml@main
-  remote_package:
-    url: https://github.com/huizebruin/s0tool/esphome
-    ref: main
-    files: 
-      - packages/basis.yml
-    refresh: 0d 
-    
-improv_serial:
-  
-wifi:
-  # ssid: "wifi_ssid"
-  # password: "wifi_password"
-# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
-# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
-  ap:
-    ssid: "${name}"
-
-web_server:
-  port: 80
-  
-captive_portal:
-# ⬇ Enable logging ⬇ # 
-logger:
-  level: INFO
-  
+ 
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
@@ -65,10 +18,6 @@ globals:
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '00001' 
 
-ota:
-  safe_mode: true
-  reboot_timeout: 10min
-  num_attempts: 5
 
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
 time:

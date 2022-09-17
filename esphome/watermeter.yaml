@@ -3,8 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.09.15"
-  device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .
+  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool-watermeter
 
 esphome:
@@ -20,15 +19,19 @@ dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/watermeter.yaml
 
 packages:   
-  remote_package_three: github://huizebruin/s0tool/esphome/basis.yml@main
+#  remote_package_three: github://huizebruin/s0tool/esphome/basis.yml@main
+  remote_package:
+    url: https://github.com/huizebruin/s0tool/esphome
+    ref: main
+    files: 
+      - packages/basis.yml
+    refresh: 0d 
 
 improv_serial:
   
 wifi:
-# secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)
   # ssid: "wifi_ssid"
   # password: "wifi_password"
-#------------------------##------------------------##------------------------##------------------------#
 # ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
