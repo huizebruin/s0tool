@@ -64,7 +64,8 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 2
       filters:
-        - lambda: return x * ((1.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
+        - multiply: 0.001
+ #       - lambda: return x * ((1.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
 
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
