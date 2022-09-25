@@ -3,8 +3,8 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.9.16"
-  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
+  vdate: "v22.9.17"
+  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
 
 improv_serial:
   
@@ -87,10 +87,14 @@ button:
   - platform: restart
     name: "${name} Restart device"
     
-# safe mode switch
 switch:
+# safe mode switch
   - platform: safe_mode
     name: "${name} Safe Mode"   
+
+# Factory Reset Switch from ESPHome v2022.09    
+  - platform: factory_reset
+    name: Restart with Factory Default Settings    
     
 # diagnostic button #
 binary_sensor:
