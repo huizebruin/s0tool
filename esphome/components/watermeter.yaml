@@ -16,7 +16,7 @@ globals:
 # ⬇ Bij het updaten onder de waarde, verander dit in no voor 1 run  ⬇ # 
     restore_value: yes      
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '001' 
+    initial_value: '010' 
     
 sensor:
 #------------------------# Watermeter #------------------------#
@@ -60,4 +60,3 @@ sensor:
     unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
-#    update_interval: 2s

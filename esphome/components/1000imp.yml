@@ -4,7 +4,7 @@ api:
   services:
     - service: meterstand_kwh
       variables:
-        meter_value: int
+        meter_value: float #int
       then:
         - globals.set:
             id: totalkwhUsage
@@ -12,11 +12,11 @@ api:
 
 globals:
   - id: totalkwhUsage
-    type: int
+    type: float #int
 # ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
     restore_value: yes
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
-    initial_value: '00001' 
+    initial_value: '00010' 
 
 
 
