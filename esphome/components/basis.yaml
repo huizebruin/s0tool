@@ -25,9 +25,7 @@ logger:
   level: INFO
 
 ota:
-  safe_mode: true
-  reboot_timeout: 10min
-  num_attempts: 5
+
 
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
 time:

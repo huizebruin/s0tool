@@ -4,7 +4,7 @@ api:
   services:
     - service: meterstand_kwh
       variables:
-        meter_value: float #int
+        meter_value: float 
       then:
         - globals.set:
             id: totalkwhUsage
