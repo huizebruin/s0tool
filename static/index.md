@@ -32,6 +32,8 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  only kwh meter 1000imp | <br>
 |  S0tool 2000imp kWhmeter:   <esp-web-install-button manifest="./s0tool-2000imp-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  only kwh meter 2000imp | <br>
+|  S0tool :   <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> choose your option | <br>
  <br>
 
 
