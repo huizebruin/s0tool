@@ -22,6 +22,7 @@ jobs:
           - esphome/watermeter.yaml
           - esphome/S0-puls-1000imp.yaml
           - esphome/S0-puls-2000imp.yaml
+          - esphome/DSZ12D.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
