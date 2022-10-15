@@ -32,8 +32,10 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  only kwh meter 1000imp | <br>
 |  S0tool 2000imp kWhmeter:   <esp-web-install-button manifest="./s0tool-2000imp-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  only kwh meter 2000imp | <br>
-|  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest"></esp-web-install-button>
+|  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the dsz12d | <br>
+|  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | <br>
  <br>
 
 
