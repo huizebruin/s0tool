@@ -3,12 +3,15 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.10.18"
+  vdate: "v22.10.19"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
 
 esphome:
   name: ${name}
   name_add_mac_suffix: true
+  platform: esp8266
+  board: d1_mini
+  esp8266_restore_from_flash: true 
 
 improv_serial:
   
@@ -19,6 +22,7 @@ wifi:
 # ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
   ap:
     ssid: "${name}"
+    ap_timeout: 15s
 
 web_server:
   port: 80
@@ -26,7 +30,8 @@ web_server:
 captive_portal:
 # ⬇ Enable logging ⬇ # 
 logger:
-  level: INFO
+  level: WARN
+  esp8266_store_log_strings_in_flash: false
 
 ota:
 
@@ -48,6 +53,7 @@ sensor:
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
+    icon: 'mdi:clock-start' 
     lambda: |-
       static float timestamp = (
         id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
