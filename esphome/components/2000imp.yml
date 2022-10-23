@@ -1,4 +1,6 @@
- 
+substitutions:
+  impulslengte: "50ms"
+
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
