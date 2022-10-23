@@ -18,34 +18,24 @@ globals:
 # ⬇ Bij het flashen,pas dit aan! ⬇ #        
     initial_value: '03542' 
 
-
-
-select:
-  # ⬇ imp/kWh rate ⬇ #
+number:
   - platform: template
-    name: "Pulse_rate kWh meter"
     id: Select_pulse_rate
+    name: 'Pulsrate kWh'
     optimistic: true
-    options:
-      - "2000"
-      - "1500" 
-      - "1000"
-      - "500" 
-      - "100"
-    initial_option: "1000"
-    on_value:
-      then:
-        - logger.log:
-            format: "Chosen option: %s "
-            args: ["x.c_str()"]
-
+    mode: box
+    min_value: '10'
+    max_value: '4000'
+    step: '10'
+    restore_value: yes
+    initial_value: '1000'
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    pin: D5 
+    pin: D5
     name:  "Actuele energie"
-    id: W_opbrengst
+    id: actual_power
     icon: "mdi:flash"
     internal_filter: ${impulslengte} 
     accuracy_decimals: 3
@@ -53,7 +43,7 @@ sensor:
     state_class: measurement
     device_class: power
     filters:
-      - lambda: return x * ((60.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
+       lambda: return x * (60.0 / id(Select_pulse_rate).state);
 
 # ⬇ Totaal opgebracht ⬇ #    
     total:
@@ -63,10 +53,10 @@ sensor:
       state_class: total_increasing
       device_class: energy
       icon: "mdi:flash"
-      accuracy_decimals: 2
+      accuracy_decimals: 3
       filters:
-        - multiply: 0.001
-#        - lambda: return x * ((1.0 / atoi(id(Select_pulse_rate).state.c_str()))); 
+        - lambda: return x * (1.0 / id(Select_pulse_rate).state);
+
 
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
@@ -76,6 +66,17 @@ sensor:
     icon: "mdi:flash"
     update_interval: 1s
     unit_of_measurement: 'kWh'
-    accuracy_decimals: 2
+    accuracy_decimals: 3
     lambda: 
       return id(W_opbrengst_totaal).state + id(totalkwhUsage);
+
+  - platform: total_daily_energy
+    name: 'opbrengst vandaag'                 
+    id: daily_power_S0tool
+    power_id: actual_power
+    unit_of_measurement: 'kWh'
+    icon: 'mdi:circle-slice-3'                          
+    state_class: total_increasing
+    device_class: energy
+    accuracy_decimals: 3
+    restore: true
