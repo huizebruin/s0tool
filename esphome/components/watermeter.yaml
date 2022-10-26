@@ -27,12 +27,12 @@ sensor:
     name: "watermeter pulse"
     state_class: measurement
     accuracy_decimals: 1
+    device_class: water 
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
       name: "watermeter Totaal"
-      icon: "mdi:cube-outline"
       state_class: "total_increasing"
       unit_of_measurement: m3
       accuracy_decimals: 3
