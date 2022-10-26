@@ -1,0 +1,85 @@
+substitutions:
+  impulslengte: "50ms"
+
+#  # ⬇ Enable Home Assistant API ⬇ # 
+api:
+  services:
+    - service: meterstand_kwh
+      variables:
+        meter_value: float 
+      then:
+        - globals.set:
+            id: totalkwhUsage
+            value: !lambda "return ( meter_value ) ;"
+
+globals:
+  - id: totalkwhUsage
+    type: float 
+# ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
+    restore_value: yes
+# ⬇ Bij het flashen,pas dit aan! ⬇ #        
+    initial_value: '00010' 
+
+number:
+  - platform: template
+    id: Select_pulse_rate
+    name: 'Pulsrate kWh'
+    optimistic: true
+    mode: box
+    min_value: '10'
+    max_value: '4000'
+    step: '10'
+    restore_value: yes
+    initial_value: '2000'
+#------------------------# Kwh meter S0 poort 1 #------------------------#
+sensor:
+# ⬇ kwh meter s0 ⬇ #
+  - platform: pulse_meter
+    pin: D5
+    name:  "Warmtepomp Actuele energieverbruik"
+    id: actual_power
+    icon: "mdi:flash"
+#    internal_filter: ${impulslengte} 
+    accuracy_decimals: 3
+    unit_of_measurement: 'kW'
+    state_class: measurement
+    device_class: power
+    filters:
+       lambda: return x * (60.0 / id(Select_pulse_rate).state);
+
+# ⬇ Warmtepomp Totale energieverbruik ⬇ #    
+    total:
+      unit_of_measurement: 'kWh'
+      name: "Warmtepomp Totale energieverbruik"
+      id: W_opbrengst_totaal
+      state_class: total_increasing
+      device_class: energy
+      icon: "mdi:flash"
+      accuracy_decimals: 3
+      filters:
+        - lambda: return x * (1.0 / id(Select_pulse_rate).state);
+
+
+# ⬇ Kwh meterstand ⬇ stand bij benadering #        
+  - platform: template
+    id: kwh_total
+    name: "Warmtepomp Actuele meterstand"
+    state_class: "total_increasing"
+    icon: "mdi:flash"
+    update_interval: 1s
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 3
+    lambda: 
+      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
+
+  - platform: total_daily_energy
+    name: 'Warmtepomp Dag energieverbruik'                 
+    id: daily_power_S0tool
+    power_id: actual_power
+    unit_of_measurement: 'kWh'
+    icon: 'mdi:circle-slice-3'                          
+    state_class: total_increasing
+    device_class: energy
+    accuracy_decimals: 3
+    restore: true
+
