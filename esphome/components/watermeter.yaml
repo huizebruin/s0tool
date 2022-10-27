@@ -27,7 +27,7 @@ sensor:
     name: "watermeter pulse"
     state_class: measurement
     accuracy_decimals: 1
-    device_class: water 
+    Icon: mdi:"water-pump"
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
@@ -36,6 +36,7 @@ sensor:
       state_class: "total_increasing"
       unit_of_measurement: m3
       accuracy_decimals: 3
+      device_class: water
       filters:
       - multiply: 0.001
       
