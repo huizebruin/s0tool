@@ -27,7 +27,6 @@ sensor:
     name: "watermeter pulse"
     state_class: measurement
     accuracy_decimals: 1
-    Icon: "mdi:water-pump"
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
