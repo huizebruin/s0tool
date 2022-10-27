@@ -30,7 +30,7 @@ web_server:
 captive_portal:
 # ⬇ Enable logging ⬇ # 
 logger:
-  level: WARN
+  level: INFO
   esp8266_store_log_strings_in_flash: false
 
 ota:
