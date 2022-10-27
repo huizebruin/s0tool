@@ -12,5 +12,5 @@ jobs:
   build:
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      files: ./esphome/pulscounter.yaml,./esphome/watermeter.yaml,./esphome/S0-puls-1000imp.yaml,./esphome/S0-puls-2000imp.yaml, ./esphome/S0-puls-DSZ12D.yaml, ./esphome/S0-puls-LEM022SJ.yaml
+      files: ./esphome/pulscounter.yaml,./esphome/watermeter.yaml,./esphome/S0-puls-1000imp.yaml,./esphome/S0-puls-2000imp.yaml, ./esphome/S0-puls-DSZ12D.yaml, ./esphome/S0-puls-LEM022SJ.yaml #./esphome/S0-puls-warmtepomp.yaml
       name: S0tool

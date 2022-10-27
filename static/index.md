@@ -35,7 +35,10 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 |  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the dsz12d | <br>
 |  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | <br>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | 
+<br>
+|  S0tool warmtepomp:   <esp-web-install-button manifest="./s0tool-warmtepomp-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> Special for warmtepomp | <br>
  <br>
 
 
