@@ -27,6 +27,7 @@ sensor:
     name: "watermeter pulse"
     state_class: measurement
     accuracy_decimals: 1
+    
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
@@ -35,7 +36,7 @@ sensor:
       state_class: "total_increasing"
       unit_of_measurement: m3
       accuracy_decimals: 3
-      device_class: water
+      device_class: water 
       filters:
       - multiply: 0.001
       
@@ -55,14 +56,14 @@ sensor:
     name: "Water verbruik Liter"
     id: watermeter_flow
     accuracy_decimals: 1
-    unit_of_measurement: "L/min"
+    unit_of_measurement: "l/min"
     icon: "mdi:water"
     lambda: return (id(watermeter_pulse).state);
 
   - platform: total_daily_energy
     name: 'waterverbruik vandaag'                 
     id: daily_water_S0tool
-    power_id: sensor_pulse_meter_total
+    power_id: watermeter_flow
     unit_of_measurement: 'm3'
     icon: 'mdi:circle-slice-3'                          
     state_class: total_increasing
