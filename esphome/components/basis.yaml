@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.10.20"
+  vdate: "v22.10.21"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
 
 esphome:
