@@ -11,7 +11,7 @@
 
 |  S0tool | Dashboard  |
 | :--- | :--- |
-|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
+|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.jpg) |
 
 
  
@@ -28,7 +28,8 @@ Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https
 | 06/05/2022 | Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen. [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
 | 25/07/2022 | Watermeter geeft nu liter per minuut aan met vertraging van 2 seconden.|
 | 04/08/2022 | Tekst vertaald op Github naar [English](./README.md) en [Dutch](./README-nl.md).|
-| 10/09/2022 | Flash pagina geupdate nu keuzemogelijkheden --> standaard / watermeter / 1000imp puls / 2000imp puls .|
+| 10/09/2022 | Flash pagina geüpdatet nu keuzemogelijkheden --> standaard / watermeter / 1000imp puls / 2000imp puls .|
+| 29/10/2022 | Fix om de watermeter sensor toe te voegen aan het energy dashboard.|
 <br>
 
 ***
@@ -56,6 +57,12 @@ NPN sensor naar de S0tool<br>
 Cyble sensor V2 naar de S0tool<br>
 ![watermeteraansluiting](./static/assets/s0tool-cyble-sensor-v2.jpg)<br>
 Hier moet u een weerstand van 10k Ohm toevoegen tussen de GND en D2
+
+## Watermeter op het energy dashboard.
+Vanaf Home Assistant versie 2022.11.X is het mogelijk om met de S0tool vanaf versie v22.10.20 de watermeter toe te voegen aan het energie dashboard. <br>
+|  Enegry dashboard | Dashboard  |
+| :--- | :--- |
+|  ![S0tool-water-energy-dashboard](./static/assets/water-energydashboard.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.jpg) |
 
 ***
 Binnenkort ook de sensor voor de Elster V100 kogelvorm meter te bestellen welke ook werkt met de S0tool houd de shop in de gaten.
@@ -174,7 +181,7 @@ Of deze optie en dan zoeken naar de juiste meter en dan aanpassen,<br> Hier kan 
 
 ****
 ## Update-functie
-04-08-2022 : <br> Ik werk aan een functie om deze tool altijd uptodate te houden met de laatste versie die op github staat.
+04-08-2022 : <br> Ik werk aan een functie om deze tool altijd uptodate te houden met de laatste versie die op github staat. Dit is gelukt en is te doen via het ESPHome
 
 ***
 
