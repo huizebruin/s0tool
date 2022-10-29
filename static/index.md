@@ -9,7 +9,7 @@
 | :--- | :--- |
 |  ![S0tool-logo](./assets/s0tool-logo.jpg)  | ![ESPHome](./assets/made-for-esphome-black-on-white.png) |
 
-Update : v2022-09-15 ( Date: 10/09/2022 ) <br><br>
+<br>
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
@@ -19,6 +19,14 @@ A suitable kWh meter with an S0 connection must be installed for this.
 
 ![S0tool-and_case](./assets/S0tool_case.jpg) 
 
+
+## Watermeter to energy dashboard.
+From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
+
+|  Enegry dashboard | Dashboard  |
+| :--- | :--- |
+|  ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.jpg) |
+<br>
 ## Installation
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
@@ -37,11 +45,9 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 |  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | 
 <br>
-|  S0tool warmtepomp:   <esp-web-install-button manifest="./s0tool-warmtepomp-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> Special for warmtepomp | <br>
  <br>
 
-
+Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations ar possible between 10 and 4000 puls/kWh with steps by 10.
 ***
 
 ## How to change the total readings

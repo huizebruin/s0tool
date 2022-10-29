@@ -11,7 +11,7 @@
 
 |  S0tool | Dashboard  |
 | :--- | :--- |
-|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
+|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.jpg) |
 
 ## Dutch version
 For the Dutch version look [Here](./README-nl.md) or on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 
@@ -30,6 +30,7 @@ At this moment we only ship to : The Netherlands , België and Luxemburg.
 | 25/07/2022 | Watercounter gives now you Liters every 2 seconds a update to Home Assistant.|
 | 04/08/2022 | Text translate on Github to [English](./README.md) and [Dutch](./README-nl.md).|
 | 10/09/2022 | Flash page updated now options --> standard / watermeter / 1000imp puls / 2000imp puls .|
+| 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 <br>
 
 ***
@@ -62,6 +63,12 @@ Here u must add a 10K Ohm resistor between the GND and D2
 Soon also a sensor for  Elster V100	kogelvorm meter for the S0tool at my shop.
 
 For More information about the S0tool look at my [Website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
+
+## Watermeter to energy dashboard.
+From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
+|  Enegry dashboard | Dashboard  |
+| :--- | :--- |
+|  ![S0tool-water-energy-dashboard](./static/assets/water-energydashboard.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.jpg) |
 
 ***
 ## For keeping track of solar panels or heat pump etc.
@@ -174,7 +181,7 @@ Or this option and then search for the right meter and then adjust, <br> here yo
 ****
 ## Update function
 04-08-2022 : <br> I'm working on a feature to keep this tool always up to date with the latest version on github.
-
+This can be done by the ESPHome dashboard by now.
 ***
 
 Have fun with this tool.<br>
