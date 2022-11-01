@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.10.22"
+  vdate: "v22.11.23"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
 
 esphome:
@@ -18,8 +18,7 @@ improv_serial:
 wifi:
   # ssid: "wifi_ssid"
   # password: "wifi_password"
-# ⬇ Hieronder niets veranderen tenzij je het overal goed aanpast ⬇ #
-# ⬇ Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt ⬇ #
+
   ap:
     ssid: "${name}"
     ap_timeout: 15s
