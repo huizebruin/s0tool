@@ -1,5 +1,5 @@
 {
-"name": "S0tool warmtepomp",
+"name": "S0tool kwh puls",
   "home_assistant_domain": "esphome",
   "funding_url": "https://paypal.me/huizebruin",
   "new_install_skip_erase": false,
@@ -8,7 +8,7 @@
       "chipFamily": "ESP8266",
       "parts": [
         {
-          "path": "s0tool-warmtepomp-esp8266/s0tool-warmtepomp-esp8266.bin",
+          "path": "s0tool-kwh-puls-esp8266/s0tool-kwh-puls-esp8266.bin",
           "offset": 0
         }
       ]

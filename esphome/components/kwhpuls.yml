@@ -1,5 +1,5 @@
-substitutions:
-  impulslengte: "50ms"
+# substitutions:
+#   impulslengte: "50ms"
 
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
@@ -9,16 +9,17 @@ api:
         meter_value: float 
       then:
         - globals.set:
-            id: totalkwhUsage
+            id: initial_kwh_usage        
             value: !lambda "return ( meter_value ) ;"
 
 globals:
-  - id: totalkwhUsage
-    type: float 
-# ⬇ Bij het updaten onder de waarde, verander dit in nee voor 1 run  ⬇ # 
-    restore_value: yes
-# ⬇ Bij het flashen,pas dit aan! ⬇ #        
+  - id: initial_kwh_usage
+    type: float
+    restore_value: yes      
     initial_value: '00010' 
+  - id: total_kwh_pulses
+    type: int
+    restore_value: yes    
 
 number:
   - platform: template
@@ -31,15 +32,28 @@ number:
     step: '10'
     restore_value: yes
     initial_value: '2000'
+
+binary_sensor:
+ #------------------------# kwh #------------------------#
+  - platform: gpio
+    id: internal_pulse_counter2
+    name: Pulse Sensor kwh
+    pin:
+      number: D5
+      mode:
+        input: true
+    on_press:
+      - then:
+          lambda: id(total_kwh_pulses) += 1;       
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
     pin: D5
-    name:  "Warmtepomp Actuele energieverbruik"
+    name:  "Actuele energie"
     id: actual_power
     icon: "mdi:flash"
-#    internal_filter: ${impulslengte} 
+    # internal_filter: ${impulslengte} 
     accuracy_decimals: 3
     unit_of_measurement: 'kW'
     state_class: measurement
@@ -47,10 +61,10 @@ sensor:
     filters:
        lambda: return x * (60.0 / id(Select_pulse_rate).state);
 
-# ⬇ Warmtepomp Totale energieverbruik ⬇ #    
+# ⬇ Totaal opgebracht ⬇ #    
     total:
       unit_of_measurement: 'kWh'
-      name: "Warmtepomp Totale energieverbruik"
+      name: "Totaal opgebracht"
       id: W_opbrengst_totaal
       state_class: total_increasing
       device_class: energy
@@ -63,23 +77,18 @@ sensor:
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
     id: kwh_total
-    name: "Warmtepomp Actuele meterstand"
+    name: "Actuele meterstand"
     state_class: "total_increasing"
     icon: "mdi:flash"
     update_interval: 1s
     unit_of_measurement: 'kWh'
     accuracy_decimals: 3
-    lambda: 
-      return id(W_opbrengst_totaal).state + id(totalkwhUsage);
+    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * 0.001);
 
-  - platform: total_daily_energy
-    name: 'Warmtepomp Dag energieverbruik'                 
-    id: daily_power_S0tool
-    power_id: actual_power
-    unit_of_measurement: 'kWh'
-    icon: 'mdi:circle-slice-3'                          
-    state_class: total_increasing
-    device_class: energy
-    accuracy_decimals: 3
-    restore: true
+# ⬇ kwh pulses ⬇ #
+  - platform: template
+    id: kwh_pulses
+    name: "kwh pulses totaal"
+    state_class: "total_increasing"
+    lambda: return id(total_kwh_pulses);
 

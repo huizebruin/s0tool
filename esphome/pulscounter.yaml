@@ -24,6 +24,6 @@ packages:
     ref: main
     files: 
       - esphome/components/basis.yaml
-      - esphome/components/2000imp.yml
+      - esphome/components/kwhpuls.yml
       - esphome/components/watermeter.yaml            
 #     refresh: 0d 
