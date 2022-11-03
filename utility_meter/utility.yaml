@@ -1,7 +1,7 @@
 #utility_meter:
 
 ### watermeter  S0 meter
-  waterverbruik_kwartier:
+  waterverbruik_per_kwartier:
     source: sensor.watermeter_totaal
     cycle: quarter-hourly
   waterverbruik_per_uur:
@@ -26,7 +26,7 @@
     source: sensor.watermeter_totaal
     
 ### zonnepanelen S0 meter
-  zonnepanelen_kwartier:
+  zonnepanelen_per_kwartier:
     source: sensor.totaal_opgebracht
     cycle: quarter-hourly
   zonnepanelen_per_uur:
@@ -52,7 +52,7 @@
 
   
 ### als je een Warmtepomp op de S0tool hebt aangesloten
-  warmtepomp_kwartier:
+  warmtepomp_per_kwartier:
     source: sensor.totaal_opgebracht
     cycle: quarter-hourly
   warmtepomp_per_uur:

@@ -93,17 +93,7 @@ button:
   - platform: restart
     name: "${name} Restart device"
     
-switch:
-# safe mode switch
-  - platform: safe_mode
-    name: "${name} Safe Mode"   
-
 # Factory Reset Switch from ESPHome v2022.09    
   - platform: factory_reset
     name: Restart with Factory Default Settings    
     
-# diagnostic button #
-binary_sensor:
-  - platform: status
-    name: "${name} Status"
-    entity_category: diagnostic
