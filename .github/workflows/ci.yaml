@@ -5,11 +5,7 @@ name: Publish firmware pull request
 
 on:
   pull_request:
-# on:
-#   workflow_dispatch:
-#   release:
-#     types:
-#       - published
+
 
 jobs:
   ci:
@@ -18,11 +14,11 @@ jobs:
     strategy:
       matrix:
         file:
-          - esphome/pulscounter.yaml
-          - esphome/watermeter.yaml
-          - esphome/S0-puls-kwhpuls.yaml
-          - esphome/S0-puls-DSZ12D.yaml
-          - esphome/S0-puls-LEM022SJ.yaml
+          - esphome/pulscounter.yaml #standard version
+          - esphome/watermeter.yaml  # only watermeter
+          - esphome/S0-puls-kwhpuls.yaml  # only kwh puls 
+          - esphome/S0-puls-DSZ12D.yaml   # Special
+          - esphome/S0-puls-LEM022SJ.yaml  #special
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3

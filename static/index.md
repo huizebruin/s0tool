@@ -19,6 +19,19 @@ A suitable kWh meter with an S0 connection must be installed for this.
 
 ![S0tool-and_case](./assets/S0tool_case.jpg) 
 
+## If u cannot buy it u can make it on your own.
+You need a couple of thinks<br>
+ans place a resistor between the D2 and 5V.
+
+Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ)<br>
+Npn Sensor [Aliexpres](https://s.click.aliexpress.com/e/_AVaoGr) or dutch webshop [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)<br>
+10K resistor [Aliexpres](https://s.click.aliexpress.com/e/_A10BHz) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ)<br>
+
+And a usb cable and minimal a usb power adapter with 5v and 1A
+
+![S0tool-diy](./assets/npn-watermeter-wemosd1.png)
+
+Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57
 
 ## Watermeter to energy dashboard.
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
@@ -29,30 +42,48 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 <br>
 ## Installation
 
+first you must have installed the CH340 drivers for the wemos d1 to communicate to your pc / laptop .
+Go to this link to install the drivers. 
+https://sparks.gogo.co.nz/ch340.html <br>
+And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
+
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
 
-|  Version  Install   info  |<br>
-|  S0tool standard:  <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
+|  S0tool    |    Install |    Info  |
+| :------------ | :------- | :------------ |
+|  standaard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  standard with watermeter and kwh meter |<br>
+|  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only watermeter  |<br>
+|  S0tool kWhmeter | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only kwh meter |<br>
+
+****
+
+ |  S0tool standard:  <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  standard with watermeter and kwh meter |<br>
-|  S0tool Watermeter:   <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>
+ |  S0tool Watermeter:   <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  only watermeter |  <br>
-|  S0tool kWhmeter:   <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>
+ |  S0tool kWhmeter:   <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script>  only kwh meter  | <br><br>
 
 ***
 ### Special versions for only kWh counters.<br>
 Only needed if the kWh counter has a inpulslengte other than between the  50 an 100ms on the datasheet.<br>
 
-|  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
+###### |  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the dsz12d | <br>
-|  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
+###### |  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | 
 
 ***
+
+For more information about the code etc.
+https://github.com/huizebruin/s0tool
 <br>
  <br>
 
-Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations ar possible between 10 and 4000 puls/kWh with steps by 10.
+Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations are possible between 10 and 4000 puls/kWh with steps by 10.
 ***
 
 ## How to change the total readings
