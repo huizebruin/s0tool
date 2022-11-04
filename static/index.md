@@ -44,9 +44,10 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 <br>
 ## Installation
 
-first you must have installed the CH340 drivers for the wemos d1 to communicate to your pc / laptop .
+first you must have installed the CH340 drivers for the wemos d1 to communicate to your pc / laptop .<br>
+
 Go to this link to install the drivers. 
-https://sparks.gogo.co.nz/ch340.html <br>
+[https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>

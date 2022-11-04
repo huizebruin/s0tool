@@ -116,6 +116,10 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 
 ## Installatie: 
 
+Eerst dien je de CH340 drivers te installeren.
+De drivers ch340 kan je hier vinden. 
+[https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
+
 06/05/2022: <br> Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen.<br>
 Alleen mogelijk met een chrome of edge en opera browser. <br>
 Verbind de s0tool met een usb kabel aan je pc/ laptop en start de procedure.

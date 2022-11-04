@@ -114,6 +114,11 @@ There is a small error in <b>v1</b>, in the s0 connection is the <b>GND</b> I.P.
 
 ## Installation: 
 
+First you must have installed the CH340 drivers for the wemos d1 to communicate to your pc / laptop .<br>
+
+Go to this link to install the drivers ch340. 
+[https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
+
 06/05/2022: <br> Now also possible to flash the <b>s0tool</b> directly via the browser.<br>
 Only possible with a chrome or edge and opera browser. <br>
 Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
