@@ -21,6 +21,22 @@ For the Dutch version look [Here](./README-nl.md) or on my [website](https://www
 [https://www.huizebruin.nl/shop](https://www.huizebruin.nl/shop)</br>
 At this moment we only ship to : The Netherlands , België and Luxemburg.
 
+## If u cannot buy it u can make it on your own.
+You need a couple of thinks<br>
+and place a resistor between the D2 and 5V.
+
+Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) or [Amazon](https://amzn.to/3FL7O48) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ)<br>
+
+Npn Sensor [Aliexpres](https://s.click.aliexpress.com/e/_AVaoGr) or [Amazon](https://amzn.to/3DFVsaL) or dutch webshop [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)<br>
+
+10K resistor [Aliexpres](https://s.click.aliexpress.com/e/_A10BHz) or [Amazon](https://amzn.to/3NBjjx2) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ)<br>
+
+And a usb cable and minimal a usb power adapter with 5v and 1A
+
+![S0tool-diy](./static/assets/npn-watermeter-wemosd1.png)
+
+Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57<br>
+
 
 # Update:
 | Datum | Information |

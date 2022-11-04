@@ -16,8 +16,8 @@ esphome:
 improv_serial:
   
 wifi:
-  # ssid: "wifi_ssid"
-  # password: "wifi_password"
+  # ssid: MyHomeNetwork
+  # password: VerySafePassword
 
   ap:
     ssid: "${name}"
