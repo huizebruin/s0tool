@@ -53,7 +53,7 @@ And you must connect the S0tool to your pc of laptop with a cable witch have pow
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
 
 |  S0tool version   |    Install |    Info  |
-| :--------- | :------- | :----- |
+| :--------- | :----- | :----- |
 |  standaard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  standard with watermeter and kWh meter |<br>
 |  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>
@@ -66,9 +66,11 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 ### Special versions for only kWh counters.<br>
 Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
 
-###### |  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
+|  S0tool version   |    Install |    Info  |
+| :--------- | :----- | :----- |
+|  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the dsz12d | <br>
-###### |  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
+|  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | 
 
 ***
