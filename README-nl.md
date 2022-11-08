@@ -18,17 +18,17 @@
 <br><br>
 # De <b>S0tool</b> bestellen?
 [https://www.huizebruin.nl/shop](https://www.huizebruin.nl/shop)</br>
-Op dit moment verzenden we alleen naar : Nederland , België en Luxemburg.
+Op dit moment verzenden we alleen naar : Nederland en België. 
 
 ## Als je hem zelf wilt bouwen.
 Dan heb je de volgende onderdelen nodig<br>
 en plaats een weerstand tussen D2 en de  5V.
 
-Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) of [Amazon](https://amzn.to/3FL7O48) of bij de Nederlandse webshop  [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ)<br>
+Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) of [Amazon](https://amzn.to/3FL7O48) of bij de Nederlandse webshop  [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github)<br>
 
-Npn Sensor [Aliexpres](https://s.click.aliexpress.com/e/_AVaoGr) of [Amazon](https://amzn.to/3DFVsaL) of bij de Nederlandse webshop  [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)<br>
+Npn Sensor [Aliexpres](https://s.click.aliexpress.com/e/_AVaoGr) of [Amazon](https://amzn.to/3DFVsaL) of bij de Nederlandse webshop  [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github)<br>
 
-10K weerstand [Aliexpres](https://s.click.aliexpress.com/e/_A10BHz) of [Amazon](https://amzn.to/3NBjjx2) of bij de Nederlandse webshop [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ)<br>
+10K weerstand [Aliexpres](https://s.click.aliexpress.com/e/_A10BHz) of [Amazon](https://amzn.to/3NBjjx2) of bij de Nederlandse webshop [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github)<br>
 
 En een usb kabel en een usb lader van minimaal 5v and 1A.
 
@@ -62,10 +62,10 @@ Vul eerst uw  🛒 of kijk of je de onderstaande componenten al hebt .
 - Minimaal 5v 1A [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Funiversal-usb-adapter-usb-stekker-usb-lader-blokje-universeel-zwart%2F9300000030638594%2F&name=Universal%20USB%20adapter%20-%20USB%20stekker%20-%20USB%20lader) 
 - usb kabel [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fzware-kwaliteit-0-3-m-usb-oplaadkabel-oplaadsnoer-kabel-voor-snelladen-past-ook-op-huawei-ascend-3-ideos-x3-mate-10-lite-mate-8-mate-s-p-smart-p10-lite-p8-lite%2F9200000124489693%2F&name=Zware%20kwaliteit%200%2C3%20m%20USB%20oplaadkabel.%20) of [opencircuit.nl](https://opencircuit.nl/product/Micro-USB-kabel-100cm-blauw-30AWG?affiliate=1VL4KIAMBZ)
 
-Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/product/5V-2.5A-Adapter-Micro-USB-B-Raspberry-Pi?affiliate=1VL4KIAMBZ) of bij [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fxssive-usb-lader-met-micro-usb-kabel-voor-motorola-smartphones-o-a-moto-x-moto-g-moto-e-nexus-6%2F9200000055360796%2F&name=Xssive%20USB%20Lader%20met%20Micro%20USB%20Kabel%20).
+Of een alles in 1 lader met snoer [Opencircuit.nl](https://opencircuit.nl/product/5V-2.5A-Adapter-Micro-USB-B-Raspberry-Pi?affiliate=1VL4KIAMBZ&cid=github) of bij [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fxssive-usb-lader-met-micro-usb-kabel-voor-motorola-smartphones-o-a-moto-x-moto-g-moto-e-nexus-6%2F9200000055360796%2F&name=Xssive%20USB%20Lader%20met%20Micro%20USB%20Kabel%20).
 #
 ## Voor de watermeter
-- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) of in Nederland bij [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ)
+- NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) of [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) of [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) of in Nederland bij [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github)
 - (Zorg ervoor dat het sensoren voor 5V zijn niet 6V of hoger!!) Ik gebruik zelf de LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>
 
 NPN sensor naar de S0tool<br>
@@ -115,6 +115,10 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 <br>
 
 ## Installatie: 
+
+Eerst dien je de CH340 drivers te installeren.
+De drivers ch340 kan je hier vinden. 
+[https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
 
 06/05/2022: <br> Nu ook mogelijk om de <b>s0tool</b> direct via de browser te flashen.<br>
 Alleen mogelijk met een chrome of edge en opera browser. <br>

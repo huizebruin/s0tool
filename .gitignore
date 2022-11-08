@@ -1,7 +1,7 @@
 
 *.psd
 blueprint/s0toolupdate.yaml
-
+.vscode
 static/s0tool-1000imp/s0-puls1000imp-manifest.json
 static/s0tool-2000imp/s0-puls2000imp-manifest.json
 static/s0tool-esp8266/manifest.json
