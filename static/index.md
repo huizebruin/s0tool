@@ -67,10 +67,10 @@ Only needed if the kWh counter has a impulslengte other than between the  50 an 
 
 |  S0tool version   |    Install |    Info  |
 | :--------- | :----- | :----- |
-|  S0tool dsz12d:   <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the dsz12d | <br>
-|  S0tool lem022sj:   <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
-<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> special for the lem022sj 400imp | 
+|  S0tool dsz12d: |  <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the dsz12d | <br>
+|  S0tool lem022sj: |  <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>
+<script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the lem022sj 400imp | 
 
 ***
 
