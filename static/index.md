@@ -61,7 +61,6 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 |  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>
 <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only kWh meter |<br>
 
-
 ***
 ### Special versions for only kWh counters.<br>
 Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
