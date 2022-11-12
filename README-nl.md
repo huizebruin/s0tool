@@ -49,14 +49,13 @@ Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https
 | 29/10/2022 | Fix om de watermeter sensor toe te voegen aan het energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
 <br>
-Voordat je de S0tool gaat updaten zorg ervoor dat je minimaal.
+Voordat je de S0tool gaat updaten zorg ervoor dat je minimaal het onderstaande draait.
 
 | Program | version |
 | :------------- | :--------- |
 | Home Assistant | v2022.11.1 |
 | ESPHome | v2022.10.1 |
 
- of erboven gebruikt.
 <br>
 
 ***
