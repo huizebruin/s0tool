@@ -54,7 +54,7 @@ Voordat je de S0tool gaat updaten zorg ervoor dat je minimaal.
 | Program | version |
 | :------------- | :--------- |
 | Home Assistant | v2022.11.1 |
-| ESPHome | v2022.11.1 |
+| ESPHome | v2022.10.1 |
 
  of erboven gebruikt.
 <br>

@@ -54,8 +54,7 @@ Before update of the S0tool u should use <br>
 | Program | version |
 | :------------- | :--------- |
 | Home Assistant | v2022.11.1 |
-| ESPHome | v2022.11.1 |
-
+| ESPHome | v2022.10.1 |
  and above
 <br>
 
