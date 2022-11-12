@@ -36,8 +36,9 @@ And a usb cable and minimal a usb power adapter with 5v and 1A
 Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57
 
 # Update:
+
 | Datum | Information |
-| :--- | :--- |
+| :----- | :----- |
 | 10/09/2022 | Flash page updated now options --> standard / watermeter / and specials|
 | 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
@@ -46,7 +47,7 @@ Will it work with my meter check it out here. https://github.com/huizebruin/s0to
 Before update of the S0tool u should use, and above. <br>
 
 | Program | version |
-| :------------- | :--------- |
+| :---------- | :------- |
 | Home Assistant | v2022.11.1 |
 | ESPHome | v2022.10.1 |
  
