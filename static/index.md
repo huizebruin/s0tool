@@ -35,6 +35,20 @@ And a usb cable and minimal a usb power adapter with 5v and 1A
 
 Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57
 
+# Update:
+| Datum | Information |
+| :--- | :--- |
+| 10/09/2022 | Flash page updated now options --> standard / watermeter / and specials|
+| 29/10/2022 | Ad watermeter sensor to energy dashboard.|
+| 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
+<br>
+Before update of the S0tool u should use 
+| Program | version |
+| :--- | :--- |
+| Home Assistant | v2022.11.1 |
+| ESPHome | v2022.11.1 |
+ and above
+
 ## Watermeter to energy dashboard.
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
 
