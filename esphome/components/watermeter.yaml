@@ -8,17 +8,25 @@ api:
       then:
         - globals.set:
             id: initial_water_usage
-            value: !lambda "return ( meter_value ) ;"
+            value: !lambda "return ( meter_value - (id(total_water_pulses) * 0.001) ) ;"
+
+    - service: set_pulse_water_total
+      variables:
+        new_pulse_total: float
+      then:
+        - pulse_counter.set_total_pulses:
+            id: watermeter_pulse
+            value: !lambda 'return new_pulse_total;'      
 
 globals:
-#  - id: totalWaterUsage
   - id: initial_water_usage
     type: float
     restore_value: yes      
-    initial_value: '015' 
+    initial_value: '0' 
   - id: total_water_pulses
     type: int
     restore_value: yes
+    
 
 binary_sensor:
 #------------------------# Watermeter #------------------------#
@@ -41,7 +49,7 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    unit_of_measurement: "l/min"
+    unit_of_measurement: "l/min"    
     accuracy_decimals: 1
     icon: "mdi:water-pump"
 
@@ -62,23 +70,14 @@ sensor:
     name: "watermeter stand"
     state_class: "total_increasing"
     icon: mdi:water
-    unit_of_measurement: m3
+    unit_of_measurement: "m³"
     accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * 0.001);
-
+      
 # ⬇ Waterpulses ⬇ #
   - platform: template
     id: watermeter_pulses
     name: "watermeter pulses totaal"
     state_class: "total_increasing"
+    accuracy_decimals: 0
     lambda: return id(total_water_pulses);
-
-# # ⬇ watermeter l/min ⬇ #
-#   - platform: template
-#     name: "Water verbruik Liter"
-#     id: watermeter_flow
-#     accuracy_decimals: 1
-#     unit_of_measurement: "l/min"
-#     icon: "mdi:water"
-#     lambda: return (id(watermeter_pulse).state);
-
