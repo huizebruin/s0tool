@@ -42,9 +42,11 @@ Will it work with my meter check it out here. https://github.com/huizebruin/s0to
 | 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
 <br>
-Before update of the S0tool u should use 
+
+Before update of the S0tool u should use <br>
+
 | Program | version |
-| :--- | :--- |
+| :------------- | :--------- |
 | Home Assistant | v2022.11.1 |
 | ESPHome | v2022.11.1 |
  and above
