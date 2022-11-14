@@ -27,6 +27,23 @@ globals:
     type: int
     restore_value: yes
     
+select:
+  # ⬇ water per m3 rate ⬇ #
+  - platform: template
+    name: "Pulsrate water per m3"
+    id: Select_pulse_water
+    optimistic: true
+    options:
+      - "0.0001"
+      - "0.0005"
+      - "0.001"       
+    initial_option: "0.001"
+    restore_value: yes
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
 
 binary_sensor:
 #------------------------# Watermeter #------------------------#
@@ -62,7 +79,9 @@ sensor:
       device_class: water
       accuracy_decimals: 3
       filters:
-      - multiply: 0.001
+        lambda: return x * atof(id(Select_pulse_water).state.c_str());
+     
+#      - multiply: 0.001
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -72,7 +91,8 @@ sensor:
     icon: mdi:water
     unit_of_measurement: "m³"
     accuracy_decimals: 3
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * 0.001);
+    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
+
       
 # ⬇ Waterpulses ⬇ #
   - platform: template
