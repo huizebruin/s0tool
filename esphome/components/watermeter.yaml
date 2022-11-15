@@ -47,16 +47,18 @@ select:
 
 binary_sensor:
 #------------------------# Watermeter #------------------------#
+binary_sensor:
   - platform: gpio
     id: internal_pulse_counter
-    name: Pulse Sensor water
+    name: Pulse Sensor Water
     pin:
       number: D2
+      inverted: true
       mode:
         input: true
     on_press:
       - then:
-          lambda: id(total_water_pulses) += 1;
+          lambda: id(total_water_pulses) += 1;  
 
 sensor:
 #------------------------# Watermeter #------------------------#
@@ -80,8 +82,6 @@ sensor:
       accuracy_decimals: 3
       filters:
         lambda: return x * atof(id(Select_pulse_water).state.c_str());
-     
-#      - multiply: 0.001
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -92,7 +92,6 @@ sensor:
     unit_of_measurement: "m³"
     accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
-
       
 # ⬇ Waterpulses ⬇ #
   - platform: template

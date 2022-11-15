@@ -91,4 +91,4 @@ sensor:
     name: "kwh pulses totaal"
     state_class: "total_increasing"
     lambda: return id(total_kwh_pulses);
-
+    accuracy_decimals: 0
