@@ -22,7 +22,7 @@ globals:
   - id: initial_water_usage
     type: float
     restore_value: yes      
-    initial_value: '0' 
+    initial_value: '010' 
   - id: total_water_pulses
     type: int
     restore_value: yes
@@ -71,6 +71,8 @@ sensor:
     unit_of_measurement: "l/min"    
     accuracy_decimals: 1
     icon: "mdi:water-pump"
+    filters:
+      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
@@ -81,7 +83,7 @@ sensor:
       device_class: water
       accuracy_decimals: 3
       filters:
-        lambda: return x * atof(id(Select_pulse_water).state.c_str());
+      - multiply: 0.001
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -91,7 +93,7 @@ sensor:
     icon: mdi:water
     unit_of_measurement: "m³"
     accuracy_decimals: 3
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
+    lambda: return id(initial_water_usage) + (id(total_water_pulses) * 0.001);
       
 # ⬇ Waterpulses ⬇ #
   - platform: template
