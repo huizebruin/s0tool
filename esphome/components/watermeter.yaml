@@ -81,9 +81,10 @@ sensor:
       unit_of_measurement: "m³"
       state_class: total_increasing
       device_class: water
-      accuracy_decimals: 3
+      accuracy_decimals: 4
       filters:
-      - multiply: 0.001
+        lambda: return x * atof(id(Select_pulse_water).state.c_str());
+
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -92,8 +93,9 @@ sensor:
     state_class: "total_increasing"
     icon: mdi:water
     unit_of_measurement: "m³"
-    accuracy_decimals: 3
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * 0.001);
+    accuracy_decimals: 4
+    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
+
       
 # ⬇ Waterpulses ⬇ #
   - platform: template
