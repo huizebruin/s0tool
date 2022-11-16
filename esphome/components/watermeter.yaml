@@ -96,7 +96,6 @@ sensor:
     accuracy_decimals: 4
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
 
-      
 # ⬇ Waterpulses ⬇ #
   - platform: template
     id: watermeter_pulses
@@ -104,3 +103,4 @@ sensor:
     state_class: "total_increasing"
     accuracy_decimals: 0
     lambda: return id(total_water_pulses);
+ 
