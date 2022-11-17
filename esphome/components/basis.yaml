@@ -21,7 +21,7 @@ wifi:
 
   ap:
     ssid: "${name}"
-    ap_timeout: 15s
+    ap_timeout: 10s
 
 web_server:
   port: 80

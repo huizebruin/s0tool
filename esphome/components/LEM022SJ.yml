@@ -10,7 +10,7 @@ api:
       then:
         - globals.set:
             id: initial_kwh_usage        
-            value: !lambda "return ( meter_value ) ;"
+            value: !lambda "return ( meter_value - (id(total_kwh_pulses)) ) ;" 
 
 globals:
   - id: initial_kwh_usage
