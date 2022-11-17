@@ -9,8 +9,11 @@ api:
         meter_value: float 
       then:
         - globals.set:
-            id: initial_kwh_usage        
-            value: !lambda "return ( meter_value - (id(total_kwh_pulses))* (id(Select_pulse_rate).state) ) ;" 
+            id: initial_kwh_usage  
+            value: !lambda "return ( meter_value ) ;"  
+        - globals.set:
+            id: total_kwh_pulses
+            value:  "0" 
 
 globals:
   - id: initial_kwh_usage
