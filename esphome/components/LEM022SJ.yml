@@ -10,7 +10,7 @@ api:
       then:
         - globals.set:
             id: initial_kwh_usage        
-            value: !lambda "return ( meter_value - (id(total_kwh_pulses)) * atof(id(Select_pulse_rate).state.c_str()) ) ;" 
+            value: !lambda "return ( meter_value - (id(total_kwh_pulses))* (id(Select_pulse_rate).state) ) ;" 
 
 globals:
   - id: initial_kwh_usage
