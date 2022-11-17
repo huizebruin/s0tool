@@ -8,7 +8,7 @@ api:
       then:
         - globals.set:
             id: initial_water_usage
-            value: !lambda "return ( meter_value - (id(total_water_pulses) * 0.001) ) ;"
+            value: !lambda "return ( meter_value - (id(total_water_pulses) ) ) ;"
 
     - service: set_pulse_water_total
       variables:
