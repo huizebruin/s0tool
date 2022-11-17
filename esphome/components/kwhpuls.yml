@@ -86,7 +86,7 @@ sensor:
     update_interval: 1s
     unit_of_measurement: 'kWh'
     accuracy_decimals: 3
-    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * 0.001);
+    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
 
 # ⬇ kwh pulses ⬇ #
   - platform: template
