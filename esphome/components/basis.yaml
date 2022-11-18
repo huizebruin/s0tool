@@ -3,7 +3,7 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.11.24"
+  vdate: "v22.11.25"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
 
 esphome:
@@ -21,7 +21,7 @@ wifi:
 
   ap:
     ssid: "${name}"
-    ap_timeout: 15s
+    ap_timeout: 10s
 
 web_server:
   port: 80

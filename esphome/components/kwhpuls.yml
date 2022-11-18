@@ -9,8 +9,11 @@ api:
         meter_value: float 
       then:
         - globals.set:
-            id: initial_kwh_usage        
-            value: !lambda "return ( meter_value ) ;"
+            id: initial_kwh_usage  
+            value: !lambda "return ( meter_value ) ;"  
+        - globals.set:
+            id: total_kwh_pulses
+            value:  "0" 
 
 globals:
   - id: initial_kwh_usage
@@ -83,12 +86,13 @@ sensor:
     update_interval: 1s
     unit_of_measurement: 'kWh'
     accuracy_decimals: 3
-    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * 0.001);
+    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
 
-# ⬇ kwh pulses ⬇ #
-  - platform: template
-    id: kwh_pulses
-    name: "kwh pulses totaal"
-    state_class: "total_increasing"
-    lambda: return id(total_kwh_pulses);
+# # ⬇ kwh pulses ⬇ #
+#   - platform: template
+#     id: kwh_pulses
+#     name: "kwh pulses totaal"
+#     state_class: "total_increasing"
+#     lambda: return id(total_kwh_pulses);
+#     accuracy_decimals: 0
 

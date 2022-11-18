@@ -47,7 +47,10 @@ Voor meer informatie en aansluitschema's etc kijk dan even op de [website](https
 | 04/08/2022 | Tekst vertaald op Github naar [English](./README.md) en [Dutch](./README-nl.md).|
 | 10/09/2022 | Flash pagina geüpdatet nu keuzemogelijkheden --> standaard / watermeter / 1000imp puls / 2000imp puls .|
 | 29/10/2022 | Fix om de watermeter sensor toe te voegen aan het energy dashboard.|
-| 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
+| 12/11/2022 | Fix voor de watermeter total and watermeter meter counter numbers.|
+| 14/11/2022 | Fix voor de watermeter werkt nu met 2 pulses per liter kies 0.0005  en 1 puls per liter kies 0.001 default is 0.001.|
+| 18/11/2022 | Fix voor meter teller van de kWh en water, en wat opruimen van de code.|
+
 <br>
 Voordat je de S0tool gaat updaten zorg ervoor dat je minimaal het onderstaande draait.
 
