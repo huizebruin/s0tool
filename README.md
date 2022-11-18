@@ -49,6 +49,8 @@ Will it work with my meter check it out here. https://github.com/huizebruin/s0to
 | 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
 | 14/11/2022 | Fix for watermeter now works with 2 pulses a liter choose 0.0005  and 1 puls a liter choose 0.001 default is 0.001.|
+| 18/11/2022 | Fix for meter counter for the kWh and water, and some cleanup of the code.|
+
 <br>
 Before update of the S0tool u should use, and above <br>
 
