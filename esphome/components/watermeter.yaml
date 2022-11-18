@@ -1,4 +1,3 @@
- 
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
@@ -8,7 +7,7 @@ api:
       then:
         - globals.set:
             id: initial_water_usage
-            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()))) ;"
+            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str())) ;"
         - globals.set:
             id: total_water_pulses
             value:  "0"             
@@ -89,13 +88,4 @@ sensor:
     icon: mdi:water
     unit_of_measurement: "m³"
     accuracy_decimals: 4
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str())));
-
-# # ⬇ Waterpulses ⬇ #
-#   - platform: template
-#     id: watermeter_pulses
-#     name: "watermeter pulses totaal"
-#     state_class: "total_increasing"
-#     accuracy_decimals: 0
-#     lambda: return id(total_water_pulses);
- 
+    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
