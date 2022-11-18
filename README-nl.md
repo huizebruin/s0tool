@@ -11,7 +11,7 @@
 
 |  S0tool | Dashboard  |
 | :--- | :--- |
-|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool  dashboard.jpg) |
+|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
 
 
  
