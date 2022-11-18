@@ -11,7 +11,7 @@
 
 |  S0tool | Dashboard  |
 | :--- | :--- |
-|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
+|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.jpg) |
 
 ## Dutch version
 For the Dutch version look [Here](./README-nl.md) or on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 

@@ -60,7 +60,7 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 
 |  Enegry dashboard | Dashboard  |
 | :--- | :--- |
-|  ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
+|  ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.jpg) |
 <br>
 ## Installation
 
