@@ -10,7 +10,7 @@ api:
             value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str())) ;"
         - globals.set:
             id: total_water_pulses
-            value:  "0"             
+            value:  "000"             
             
 
 globals:
@@ -79,6 +79,7 @@ sensor:
       filters:
         lambda: return x * atof(id(Select_pulse_water).state.c_str());
 
+#      - multiply: 0.001
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
@@ -88,4 +89,4 @@ sensor:
     icon: mdi:water
     unit_of_measurement: "m³"
     accuracy_decimals: 4
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str());
+    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
