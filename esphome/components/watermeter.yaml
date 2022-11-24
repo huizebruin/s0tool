@@ -79,7 +79,6 @@ sensor:
       filters:
         lambda: return x * atof(id(Select_pulse_water).state.c_str());
 
-#      - multiply: 0.001
       
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
