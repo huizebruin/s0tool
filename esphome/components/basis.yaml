@@ -13,6 +13,9 @@ esphome:
   board: d1_mini
   esp8266_restore_from_flash: true 
 
+preferences:
+  flash_write_interval: 120min #1x per 2 uur
+
 improv_serial:
   
 wifi:
