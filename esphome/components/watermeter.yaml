@@ -10,14 +10,14 @@ api:
             value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str())) ;"
         - globals.set:
             id: total_water_pulses
-            value:  "000"             
+            value:  "0"             
             
 
 globals:
   - id: initial_water_usage
     type: float
     restore_value: yes      
-    initial_value: '010' 
+    initial_value: '010,000' 
   - id: total_water_pulses
     type: int
     restore_value: yes
@@ -75,7 +75,7 @@ sensor:
       unit_of_measurement: "m³"
       state_class: total_increasing
       device_class: water
-      accuracy_decimals: 4
+      accuracy_decimals: 3
       filters:
         lambda: return x * atof(id(Select_pulse_water).state.c_str());
 
@@ -88,5 +88,5 @@ sensor:
     state_class: "total_increasing"
     icon: mdi:water
     unit_of_measurement: "m³"
-    accuracy_decimals: 4
+    accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
