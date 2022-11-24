@@ -17,7 +17,7 @@ globals:
   - id: initial_water_usage
     type: float
     restore_value: yes      
-    initial_value: '010,000' 
+    initial_value: '010' 
   - id: total_water_pulses
     type: int
     restore_value: yes
