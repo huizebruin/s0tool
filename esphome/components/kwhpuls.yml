@@ -19,10 +19,10 @@ globals:
   - id: initial_kwh_usage
     type: float
     restore_value: yes      
-    initial_value: '00010' 
+    initial_value: '010' 
   - id: total_kwh_pulses
     type: int
-    restore_value: yes    
+    restore_value: yes
 
 number:
   - platform: template
@@ -37,7 +37,8 @@ number:
     initial_value: '2000'
 
 binary_sensor:
- #------------------------# kwh #------------------------#
+#------------------------# kwh #------------------------#
+      
   - platform: gpio
     id: internal_pulse_counter2
     name: Pulse Sensor kwh
@@ -56,7 +57,7 @@ sensor:
     name:  "Actuele energie"
     id: actual_power
     icon: "mdi:flash"
-    # internal_filter: ${impulslengte} 
+    internal_filter: ${impulslengte} 
     accuracy_decimals: 3
     unit_of_measurement: 'kW'
     state_class: measurement
@@ -87,12 +88,4 @@ sensor:
     unit_of_measurement: 'kWh'
     accuracy_decimals: 3
     lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
-
-# # ⬇ kwh pulses ⬇ #
-#   - platform: template
-#     id: kwh_pulses
-#     name: "kwh pulses totaal"
-#     state_class: "total_increasing"
-#     lambda: return id(total_kwh_pulses);
-#     accuracy_decimals: 0
 
