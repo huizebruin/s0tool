@@ -74,6 +74,7 @@ text_sensor:
     id: s0tool_versie
     icon: 'mdi:alpha-v-circle-outline' 
     update_interval: 6h
+    restore_value: no
     lambda: |-
       return {"${vdate}"};
 
