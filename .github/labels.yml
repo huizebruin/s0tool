@@ -77,9 +77,16 @@
   color: e4ea8a
   description: "Nice addition, maybe... someday..."
 
-- name: "major"
-  color: b60205
-  description: "This PR causes a major version bump in the version number."
-- name: "minor"
-  color: 0e8a16
-  description: "This PR causes a minor version bump in the version number."
+# platforms
+- name: s0tool
+  description: s0tool-specific issue
+  color: a1887f
+- name: watermeter
+  description: watermeter-specific issue
+  color: a1887f
+- name: kwh s0
+  description: kWh-s0-specific issue
+  color: a1887f
+- name: documentation
+  description: documentation-specific issue
+  color: a1887f  
