@@ -26,4 +26,4 @@
     sensors:
       s0tool_gelijk_github:
         friendly_name: "s0Tool versie gelijk github versie"
-        value_template: "{{ states('sensor.s0tool_versie_github') | replace(states('sensor.s0tool_versie_github')[0:1],'') == states('sensor.s0tool_versie') }}"
+        value_template: "{{ states('sensor.s0tool_versie_github') == states('sensor.s0tool_versie') }}"
