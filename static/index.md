@@ -38,7 +38,7 @@ Will it work with my meter check it out here. https://github.com/huizebruin/s0to
 # Update:
 
 | Datum | Information |
-| :--------- | :----- |
+| :----------- | :------- |
 | 10/09/2022 | Flash page updated now options --> standard / watermeter / and specials|
 | 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
@@ -59,7 +59,7 @@ Before update of the S0tool u should use, and above. <br>
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
 
 |  Enegry dashboard | Dashboard  |
-| :--- | :--- |
+| :----- | :----- |
 |  ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
 <br>
 ## Installation
