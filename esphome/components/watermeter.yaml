@@ -1,4 +1,7 @@
- 
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
@@ -90,4 +93,3 @@ sensor:
     unit_of_measurement: "m³"
     accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
-

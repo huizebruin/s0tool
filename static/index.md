@@ -70,7 +70,8 @@ Go to this link to install the drivers.
 [https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
-You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
+You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br>
+Works only for a Wemos d1 mini  esp8266 at this moment.<br><br>
 
 |  S0tool version   |    Install |    Info  |
 | :--------- | :----- | :----- |
