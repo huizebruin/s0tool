@@ -1,0 +1,95 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
+#  # ⬇ Enable Home Assistant API ⬇ # 
+api:
+  services:
+    - service: meterstand_water
+      variables:
+        meter_value: float
+      then:
+        - globals.set:
+            id: initial_water_usage
+            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) ) ;"
+        - globals.set:
+            id: total_water_pulses
+            value:  "0"             
+            
+
+globals:
+  - id: initial_water_usage
+    type: float
+    restore_value: yes      
+    initial_value: '010' 
+  - id: total_water_pulses
+    type: int
+    restore_value: yes
+    
+select:
+  # ⬇ water per m3 rate ⬇ #
+  - platform: template
+    name: "Pulsrate water per m3"
+    id: Select_pulse_water
+    optimistic: true
+    options:
+      - "0.0001"
+      - "0.0005"
+      - "0.001"       
+    initial_option: "0.001"
+    restore_value: yes
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
+
+#------------------------# Watermeter #------------------------#
+binary_sensor:
+  - platform: gpio
+    id: internal_pulse_counter
+    name: Pulse Sensor Water
+    pin:
+      number: D2
+      inverted: true
+      mode:
+        input: true
+    on_press:
+      - then:
+          lambda: id(total_water_pulses) += 1;  
+
+sensor:
+#------------------------# Watermeter #------------------------#
+# ⬇ watermeter pulsen ⬇ #
+  - platform: pulse_counter
+    pin: D2
+    id: watermeter_pulse
+    name: "watermeter pulse"
+    state_class: measurement
+    unit_of_measurement: "l/min"    
+    accuracy_decimals: 1
+    icon: "mdi:water-pump"
+    filters:
+      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
+
+# ⬇ Totaal watermeter ⬇ #      
+    total:
+      id: sensor_pulse_meter_total
+      name: "watermeter Totaal"
+      unit_of_measurement: "m³"
+      state_class: total_increasing
+      device_class: water
+      accuracy_decimals: 3
+      filters:
+        lambda: return x * atof(id(Select_pulse_water).state.c_str());
+
+      
+# ⬇ Watermeter stand bij benadering ⬇ #
+  - platform: template
+    id: watermeter_total
+    name: "watermeter stand"
+    state_class: "total_increasing"
+    icon: mdi:water
+    unit_of_measurement: "m³"
+    accuracy_decimals: 3
+    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
