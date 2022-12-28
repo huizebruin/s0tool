@@ -38,7 +38,7 @@ Will it work with my meter check it out here. https://github.com/huizebruin/s0to
 # Update:
 
 | Datum | Information |
-| :--------- | :----- |
+| :----------- | :------- |
 | 10/09/2022 | Flash page updated now options --> standard / watermeter / and specials|
 | 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
@@ -59,7 +59,7 @@ Before update of the S0tool u should use, and above. <br>
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
 
 |  Enegry dashboard | Dashboard  |
-| :--- | :--- |
+| :----- | :----- |
 |  ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
 <br>
 ## Installation
@@ -70,8 +70,8 @@ Go to this link to install the drivers.
 [https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
-You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br>
-Works only for a Wemos d1 mini  esp8266 at this moment.<br><br>
+You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
+<b>Works only for a Wemos d1 mini  esp8266 at this moment.</b><br><br>
 
 |  S0tool version   |    Install |    Info  |
 | :--------- | :----- | :----- |
@@ -80,14 +80,14 @@ Works only for a Wemos d1 mini  esp8266 at this moment.<br><br>
 |  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only kWh meter |<br>
 
 ***
-### Special versions for only kWh counters.<br>
+### Special versions .<br>
 Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
 
 |  S0tool version   |    Install |    Info  |
 | :--------- | :----- | :----- |
 |  S0tool dsz12d: |  <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the dsz12d | <br>
 |  S0tool lem022sj: |  <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the lem022sj 400imp | 
-
+|  S0tool s0-watermeter: |  <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the s0-watermeter | 
 ***
 
 For more information about the code etc.

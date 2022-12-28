@@ -52,7 +52,7 @@ binary_sensor:
     id: internal_pulse_counter
     name: Pulse Sensor Water
     pin:
-      number: D2
+      number: D5
       inverted: true
       mode:
         input: true
