@@ -35,7 +35,9 @@ select:
     options:
       - "0.0001"
       - "0.0005"
-      - "0.001"       
+      - "0.001"  
+      - "0.01"  
+      - "0.1"                   
     initial_option: "0.001"
     restore_value: yes
     on_value:

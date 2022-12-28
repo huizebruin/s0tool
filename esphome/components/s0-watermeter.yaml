@@ -26,23 +26,25 @@ globals:
     type: int
     restore_value: yes
     
-# select:
-#   # ⬇ water per m3 rate ⬇ #
-#   - platform: template
-#     name: "Pulsrate water per m3"
-#     id: Select_pulse_water
-#     optimistic: true
-#     options:
-#       - "0.0001"
-#       - "0.0005"
-#       - "0.001"       
-#     initial_option: "0.001"
-#     restore_value: yes
-#     on_value:
-#       then:
-#         - logger.log:
-#             format: "Chosen option: %s "
-#             args: ["x.c_str()"]
+select:
+  # ⬇ water per m3 rate ⬇ #
+  - platform: template
+    name: "Pulsrate water per m3"
+    id: Select_pulse_water
+    optimistic: true
+    options:
+      - "0.0001"
+      - "0.0005"
+      - "0.001"  
+      - "0.01"  
+      - "0.1"                   
+    initial_option: "0.001"
+    restore_value: yes
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
 
 #------------------------# Watermeter #------------------------#
 binary_sensor:
@@ -50,7 +52,7 @@ binary_sensor:
     id: internal_pulse_counter
     name: Pulse Sensor Water
     pin:
-      number: D2
+      number: D5
       inverted: true
       mode:
         input: true
@@ -66,16 +68,11 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    unit_of_measurement: "L/min"   
-    update_interval: 2sec
-    internal_filter: 10us     
+    unit_of_measurement: "l/min"    
     accuracy_decimals: 1
     icon: "mdi:water-pump"
     filters:
-      - multiply: 0.0167    
-#      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
-
-
+      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
@@ -98,4 +95,3 @@ sensor:
     unit_of_measurement: "m³"
     accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
-
