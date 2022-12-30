@@ -88,10 +88,11 @@ sensor:
     accuracy_decimals: 3
     lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * 0.001);
 
-# # ⬇ kwh pulses ⬇ #
-#   - platform: template
-#     id: kwh_pulses
-#     name: "kwh pulses totaal"
-#     state_class: "total_increasing"
-#     lambda: return id(total_kwh_pulses);
-#     accuracy_decimals: 0
+# ⬇ kwh pulses only web interface for debugging ⬇ #
+  - platform: template
+    id: kwh_pulses
+    name: "kwh pulses totaal"
+    state_class: "total_increasing"
+    lambda: return id(total_kwh_pulses);
+    accuracy_decimals: 0
+    internal: True
