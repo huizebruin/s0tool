@@ -95,3 +95,12 @@ sensor:
     unit_of_measurement: "m³"
     accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
+
+# ⬇ Waterpulses  only web interface for debugging ⬇ #
+  - platform: template
+    id: watermeter_pulses
+    name: "watermeter pulses totaal"
+    state_class: "total_increasing"
+    accuracy_decimals: 0
+    lambda: return id(total_water_pulses);
+    internal: True
