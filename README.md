@@ -138,7 +138,7 @@ Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
 
 1. Install Home Assistant & Esphome .
 2. Connect the wemos d1 mini to a USB charger.
-3. Go to <b>ssid:</b> ```S0tool``` & <b> password:</b> ```s0watermeter```
+3. Go to <b>ssid:</b> ```S0tool``` 
 4. Go to ```192.168.4.1```.
 5. Put the correct SSID and Password in the fields
 6. Wait until it is ready, and then it will indicate the address where it can be found (put it in your router)

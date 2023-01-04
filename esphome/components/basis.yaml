@@ -4,7 +4,7 @@
 # © Huizebruin.nl
 substitutions:
   vdate: "v22.12.27" 
-  date: "30-dec-2022"
+  date: "04-01-2023"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
 esphome:
@@ -24,7 +24,7 @@ wifi:
   # password: VerySafePassword
 
   ap:
-    ssid: "${name}"
+    ssid: "s0tool"
     ap_timeout: 10s
 
 web_server:
