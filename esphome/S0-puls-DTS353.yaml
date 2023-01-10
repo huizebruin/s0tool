@@ -1,0 +1,29 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
+substitutions:
+  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
+  name: s0tool-DTS353
+  impulslengte: "90ms" 
+
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: d1_mini
+  comment: '${device_description}'
+  project:
+    name: huizebruin.${name}
+    version: "${vdate}"
+  
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/esphome/DTS353.yaml
+
+packages:   
+  remote_package:
+    url: https://github.com/huizebruin/s0tool/
+    ref: main
+    files: 
+      - esphome/components/basis.yaml
+      - esphome/components/DTS353.yml
+    refresh: 0d   
