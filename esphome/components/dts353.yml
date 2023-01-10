@@ -34,7 +34,7 @@ number:
     max_value: '4000'
     step: '10'
     restore_value: yes
-    initial_value: '2000'
+    initial_value: '1000'
 
 binary_sensor:
  #------------------------# kwh #------------------------#
@@ -86,7 +86,7 @@ sensor:
     update_interval: 1s
     unit_of_measurement: 'kWh'
     accuracy_decimals: 3
-    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
+    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * 0.001);
 
 # ⬇ kwh pulses only web interface for debugging ⬇ #
   - platform: template

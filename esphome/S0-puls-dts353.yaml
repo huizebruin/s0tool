@@ -16,7 +16,7 @@ esphome:
     version: "${vdate}"
   
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/dts353.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-dts353.yaml
 
 packages:   
   remote_package:
