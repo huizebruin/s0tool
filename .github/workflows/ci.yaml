@@ -20,10 +20,11 @@ jobs:
           - esphome/S0-puls-DSZ12D.yaml   # Special
           - esphome/S0-puls-LEM022SJ.yaml  #special
           - esphome/s0-watermeter.yaml # special watermeter
+          - esphome/S0-puls-DTS353.yaml #special for DTS353
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
       - name: Build ESPHome firmware to verify configuration
-        uses: esphome/build-action@v1.5.3
+        uses: esphome/build-action@v1.7.0
         with:
           yaml_file: ${{ matrix.file }}
