@@ -1,5 +1,5 @@
 {
-"name": "S0tool DTS353",
+"name": "S0tool dts353",
   "home_assistant_domain": "esphome",
   "funding_url": "https://paypal.me/huizebruin",
   "new_install_skip_erase": false,
@@ -8,7 +8,7 @@
       "chipFamily": "ESP8266",
       "parts": [
         {
-          "path": "s0tool-DTS353-esp8266/s0tool-DTS353-esp8266.bin",
+          "path": "s0tool-dts353-esp8266/s0tool-dts353-esp8266.bin",
           "offset": 0
         }
       ]

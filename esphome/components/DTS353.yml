@@ -37,7 +37,7 @@ number:
     initial_value: '2000'
 
 binary_sensor:
- #------------------------# kwh #------------------------#
+#------------------------# kwh #------------------------#
   - platform: gpio
     id: internal_pulse_counter2
     name: Pulse Sensor kwh
