@@ -1,5 +1,5 @@
 substitutions:
-  impulslengte: "90ms"
+  impulslengte: "70ms"
 
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
