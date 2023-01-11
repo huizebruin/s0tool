@@ -34,7 +34,7 @@ number:
     max_value: '4000'
     step: '10'
     restore_value: yes
-    initial_value: '1000'
+    initial_value: '400'
 
 binary_sensor:
  #------------------------# kwh #------------------------#
