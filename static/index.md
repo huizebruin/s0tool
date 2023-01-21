@@ -33,12 +33,12 @@ And a usb cable and minimal a usb power adapter with 5v and 1A
 
 ![S0tool-diy](./assets/npn-watermeter-wemosd1.png)
 
-Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57
+Will it work with my meter check it out here. [https://github.com/huizebruin/s0tool/discussions/57](https://github.com/huizebruin/s0tool/discussions/57)
 
 # Update:
 
 | Datum | Information |
-| :----------- | :------- |
+| :------------  | :------- |
 | 10/09/2022 | Flash page updated now options --> standard / watermeter / and specials|
 | 29/10/2022 | Ad watermeter sensor to energy dashboard.|
 | 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
@@ -50,25 +50,24 @@ Will it work with my meter check it out here. https://github.com/huizebruin/s0to
 Before update of the S0tool u should use, and above. <br>
 
 | Program | version |
-| :---------- | :------- |
+| :----------- | :------- |
 | Home Assistant | v2022.12.1 |
 | ESPHome | v2022.12.1 |
 
 <br>
 
 ## Information:
-|  Naam    | Setting                  |
-| :-----   | :----------              |
+|  Naam | Setting |
+| :----------- | :------- |
 | Wi-fi:   | IEEE 802.11 b/g/n 2.4GHz |
-| voeding: | Micro usb 5V 1A minimal  |
 <br>
 
 ## Watermeter to energy dashboard.
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
 
 |  Enegry dashboard | Dashboard  |
-| :----- | :----- |
-|  ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
+| :----------- | :------- |
+| ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
 <br>
 ## Installation
 
@@ -79,13 +78,14 @@ Go to this link to install the drivers.
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
-<b>Works only for a Wemos d1 mini  esp8266 at this moment.</b><br><br>
+<b>Works only for a Wemos d1 mini  esp8266 at this moment.</b><br>
 Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
+
 |  S0tool version   |    Install |    Info  |
-| :--------- | :----- | :----- |
-|  standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  standard with watermeter and kWh meter |<br><br>
-|  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only watermeter  |<br><br>
-|  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only kWh meter |<br><br>
+| :------------- | :----- | :----------- | 
+|  standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  standard with watermeter and kWh meter | <br><br>
+|  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only watermeter  | <br><br>
+|  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only kWh meter | <br><br>
 
 
 ***
