@@ -74,7 +74,8 @@ sensor:
       icon: "mdi:flash"
       accuracy_decimals: 3
       filters:
-        - lambda: return x * (1.0 / id(Select_pulse_rate).state);
+        - lambda: return id (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
+      #   - lambda: return x * (1.0 / id(Select_pulse_rate).state);
 
 
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
@@ -82,6 +83,7 @@ sensor:
     id: kwh_total
     name: "Actuele meterstand"
     state_class: "total_increasing"
+    device_class: energy
     icon: "mdi:flash"
     update_interval: 1s
     unit_of_measurement: 'kWh'

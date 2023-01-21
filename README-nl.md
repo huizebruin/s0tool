@@ -125,7 +125,13 @@ En het andere kabeltje gaat vanaf de D5 aansluiting op het printje naar poort 21
 <br> Sinds 01-07-2022 wordt alleen nog maar V2 verstuurd.
 ***
 <br>
+## Informatie:
+|  Naam | Setting  |
+| :----- | :----- |
+|  Wi-fi:  | IEEE 802.11 b/g/n 2.4GHz |
+|  voeding :  | Micro usb 5V 1A minimaal |
 
+  <br><br>
 ## Installatie: 
 
 Eerst dien je de CH340 drivers te installeren.
