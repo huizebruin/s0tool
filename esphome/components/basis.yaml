@@ -3,8 +3,8 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v22.12.27" 
-  date: "04-01-2023"
+  vdate: "v23.01.28" 
+  date: "21-01-2023"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
 esphome:

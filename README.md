@@ -61,6 +61,13 @@ Before update of the S0tool u should use, and above <br>
 
 <br>
 
+## Information:
+|  Naam | Setting  |
+| :----- | :----- |
+|  Wi-fi:  | IEEE 802.11 b/g/n 2.4GHz |
+|  voeding :  | Micro usb 5V 1A minimal |
+<br>
+
 ***
 <br>
 

@@ -18,7 +18,7 @@ esphome:
     version: "${vdate}"
   
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/LEM022SJ.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-LEM022SJ.yaml
 
 packages:   
   remote_package:
