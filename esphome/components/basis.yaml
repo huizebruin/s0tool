@@ -7,12 +7,12 @@ substitutions:
   date: "21-01-2023"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
-esphome:
-  name: ${name}
-  name_add_mac_suffix: true
-  platform: esp8266
-  board: d1_mini
-  esp8266_restore_from_flash: true 
+# esphome:
+#   name: ${name}
+#   name_add_mac_suffix: true
+#   platform: esp8266
+#   board: d1_mini
+#   esp8266_restore_from_flash: true 
 
 preferences:
   flash_write_interval: 120min #1x per 2 uur

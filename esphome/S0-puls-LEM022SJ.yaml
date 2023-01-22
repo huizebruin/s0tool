@@ -9,9 +9,10 @@ substitutions:
 
 esphome:
   name: ${name}
-  name_add_mac_suffix: true
   platform: ESP8266
   board: d1_mini
+  name_add_mac_suffix: true
+  esp8266_restore_from_flash: true   
   comment: '${device_description}'
   project:
     name: huizebruin.${name}
