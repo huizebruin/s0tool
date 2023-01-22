@@ -1,0 +1,33 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Bron : https://www.huizebruin.nl
+# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# © Huizebruin.nl
+substitutions:
+  name: s0tool-standard-mini-pro
+  vdate: "v23.01.28" 
+  date: "21-01-2023"
+  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
+
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: d1_mini_pro
+  name_add_mac_suffix: true
+  esp8266_restore_from_flash: true   
+  comment: '${device_description}'
+  project:
+    name: huizebruin.${name}
+    version: "${vdate}"
+  
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml
+
+packages:   
+  remote_package:
+    url: https://github.com/huizebruin/s0tool/
+    ref: main
+    files: 
+      - esphome/components/basis-pro.yaml
+      - esphome/components/kwhpuls.yml
+      - esphome/components/watermeter.yaml            
+#     refresh: 0d 
