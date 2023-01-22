@@ -3,8 +3,10 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool-standard-mini-pro
+  vdate: "v23.01.28" 
+  date: "21-01-2023"
+  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
 esphome:
   name: ${name}
