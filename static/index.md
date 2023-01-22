@@ -98,7 +98,8 @@ Only needed if the kWh counter has a impulslengte other than between the  50 an 
 | :------------- | :----- | :----------- | 
 |  S0tool dsz12d: |  <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the dsz12d | <br><br>
 |  S0tool lem022sj: |  <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the lem022sj 400imp | <br><br>
-|  S0tool s0-watermeter: |  <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the s0-watermeter | <br>
+|  S0tool s0-watermeter: |  <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the s0-watermeter | <br><br> 
+|  S0tool wemos mini pro: |  <esp-web-install-button manifest="./s0tool-d1minipro-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special standard for the wemos mini pro | <br><br>
 
 ***
 
