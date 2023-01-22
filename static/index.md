@@ -57,9 +57,10 @@ Before update of the S0tool u should use, and above. <br>
 <br>
 
 ## Information:
-|  Naam | Setting |
-| :----------- | :------- |
-| Wi-fi:   | IEEE 802.11 b/g/n 2.4GHz |
+<br>
+  Wi-fi : IEEE 802.11 b/g/n 2.4GHz 
+
+
 <br>
 
 ## Watermeter to energy dashboard.
@@ -68,6 +69,7 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 |  Enegry dashboard | Dashboard  |
 | :----------- | :------- |
 | ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
+
 <br>
 ## Installation
 
@@ -131,7 +133,7 @@ For more information about the S0tool look at my (Dutch) [website](https://www.h
 ## License
 MIT License
 
-Copyright (c) 2021 / 2022 Huizebruin
+Copyright (c) 2021 / 2023 Huizebruin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

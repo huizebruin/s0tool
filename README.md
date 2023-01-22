@@ -61,11 +61,9 @@ Before update of the S0tool u should use, and above <br>
 
 <br>
 
-## Information:
-|  Naam | Setting  |
-| :----- | :----- |
-|  Wi-fi:  | IEEE 802.11 b/g/n 2.4GHz |
-|  voeding :  | Micro usb 5V 1A minimal |
+## Information:<br>
+  Wi-fi : IEEE 802.11 b/g/n 2.4GHz 
+
 <br>
 
 ***
@@ -125,9 +123,7 @@ The more energy you consume or supply back, the faster it will switch.<br>
 ![afbeelding](./static/assets/kwh_Meter_Pulse.jpg)<br>
 How to put it to your setup<br>
 ![afbeelding](./static/assets/s0tool-s0-kwh-poort.jpg)<br>
-There is a small error in <b>v1</b>, in the s0 connection is the <b>GND</b> I.P.V <b>5v+</b>.<br>
 
-<br> Since 01-07-2022 only V2 is sent out.
 ***
 <br>
 
@@ -246,7 +242,7 @@ Who else is working on this project : <br>
 
 MIT License
 
-Copyright (c) 2021 / 2022 Huizebruin.nl
+Copyright (c) 2021 / 2023 Huizebruin.nl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
