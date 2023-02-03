@@ -63,7 +63,9 @@ binary_sensor:
 sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
-  - platform: pulse_counter
+  - platform: pulse_meter #pulse_counter
+    internal_filter_mode: "PULSE"
+    internal_filter: 50ms  
     pin: D2
     id: watermeter_pulse
     name: "watermeter pulse"
