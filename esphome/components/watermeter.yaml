@@ -26,20 +26,38 @@ globals:
     type: int
     restore_value: yes
     
-select:
-  # ⬇ water per m3 rate ⬇ #
+# select:
+#   # ⬇ water per m3 rate ⬇ #
+#   - platform: template
+#     name: "Pulsrate water per m3"
+#     id: Select_pulse_water
+#     optimistic: true
+#     options:
+#       - "0.0001"
+#       - "0.0005"
+#       - "0.001"  
+#       - "0.01"  
+#       - "0.1"                   
+#     initial_option: "0.001"
+#     restore_value: yes
+#     on_value:
+#       then:
+#         - logger.log:
+#             format: "Chosen option: %s "
+#             args: ["x.c_str()"]
+
+#   # ⬇ water per m3 rate ⬇ #
+number:
   - platform: template
-    name: "Pulsrate water per m3"
     id: Select_pulse_water
+    name: 'Pulsrate water per m3'
     optimistic: true
-    options:
-      - "0.0001"
-      - "0.0005"
-      - "0.001"  
-      - "0.01"  
-      - "0.1"                   
-    initial_option: "0.001"
+    mode: box
+    min_value: '0.0001'
+    max_value: '0.1'
+    step: '1'
     restore_value: yes
+    initial_value: '0.001'
     on_value:
       then:
         - logger.log:
