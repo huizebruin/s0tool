@@ -35,6 +35,11 @@ number:
     step: '10'
     restore_value: yes
     initial_value: '2000'
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
 
 binary_sensor:
  #------------------------# kwh #------------------------#
