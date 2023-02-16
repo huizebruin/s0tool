@@ -5,32 +5,32 @@
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
   services:
-    - service: meterstand_water
+    - service: meterstand_gas
       variables:
         meter_value: float
       then:
         - globals.set:
-            id: initial_water_usage
-            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) ) ;"
+            id: initial_gas_usage
+            value: !lambda "return ( meter_value - (id(total_gas_pulses)) * atof(id(Select_pulse_gas).state.c_str()) ) ;"
         - globals.set:
-            id: total_water_pulses
+            id: total_gas_pulses
             value:  "0"             
             
 
 globals:
-  - id: initial_water_usage
+  - id: initial_gas_usage
     type: float
     restore_value: yes      
     initial_value: '010' 
-  - id: total_water_pulses
+  - id: total_gas_pulses
     type: int
     restore_value: yes
     
 select:
-  # ⬇ water per m3 rate ⬇ #
+  # ⬇ gas per m3 rate ⬇ #
   - platform: template
-    name: "Pulsrate water per m3"
-    id: Select_pulse_water
+    name: "Pulsrate gas per m3"
+    id: Select_pulse_gas
     optimistic: true
     options:
       - "0.0001"
@@ -56,8 +56,8 @@ select:
 
 number:
   - platform: template
-    id: Select_pulse_water
-    name: 'Pulsrate water per m3'
+    id: Select_pulse_gas
+    name: 'Pulsrate gas per m3'
     optimistic: true
     mode: box
     min_value: '0.0001'
@@ -67,64 +67,64 @@ number:
     initial_value: '0.001'
     
 
-#------------------------# Watermeter #------------------------#
+#------------------------# gasmeter #------------------------#
 binary_sensor:
   - platform: gpio
     id: internal_pulse_counter
-    name: Pulse Sensor Water
+    name: Pulse Sensor gas
     pin:
-      number: D2
+      number: D5
       inverted: true
       mode:
         input: true
     on_press:
       - then:
-          lambda: id(total_water_pulses) += 1;  
+          lambda: id(total_gas_pulses) += 1;  
 
 sensor:
-#------------------------# Watermeter #------------------------#
-# ⬇ watermeter pulsen ⬇ #
+#------------------------# gasmeter #------------------------#
+# ⬇ gasmeter pulsen ⬇ #
   - platform: pulse_meter #pulse_counter
     internal_filter_mode: "PULSE"
     internal_filter: 50ms  
-    pin: D2
-    id: watermeter_pulse
-    name: "watermeter flow" #"watermeter pulse"
+    pin: D5
+    id: gasmeter_pulse
+    name: "gasmeter pulse"
     state_class: measurement
     unit_of_measurement: "l/min"    
     accuracy_decimals: 1
-    icon: "mdi:water-pump"
+    icon: "mdi:gas-burner"
     filters:
-      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
+      lambda: return x * atof(id(Select_pulse_gas).state.c_str()) * 1000;
 
-# ⬇ Totaal watermeter ⬇ #      
+# ⬇ Totaal gasmeter ⬇ #      
     total:
       id: sensor_pulse_meter_total
-      name: "watermeter Totaal"
+      name: "gasmeter Totaal"
       unit_of_measurement: "m³"
       state_class: total_increasing
-      device_class: water
+      device_class: gas
       accuracy_decimals: 3
       filters:
-        lambda: return x * atof(id(Select_pulse_water).state.c_str());
+        lambda: return x * atof(id(Select_pulse_gas).state.c_str());
 
       
-# ⬇ Watermeter stand bij benadering ⬇ #
+# ⬇ gasmeter stand bij benadering ⬇ #
   - platform: template
-    id: watermeter_total
-    name: "watermeter stand"
+    id: gasmeter_total
+    name: "gasmeter stand"
     state_class: "total_increasing"
-    icon: mdi:water
+    icon: mdi:meter-gas
     unit_of_measurement: "m³"
     accuracy_decimals: 3
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
+    lambda: return id(initial_gas_usage) + (id(total_gas_pulses) * atof(id(Select_pulse_gas).state.c_str()));
 
-# ⬇ Waterpulses  only web interface for debugging ⬇ #
+# ⬇ gaspulses  only web interface for debugging ⬇ #
   - platform: template
-    id: watermeter_pulses
-    name: "watermeter pulses totaal"
+    id: gasmeter_pulses
+    name: "gasmeter pulses totaal"
     state_class: "total_increasing"
     accuracy_decimals: 0
-    lambda: return id(total_water_pulses);
+    lambda: return id(total_gas_pulses);
     internal: True
 
