@@ -57,12 +57,12 @@ sensor:
     id: actual_power
     icon: "mdi:flash"
     internal_filter: ${impulslengte} 
-    accuracy_decimals: 3
-    unit_of_measurement: 'kW'
+    accuracy_decimals: 0 #3
+    unit_of_measurement:  "W" #'kW'
     state_class: measurement
     device_class: power
     filters:
-       lambda: return x * (60.0 / id(Select_pulse_rate).state);
+       lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
 
 # ⬇ Totaal opgebracht ⬇ #    
     total:
