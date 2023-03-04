@@ -28,7 +28,6 @@ web_server:
 captive_portal:
   # Optionally, preserve provisioned credentials
   # over subsequent OTA updates.
-  keep_user_credentials: true
 
 # ⬇ Enable logging ⬇ # 
 logger:
