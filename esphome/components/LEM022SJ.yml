@@ -56,7 +56,7 @@ sensor:
     name:  "Actuele energie"
     id: actual_power
     icon: "mdi:flash"
-    internal_filter: ${impulslengte} 
+#    internal_filter: ${impulslengte} 
     accuracy_decimals: 0 #3
     unit_of_measurement:  "W" #'kW'
     state_class: measurement
