@@ -104,3 +104,4 @@ sensor:
     accuracy_decimals: 0
     lambda: return id(total_water_pulses);
     internal: True
+    
