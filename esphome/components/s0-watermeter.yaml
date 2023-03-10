@@ -64,7 +64,7 @@ sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
   - platform: pulse_counter
-    pin: D2
+    pin: D5
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
