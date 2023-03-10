@@ -77,7 +77,6 @@ sensor:
         - lambda: return id (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
       #   - lambda: return x * (1.0 / id(Select_pulse_rate).state);
 
-
 # ⬇ Kwh meterstand ⬇ stand bij benadering #        
   - platform: template
     id: kwh_total
