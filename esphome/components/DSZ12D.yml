@@ -98,4 +98,3 @@ sensor:
     lambda: return id(total_kwh_pulses);
     accuracy_decimals: 0
     internal: True
-
