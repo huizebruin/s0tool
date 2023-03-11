@@ -24,7 +24,7 @@ dashboard_import:
 packages:   
   remote_package:
     url: https://github.com/huizebruin/s0tool/
-    ref: dev #main
+    ref: main
     files: 
       - esphome/components/basis.yaml
       - esphome/components/watermeter.yaml            
