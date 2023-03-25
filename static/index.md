@@ -127,25 +127,25 @@ and you can find your readings and reset it.
 <h2 id="troubleshooting">Troubleshooting</h2>
 
 <h3 id="drivers">USB Serial Drivers</h3>
-            <p>
-              If the serial port is not showing up, your computer might be missing the
-              drivers for the USB serial chip used in your ESP device. These drivers
-              work for most ESP devices:
-            </p>
-            <ul>
-              <li>
-                CP2102 (square chip):
-                <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
-              </li>
-              <li>
-                CH341:
-                <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
-              </li>
-              <li>
-                CH340:
-                <a href="https://sparks.gogo.co.nz/ch340.html" rel="noreferer, ,noopener" target="_blank">driver</a>
-              </li>
-            </ul>
+<p>
+  If the serial port is not showing up, your computer might be missing the
+  drivers for the USB serial chip used in your ESP device. These drivers
+  work for most ESP devices:
+</p>
+  <ul>
+  <li>
+    CP2102 (square chip):
+    <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
+  </li>
+  <li>
+    CH341:
+    <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
+  </li>
+  <li>
+    CH340:
+    <a href="https://sparks.gogo.co.nz/ch340.html" rel="noreferer, ,noopener" target="_blank">driver</a>
+  </li>
+  </ul>
 <br>
 Have fun with the <b>S0tool</b>.<br>
  <br> For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
