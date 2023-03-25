@@ -3,6 +3,7 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
+
 # S0tool
 
 |  S0tool | Made for ESPHome program  |
@@ -71,23 +72,24 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 | ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
 
 <br>
+
 ## Installation
 
-first you must have installed the CH340 drivers for the wemos d1 to communicate to your pc / laptop .<br>
+first you must have installed the drivers for the wemos d1 to communicate to your pc / laptop . Look at Troubleshooting below. <br>
 
-Go to this link to install the drivers. 
-[https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
-<b>Works only for a Wemos d1 mini  esp8266 at this moment.</b><br>
+<b>Works only for a Wemos d1 mini V1 esp8266 at this moment.</b><br>
 Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
+
+<script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
 |  S0tool version   |    Install |    Info  |
 | :------------- | :----- | :----------- | 
-|  standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  standard with watermeter and kWh meter | <br><br>
-|  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only watermeter  | <br><br>
-|  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> |  only kWh meter | <br><br>
+|  standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |  standard with watermeter and kWh meter | <br><br>
+|  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button> |  only watermeter  | <br><br>
+|  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button> |  only kWh meter | <br><br>
 
 
 ***
@@ -96,10 +98,10 @@ Only needed if the kWh counter has a impulslengte other than between the  50 an 
 
 |  S0tool version   |    Install |    Info  |
 | :------------- | :----- | :----------- | 
-|  S0tool dsz12d: |  <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the dsz12d | <br><br>
-|  S0tool lem022sj: |  <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the lem022sj 400imp | <br><br>
-|  S0tool s0-watermeter: |  <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special for the s0-watermeter | <br><br> 
-|  S0tool flux and puls: |  <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button> <script type="module" src="https://unpkg.com/esp-web-tools@5.2.0/dist/web/install-button.js?module"></script> | special standard for flow sensor and puls sensor| <br><br>
+|  S0tool dsz12d: |  <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button> | special for the dsz12d | <br><br>
+|  S0tool lem022sj: |  <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button> | special for the lem022sj 400imp | <br><br>
+|  S0tool s0-watermeter: |  <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"></esp-web-install-button> | special for the s0-watermeter | <br><br> 
+|  S0tool flux and puls: |  <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button> | special standard for flow sensor and puls sensor| <br><br>
 
 ***
 
@@ -122,13 +124,42 @@ and you can find your readings and reset it.
 
 ***
 
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="drivers">USB Serial Drivers</h3>
+            <p>
+              If the serial port is not showing up, your computer might be missing the
+              drivers for the USB serial chip used in your ESP device. These drivers
+              work for most ESP devices:
+            </p>
+            <ul>
+              <li>
+                CP2102 (square chip):
+                <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
+              </li>
+              <li>
+                CH341:
+                <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
+              </li>
+              <li>
+                CH340:
+                <a href="https://sparks.gogo.co.nz/ch340.html" rel="noreferer, ,noopener" target="_blank">driver</a>
+              </li>
+            </ul>
+<br>
 Have fun with the <b>S0tool</b>.<br>
  <br> For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
-For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b><br>
+For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b>
+<br>
 
- 
+
+
 <br><br><b>
-Wobbe From Huizebruin.nl</b>
+Wobbe </b><br>
+From Huizebruin.nl
+
+Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) 
+
 <br><br>
 For more information about the S0tool look at my (Dutch) [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 ## License
@@ -143,6 +174,12 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ***
+
+<br>
+<div style="text-align:center;font-size:11px;">
+      <hr>
+      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a>
+    </div>
 
 
 [esphome]: https://esphome.io/
