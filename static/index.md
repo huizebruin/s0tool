@@ -11,7 +11,7 @@
   
   th, td {
     text-align: left;
-    padding: 8px;
+    padding: 20px;
   }
   
   th {
