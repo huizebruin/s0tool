@@ -39,15 +39,16 @@ number:
 binary_sensor:
  #------------------------# kwh #------------------------#
   - platform: gpio
-    id: internal_pulse_counter2
-    name: Pulse Sensor kwh
+    id: kwh_sensor_status
+    name: kWh sensor status
+    internal: False
     pin:
       number: D5
       mode:
         input: true
     on_press:
       - then:
-          lambda: id(total_kwh_pulses) += 1;       
+          lambda: id(total_kwh_pulses) += 1;        
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #

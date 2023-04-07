@@ -3,8 +3,8 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  vdate: "v23.02.29" 
-  date: "11-03-2023"
+  vdate: "v23.04.30" 
+  date: "07-04-2023"
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
 preferences:
@@ -15,7 +15,6 @@ improv_serial:
 wifi:
   # ssid: MyHomeNetwork
   # password: VerySafePassword
-
   ap:
     ssid: "s0tool"
     ap_timeout: 10s
@@ -23,20 +22,14 @@ wifi:
 web_server:
   port: 80
   
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device.
 captive_portal:
-  # Optionally, preserve provisioned credentials
-  # over subsequent OTA updates.
 
 # ⬇ Enable logging ⬇ # 
 logger:
   level: INFO
   esp8266_store_log_strings_in_flash: false
 
-
 ota:
-
 #  ⬇ Enable time component voor reset elke nacht ⬇ #
 time:
   - platform: homeassistant

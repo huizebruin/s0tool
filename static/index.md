@@ -158,7 +158,7 @@ For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b>
 Wobbe </b><br>
 From Huizebruin.nl
 
-Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) 
+Do you like my work ?<br>  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) 
 
 <br><br>
 For more information about the S0tool look at my (Dutch) [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
@@ -176,7 +176,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 ***
 
 <br>
-<div style="text-align:center;font-size:11px;">
+<div style="text-align:center;font-size:14px;">
       <hr>
       <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a>
     </div>

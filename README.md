@@ -222,9 +222,12 @@ This can be done by the ESPHome dashboard by now.
 
 Have fun with this tool.<br>
 Any additions / improvements <br> may be made via <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b> be supplemented.<br> 
-Or via<b>[issues](https://github.com/huizebruin/s0tool/issues) </b> requested or added.
-<br><br><b>
-Wobbe from Huizebruin.nl</b>
+Or via<b> [issues](https://github.com/huizebruin/s0tool/issues) </b> requested or added.
+<br><br><br><b>
+Wobbe </b><br>
+From <a href="https://www.Huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a>
+
+Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) 
 <br><br>
 For more information and connection diagrams, etc., take a look at the [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 ***
@@ -237,6 +240,36 @@ Who else is working on this project : <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
 
 ****
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="drivers">USB Serial Drivers</h3>
+<p>
+  If the serial port is not showing up, your computer might be missing the
+  drivers for the USB serial chip used in your ESP device. These drivers
+  work for most ESP devices:
+</p>
+  <ul>
+  <li>
+    CP2102 (square chip):
+    <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
+  </li>
+  <li>
+    CH341:
+    <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
+  </li>
+  <li>
+    CH340:
+    <a href="https://sparks.gogo.co.nz/ch340.html" rel="noreferer, ,noopener" target="_blank">driver</a>
+  </li>
+  </ul>
+<br>
+
+
+
+
+
+
 
 ## License
 
@@ -253,6 +286,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ***
 
 <a href="https://tc.tradetracker.net/?c=27&amp;m=39668&amp;a=385034&amp;r=&amp;u=" target="_blank" rel="sponsored nofollow">Make money with your site. Start now, sign up here.</a>
+<div style="text-align:center;font-size:13px;">
+      <hr>
+      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a>
+    </div>
 
 
 

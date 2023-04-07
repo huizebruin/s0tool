@@ -26,29 +26,12 @@ globals:
     type: int
     restore_value: yes
     
-# select:
-#   # ⬇ water per m3 rate ⬇ #
-#   - platform: template
-#     name: "Pulsrate water per m3"
-#     id: Select_pulse_water
-#     optimistic: true
-#     options:
-#       - "0.0001"
-#       - "0.0005"
-#       - "0.001"       
-#     initial_option: "0.001"
-#     restore_value: yes
-#     on_value:
-#       then:
-#         - logger.log:
-#             format: "Chosen option: %s "
-#             args: ["x.c_str()"]
-
 #------------------------# Watermeter #------------------------#
 binary_sensor:
   - platform: gpio
-    id: internal_pulse_counter
-    name: Pulse Sensor Water
+    id: water_sensor_status
+    name: Water sensor status
+    internal: False
     pin:
       number: D2
       inverted: true
@@ -73,9 +56,6 @@ sensor:
     icon: "mdi:water-pump"
     filters:
       - multiply: 0.0167    
-#      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
-
-
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
