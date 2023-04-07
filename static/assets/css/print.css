@@ -110,7 +110,7 @@ ul, ol, dl {
 
 table {
   width: 100%;
-  border: 1px solid #ebebeb;
+  border: 1px solid #01ab7e;
 }
 
 th {
@@ -120,7 +120,7 @@ th {
 td {
   font-weight: 300;
   text-align: center;
-  border: 1px solid #ebebeb;
+  border: 1px solid #01ab7e;
 }
 
 form {
@@ -208,7 +208,7 @@ footer {
   padding-bottom: 30px;
   margin-top: 40px;
   font-size: 13px;
-  color: #aaa;
+  color: #01ab7e;
 }
 
 footer a {

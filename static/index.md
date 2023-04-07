@@ -158,7 +158,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 <br>
 <div style="text-align:center;font-size:14px;">
       <hr>
-      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a><br>
+      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" >S0tool Installer powered by ESP Web Tools</a><br>
     Copyright (c) 2021 / 2023 Huizebruin </div>
     
 
