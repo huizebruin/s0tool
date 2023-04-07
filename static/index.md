@@ -67,7 +67,6 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
-
 <table>
   <thead>
     <tr>
