@@ -3,6 +3,23 @@
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #333;
+    color: #fff;
+    border-top: 5px solid #01ab7e;
+  }
+</style>
 
 # S0tool
 
@@ -16,7 +33,7 @@ With the<b> S0tool</b> you can keep track of the consumption of both your water 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
 A suitable kWh meter with an S0 connection must be installed for this.
 
-<b>S0tool</b> makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome licence <br>
+<b>S0tool</b> makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome license <br>
 
 ![S0tool-and_case](./assets/S0tool_case.jpg) 
 
@@ -36,26 +53,6 @@ And a usb cable and minimal a usb power adapter with 5v and 1A
 
 Will it work with my meter check it out here. [https://github.com/huizebruin/s0tool/discussions/57](https://github.com/huizebruin/s0tool/discussions/57)
 
-# Update:
-
-| Datum | Information |
-| :------------  | :------- |
-| 10/09/2022 | Flash page updated now options --> standard / watermeter / and specials|
-| 29/10/2022 | Ad watermeter sensor to energy dashboard.|
-| 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
-| 14/11/2022 | Fix for watermeter now works with 2 pulses a liter choose 0.0005  and 1 puls a liter choose 0.001 default is 0.001.|
-| 18/11/2022 | Fix for meter counter for the kWh and water, and some cleanup of the code.|
-
-<br>
-
-Before update of the S0tool u should use, and above. <br>
-
-| Program | version |
-| :----------- | :------- |
-| Home Assistant | v2022.12.1 |
-| ESPHome | v2022.12.1 |
-
-<br>
 
 ## Information:
 <br>
@@ -75,7 +72,7 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 
 ## Installation
 
-first you must have installed the drivers for the wemos d1 to communicate to your pc / laptop . Look at Troubleshooting below. <br>
+First you must have installed the drivers for the Wemos d1 to communicate to your pc / laptop . Look at Troubleshooting below. <br>
 
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
@@ -85,42 +82,93 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
-|  S0tool version   |    Install |    Info  |
-| :------------- | :----- | :----------- | 
-|  standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |  standard with watermeter and kWh meter | <br><br>
-|  S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button> |  only watermeter  | <br><br>
-|  S0tool kWh meter | <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button> |  only kWh meter | <br><br>
+## standard version
 
+<table>
+  <thead>
+    <tr>
+      <th>S0tool version</th>
+      <th>Install</th>
+      <th>Info </th>
+      <th>Pin </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>standard</td>
+      <td><esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button></td>
+      <td>standard with watermeter and kWh meter</td>
+      <td>D2 & D5</td>
+    </tr>
+    <tr>
+      <td>S0tool Watermeter</td>
+      <td><esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button></td>
+      <td>Only watermeter</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <td>S0tool kWh meter </td>
+      <td><esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button></td>
+      <td>Only kWh meter</td>
+      <td>D5</td>
+    </tr>
+  </tbody>
+</table>
 
 ***
-### Special versions .<br>
-Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
-
-|  S0tool version   |    Install |    Info  |
-| :------------- | :----- | :----------- | 
-|  S0tool dsz12d: |  <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button> | special for the dsz12d | <br><br>
-|  S0tool lem022sj: |  <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button> | special for the lem022sj 400imp | <br><br>
-|  S0tool s0-watermeter: |  <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"></esp-web-install-button> | special for the s0-watermeter | <br><br> 
-|  S0tool flux and puls: |  <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button> | special standard for flow sensor and puls sensor| <br><br>
-
-***
-
-For more information about the code etc.
-https://github.com/huizebruin/s0tool
-<br>
- <br>
-
 Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations are possible between 10 and 4000 puls/kWh with steps by 10.
 ***
 
-## How to change the total readings
-For the water counter: D2 [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
-<br><br>
-For the S0 port of the kwh meter : D5  [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
+## Special versions .<br>
+Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
+<table>
+  <thead>
+    <tr>
+      <th>S0tool version</th>
+      <th>Install</th>
+      <th>Info </th>
+      <th>Pin </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S0tool dsz12d</td>
+      <td><esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button></td>
+      <td>special for the dsz12d</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <td>S0tool lem022sj</td>
+      <td><esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button></td>
+      <td>special for the lem022sj 400imp</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <td>S0tool s0-watermeter </td>
+      <td><esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button></td>
+      <td>special for the s0-watermeter</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <td>S0tool flux and puls </td>
+      <td><esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button></td>
+      <td>special standard for flow sensor and puls sensor</td>
+      <td>D2</td>
+    </tr>    
+  </tbody>
+</table>
 
-Or this one.
+***
+
+## How to change the total readings
+ [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water) For the water counter: D2
+<br>
+  [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh) For the S0 port of the kwh meter : D5
+<br>
 [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate)
-and you can find your readings and reset it. 
+And you can find your readings and reset it. 
+
+
 
 ***
 
@@ -147,13 +195,11 @@ and you can find your readings and reset it.
   </li>
   </ul>
 <br>
-Have fun with the <b>S0tool</b>.<br>
- <br> For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
+For problems or solutions <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b>.<br> 
 For problems <b>[issues](https://github.com/huizebruin/s0tool/issues) . </b>
-<br>
+<br><br>
 
-
-
+Have fun with the <b>S0tool</b>.
 <br><br><b>
 Wobbe </b><br>
 From Huizebruin.nl
@@ -161,25 +207,32 @@ From Huizebruin.nl
 Do you like my work ?<br>  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) 
 
 <br><br>
+For more information about the code etc.
+https://github.com/huizebruin/s0tool
+<br>
 For more information about the S0tool look at my (Dutch) [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
+
+
+## Contributing
+If you'd like to contribute to the s0tool project, please fork the repository and submit a pull request. We welcome contributions of all kinds, including bug fixes, new features, and documentation updates.
+
+
 ## License
 MIT License
-
-Copyright (c) 2021 / 2023 Huizebruin
-
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-***
 
 <br>
 <div style="text-align:center;font-size:14px;">
       <hr>
-      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a>
-    </div>
+      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a><br>
+    Copyright (c) 2021 / 2023 Huizebruin </div>
+    
+
 
 
 [esphome]: https://esphome.io/
