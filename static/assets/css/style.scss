@@ -27,6 +27,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+.inner {
+  max-width: 75%;
+}
 body {
   line-height: 1;
   margin: 0;
