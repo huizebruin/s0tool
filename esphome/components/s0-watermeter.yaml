@@ -49,8 +49,9 @@ select:
 #------------------------# Watermeter #------------------------#
 binary_sensor:
   - platform: gpio
-    id: internal_pulse_counter
-    name: Pulse Sensor Water
+    id: water_sensor_status
+    name: Water sensor status
+    internal: False
     pin:
       number: D2
       inverted: true
@@ -59,7 +60,6 @@ binary_sensor:
     on_press:
       - then:
           lambda: id(total_water_pulses) += 1;  
-
 sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
