@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>S0tool by Huizebruin.nl</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
 | Repository Status | ESPHome S0tool discord Community |
 | :----- | :----- |
@@ -243,7 +236,3 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
-
-
-</body>
-</html>
