@@ -67,7 +67,6 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
-## standard version
 
 <table>
   <thead>
@@ -97,25 +96,18 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
       <td>Only kWh meter</td>
       <td>D5</td>
     </tr>
-  </tbody>
-</table>
-
-***
-Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations are possible between 10 and 4000 puls/kWh with steps by 10.
-***
-
-## Special versions .<br>
-Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
-<table>
-  <thead>
     <tr>
-      <th>S0tool version</th>
-      <th>Install</th>
-      <th>Info </th>
-      <th>Pin </th>
-    </tr>
-  </thead>
-  <tbody>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr> 
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>    
     <tr>
       <td>S0tool dsz12d</td>
       <td><esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button></td>
@@ -139,9 +131,17 @@ Only needed if the kWh counter has a impulslengte other than between the  50 an 
       <td><esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button></td>
       <td>special standard for flow sensor and puls sensor</td>
       <td>D2</td>
-    </tr>    
+    </tr> 
   </tbody>
 </table>
+
+***
+Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations are possible between 10 and 4000 puls/kWh with steps by 10.
+***
+
+## Special versions .<br>
+Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
+
 
 ***
 
