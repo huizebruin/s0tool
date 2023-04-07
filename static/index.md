@@ -67,79 +67,24 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
-<table>
-  <thead>
-    <tr>
-      <th>S0tool version</th>
-      <th>Install</th>
-      <th>Info </th>
-      <th>Pin </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>standard</td>
-      <td><esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button></td>
-      <td>standard with watermeter and kWh meter</td>
-      <td>D2 & D5</td>
-    </tr>
-    <tr>
-      <td>S0tool Watermeter</td>
-      <td><esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button></td>
-      <td>Only watermeter</td>
-      <td>D2</td>
-    </tr>
-    <tr>
-      <td>S0tool kWh meter </td>
-      <td><esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button></td>
-      <td>Only kWh meter</td>
-      <td>D5</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr> 
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>    
-    <tr>
-      <td>S0tool dsz12d</td>
-      <td><esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button></td>
-      <td>special for the dsz12d</td>
-      <td>D5</td>
-    </tr>
-    <tr>
-      <td>S0tool lem022sj</td>
-      <td><esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button></td>
-      <td>special for the lem022sj 400imp</td>
-      <td>D5</td>
-    </tr>
-    <tr>
-      <td>S0tool s0-watermeter </td>
-      <td><esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button></td>
-      <td>special for the s0-watermeter</td>
-      <td>D2</td>
-    </tr>
-    <tr>
-      <td>S0tool flux and puls </td>
-      <td><esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button></td>
-      <td>special standard for flow sensor and puls sensor</td>
-      <td>D2</td>
-    </tr> 
-  </tbody>
-</table>
+|  S0tool version | Install | Info | Pin |
+| :------ | :----- | :------- | :------- |
+|Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter and kWh meter |D2 & D5 |
+|S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>|Only watermeter |D2 |
+|S0tool kWh meter| <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>|Only kWh meter |D5 |
+|Specials|  |  |  |
+|S0tool dsz12d| <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>|special for the dsz12d |D5 |
+|S0tool lem022sj| <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>|special for the lem022sj 400imp |D5 |    
+|S0tool s0-watermeter| <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button>|special for the s0-watermeter |D2 |
+|S0tool flux and puls| <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button>|special for flow sensor and puls sensor |D2 | 
+
 
 ***
 Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations are possible between 10 and 4000 puls/kWh with steps by 10.
 ***
 
 ## Special versions .<br>
-Only needed if the kWh counter has a impulslengte other than between the  50 an 100ms on the datasheet.<br>
+Only needed if the kWh counter has a impulslengte other than between the 50 an 100ms on the datasheet.<br>
 
 
 ***
