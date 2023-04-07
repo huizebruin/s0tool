@@ -1,25 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>S0tool by Huizebruin.nl</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 | Repository Status | ESPHome S0tool discord Community |
 | :--- | :--- |
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
-<style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 20px;
-  }
-  
-  th {
-    background-color: #333;
-    color: #fff;
-    border-top: 5px solid #01ab7e;
-  }
-</style>
+
 
 # S0tool
 
@@ -251,3 +243,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
+
+
+</body>
+</html>
