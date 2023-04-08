@@ -103,7 +103,7 @@ And you can find your readings and reset it.
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
-<h3 id="drivers">USB Serial Drivers</h3>
+<h4 id="drivers">USB Serial Drivers</h3>
 <p>
   If the serial port is not showing up, your computer might be missing the
   drivers for the USB serial chip used in your ESP device. These drivers
@@ -137,7 +137,7 @@ Do you like my work ?<br>  [![](https://img.shields.io/badge/send%20me%20a%20sma
 
 <br><br>
 For more information about the code etc.
-https://github.com/huizebruin/s0tool
+[https://github.com/huizebruin/s0tool](https://github.com/huizebruin/s0tool)
 <br>
 For more information about the S0tool look at my (Dutch) [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 
@@ -147,13 +147,14 @@ If you'd like to contribute to the s0tool project, please fork the repository an
 
 
 ## License
+<div style="text-align:left;font-size:14px;">
 MIT License
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+</div>
 
 <br>
 <div style="text-align:center;font-size:14px;">

@@ -14,7 +14,7 @@
 |  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
 
 ## Dutch version
-For the Dutch version look [Here](./README-nl.md) or on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 
+For the Dutch version look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 
  
 <br><br>
 # How to order the <b>S0tool</b> ?
@@ -38,18 +38,7 @@ And a usb cable and minimal a usb power adapter with 5v and 1A
 Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57<br>
 
 
-# Update:
-| Datum | Information |
-| :--- | :--- |
-| 05/05/2022 | V2 is ready at my home for testing.|
-| 06/05/2022 | From now you can flash the  <b>s0tool</b> directly from your browser with a usb micro cable  [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
-| 25/07/2022 | Watercounter gives now you Liters every 2 seconds a update to Home Assistant.|
-| 04/08/2022 | Text translate on Github to [English](./README.md) and [Dutch](./README-nl.md).|
-| 10/09/2022 | Flash page updated now options --> standard / watermeter / 1000imp puls / 2000imp puls .|
-| 29/10/2022 | Ad watermeter sensor to energy dashboard.|
-| 12/11/2022 | Fix for watermeter total and watermeter meter counter numbers.|
-| 14/11/2022 | Fix for watermeter now works with 2 pulses a liter choose 0.0005  and 1 puls a liter choose 0.001 default is 0.001.|
-| 18/11/2022 | Fix for meter counter for the kWh and water, and some cleanup of the code.|
+
 
 <br>
 Before update of the S0tool u should use, and above <br>
@@ -163,7 +152,7 @@ Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
     cycle: hourly
 enz...
 ```
-Those in the file are in the folder[utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
+Those in the file are in the folder [utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
 
 12. Optionally to see if there are new updates, you can create the following sensor in your configuration.yaml:<br>
 (or you copy the sensor file from the sensor folder and put it all in your own configuration).
@@ -205,18 +194,18 @@ You must have added all the above sensors.
 
 ***
 ## Adjusting the meter reading
-To adjust the water meter position:
-[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
-<br><br>
-To adjust your kWh meter reading: [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
-<br><br>
-Or this option and then search for the right meter and then adjust, <br> here you can update all meter readings:
-[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate)
+
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water) To adjust the water meter position.
+<br>
+ [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh) To adjust your kWh meter reading
+<br>
+Or this option and then search for the right meter and then adjust, <br> 
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate) here you can update all meter readings
 <br>
 
 ****
 ## Update function
-04-08-2022 : <br> I'm working on a feature to keep this tool always up to date with the latest version on github.
+
 This can be done by the ESPHome dashboard by now.
 ***
 
@@ -266,12 +255,8 @@ Who else is working on this project : <br>
 <br>
 
 
-
-
-
-
-
 ## License
+<div style="text-align:left;font-size:14px;">
 
 MIT License
 
@@ -282,6 +267,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</div>
 
 ***
 
