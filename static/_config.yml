@@ -2,4 +2,23 @@
 title: S0tool by Huizebruin.nl
 description: Powered by ESPHome and ESP Web Tools
 theme: jekyll-theme-tactile
-google_analytics: G-292CTS96ES
+google_analytics: G-9HB5QGY82J
+# Your name to show in the footer
+author: Huizebruin
+#####################################
+# --- Footer social media links --- #
+#####################################
+social-network-links:
+  email: 
+  facebook: huizebruin
+  github: huizebruin
+  twitter: huizebruin
+  instagram: huizebruin
+  discord: bN8rC7gEng
+###########################
+# --- General options --- #
+###########################
+share-links-active:
+  twitter: true
+  facebook: true
+  linkedin: true
