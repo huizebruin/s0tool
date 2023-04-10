@@ -8,7 +8,7 @@
 ### Table of Contents
 
 - [Home](#s0tool) 
-- [Make it on your own](#if-u-cannot-buy-it-u-can-make-it-on-your-own) 
+- [Diy watercouter](#diy-watercounter) 
 - [Information](#Information) 
 - [Watermeter to energy dashboard](#watermeter-to-energy-dashboard)
 - [Installation](#installation)
@@ -35,7 +35,7 @@ A suitable kWh meter with an S0 connection must be installed for this.
 
 ![S0tool-and_case](./assets/S0tool_case.jpg) 
 
-## If u cannot buy it u can make it on your own.
+## diy watercounter.
 You need a couple of thinks<br>
 and place a resistor between the D2 and 5V.
 
@@ -70,9 +70,9 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 
 ## Installation
 
-First you must have installed the drivers for the Wemos d1 to communicate to your pc / laptop . Look at Troubleshooting below. <br>
+First you must have installed the drivers for the Wemos d1 to communicate to your pc / laptop . Look at troubleshooting below. <br>
 
-And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
+And you must connect the S0tool to your pc or laptop with a cable witch have power and data lines .
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
 <b>Works only for a Wemos d1 mini V1 esp8266 at this moment.</b><br>
@@ -97,7 +97,7 @@ Its possible now te adjust the kWh puls rate settings from Home Assistant dashbo
 ***
 
 ## Special versions .<br>
-Only needed if the kWh counter has a impulslengte other than between the 50 an 100ms on the datasheet.<br>
+Only needed if the kWh counter has a impulslengt other than between the 50 an 100ms on the datasheet.<br>
 
 
 ***
