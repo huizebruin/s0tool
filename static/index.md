@@ -8,7 +8,7 @@
 ### Table of Contents
 
 - [Home](#s0tool) 
-- [Diy watercouter](#diy-watercounter) 
+- [Diy watercounter](#diy-watercounter) 
 - [Information](#Information) 
 - [Watermeter to energy dashboard](#watermeter-to-energy-dashboard)
 - [Installation](#installation)
