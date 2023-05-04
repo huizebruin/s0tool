@@ -77,8 +77,7 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 <b>Works only for a Wemos d1 mini V1 esp8266 at this moment.</b><br>
 Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
-<script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
-
+<script  type="module"  src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 |  S0tool version | Install | Info | Pin |
 | :------ | :----- | :------- | :------- |
 |Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter and kWh meter |D2 & D5 |
