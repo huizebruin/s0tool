@@ -8,7 +8,7 @@
 ### Table of Contents
 
 - [Home](#s0tool) 
-- [Make it on your own](#if-u-cannot-buy-it-u-can-make-it-on-your-own) 
+- [Diy watercounter](#diy-watercounter) 
 - [Information](#Information) 
 - [Watermeter to energy dashboard](#watermeter-to-energy-dashboard)
 - [Installation](#installation)
@@ -31,13 +31,12 @@ With the<b> S0tool</b> you can keep track of the consumption of both your water 
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
 A suitable kWh meter with an S0 connection must be installed for this.
 
-<b>S0tool</b> makes a *(not so)* kwh meter with a s0 port a smart meter, reading the pulse thats from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome license <br>
+<b>S0tool</b> transforms a *(not so smart)* kwh meter with a s0 port into a smart meter, reading the pulse from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome license <br>
 
 ![S0tool-and_case](./assets/S0tool_case.jpg) 
 
-## If u cannot buy it u can make it on your own.
-You need a couple of thinks<br>
-and place a resistor between the D2 and 5V.
+## diy watercounter.
+You need a couple of things<br>
 
 Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) or [Amazon](https://amzn.to/3FL7O48) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github)<br>
 
@@ -70,16 +69,15 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 
 ## Installation
 
-First you must have installed the drivers for the Wemos d1 to communicate to your pc / laptop . Look at Troubleshooting below. <br>
+Pre-requisite: Make sure you have installed the drivers for the Wemos d1 to communicate with your pc / laptop. Look below for troubleshooting. <br>
 
-And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
+And you must connect the S0tool to your pc or laptop with a cable that transfers both power and data.
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
 <b>Works only for a Wemos d1 mini V1 & v3.0 & 4.0 esp8266 at this moment.</b><br>
 Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
-<script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
-
+<script  type="module"  src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 |  S0tool version | Install | Info | Pin |
 | :------ | :----- | :------- | :------- |
 |Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter(npn) and kWh meter |D2 & D5 |
@@ -95,11 +93,11 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
 
 ***
-Its possible now te adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and by the update's <br> The combinations are possible between 10 and 4000 puls/kWh with steps by 10.
+Its possible now to adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and after updating the firmware. <br> The combinations are possible between 10 and 4000 puls/kWh with steps of 10 pulses.
 ***
 
 ## Special versions .<br>
-Only needed if the kWh counter has a impulslengte other than between the 50 an 100ms on the datasheet.<br>
+Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet.<br>
 
 
 ***
