@@ -75,21 +75,23 @@ First you must have installed the drivers for the Wemos d1 to communicate to you
 And you must connect the S0tool to your pc of laptop with a cable witch have power and data lines .
 
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
-<b>Works only for a Wemos d1 mini V1 esp8266 at this moment.</b><br>
+<b>Works only for a Wemos d1 mini V1 & v3.0 & 4.0 esp8266 at this moment.</b><br>
 Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 
 <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
 |  S0tool version | Install | Info | Pin |
 | :------ | :----- | :------- | :------- |
-|Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter and kWh meter |D2 & D5 |
-|S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>|Only watermeter |D2 |
+|Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter(npn) and kWh meter |D2 & D5 |
+|S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>|Only watermeter (npn sensor) |D2 |
 |S0tool kWh meter| <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>|Only kWh meter |D5 |
-|Specials|  |  |  |
-|S0tool dsz12d| <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>|special for the dsz12d |D5 |
-|S0tool lem022sj| <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>|special for the lem022sj 400imp |D5 |    
-|S0tool s0-watermeter| <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button>|special for the s0-watermeter |D2 |
-|S0tool flux and puls| <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button>|special for flow sensor and puls sensor |D2 | 
+| |  |  |  |
+| |  |  |  |
+|<b>Specials<b>|  |  |  |
+|S0tool dsz12d| <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>|Special for the dsz12d |D5 |
+|S0tool lem022sj| <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>|Special for the lem022sj 400imp |D5 |    
+|S0tool s0-watermeter| <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button>|Special for the s0-watermeter |D2 |
+|S0tool flux and puls| <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button>|Special for flow sensor and puls sensor |D2 | 
 
 
 ***
