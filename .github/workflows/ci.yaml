@@ -5,6 +5,8 @@ name: Publish firmware pull request
 
 on:
   pull_request:
+  schedule:
+    - cron: '0 4 * * 1'  
 
 
 jobs:
