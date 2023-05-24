@@ -4,6 +4,8 @@
 name: Publish firmware push
 
 on:
+  schedule:
+    - cron: '0 4 * * 1'
   push:
     branches:
       - main
