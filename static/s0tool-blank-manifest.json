@@ -8,7 +8,7 @@
       "chipFamily": "ESP8266",
       "parts": [
         {
-          "path": "s0tool-wsz15d32a-esp8266/s0tool-wsz15d32a-esp8266.bin",
+          "path": "s0tool-blank-esp8266/s0tool-blank-esp8266.bin",
           "offset": 0
         }
       ]
