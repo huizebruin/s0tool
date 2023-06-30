@@ -85,11 +85,16 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 |S0tool kWh meter| <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>|Only kWh meter |D5 |
 | |  |  |  |
 | |  |  |  |
-|<b>Specials<b>|  |  |  |
+|<b>Specials<b>|  | <b>Specials<b> |  |
 |S0tool dsz12d| <esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button>|Special for the dsz12d |D5 |
 |S0tool lem022sj| <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>|Special for the lem022sj 400imp |D5 |    
 |S0tool s0-watermeter| <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button>|Special for the s0-watermeter |D2 |
 |S0tool flux and puls| <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button>|Special for flow sensor and puls sensor |D2 | 
+|S0tool wsz15d32a and water| <esp-web-install-button manifest="./s0tool-wsz15d32a-manifest.json"></esp-web-install-button>|Special for the wsz15d32a sensor and watermeter(npn) |D2 & D5 | 
+| |  |  |  |
+|<b>Look out !!<b>|  |  |  |
+|S0tool blank| <esp-web-install-button manifest="./s0tool-blank-manifest.json"></esp-web-install-button>|Wipes the hole esp8266 |  | 
+
 
 
 ***
@@ -169,7 +174,7 @@ If you'd like to contribute to the s0tool project, please fork the repository an
 ##### The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-<div style="text-align:center;font-size:14px;">
+<div style="text-align:center;font-size:15px;">
       <hr>
       <a href="https://esphome.github.io/esp-web-tools/" target="_blank" >S0tool Installer powered by ESP Web Tools</a><br>
     Copyright (c) 2021 / 2023 Huizebruin </div>
