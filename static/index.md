@@ -80,7 +80,7 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 <script  type="module"  src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 |  S0tool version | Install | Info | Pin |
 | :------ | :----- | :------- | :------- |
-|Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter(npn) and kWh meter |D2 & D5 |
+|Standard | <esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button> |Standard with watermeter(npn) and kWh meter imp(50-100ms) |D2 & D5 |
 |S0tool Watermeter | <esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button>|Only watermeter (npn sensor) |D2 |
 |S0tool kWh meter| <esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button>|Only kWh meter |D5 |
 | |  |  |  |
@@ -90,8 +90,8 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 |S0tool lem022sj| <esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button>|Special for the lem022sj 400imp |D5 |    
 |S0tool s0-watermeter| <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button>|Special for the s0-watermeter |D2 |
 |S0tool flux and puls| <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button>|Special for flow sensor and puls sensor |D2 | 
-|S0tool wsz15d32a and water| <esp-web-install-button manifest="./s0tool-wsz15d32a-manifest.json"></esp-web-install-button>|Special for the wsz15d32a sensor and watermeter(npn) |D2 & D5 | 
-|S0tool sdm72d and water| <esp-web-install-button manifest="./s0tool-sdm72d-manifest.json"></esp-web-install-button>|Special for the sdm72d sensor and watermeter(npn) |D2 & D5 | 
+|S0tool wsz15d32a and water| <esp-web-install-button manifest="./s0tool-wsz15d32a-manifest.json"></esp-web-install-button>|Special for the wsz15d32a imp(30ms) and watermeter(npn) |D2 & D5 | 
+|S0tool sdm72d and water| <esp-web-install-button manifest="./s0tool-sdm72d-manifest.json"></esp-web-install-button>|Special for the sdm72d imp(35ms) and watermeter(npn) |D2 & D5 | 
 | |  |  |  |
 |<b>Look out !!<b>|  |  |  |
 |S0tool blank| <esp-web-install-button manifest="./s0tool-blank-manifest.json"></esp-web-install-button>|Wipes the hole esp8266 |  | 
