@@ -91,6 +91,7 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 |S0tool s0-watermeter| <esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button>|Special for the s0-watermeter |D2 |
 |S0tool flux and puls| <esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button>|Special for flow sensor and puls sensor |D2 | 
 |S0tool wsz15d32a and water| <esp-web-install-button manifest="./s0tool-wsz15d32a-manifest.json"></esp-web-install-button>|Special for the wsz15d32a sensor and watermeter(npn) |D2 & D5 | 
+|S0tool sdm72d and water| <esp-web-install-button manifest="./s0tool-sdm72d-manifest.json"></esp-web-install-button>|Special for the sdm72d sensor and watermeter(npn) |D2 & D5 | 
 | |  |  |  |
 |<b>Look out !!<b>|  |  |  |
 |S0tool blank| <esp-web-install-button manifest="./s0tool-blank-manifest.json"></esp-web-install-button>|Wipes the hole esp8266 |  | 

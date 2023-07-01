@@ -1,0 +1,106 @@
+substitutions:
+  impulslengte: "35ms"
+
+#  # ⬇ Enable Home Assistant API ⬇ # 
+api:
+  services:
+    - service: meterstand_kwh
+      variables:
+        meter_value: float 
+      then:
+        - globals.set:
+            id: initial_kwh_usage  
+            value: !lambda "return ( meter_value ) ;"  
+        - globals.set:
+            id: total_kwh_pulses
+            value:  "0" 
+
+globals:
+  - id: initial_kwh_usage
+    type: float
+    restore_value: yes      
+    initial_value: '00010' 
+  - id: total_kwh_pulses
+    type: int
+    restore_value: yes    
+
+number:
+  - platform: template
+    id: Select_pulse_rate
+    name: 'Pulsrate kWh'
+    optimistic: true
+    mode: box
+    min_value: '10'
+    max_value: '4000'
+    step: '10'
+    restore_value: yes
+    initial_value: '2000'
+    on_value:
+      then:
+        - logger.log:
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
+
+binary_sensor:
+ #------------------------# kwh #------------------------#
+  - platform: gpio
+    id: kwh_sensor_status
+    name: kWh sensor status
+    internal: False
+    pin:
+      number: D5
+      mode:
+        input: true
+    on_press:
+      - then:
+          lambda: id(total_kwh_pulses) += 1;       
+#------------------------# Kwh meter S0 poort 1 #------------------------#
+sensor:
+# ⬇ kwh meter s0 ⬇ #
+  - platform: pulse_meter
+    pin: D5
+    name:  "Actuele energie"
+    id: actual_power
+    icon: "mdi:flash"
+    internal_filter: ${impulslengte} 
+    accuracy_decimals: 0 #3
+    unit_of_measurement:  "W" #'kW'
+    state_class: measurement
+    device_class: power
+    filters:
+       lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
+
+# ⬇ Totaal opgebracht ⬇ #    
+    total:
+      unit_of_measurement: 'kWh'
+      name: "Totaal opgebracht"
+      id: W_opbrengst_totaal
+      state_class: total_increasing
+      device_class: energy
+      icon: "mdi:flash"
+      accuracy_decimals: 3
+      filters:
+        - lambda: return id (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
+      #   - lambda: return x * (1.0 / id(Select_pulse_rate).state);
+
+
+# ⬇ Kwh meterstand ⬇ stand bij benadering #        
+  - platform: template
+    id: kwh_total
+    name: "Actuele meterstand"
+    state_class: "total_increasing"
+    device_class: energy
+    icon: "mdi:flash"
+    update_interval: 1s
+    unit_of_measurement: 'kWh'
+    accuracy_decimals: 3
+    lambda: return id(initial_kwh_usage) + (id(total_kwh_pulses) * (1.0 / id(Select_pulse_rate).state) );
+
+# ⬇ kwh pulses only web interface for debugging ⬇ #
+  - platform: template
+    id: kwh_pulses
+    name: "kwh pulses totaal"
+    state_class: "total_increasing"
+    lambda: return id(total_kwh_pulses);
+    accuracy_decimals: 0
+    internal: True

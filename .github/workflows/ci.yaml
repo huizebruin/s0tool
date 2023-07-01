@@ -23,6 +23,7 @@ jobs:
           - esphome/S0-puls-LEM022SJ.yaml  #special
           - esphome/s0-watermeter.yaml # special watermeter
           - esphome/wsz15d32a.yaml # special for wsz15d32a
+          - esphome/sdm72d.yaml
     #      - esphome/pulscounter_flux.yaml # special standaard for flow sensors & pulscounter
     steps:
       - name: Checkout source code
