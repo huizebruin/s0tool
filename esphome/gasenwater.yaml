@@ -18,12 +18,12 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/gasenwater.yaml
 
-packages:   
+packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
     ref: main
-    files: 
+    files:
       - esphome/components/basis.yaml
       - esphome/components/gaspuls.yml
-      - esphome/components/watermeter.yaml            
+      - esphome/components/watermeter.yaml       
 #     refresh: 0d 

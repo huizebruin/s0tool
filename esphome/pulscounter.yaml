@@ -22,7 +22,7 @@ packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
     ref: main
-    files: 
+    files:
       - esphome/components/basis.yaml
       - esphome/components/kwhpuls.yml
       - esphome/components/watermeter.yaml
