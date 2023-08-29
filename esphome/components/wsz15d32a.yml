@@ -27,7 +27,7 @@ globals:
 number:
   - platform: template
     id: Select_pulse_rate
-    name: 'Pulsrate kWh'
+    name: "Pulsrate kWh"
     optimistic: true
     mode: box
     min_value: '10'

@@ -3,16 +3,16 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
+  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
   name: s0tool-dsz12d
-  impulslengte: "30ms" 
+  impulslengte: "30ms"
 
 esphome:
   name: ${name}
   platform: ESP8266
   board: d1_mini
   name_add_mac_suffix: true
-  esp8266_restore_from_flash: true   
+  esp8266_restore_from_flash: true
   comment: '${device_description}'
   project:
     name: huizebruin.${name}
@@ -21,11 +21,11 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/S0-puls-DSZ12D.yaml
 
-packages:   
+packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
     ref: main
     files: 
       - esphome/components/basis.yaml
       - esphome/components/DSZ12D.yml
-    refresh: 0d   
+    refresh: 0d

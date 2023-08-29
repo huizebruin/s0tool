@@ -12,7 +12,7 @@ esphome:
   platform: ESP8266
   board: d1_mini
   name_add_mac_suffix: true
-  esp8266_restore_from_flash: true   
+  esp8266_restore_from_flash: true
   comment: '${device_description}'
   project:
     name: huizebruin.${name}
@@ -21,11 +21,11 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/S0-puls-LEM022SJ.yaml
 
-packages:   
+packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
     ref: main
     files: 
       - esphome/components/basis.yaml
       - esphome/components/LEM022SJ.yml
-    refresh: 0d   
+    refresh: 0d

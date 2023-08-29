@@ -27,7 +27,7 @@ globals:
 number:
   - platform: template
     id: Select_pulse_rate
-    name: 'Pulsrate kWh'
+    name: "Pulsrate kWh"
     optimistic: true
     mode: box
     min_value: '10'
@@ -42,7 +42,7 @@ number:
             args: ["x.c_str()"]
 
 binary_sensor:
- #------------------------# kwh #------------------------#
+#------------------------# kwh #------------------------#
   - platform: gpio
     id: kwh_sensor_status
     name: kWh sensor status

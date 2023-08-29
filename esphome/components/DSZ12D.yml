@@ -6,14 +6,14 @@ api:
   services:
     - service: meterstand_kwh
       variables:
-        meter_value: float 
+        meter_value: float
       then:
         - globals.set:
-            id: initial_kwh_usage  
-            value: !lambda "return ( meter_value ) ;"  
+            id: initial_kwh_usage
+            value: !lambda "return ( meter_value ) ;"
         - globals.set:
             id: total_kwh_pulses
-            value:  "0" 
+            value:  "0"
 
 globals:
   - id: initial_kwh_usage
@@ -27,7 +27,7 @@ globals:
 number:
   - platform: template
     id: Select_pulse_rate
-    name: 'Pulsrate kWh'
+    name: "Pulsrate kWh"
     optimistic: true
     mode: box
     min_value: '10'
