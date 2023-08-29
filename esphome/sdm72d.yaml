@@ -18,12 +18,12 @@ esphome:
 dashboard_import:
   package_import_url: github://huizebruin/s0tool/esphome/sdm72d.yaml
 
-packages:   
+packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
     ref: main
     files: 
       - esphome/components/basis.yaml
       - esphome/components/sdm72d.yml
-      - esphome/components/watermeter.yaml            
+      - esphome/components/watermeter.yaml      
 #     refresh: 0d 
