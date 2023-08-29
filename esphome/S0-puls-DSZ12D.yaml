@@ -5,7 +5,7 @@
 substitutions:
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool-dsz12d
-  impulslengte: "30ms" 
+  impulslengte: "30ms"
 
 esphome:
   name: ${name}
