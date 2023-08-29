@@ -26,5 +26,5 @@ packages:
     ref: main
     files: 
       - esphome/components/basis.yaml
-      - esphome/components/s0-watermeter.yaml       
+      - esphome/components/s0-watermeter.yaml
     refresh: 0d

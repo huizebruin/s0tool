@@ -5,7 +5,7 @@
 substitutions:
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool-lem022sj
-#  impulslengte: "30ms" 
+
 
 esphome:
   name: ${name}
@@ -25,7 +25,7 @@ packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
     ref: main
-    files: 
+    files:
       - esphome/components/basis.yaml
       - esphome/components/LEM022SJ.yml
     refresh: 0d
