@@ -45,7 +45,7 @@ binary_sensor:
 #------------------------# kwh #------------------------#
   - platform: gpio
     id: kwh_sensor_status
-    name: kWh sensor status
+    name: "kWh sensor status"
     internal: False
     pin:
       number: D5
