@@ -70,7 +70,7 @@ sensor:
     filters:
        lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
 
-# ⬇ Totaal opgebracht ⬇ #    
+# ⬇ Totaal opgebracht ⬇ #
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht"
