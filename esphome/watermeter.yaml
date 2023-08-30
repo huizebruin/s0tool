@@ -15,7 +15,7 @@ esphome:
   esp8266_restore_from_flash: true
   comment: '${device_description}'
   project:
-    name: huizebruin.${name}
+    name: "huizebruin.${name}"
     version: "${vdate}"
 
 dashboard_import:
