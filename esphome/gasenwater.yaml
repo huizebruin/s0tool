@@ -26,4 +26,4 @@ packages:
       - esphome/components/basis.yaml
       - esphome/components/gaspuls.yml
       - esphome/components/watermeter.yaml       
-#     refresh: 0d 
+    refresh: 0d 

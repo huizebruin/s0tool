@@ -26,4 +26,4 @@ packages:
       - esphome/components/basis.yaml
       - esphome/components/sdm72d.yml
       - esphome/components/watermeter.yaml
-#     refresh: 0d
+    refresh: 0d
