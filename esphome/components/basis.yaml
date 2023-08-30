@@ -5,7 +5,7 @@
 substitutions:
   vdate: "v23.06.31" 
   date: "30-06-2023"
-  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
+  # device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
 preferences:
   flash_write_interval: 120min #1x per 2 uur
@@ -17,7 +17,6 @@ wifi:
   # password: VerySafePassword
   ap:
     ssid: "s0tool"
-#    ap_timeout: 10s removed becase it gifes trouble
 
 web_server:
   port: 80
@@ -48,7 +47,7 @@ sensor:
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
-    icon: 'mdi:clock-start' 
+    icon: 'mdi:clock-start'
     lambda: |-
       static float timestamp = (
         id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
@@ -89,7 +88,7 @@ button:
   - platform: restart
     name: "${name} Restart device"
     
-# Factory Reset Switch from ESPHome v2022.09    
+# Factory Reset Switch from ESPHome v2022.09
   - platform: factory_reset
-    name: Restart with Factory Default Settings    
+    name: "Restart with Factory Default Settings"
     
