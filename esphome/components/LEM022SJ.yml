@@ -9,20 +9,20 @@ api:
         meter_value: float 
       then:
         - globals.set:
-            id: initial_kwh_usage  
-            value: !lambda "return ( meter_value ) ;"  
+            id: initial_kwh_usage
+            value: !lambda "return ( meter_value ) ;"
         - globals.set:
             id: total_kwh_pulses
-            value:  "0" 
+            value:  "0"
 
 globals:
   - id: initial_kwh_usage
     type: float
-    restore_value: yes      
+    restore_value: yes
     initial_value: '00010' 
   - id: total_kwh_pulses
     type: int
-    restore_value: yes    
+    restore_value: yes
 
 number:
   - platform: template
@@ -79,7 +79,7 @@ sensor:
       #   - lambda: return x * (1.0 / id(Select_pulse_rate).state);
 
 
-# ⬇ Kwh meterstand ⬇ stand bij benadering #        
+# ⬇ Kwh meterstand ⬇ stand bij benadering #
   - platform: template
     id: kwh_total
     name: "Actuele meterstand"
