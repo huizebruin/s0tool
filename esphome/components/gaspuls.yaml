@@ -14,14 +14,14 @@ api:
             value: !lambda "return ( meter_value - (id(total_gas_pulses)) * atof(id(Select_pulse_gas).state.c_str()) ) ;"
         - globals.set:
             id: total_gas_pulses
-            value:  "0"             
+            value:  "0"
             
 
 globals:
   - id: initial_gas_usage
     type: float
-    restore_value: yes      
-    initial_value: '010' 
+    restore_value: yes
+    initial_value: '010'
   - id: total_gas_pulses
     type: int
     restore_value: yes
@@ -38,14 +38,14 @@ select:
       - "0.007"
       - "0.006"
       - "0.005"
-      - "0.001"  
-      - "0.09"  
-      - "0.08" 
+      - "0.001"
+      - "0.09"
+      - "0.08"
       - "0.07"
-      - "0.06"  
-      - "0.05"       
-      - "0.01" 
-      - "0.1"                   
+      - "0.06"
+      - "0.05"
+      - "0.01"
+      - "0.1"
     initial_option: "0.001"
     restore_value: yes
     on_value:
@@ -71,7 +71,7 @@ number:
 binary_sensor:
   - platform: gpio
     id: internal_pulse_counter
-    name: Pulse Sensor gas
+    name: "Pulse Sensor gas"
     pin:
       number: D5
       inverted: true
@@ -79,7 +79,7 @@ binary_sensor:
         input: true
     on_press:
       - then:
-          lambda: id(total_gas_pulses) += 1;  
+          lambda: id(total_gas_pulses) += 1;
 
 sensor:
 #------------------------# gasmeter #------------------------#
@@ -91,7 +91,7 @@ sensor:
     id: gasmeter_pulse
     name: "gasmeter pulse"
     state_class: measurement
-    unit_of_measurement: "l/min"    
+    unit_of_measurement: "l/min"
     accuracy_decimals: 1
     icon: "mdi:gas-burner"
     filters:

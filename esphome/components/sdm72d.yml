@@ -9,7 +9,7 @@ api:
         meter_value: float
       then:
         - globals.set:
-            id: initial_kwh_usage  
+            id: initial_kwh_usage
             value: !lambda "return ( meter_value ) ;"
         - globals.set:
             id: total_kwh_pulses
@@ -70,7 +70,7 @@ sensor:
     filters:
        lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
 
-# ⬇ Totaal opgebracht ⬇ #    
+# ⬇ Totaal opgebracht ⬇ #
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht"

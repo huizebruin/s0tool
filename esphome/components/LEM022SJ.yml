@@ -19,7 +19,7 @@ globals:
   - id: initial_kwh_usage
     type: float
     restore_value: yes
-    initial_value: '00010' 
+    initial_value: '00010'
   - id: total_kwh_pulses
     type: int
     restore_value: yes
@@ -48,7 +48,7 @@ binary_sensor:
         input: true
     on_press:
       - then:
-          lambda: id(total_kwh_pulses) += 1;        
+          lambda: id(total_kwh_pulses) += 1;
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
@@ -65,7 +65,7 @@ sensor:
     filters:
        lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
 
-# ⬇ Totaal opgebracht ⬇ #    
+# ⬇ Totaal opgebracht ⬇ #
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht"

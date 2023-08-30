@@ -18,11 +18,11 @@ api:
 globals:
   - id: initial_kwh_usage
     type: float
-    restore_value: yes      
-    initial_value: '00010' 
+    restore_value: yes
+    initial_value: '00010'
   - id: total_kwh_pulses
     type: int
-    restore_value: yes    
+    restore_value: yes
 
 number:
   - platform: template
@@ -40,7 +40,7 @@ binary_sensor:
  #------------------------# kwh #------------------------#
   - platform: gpio
     id: kwh_sensor_status
-    name: kWh sensor status
+    name: "kWh sensor status"
     internal: False
     pin:
       number: D5
@@ -48,7 +48,7 @@ binary_sensor:
         input: true
     on_press:
       - then:
-          lambda: id(total_kwh_pulses) += 1;        
+          lambda: id(total_kwh_pulses) += 1;
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
@@ -57,7 +57,7 @@ sensor:
     name:  "Actuele energie"
     id: actual_power
     icon: "mdi:flash"
-    internal_filter: ${impulslengte} 
+    internal_filter: ${impulslengte}
     accuracy_decimals: 0 #3
     unit_of_measurement:  "W" #'kW'
     state_class: measurement
@@ -65,7 +65,7 @@ sensor:
     filters:
        lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
 
-# ⬇ Totaal opgebracht ⬇ #    
+# ⬇ Totaal opgebracht ⬇ #
     total:
       unit_of_measurement: 'kWh'
       name: "Totaal opgebracht"
@@ -79,7 +79,7 @@ sensor:
       #   - lambda: return x * (1.0 / id(Select_pulse_rate).state);
 
 
-# ⬇ Kwh meterstand ⬇ stand bij benadering #        
+# ⬇ Kwh meterstand ⬇ stand bij benadering #
   - platform: template
     id: kwh_total
     name: "Actuele meterstand"

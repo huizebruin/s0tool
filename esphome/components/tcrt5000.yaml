@@ -14,14 +14,14 @@ api:
             value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) ) ;"
         - globals.set:
             id: total_water_pulses
-            value:  "0"             
+            value:  "0"
             
 
 globals:
   - id: initial_water_usage
     type: float
-    restore_value: yes      
-    initial_value: '010' 
+    restore_value: yes
+    initial_value: '010'
   - id: total_water_pulses
     type: int
     restore_value: yes
@@ -30,7 +30,7 @@ globals:
 binary_sensor:
   - platform: gpio
     id: water_sensor_status
-    name: Water sensor status
+    name: "Water sensor status"
     internal: False
     pin:
       number: D2
@@ -39,7 +39,7 @@ binary_sensor:
         input: true
     on_press:
       - then:
-          lambda: id(total_water_pulses) += 1;  
+          lambda: id(total_water_pulses) += 1;
 
 sensor:
 #------------------------# Watermeter #------------------------#
@@ -49,13 +49,13 @@ sensor:
     id: watermeter_pulse
     name: "watermeter pulse"
     state_class: measurement
-    unit_of_measurement: "L/min"   
+    unit_of_measurement: "L/min"
     update_interval: 2sec
-    internal_filter: 10us     
+    internal_filter: 10us
     accuracy_decimals: 1
     icon: "mdi:water-pump"
     filters:
-      - multiply: 0.0167    
+      - multiply: 0.0167
 
 # ⬇ Totaal watermeter ⬇ #      
     total:
