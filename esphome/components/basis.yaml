@@ -5,7 +5,6 @@
 substitutions:
   vdate: "v23.06.31" 
   date: "30-06-2023"
-  # device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} - ${date}.
 
 preferences:
   flash_write_interval: 120min #1x per 2 uur
@@ -16,7 +15,7 @@ wifi:
   # ssid: MyHomeNetwork
   # password: VerySafePassword
   ap:
-    ssid: "s0tool"
+#    ssid: "s0tool"
 
 web_server:
   port: 80
