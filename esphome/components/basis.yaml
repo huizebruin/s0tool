@@ -71,10 +71,10 @@ text_sensor:
       name: "${name} IP-adres"
       id: s0tool_ip_adres
       icon: mdi:ip-network
-    ssid:
-      name: "${name} Netwerk"
-      id: s0tool_netwerk
-      icon: mdi:access-point-network
+    # ssid:
+    #   name: "${name} Netwerk"
+    #   id: s0tool_netwerk
+    #   icon: mdi:access-point-network
     mac_address:
       name: "${name} Mac-adres"
       id: s0tool_mac_adres
