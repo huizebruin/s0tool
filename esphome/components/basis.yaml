@@ -12,8 +12,6 @@ preferences:
 improv_serial:
   
 wifi:
-  # ssid: MyHomeNetwork
-  # password: VerySafePassword
   ap:
 #    ssid: "s0tool"
 
