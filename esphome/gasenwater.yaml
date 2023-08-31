@@ -3,10 +3,10 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  name: s0tool-gas en water
+  name: "s0tool-gas en water"
 
 esphome:
-  name: ${name}
+  name: "${name}"
   platform: ESP8266
   board: d1_mini
   name_add_mac_suffix: true

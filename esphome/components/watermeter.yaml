@@ -11,11 +11,10 @@ api:
       then:
         - globals.set:
             id: initial_water_usage
-            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) ) ;"
+            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) );"
         - globals.set:
             id: total_water_pulses
             value:  "0"
-            
 
 globals:
   - id: initial_water_usage
@@ -25,7 +24,7 @@ globals:
   - id: total_water_pulses
     type: int
     restore_value: yes
-    
+
 select:
   # ⬇ water per m3 rate ⬇ #
   - platform: template
@@ -91,7 +90,6 @@ sensor:
       # filters:
       #  lambda: return x * atof(id(Select_pulse_water).state.c_str());
 
-      
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template
     id: watermeter_total
@@ -112,4 +110,3 @@ sensor:
     accuracy_decimals: 0
     lambda: return id(total_water_pulses);
     internal: True
-

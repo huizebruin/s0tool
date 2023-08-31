@@ -6,7 +6,7 @@ substitutions:
   name: s0tool-standard
 
 esphome:
-  name: ${name}
+  name: "${name}"
   platform: ESP8266
   board: d1_mini
   name_add_mac_suffix: true

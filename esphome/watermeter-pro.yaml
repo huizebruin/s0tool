@@ -5,7 +5,6 @@
 substitutions:
   name: s0tool-watermeter-pro
 
-
 esphome:
   name: ${name}
   platform: ESP8266
@@ -18,7 +17,7 @@ esphome:
     version: "${vdate}"
 
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/watermeter.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/watermeter-pro.yaml
 
 packages:
   remote_package:
