@@ -3,7 +3,6 @@
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
 substitutions:
-  device_description: ${name} gemaakt door huizebruin.nl versie ${vdate} .
   name: s0tool-lem022sj
 
 
