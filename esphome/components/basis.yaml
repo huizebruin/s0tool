@@ -13,7 +13,6 @@ improv_serial:
   
 wifi:
   ap:
-#    ssid: "s0tool"
 
 web_server:
   port: 80
