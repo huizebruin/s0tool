@@ -37,22 +37,21 @@
       li {
         padding: 4px 0;
       }
-      .footer {
-        margin-top: 24px;
+      footer {
+        margin-top: 14px;
+        font-size:15px;
         border-top: 1px solid #ccc;
-        padding-top: 24px;
+        padding-top: 14px;
         text-align: center;
-      }
-      .footer .initiative {
-        font-style: italic;
-        margin-top: 16px;
+        background-color: #333; /* Background color of the header */
+        color: #fff; 
       }
       input:checked + img {
         border-color: #58a6ff;
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: #b5b5b5;
+          background-color: #000000;
           color: #fff;
         }
         a {
@@ -79,10 +78,43 @@
       }
     img {
         max-width: 400px;
-        max-height: 400px; /* Adjust the max height as needed */
+        max-height: 400px; 
         width: auto;
         height: auto;
-    }      
+    }
+    header {
+    background-color: #333; /* Background color of the header */
+    color: #fff; /* Text color of the menu items */
+    padding: 10px 0; /* Padding at the top and bottom of the header */
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style: none; /* Remove default list bullet points */
+    text-align: center; /* Center-align the menu items */
+}
+
+nav ul li {
+    display: inline; /* Display menu items horizontally */
+    margin-right: 20px; /* Space between menu items */
+}
+
+/* Style the links in the menu */
+nav ul li a {
+    text-decoration: none; /* Remove underlines from links */
+    color: #fff; /* Text color of menu items */
+    font-weight: bold; /* Bold font for menu items */
+    font-size: 18px; /* Font size for menu items */
+}
+
+/* Change link color on hover */
+nav ul li a:hover {
+    color: #FFA500; /* Change the color on hover (e.g., orange) */
+}
+h1 {
+    text-decoration: none; 
+    color: #01ab7e; 
+}      
     </style>
     <script
       type="module"
@@ -90,7 +122,9 @@
     ></script>
 </head>
 <body>
-    <h1>ESPHome S0tool Repository</h1>
+        <header>
+
+    <center><h1>ESPHome S0tool Repository</h1>
     
     <p>
         <a href="https://github.com/huizebruin/s0tool/commits/main">
@@ -105,8 +139,6 @@
         <a href="https://github.com/huizebruin/s0tool/stargazers">
             <img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=plasticr" alt="starts">
         </a>              
-    </p>
-    <p>
         <a href="https://github.com/huizebruin/s0tool/network/members">
             <img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg" alt="GitHub forks">
         </a>
@@ -119,12 +151,12 @@
         <a href="https://github.com/huizebruin/s0tool">
             <img src="https://img.shields.io/github/license/huizebruin/s0tool.svg" alt="License">
         </a>              
-    </p>
-    <h2>Table of Contents</h2>
-    <ul>
+    </p></center>
+        <nav>
+            <ul>
         <li><a href="#s0tool">S0tool</a></li>
         <li><a href="#diy-watercounter">Diy watercounter</a></li>
-        <li><a href="#Information">Information/a></li>
+        <li><a href="#Information">Information</a></li>
         <li><a href="#dashboard">Watermeter to energy dashboard</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#Troubleshooting">Troubleshooting</a></li>
@@ -132,10 +164,11 @@
         <li><a href="#problemsandfix">For problems or solutions</a></li>
         <li><a href="#Contributing">Contributing</a></li>
         <li><a href="#License">License</a></li>
-        
+            </ul>
+        </nav>
+    </header>
 
 
-    </ul>
 
     <h2 id="s0tool">S0tool</h2>
     <p>
@@ -394,10 +427,11 @@ The above copyright notice and this permission notice shall be included in all c
 </p>
     
     <hr>
+    <footer>
     <p>For more information, visit the <a href="https://github.com/huizebruin/s0tool">GitHub repository</a> or <a href="https://www.huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a>.</p>
     <p>&copy; 2023 Huizebruin</p>
     <a href="https://esphome.github.io/esp-web-tools/" target="_blank" >S0tool Installer powered by ESP Web Tools</a><br>
-
+</footer>
 </body>
 </html>
 
