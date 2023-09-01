@@ -4,8 +4,8 @@
 # © Huizebruin.nl
 substitutions:
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
-  vdate: "v23.06.31" 
-  date: "30-06-2023"
+  vdate: "v23.09.32" 
+  date: "01-09-2023"
 
 preferences:
   flash_write_interval: 120min #1x per 2 uur
@@ -14,7 +14,6 @@ improv_serial:
   
 wifi:
   ap:
-  ssid: s0tool 
 
 web_server:
   port: 80
@@ -72,10 +71,7 @@ text_sensor:
       name: "${name} IP-adres"
       id: s0tool_ip_adres
       icon: mdi:ip-network
-    # ssid:
-    #   name: "${name} Netwerk"
-    #   id: s0tool_netwerk
-    #   icon: mdi:access-point-network
+
     mac_address:
       name: "${name} Mac-adres"
       id: s0tool_mac_adres
