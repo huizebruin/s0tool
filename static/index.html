@@ -47,48 +47,19 @@
         font-style: italic;
         margin-top: 16px;
       }
-      .radios {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .radios label {
-        padding: 4px;
-        cursor: pointer;
-        width: calc(33.3% - 16px);
-        display: block;
-        position: relative;
-      }
-      .radios input {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-      }
-      .radios img {
-        display: block;
-        width: calc(100% - 8px);
-        border: 4px solid rgba(0, 0, 0, 0);
-        aspect-ratio: 1;
-      }
       input:checked + img {
         border-color: #58a6ff;
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: #333;
+          background-color: #b5b5b5;
           color: #fff;
         }
         a {
           color: #58a6ff;
         }
       }
-      @media only screen and (max-width: 450px) {
-        .radios label {
-          width: calc(50% - 16px);
-          max-width: initial;
-        }
-      }
+
       .diy::after {
         content: "DIY";
         background-color: #f44336;
@@ -106,6 +77,12 @@
       body.show-diy .diy {
         display: initial;
       }
+    img {
+        max-width: 400px;
+        max-height: 400px; /* Adjust the max height as needed */
+        width: auto;
+        height: auto;
+    }      
     </style>
     <script
       type="module"
@@ -113,10 +90,8 @@
     ></script>
 </head>
 <body>
-    <!-- Header section -->
     <h1>ESPHome S0tool Repository</h1>
     
-    <!-- Badges and GitHub links -->
     <p>
         <a href="https://github.com/huizebruin/s0tool/commits/main">
             <img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="GitHub Activity">
@@ -124,36 +99,59 @@
         <a href="https://github.com/huizebruin/s0tool/commits/main">
             <img src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=plasticr" alt="Last Commit">
         </a>
-        <!-- Add more badges and links as needed -->
+        <a href="https://github.com/huizebruin/s0tool/issues">
+            <img src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=plasticr" alt="issues">
+        </a>    
+        <a href="https://github.com/huizebruin/s0tool/stargazers">
+            <img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=plasticr" alt="starts">
+        </a>              
     </p>
-
-    <!-- Table of Contents -->
+    <p>
+        <a href="https://github.com/huizebruin/s0tool/network/members">
+            <img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg" alt="GitHub forks">
+        </a>
+        <a href="https://github.com/huizebruin/s0tool/graphs/contributors">
+            <img src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=plasticr" alt="contributors">
+        </a>
+        <a href="https://discord.gg/bN8rC7gEng">
+            <img src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=7289da" alt="discord">
+        </a>    
+        <a href="https://github.com/huizebruin/s0tool">
+            <img src="https://img.shields.io/github/license/huizebruin/s0tool.svg" alt="License">
+        </a>              
+    </p>
     <h2>Table of Contents</h2>
     <ul>
         <li><a href="#s0tool">S0tool</a></li>
         <li><a href="#diy-watercounter">Diy watercounter</a></li>
-        <!-- Add more TOC links as needed -->
+        <li><a href="#Information">Information/a></li>
+        <li><a href="#dashboard">Watermeter to energy dashboard</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Troubleshooting">Troubleshooting</a></li>
+        <li><a href="#problemsandfix">For problems or solutions</a></li>
+        <li><a href="#problemsandfix">For problems or solutions</a></li>
+        <li><a href="#Contributing">Contributing</a></li>
+        <li><a href="#License">License</a></li>
+        
+
+
     </ul>
 
-    <!-- S0tool Section -->
     <h2 id="s0tool">S0tool</h2>
     <p>
         S0tool is a versatile tool for monitoring water and energy consumption. It works seamlessly with ESPHome and offers various features.
     </p>
-    <!-- Add more content for S0tool section as needed -->
-
-    <!-- Diy Watercounter Section -->
-    <h2 id="diy-watercounter">Diy watercounter</h2>
-    <p>
-        To create a DIY water counter, you'll need specific components like Wemos D1 mini, NPN sensor, and a 10K resistor.
-    </p>
-    <!-- Add more content for Diy Watercounter section as needed -->
-S0tool
 
 <br>
-|  S0tool | Made for ESPHome program  |
+S0tool & Made for ESPHome program  
+    <table border="0">
+        <tr>
+            <td><img src="./assets/s0tool-logo.jpg" alt="S0tool-logo"></td>
+            <td><img src="./assets/made-for-esphome-black-on-white.png" alt="ESPHome"></td>
 
-|  ![S0tool-logo](./assets/s0tool-logo.jpg)  | ![ESPHome](./assets/made-for-esphome-black-on-white.png) |
+        </tr>
+    </table>
+
 
 <br>
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
@@ -163,41 +161,60 @@ A suitable kWh meter with an S0 connection must be installed for this.
 <br>
 <b>S0tool</b> transforms a *(not so smart)* kwh meter with a s0 port into a smart meter, reading the pulse from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome license <br>
 <br>
-![S0tool-and_case](./assets/S0tool_case.jpg) 
+
+<img src="./assets/S0tool_case.jpg" alt="S0tool-and_case">
+
+
 <br>
-diy watercounter.<br>
+<!-- Diy Watercounter Section -->
+<h2 id="diy-watercounter">Diy watercounter</h2>
+<p>
+    To create a DIY water counter, you'll need specific components like Wemos D1 mini, NPN sensor, and a 10K resistor.
+</p>
 You need a couple of things<br>
 
-Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) or [Amazon](https://amzn.to/3FL7O48) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github)<br>
+Wemos D1 mini ep8266 <a href="https://s.click.aliexpress.com/e/_9fhHxf" target="_blank">Aliexpres</a> or <a href="https://amzn.to/3FL7O48" target="_blank">Amazon</a> or dutch webshop <a href="https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a><br>
 
-Npn Sensor [Aliexpres](https://s.click.aliexpress.com/e/_AVaoGr) or [Amazon](https://amzn.to/3DFVsaL) or dutch webshop [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github)<br>
+Npn Sensor <a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank">Aliexpres</a>  or <a href="https://amzn.to/3DFVsaL" target="_blank">Amazon</a>  or dutch webshop <a href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a> <br>
 
-10K resistor [Aliexpres](https://s.click.aliexpress.com/e/_A10BHz) or [Amazon](https://amzn.to/3NBjjx2) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github)<br>
+10K resistor <a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank">Aliexpres</a> or <a href="https://amzn.to/3NBjjx2" target="_blank">Amazon</a> or dutch webshop <a href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a><br>
 
 And a usb cable and minimal a usb power adapter with 5v and 1A<br>
 
-![S0tool-diy](./assets/npn-watermeter-wemosd1.png)<br>
+<a href="./assets/npn-watermeter-wemosd1.png" target="_blank"> <img src="./assets/npn-watermeter-wemosd1.png" alt="S0tool-diy"></a><br>
 
-Will it work with my meter check it out here. [https://github.com/huizebruin/s0tool/discussions/57](https://github.com/huizebruin/s0tool/discussions/57)<br>
+
+Will it work with my meter check it out here. <a href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank">https://github.com/huizebruin/s0tool/discussions/57</a><br>
 
 <br>
-Information:
+<h2 id="information">Information:</h2> 
 <br>
   Wi-fi : IEEE 802.11 b/g/n 2.4GHz 
 
 
 <br>
 
-Watermeter to energy dashboard.<br>
+<h2 id="dashboard">Watermeter to energy dashboard.</h2><br>
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
 <br>
-|  Enegry dashboard | Dashboard  |
+
+    <table border="0">
+        <tr>
+            <th>water-energy-dashboard</th>
+            <th>dashboard</th>
+        </tr>
+        <tr>
+            <td><img src="./assets/water-energydashboard.jpg" alt="energiedash"></td>
+            <td><img src="./assets/s0tool-dashboard.png" alt="sotooldash"></td>
+
+        </tr>
+    </table>
 <br>
-| ![S0tool-water-energy-dashboard](./assets/water-energydashboard.jpg)  | ![dashboard](./assets/s0tool-dashboard.png) |
 
 <br>
 
-Installation
+<h2 id="Installation">Installation</h2><br>
+
 <br>
 Pre-requisite: Make sure you have installed the drivers for the Wemos d1 to communicate with your pc / laptop. Look below for troubleshooting. <br>
 <br>
@@ -292,7 +309,7 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
                 <td> </td>
             </tr>
             <tr>
-                <td>S0tool blank| |</td>
+                <td>S0tool blank</td>
                 <td><esp-web-install-button manifest="./s0tool-blank-manifest.json"></esp-web-install-button></td>
                 <td>Wipes the hole esp8266 </td>
                 <td> </td>
@@ -303,17 +320,29 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 <br>
 Its possible now to adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and after updating the firmware. <br> The combinations are possible between 10 and 4000 puls/kWh with steps of 10 pulses.
 <br>
-
+<br>
 Special versions .<br>
 Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet.<br>
 
+<h2 id="Troubleshooting">Troubleshooting</h2><br>
 
-Troubleshooting
+<h4>How to change the total readings</h4><br>
+ <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water">
+            <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_water">
+        </a> For the water counter: D2
 <br>
-<b>drivers</b>
+ <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh">
+            <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_kwh">
+        </a> For the S0 port of the kwh meter : D5
 <br>
+ <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate">
+            <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_calibrate">
+        </a> And you can find your readings and reset it
+<br>
+
+<h4>drivers</h4><br>
   If the serial port is not showing up, your computer might be missing the
-  drivers for the USB serial chip used in your ESP device. These drivers
+  drivers for the USB serial chip used in your ESP device.<br> These drivers
   work for most ESP devices:
 </p>
   <ul>
@@ -331,8 +360,8 @@ Troubleshooting
   </li>
   </ul>
 <br>
-
-<b>For problems or solutions </b>
+<h2 id="problemsandfix">For problems or solutions </h2><br>
+<b></b>
 <b><a href="https://github.com/huizebruin/s0tool/pulls" rel="noreferer, ,noopener" target="_blank">Pull requests</a> </b>.<br> 
 For problems 
 <b><a href="https://github.com/huizebruin/s0tool/issues" rel="noreferer, ,noopener" target="_blank">issues</a> . </b>
@@ -351,11 +380,13 @@ For more information about the code etc.
 For more information about the S0tool look at my (Dutch) <a href="https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/" rel="noreferer, ,noopener" target="_blank">website</a>.
 
 <br>
-<b>Contributing</b><br>
-If you'd like to contribute to the s0tool project, please fork the repository and submit a pull request. We welcome contributions of all kinds, including bug fixes, new features, and documentation updates. </p>
+<h2 id="Contributing">Contributing </h2><br>
+If you'd like to contribute to the s0tool project, please fork the repository and submit a pull request.<br> We welcome contributions of all kinds, including bug fixes, new features, and documentation updates. </p>
 
 <br>
-<p> <b>License</b>
+<p> <b></b>
+<h2 id="License">License </h2><br>
+
 <br>
 MIT License
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -365,5 +396,9 @@ The above copyright notice and this permission notice shall be included in all c
     <hr>
     <p>For more information, visit the <a href="https://github.com/huizebruin/s0tool">GitHub repository</a> or <a href="https://www.huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a>.</p>
     <p>&copy; 2023 Huizebruin</p>
+    <a href="https://esphome.github.io/esp-web-tools/" target="_blank" >S0tool Installer powered by ESP Web Tools</a><br>
+
 </body>
 </html>
+
+
