@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESPHome S0tool Repository</title>
-    <!-- Add your custom CSS styles here if needed -->
+    <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:title" content="S0tool" />
+    <meta property="og:site_name" content="S0tool Repository" />
+    <meta
+      property="og:url"
+      content="https://huizebruin.github.io/s0tool/"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Count your water use with the s0tool and Home Assistant and ESPHome."
+    />
+    <title>S0tool Repository</title>
     <style>
-        /* Add your custom CSS styles here */
         body {
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Ubuntu, sans-serif;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
         padding: 0;
         margin: 30;
         line-height: 1.4;
@@ -19,20 +28,11 @@
         margin: 0 auto;
         padding: 12px;
       }
-      .header {
-        display: block;
-        width: 100%;
-        aspect-ratio: 1200 / 675;
-        border-radius: 12px;
-      }
       h3 {
         margin-top: 1.5em;
       }
       a {
         color: #03a9f4;
-      }
-      .hidden {
-        display: none;
       }
       li {
         padding: 4px 0;
@@ -43,7 +43,7 @@
         border-top: 1px solid #ccc;
         padding-top: 14px;
         text-align: center;
-        background-color: #333; /* Background color of the header */
+        background-color: #333; 
         color: #fff; 
       }
       input:checked + img {
@@ -58,18 +58,6 @@
           color: #58a6ff;
         }
       }
-
-      .diy::after {
-        content: "DIY";
-        background-color: #f44336;
-        color: #fff;
-        padding: 2px 4px;
-        border-radius: 4px;
-        font-size: 0.8em;
-        position: absolute;
-        bottom: 12px;
-        left: 12px;
-      }
       body .diy {
         display: none;
       }
@@ -83,9 +71,9 @@
         height: auto;
     }
     header {
-    background-color: #333; /* Background color of the header */
-    color: #fff; /* Text color of the menu items */
-    padding: 10px 0; /* Padding at the top and bottom of the header */
+    background-color: #333; 
+    color: #fff; 
+    padding: 5px 0; 
 }
 
 /* Style the navigation menu */
@@ -120,13 +108,45 @@ h1 {
       type="module"
       src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"
     ></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9HB5QGY82J');
+</script>
 </head>
 <body>
         <header>
 
-    <center><h1>ESPHome S0tool Repository</h1>
+    <center><h1>S0tool Repository</h1></center>
     
+
+        <nav>
+            <ul>
+        <li><a href="#s0tool">S0tool</a></li>
+        <li><a href="#diy-watercounter">Diy watercounter</a></li>
+        <li><a href="#Information">Information</a></li>
+        <li><a href="#dashboard">Watermeter to energy dashboard</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Troubleshooting">Troubleshooting</a></li>
+        <li><a href="#problemsandfix">For problems or solutions</a></li>
+        <li><a href="#problemsandfix">For problems or solutions</a></li>
+        <li><a href="#Contributing">Contributing</a></li>
+        <li><a href="#License">License</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <h2 id="s0tool">S0tool</h2>
     <p>
+        S0tool is a versatile tool for monitoring water and energy consumption. It works seamlessly with ESPHome and offers various features.
+    </p>
+<center>     <p>
         <a href="https://github.com/huizebruin/s0tool/commits/main">
             <img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="GitHub Activity">
         </a>
@@ -152,29 +172,6 @@ h1 {
             <img src="https://img.shields.io/github/license/huizebruin/s0tool.svg" alt="License">
         </a>              
     </p></center>
-        <nav>
-            <ul>
-        <li><a href="#s0tool">S0tool</a></li>
-        <li><a href="#diy-watercounter">Diy watercounter</a></li>
-        <li><a href="#Information">Information</a></li>
-        <li><a href="#dashboard">Watermeter to energy dashboard</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#Troubleshooting">Troubleshooting</a></li>
-        <li><a href="#problemsandfix">For problems or solutions</a></li>
-        <li><a href="#problemsandfix">For problems or solutions</a></li>
-        <li><a href="#Contributing">Contributing</a></li>
-        <li><a href="#License">License</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-
-    <h2 id="s0tool">S0tool</h2>
-    <p>
-        S0tool is a versatile tool for monitoring water and energy consumption. It works seamlessly with ESPHome and offers various features.
-    </p>
-
 <br>
 S0tool & Made for ESPHome program  
     <table border="0">
