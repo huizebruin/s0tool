@@ -51,6 +51,7 @@ binary_sensor:
       number: D5
       mode:
         input: true
+        pullup: true
     on_press:
       - then:
           lambda: id(total_kwh_pulses) += 1;
@@ -58,7 +59,11 @@ binary_sensor:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    pin: D5
+    pin:
+      number: D5
+      mode:
+        input: true
+        pullup: true
     name:  "Actuele energie"
     id: actual_power
     icon: "mdi:flash"

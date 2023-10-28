@@ -1,0 +1,91 @@
+logger:
+  level: debug
+debug:
+  update_interval: 5s
+
+text_sensor:
+  - platform: debug
+    device:
+      name: "Device Info"
+    reset_reason:
+      name: "Reset Reason"
+
+
+binary_sensor:
+#------------------------# kwh #------------------------#
+  - platform: gpio
+    id: kwh_test
+    name: "kWh sensor test"
+    internal: False
+    pin:
+      number: D5
+      mode:
+        input: true
+        pullup: true
+    on_press:
+      - then:
+          lambda: id(total_kwh_pulses) += 1;
+
+#------------------------# Watermeter #------------------------#
+# binary_sensor:
+  - platform: gpio
+    id: water_sensor_test
+    name: "Water sensor test"
+    internal: False
+    pin:
+      number: D2
+      inverted: true
+      mode:
+        input: true
+    on_press:
+      - then:
+          lambda: id(total_water_pulses) += 1;
+#------------------------# Kwh meter S0 poort 1 #------------------------#
+sensor:
+# ⬇ kwh meter s0 ⬇ #
+  - platform: pulse_meter
+    pin:
+      number: D5
+      mode:
+        input: true
+    name:  "Actuele test"
+    id: actual_power_test
+    icon: "mdi:flash"
+    accuracy_decimals: 0 #3
+    unit_of_measurement:  "W" #'kW'
+    state_class: measurement
+    device_class: power
+    filters:
+       lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
+
+#sensor:
+#------------------------# Watermeter #------------------------#
+# ⬇ watermeter pulsen ⬇ #
+  - platform: pulse_meter #pulse_counter
+    internal_filter_mode: "PULSE"
+    internal_filter: 50ms
+    pin: 
+      number: D2
+      mode:
+        input: true
+        pullup: true
+    id: watermeter_flow_test
+    name: "watermeter flow test"
+    state_class: measurement
+    unit_of_measurement: "l/min"
+    accuracy_decimals: 1
+    icon: "mdi:water-pump"
+    filters:
+      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
+
+  - platform: debug
+    free:
+      name: "Heap Free"
+    fragmentation:
+      name: "Heap Fragmentation"
+    block:
+      name: "Heap Max Block"
+    loop_time:
+      name: "Loop Time"
+    psram:
+      name: "Free PSRAM"

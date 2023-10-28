@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>S0tool Repository</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
     <meta charset="UTF-8">
     <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
     <meta name="viewport" content="width=device-width" />
@@ -19,18 +22,28 @@
       property="og:image"
       content="./assets/s0tool-logo.jpg"
     />
-    <title>S0tool Repository</title>
+
     <style>
-        body {
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-        padding: 0;
-        margin: 30;
+      body {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Ubuntu, sans-serif;
+        padding: 20px;
+        margin: 0;
         line-height: 1.4;
+        background-color: rgb(100, 100, 100);
       }
       .content {
-        max-width: 600px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 12px;
+        font-size: 14px;
+        background-color: rgb(235, 233, 233);
+      }
+      .header {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1200 / 675;
+        border-radius: 1px;
       }
       h3 {
         margin-top: 1.5em;
@@ -38,80 +51,134 @@
       a {
         color: #03a9f4;
       }
+      .hidden {
+        display: none;
+      }
       li {
         padding: 4px 0;
       }
-      footer {
-        margin-top: 14px;
-        font-size:15px;
+      .footer {
+        margin-top: 24px;
+        font-size: 14px;
         border-top: 1px solid #ccc;
-        padding-top: 14px;
+        padding-top: 24px;
         text-align: center;
-        background-color: #333; 
-        color: #fff; 
+      }
+      .footer .initiative {
+        font-style: italic;
+        margin-top: 16px;
+      }
+      .radios {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .radios label {
+        padding: 4px;
+        cursor: pointer;
+        width: calc(33.3% - 16px);
+        display: block;
+        position: relative;
+      }
+      .radios input {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+      }
+      .radios img {
+        display: block;
+        width: calc(100% - 8px);
+        border: 4px solid rgba(0, 0, 0, 0);
+        aspect-ratio: 1;
       }
       input:checked + img {
         border-color: #58a6ff;
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: #000000;
+          background-color: #333;
           color: #fff;
         }
         a {
           color: #58a6ff;
         }
       }
-      body .diy {
+      @media only screen and (max-width: 450px) {
+        .radios label {
+          width: calc(50% - 16px);
+          max-width: initial;
+        }
+      }
+      .special::after {
+        content: "Special";
+        background-color: #f44336;
+        color: #fff;
+        padding: 1px 4px;
+        border-radius: 4px;
+        font-size: 0.7em;
+        position: absolute;
+        bottom: 20px;
+        left: 150px;
+      }
+      body .special {
         display: none;
       }
-      body.show-diy .diy {
+      body.show-special .special {
         display: initial;
       }
+          header {
+    background-color: #333; 
+    color: #fff; 
+    padding: 0px 0; 
+}
     img {
-        max-width: 400px;
-        max-height: 400px; 
+        max-width: 280px;
+        max-height: 280px; 
         width: auto;
         height: auto;
     }
-    header {
-    background-color: #333; 
-    color: #fff; 
-    padding: 5px 0; 
-}
-
 /* Style the navigation menu */
-nav ul {
-    list-style: none; /* Remove default list bullet points */
-    text-align: center; /* Center-align the menu items */
-}
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* You can adjust the background color as needed */
+    z-index: 100; /* Ensure the menu is above other elements */
+  }
 
-nav ul li {
-    display: inline; /* Display menu items horizontally */
-    margin-right: 20px; /* Space between menu items */
-}
+  nav ul {
+    list-style: none;
+    text-align: center;
+    /* Add padding to separate the menu items from the top */
+    padding: 0px 0;
+  }
 
-/* Style the links in the menu */
-nav ul li a {
-    text-decoration: none; /* Remove underlines from links */
-    color: #fff; /* Text color of menu items */
-    font-weight: bold; /* Bold font for menu items */
-    font-size: 18px; /* Font size for menu items */
-}
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
 
-/* Change link color on hover */
-nav ul li a:hover {
-    color: #FFA500; /* Change the color on hover (e.g., orange) */
-}
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  nav ul li a:hover {
+    color: #FFA500;
+  }
 h1 {
     text-decoration: none; 
     color: #01ab7e; 
-}      
+}
+h2 {
+    text-decoration: none; 
+    color: #01ab7e; 
+}     
     </style>
-    <script
-      type="module"
-      src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"
-    ></script>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
 <script>
@@ -121,36 +188,33 @@ h1 {
 
   gtag('config', 'G-9HB5QGY82J');
 </script>
-</head>
+   
+    <script
+      type="module"
+      src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"
+    ></script>
+  </head>
 <body>
         <header>
 
-    <center><h1>S0tool Repository</h1></center>
-    
-
+    <center></center>
         <nav>
             <ul>
-        <li><a href="#s0tool">S0tool</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#diy-watercounter">Diy watercounter</a></li>
-        <li><a href="#Information">Information</a></li>
+        <li><a href="#information">Information</a></li>
         <li><a href="#dashboard">Watermeter to energy dashboard</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Installation">Installation</a></li>
         <li><a href="#Troubleshooting">Troubleshooting</a></li>
-        <li><a href="#problemsandfix">For problems or solutions</a></li>
         <li><a href="#problemsandfix">For problems or solutions</a></li>
         <li><a href="#Contributing">Contributing</a></li>
         <li><a href="#License">License</a></li>
             </ul>
         </nav>
     </header>
-
-
-
-    <h2 id="s0tool">S0tool</h2>
+    <div class="content">
+    <center>     <h1 id="home">S0tool Repository</h1>
     <p>
-        S0tool is a versatile tool for monitoring water and energy consumption. It works seamlessly with ESPHome and offers various features.
-    </p>
-<center>     <p>
         <a href="https://github.com/huizebruin/s0tool/commits/main">
             <img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="GitHub Activity">
         </a>
@@ -176,6 +240,7 @@ h1 {
             <img src="https://img.shields.io/github/license/huizebruin/s0tool.svg" alt="License">
         </a>              
     </p></center>
+
 <br>
 S0tool & Made for ESPHome program  
     <table border="0">
@@ -185,33 +250,34 @@ S0tool & Made for ESPHome program
 
         </tr>
     </table>
-
-
+    <p>
+        S0tool is a versatile tool for monitoring water and energy consumption. It works seamlessly with ESPHome and offers various features.
+    </p>
 <br>
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 <br>
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
 A suitable kWh meter with an S0 connection must be installed for this.
 <br>
-<b>S0tool</b> transforms a *(not so smart)* kwh meter with a s0 port into a smart meter, reading the pulse from the S0 port that is always present in most cases and it works with [ESPHome][esphome]!<br> And has a official Made for ESPHome license <br>
+<b>S0tool</b> transforms a *(not so smart)* kwh meter with a s0 port into a smart meter, reading the pulse from the S0 port that is always present in most cases and it works with ESPHome and with Home Assistant<br> And has a official Made for ESPHome license <br>
 <br>
 
 <img src="./assets/S0tool_case.jpg" alt="S0tool-and_case">
 
 
 <br>
-<!-- Diy Watercounter Section -->
-<h2 id="diy-watercounter">Diy watercounter</h2>
+<h2 id="diy-watercounter">Diy water counter</h2>
 <p>
     To create a DIY water counter, you'll need specific components like Wemos D1 mini, NPN sensor, and a 10K resistor.
+    the 10K resistor should be put between the 5v and the D2 en from the d2 to the npn sensor. 
 </p>
 You need a couple of things<br>
 
-Wemos D1 mini ep8266 <a href="https://s.click.aliexpress.com/e/_9fhHxf" target="_blank">Aliexpres</a> or <a href="https://amzn.to/3FL7O48" target="_blank">Amazon</a> or dutch webshop <a href="https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a><br>
+Wemos D1 mini ep8266 <a href="https://s.click.AliExpress.com/e/_9fhHxf" target="_blank">AliExpress</a> or <a href="https://amzn.to/3FL7O48" target="_blank">Amazon</a> or dutch webshop <a href="https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a><br>
 
-Npn Sensor <a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank">Aliexpres</a>  or <a href="https://amzn.to/3DFVsaL" target="_blank">Amazon</a>  or dutch webshop <a href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a> <br>
+Npn Sensor <a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank">AliExpress</a>  or <a href="https://amzn.to/3DFVsaL" target="_blank">Amazon</a>  or dutch webshop <a href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a> <br>
 
-10K resistor <a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank">Aliexpres</a> or <a href="https://amzn.to/3NBjjx2" target="_blank">Amazon</a> or dutch webshop <a href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a><br>
+10K resistor <a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank">AliExpress</a> or <a href="https://amzn.to/3NBjjx2" target="_blank">Amazon</a> or dutch webshop <a href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github" target="_blank">Opencircuit</a><br>
 
 And a usb cable and minimal a usb power adapter with 5v and 1A<br>
 
@@ -223,7 +289,7 @@ Will it work with my meter check it out here. <a href="https://github.com/huizeb
 <br>
 <h2 id="information">Information:</h2> 
 <br>
-  Wi-fi : IEEE 802.11 b/g/n 2.4GHz 
+<p>Wi-fi : IEEE 802.11 b/g/n 2.4GHz </p>  
 
 
 <br>
@@ -243,7 +309,9 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 
         </tr>
     </table>
-<br>
+    <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/config_energy.svg" alt="Open your Home Assistant instance and show your energy configuration panel." /></a>
+<p> And look for <code>watermeter stand</code> and add that to the water usage ad the energy dashboard. </p>
+    <br>
 
 <br>
 
@@ -258,105 +326,184 @@ You can use the button below to install the <b>S0tool</b> firmware directly to y
 <b>Works only for a Wemos d1 mini V1 & v3.0 & 4.0 esp8266 at this moment.</b><br>
 Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
 <br>
-<script  type="module"  src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+    
+      <h2 id="s0tool-Installation">S0tool Installation</h2>
+      <p></p>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>S0tool version</th>
-                <th>Install </th>
-                <th>Info</th>
-                <th>Pin</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Standard </td>
-                <td><esp-web-install-button manifest="./s0tool-standard-manifest.json"></esp-web-install-button></td>
-                <td>Standard with watermeter(npn) and kWh meter imp(50-100ms)</td>
-                <td>D2 & D5</td>
-            </tr>
-            <tr>
-                <td>S0tool Watermeter </td>
-                <td><esp-web-install-button manifest="./s0tool-watermeter-manifest.json"></esp-web-install-button></td>
-                <td>Only watermeter (npn sensor)</td>
-                <td>D2</td>
-            </tr>
-            <tr>
-                <td>S0tool kWh meter</td>
-                <td><esp-web-install-button manifest="./s0tool-kwh-puls-manifest.json"></esp-web-install-button></td>
-                <td>Only kWh meter</td>
-                <td>D5</td>
-            </tr>
-            <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>Specials</td>
-                <td> </td>
-                <td>Specials</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>S0tool dsz12d</td>
-                <td><esp-web-install-button manifest="./s0tool-dsz12d-manifest.json"></esp-web-install-button></td>
-                <td>Special for the dsz12d</td>
-                <td>D5</td>
-            </tr>
-            <tr>
-                <td>S0tool lem022sj</td>
-                <td><esp-web-install-button manifest="./s0tool-lem022sj-manifest.json"></esp-web-install-button></td>
-                <td>Special for the lem022sj 400imp/td>
-                <td>D5</td>
-            </tr>
-            <tr>
-                <td>S0tool s0-watermeter </td>
-                <td><esp-web-install-button manifest="./s0tool-s0-watermeter-manifest.json"><esp-web-install-button></td>
-                <td>Special for the <b>s0-</b>watermeter</td>
-                <td>D2</td>
-            </tr>
-            <tr>
-                <td>S0tool flux and puls </td>
-                <td><esp-web-install-button manifest="./s0tool-fluxandpuls-manifest.json"></esp-web-install-button></td>
-                <td>Special for flow sensor and puls sensor</td>
-                <td>D2</td>
-            </tr>
-            <tr>
-                <td>S0tool wsz15d32a and water </td>
-                <td><esp-web-install-button manifest="./s0tool-wsz15d32a-manifest.json"></esp-web-install-button></td>
-                <td>Special for the wsz15d32a imp(30ms) and watermeter(npn)</td>
-                <td>D2 & D5</td>
-            </tr>
-            <tr>
-                <td>S0tool sdm72d and water</td>
-                <td><esp-web-install-button manifest="./s0tool-sdm72d-manifest.json"></esp-web-install-button></td>
-                <td>Special for the sdm72d imp(35ms) and watermeter(npn) </td>
-                <td>D2 & D5</td>
-            </tr>
-            <tr>
-                <td>Look out !!</td>
-                <td> </td>
-                <td>Look out !!</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>S0tool blank</td>
-                <td><esp-web-install-button manifest="./s0tool-blank-manifest.json"></esp-web-install-button></td>
-                <td>Wipes the hole esp8266 </td>
-                <td> </td>
-            </tr>
-        </tbody>
-    </table>
-<p>
+      <p>
+        Pick your product to turn it into a S0tool for Home Assistant.</p><p>
+        No programming or other software required.
+      </p>
+
+      <div class="radios">
+        <label>
+          <input type="radio" name="type" value="s0tool-standard" checked /><br>
+          <td><b>S0tool Standard</b></td><br>
+        </label>
+        <label>
+          <input type="radio" name="type" value="s0tool-watermeter" /><br>
+          <td><b>s0tool watermeter</b></td><br>
+        </label>
+        <label>
+          <input type="radio" name="type" value="s0tool-kwh-puls" /><br>
+          <td><b>S0tool kWh meter</b></td><br>
+        </label>
+        
+        <br>
+        <br>
+<hr>
+
+        <label class="special">
+          <input type="radio" name="type" value="s0tool-dsz12d" /><br>
+          <td><b>S0tool dsz12d</b></td><br>
+        </label>
+        <label class="special">
+          <input type="radio" name="type" value="s0tool-lem022sj" /><br>
+          <td><b>S0tool lem022sj</b></td><br>
+        </label>
+        <label class="special">
+          <input type="radio" name="type" value="s0tool-fluxandpuls" /><br>
+          <td><b>S0tool flux and puls</b></td><br>
+        </label>
+         <label class="special">
+          <input type="radio" name="type" value="s0tool-wsz15d32a" /><br>
+          <td><b>S0tool wsz15d32a & water </b></td><br>
+        </label>
+        <label class="special">
+          <input type="radio" name="type" value="s0tool-sdm72d" /><br>
+          <td><b>S0tool sdm72d & water</b></td><br>
+        </label>
+         <label class="special">
+          <input type="radio" name="type" value="s0tool-s0-watermeter" /><br>
+          <td><b>S0tool s0-watermeter </b></td><br>
+        </label>
+        </label>
+         <label class="special">
+          <input type="radio" name="type" value="s0tool-puls-water-internal" /><br>
+          <td><b>S0tool puls-water-internal </b></td><br>
+        </label>
+        </label>
+         <label class="special">
+          <input type="radio" name="type" value="s0tool-kwh-water-test" /><br>
+          <td><b>S0tool kwh-water-test </b></td><br>
+        </label>                
+        </label>
+         <label class="special">
+          <input type="radio" name="type" value="s0tool-blank" /><br>
+          <td><b>S0tool blank</b></td><br>
+        </label>        
+      </div>
+
+      <p class="button-row" align="center">
+        <esp-web-install-button></esp-web-install-button>
+      </p>
+<hr>
+<center>
+      <div class="hidden info s0tool-standard">
+        <h3>s0tool-standard</h3>
+        <p>
+          Standard with watermeter(npn) and kWh meter imp(50-100ms)<br>
+          D2 & D5
+        </p><p><img src="./assets/npn-kwh-s0.jpg" alt="S0tool-npn-s0"> </p>
+      </div>
+
+      <div class="hidden info s0tool-watermeter">
+        <h3>s0tool watermeter</h3>
+        <p>
+          Standard with watermeter(npn)<br>
+          D2
+        </p><p><img src="./assets/npn.jpg" alt="S0tool-npn"> </p>
+      </div>
+
+      <div class="hidden info s0tool-kwh-puls">
+        <h3>S0tool kWh meter</h3>
+        <p>        
+          Standard with kWh meter imp(50-100ms)<br>
+          D5</p>
+        </p><p><img src="./assets/kwh-s0.png" alt="S0tool-s0"> </p>
+      </div>
+
+      <div class="hidden info s0tool-dsz12d">
+        <h3>S0tool dsz12d</h3>
+        <p>        
+          Special for the dsz12d<br>
+          D5</p>
+          <p><img src="./assets/dsz12d.jpg" alt="s0tool-dsz12d"> </p>
+        </p>
+
+      </div>
+
+            <div class="hidden info s0tool-lem022sj">
+        <h3>S0tool lem022sj</h3>
+        <p>        
+          Special for the lem022sj 400imp<br>
+          D5</p>
+          </p><p><img src="./assets/lem022sj.jpg" alt="s0tool-lem022sj"></p>
+      </div>
+
+      <div class="hidden info s0tool-s0-watermeter">
+        <h3>S0tool s0-watermeter </h3>
+        <p>        
+          Special for the digital <b>s0-</b>watermeter devices<br>
+          D2</p>
+      </div>
+
+      <div class="hidden info s0tool-fluxandpuls">
+        <h3>S0tool flux and puls</h3>
+        <p>        
+          Special for flow sensor and puls sensor<br>
+          D2</p>
+      </div>
+
+      <div class="hidden info s0tool-wsz15d32a">
+        <h3>S0tool wsz15d32a and water </h3>
+        <p>        
+          Special for the wsz15d32a imp(30ms) and watermeter(npn)<br>
+          D5</p>
+          </p><p><img src="./assets/wsz15d32a.jpg" alt="s0tool-wsz15d32a"></p>
+      </div>
+      
+      <div class="hidden info s0tool-sdm72d">
+        <h3>S0tool sdm72d and water</h3>
+        <p>        
+          Special for the sdm72d imp(35ms) and watermeter(npn)<br>
+          D2 & D5</p>
+          </p><p><img src="./assets/sdm72d.jpg" alt="s0tool-sdm72d"></p>
+      </div>
+
+      <div class="hidden info s0tool-puls-water-internal">
+        <h3>S0tool puls-water-internal</h3>
+        <p>        
+          Special for the kwh and watermeter(npn) with Internal resistor in the code<br>
+          D2 & D5</p>
+          </p>
+      </div>
+
+      <div class="hidden info s0tool-kwh-water-test">
+        <h3>S0tool kwh-water-test</h3>
+        <p>        
+          Special for the kwh and watermeter(npn) test with debug mode on <br>
+          D2 & D5</p>
+          </p><img src="./assets/debug.png" alt="s0tool-debug"> </p>
+      </div>
+
+      <div class="hidden info s0tool-blank">
+        <h3>S0tool blank</h3>
+        <p>        
+          Wipes the hole esp8266<br>
+          <p><img src="./assets/esp82.jpg" alt="s0tool-wipeesp"> </p>
+          </p>
+      </div>
+      </center>
+      <hr>
+       <p>Looking for the other versions? <a href="?special#s0tool-Installation"><b>Show Special configurations</b></a> Click to show more special versions.</p>
+     <hr>
 <br>
 Its possible now to adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and after updating the firmware. <br> The combinations are possible between 10 and 4000 puls/kWh with steps of 10 pulses.
 <br>
 <br>
 Special versions .<br>
-Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet.<br>
+Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet. Or versions for a other watermeter.<br>
 
 <h2 id="Troubleshooting">Troubleshooting</h2><br>
 
@@ -373,6 +520,7 @@ Only needed if the kWh counter has a impulse length other than between the 50 an
             <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_calibrate">
         </a> And you can find your readings and reset it
 <br>
+<p>Check also the readme file in the repro of the S0tool on github for more information <a href="https://github.com/huizebruin/s0tool">S0tool Github</a></p>
 
 <h4>drivers</h4><br>
   If the serial port is not showing up, your computer might be missing the
@@ -405,7 +553,14 @@ Have fun with the <b>S0tool</b>.
 <br><br><b>
 Wobbe </b><br>
 From <a href="https://www.huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a> . </b><br>
-Do you like my work ?<br><a href="https://paypal.me/huizebruin" rel="noreferer, ,noopener" target="_blank">https://paypal.me/huizebruin</a> 
+<p>Do you like my work ?<br></p>
+
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="E5MLX3AC2FZUQ" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_NL/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
 
 <br><br>
 For more information about the code etc.
@@ -416,24 +571,63 @@ For more information about the S0tool look at my (Dutch) <a href="https://www.hu
 <br>
 <h2 id="Contributing">Contributing </h2><br>
 If you'd like to contribute to the s0tool project, please fork the repository and submit a pull request.<br> We welcome contributions of all kinds, including bug fixes, new features, and documentation updates. </p>
-
+Be sure to 🌟 <a href="https://github.com/huizebruin/s0tool/stargazers"> this repository for updates! </a>
 <br>
+      <h2>Advanced Users</h2>
+      <ul>
+        <li>
+          The device is adoptable in
+          <a
+            href="https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon"
+            >the ESPHome dashboard</a
+          >
+        </li>
+        <li>
+          The YAML configuration is on
+          <a href="https://github.com/huizebruin/s0tool">GitHub</a>
+        </li>
+      </ul>
+
 <p> <b></b>
 <h2 id="License">License </h2><br>
 
 <br>
-MIT License
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+MIT License 
+Copyright (c) 2023 Huizebruin.nl
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-</p>
-    
-    <hr>
-    <footer>
-    <p>For more information, visit the <a href="https://github.com/huizebruin/s0tool">GitHub repository</a> or <a href="https://www.huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a>.</p>
-    <p>&copy; 2023 Huizebruin</p>
-    <a href="https://esphome.github.io/esp-web-tools/" target="_blank" >S0tool Installer powered by ESP Web Tools</a><br>
-</footer>
-</body>
+</p>      
+
+
+      <div class="footer">
+        Looking for the other versions? <a href="?special#s0tool-Installation">Show Special configurations</a> <br /><br />
+        Affiliated links are used on this website to support Huizebruin.nl
+        development.<br />
+        <a href="https://esphome.io">ESPHome</a>
+        &mdash; Installer powered by
+        <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a>.
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('input[name="type"]').forEach((radio) =>
+        radio.addEventListener("change", () => {
+          const button = document.querySelector("esp-web-install-button");
+          button.manifest = `./${radio.value}-manifest.json`;
+
+          document.querySelectorAll(".info").forEach((info) => {
+            info.classList.add("hidden");
+          });
+          document
+            .querySelector(`.info.${radio.value}`)
+            .classList.remove("hidden");
+        })
+      );
+      document
+        .querySelector('input[name="type"]:checked')
+        .dispatchEvent(new Event("change"));
+      if (new URLSearchParams(document.location.search).has("special")) {
+        document.body.classList.add("show-special");
+      }
+    </script>
+  </body>
 </html>
-
-
