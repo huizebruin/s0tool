@@ -3,6 +3,8 @@ logger:
 debug:
   update_interval: 5s
 
+api:
+
 text_sensor:
   - platform: debug
     device:
