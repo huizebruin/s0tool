@@ -87,5 +87,3 @@ sensor:
       name: "Heap Max Block"
     loop_time:
       name: "Loop Time"
-    psram:
-      name: "Free PSRAM"
