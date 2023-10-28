@@ -24,6 +24,6 @@ packages:
     url: https://github.com/huizebruin/s0tool/
     ref: main
     files:
-      - esphome/components/basis.yaml
+#      - esphome/components/basis.yaml
       - esphome/components/kwh-water-test.yml
     refresh: 0d
