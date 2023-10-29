@@ -1,55 +1,157 @@
-body {
-  background-color: #fff;
-  color: #000;
-  font-family: Arial, sans-serif;
-  margin: 0;
+    /* <style> */
+      body {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Ubuntu, sans-serif;
+        padding: 20px;
+        margin: 0;
+        line-height: 1.4;
+        background-color: rgb(100, 100, 100);
+      }
+      .content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 12px;
+        font-size: 14px;
+        background-color: rgb(235, 233, 233);
+      }
+      .header {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1200 / 675;
+        border-radius: 1px;
+      }
+      h3 {
+        margin-top: 1.5em;
+      }
+      a {
+        color: #03a9f4;
+      }
+      .hidden {
+        display: none;
+      }
+      li {
+        padding: 4px 0;
+      }
+      .footer {
+        margin-top: 24px;
+        font-size: 14px;
+        border-top: 1px solid #ccc;
+        padding-top: 24px;
+        text-align: center;
+      }
+      .footer .initiative {
+        font-style: italic;
+        margin-top: 16px;
+      }
+      .radios {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .radios label {
+        padding: 4px;
+        cursor: pointer;
+        width: calc(33.3% - 16px);
+        display: block;
+        position: relative;
+      }
+      .radios input {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+      }
+      .radios img {
+        display: block;
+        width: calc(100% - 8px);
+        border: 4px solid #01ab7e;
+        aspect-ratio: 1;
+      }
+      input:checked + img {
+        border-color: #01ab7e;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #333;
+          color: #fff;
+        }
+        .content { background-color: rgb(74, 74, 74);}
+        a {
+          color: #58a6ff;
+        }
+      }
+      @media only screen and (max-width: 450px) {
+        .radios label {
+          width: calc(50% - 16px);
+          max-width: initial;
+        }
+      }
+      .special::after {
+        content: "Special";
+        background-color: #f44336;
+        color: #fff;
+        padding: 1px 4px;
+        border-radius: 4px;
+        font-size: 0.7em;
+        position: absolute;
+        bottom: 20px;
+        left: 150px;
+      }
+      body .special {
+        display: none;
+      }
+      body.show-special .special {
+        display: initial;
+      }
+          header {
+    background-color: #333; 
+    color: #fff; 
+    padding: 0px 0; 
 }
-
-.navbar {
-  background-color: #fff;
-  color: #01ab7e;
-  display: flex;
-  justify-content: center;
-}
-
-.navbar a {
-  color: #01ab7e;
-  text-decoration: none;
-  padding: 10px;
-  margin: 10px;
-  border: 2px solid #01ab7e;
-  border-radius: 5px;
-}
-
-.navbar a:hover {
-  background-color: #01ab7e;
-  color: #fff;
-}
-
-.content {
-  text-align: center;
-  padding: 50px;
-}
-
-h1 {
-  font-size: 48px;
-}
-
-p {
-  font-size: 18px;
-}
-table {
-    border-collapse: collapse;
+    img {
+        max-width: 280px;
+        max-height: 280px; 
+        width: auto;
+        height: auto;
+    }
+/* Style the navigation menu */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    background-color: #333; /* You can adjust the background color as needed */
+    z-index: 100; /* Ensure the menu is above other elements */
   }
-  
-th, td {
-    text-align: left;
-    padding: 20px;
+
+  nav ul {
+    list-style: none;
+    text-align: center;
+    /* Add padding to separate the menu items from the top */
+    padding: 0px 0;
   }
-  
-th {
-    background-color: #333;
+
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
     color: #fff;
-    border-top: 5px solid #01ab7e;
+    font-weight: bold;
+    font-size: 14px;
   }
+
+  nav ul li a:hover {
+    color: #FFA500;
+  }
+h1 {
+    text-decoration: none; 
+    color: #01ab7e; 
+}
+h2 {
+    text-decoration: none; 
+    color: #01ab7e; 
+}     
+    /* </style> */

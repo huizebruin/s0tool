@@ -24,9 +24,6 @@ binary_sensor:
       mode:
         input: true
         pullup: true
-    on_press:
-      - then:
-          lambda: id(total_kwh_pulses) += 1;
 
 #------------------------# Watermeter #------------------------#
 # binary_sensor:
@@ -39,9 +36,7 @@ binary_sensor:
       inverted: true
       mode:
         input: true
-    on_press:
-      - then:
-          lambda: id(total_water_pulses) += 1;
+
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
@@ -57,13 +52,12 @@ sensor:
     unit_of_measurement:  "W" #'kW'
     state_class: measurement
     device_class: power
-    filters:
-       lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
+
 
 #sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
-  - platform: pulse_meter #pulse_counter
+  - platform: pulse_meter 
     internal_filter_mode: "PULSE"
     internal_filter: 50ms
     pin: 
@@ -77,8 +71,7 @@ sensor:
     unit_of_measurement: "l/min"
     accuracy_decimals: 1
     icon: "mdi:water-pump"
-    filters:
-      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
+
 
   - platform: debug
     free:

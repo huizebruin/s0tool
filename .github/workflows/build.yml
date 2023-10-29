@@ -43,9 +43,9 @@ jobs:
           - file: esphome/puls-water-internal.yaml
             name: s0tool-standard-internal
             manifest_filename: s0tool-standard-internal-manifest.json
-          # - file: esphome/kwh-water-test.yaml
-          #   name: s0tool-kwh-water-test
-            # manifest_filename: s0tool-kwh-water-test-manifest.json
+          - file: esphome/kwh-water-test.yaml
+            name: s0tool-kwh-water-test
+            manifest_filename: s0tool-kwh-water-test-manifest.json
       fail-fast: false
     steps:
       - name: Checkout source code

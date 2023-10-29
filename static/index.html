@@ -9,176 +9,11 @@
     <meta name="viewport" content="width=device-width" />
     <meta property="og:title" content="S0tool" />
     <meta property="og:site_name" content="S0tool Repository" />
-    <meta
-      property="og:url"
-      content="https://huizebruin.github.io/s0tool/"
-    />
+    <meta property="og:url" content="https://huizebruin.github.io/s0tool/"/>
     <meta property="og:type" content="website" />
-    <meta
-      property="og:description"
-      content="Count your water use with the s0tool and Home Assistant and ESPHome."
-    />
-    <meta
-      property="og:image"
-      content="./assets/s0tool-logo.jpg"
-    />
-
-    <style>
-      body {
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Ubuntu, sans-serif;
-        padding: 20px;
-        margin: 0;
-        line-height: 1.4;
-        background-color: rgb(100, 100, 100);
-      }
-      .content {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 12px;
-        font-size: 14px;
-        background-color: rgb(235, 233, 233);
-      }
-      .header {
-        display: block;
-        width: 100%;
-        aspect-ratio: 1200 / 675;
-        border-radius: 1px;
-      }
-      h3 {
-        margin-top: 1.5em;
-      }
-      a {
-        color: #03a9f4;
-      }
-      .hidden {
-        display: none;
-      }
-      li {
-        padding: 4px 0;
-      }
-      .footer {
-        margin-top: 24px;
-        font-size: 14px;
-        border-top: 1px solid #ccc;
-        padding-top: 24px;
-        text-align: center;
-      }
-      .footer .initiative {
-        font-style: italic;
-        margin-top: 16px;
-      }
-      .radios {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .radios label {
-        padding: 4px;
-        cursor: pointer;
-        width: calc(33.3% - 16px);
-        display: block;
-        position: relative;
-      }
-      .radios input {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-      }
-      .radios img {
-        display: block;
-        width: calc(100% - 8px);
-        border: 4px solid rgba(0, 0, 0, 0);
-        aspect-ratio: 1;
-      }
-      input:checked + img {
-        border-color: #58a6ff;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #333;
-          color: #fff;
-        }
-        a {
-          color: #58a6ff;
-        }
-      }
-      @media only screen and (max-width: 450px) {
-        .radios label {
-          width: calc(50% - 16px);
-          max-width: initial;
-        }
-      }
-      .special::after {
-        content: "Special";
-        background-color: #f44336;
-        color: #fff;
-        padding: 1px 4px;
-        border-radius: 4px;
-        font-size: 0.7em;
-        position: absolute;
-        bottom: 20px;
-        left: 150px;
-      }
-      body .special {
-        display: none;
-      }
-      body.show-special .special {
-        display: initial;
-      }
-          header {
-    background-color: #333; 
-    color: #fff; 
-    padding: 0px 0; 
-}
-    img {
-        max-width: 280px;
-        max-height: 280px; 
-        width: auto;
-        height: auto;
-    }
-/* Style the navigation menu */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333; /* You can adjust the background color as needed */
-    z-index: 100; /* Ensure the menu is above other elements */
-  }
-
-  nav ul {
-    list-style: none;
-    text-align: center;
-    /* Add padding to separate the menu items from the top */
-    padding: 0px 0;
-  }
-
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-  }
-
-  nav ul li a:hover {
-    color: #FFA500;
-  }
-h1 {
-    text-decoration: none; 
-    color: #01ab7e; 
-}
-h2 {
-    text-decoration: none; 
-    color: #01ab7e; 
-}     
-    </style>
+    <meta property="og:description" content="Count your water use with the s0tool and Home Assistant and ESPHome." />
+    <meta property="og:image" content="./assets/s0tool-logo.jpg" />
+    <link rel="stylesheet" href="style.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
 <script>
@@ -195,9 +30,6 @@ h2 {
     ></script>
   </head>
 <body>
-        <header>
-
-    <center></center>
         <nav>
             <ul>
         <li><a href="#home">Home</a></li>
@@ -211,7 +43,6 @@ h2 {
         <li><a href="#License">License</a></li>
             </ul>
         </nav>
-    </header>
     <div class="content">
     <center>     <h1 id="home">S0tool Repository</h1>
     <p>
@@ -288,15 +119,14 @@ Will it work with my meter check it out here. <a href="https://github.com/huizeb
 
 <br>
 <h2 id="information">Information:</h2> 
-<br>
 <p>Wi-fi : IEEE 802.11 b/g/n 2.4GHz </p>  
 
 
 <br>
 
-<h2 id="dashboard">Watermeter to energy dashboard.</h2><br>
-From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
-<br>
+<h2 id="dashboard">Watermeter to energy dashboard.</h2><p>
+From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.
+</p>
 
     <table border="0">
         <tr>
@@ -315,21 +145,16 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
 
 <br>
 
-<h2 id="Installation">Installation</h2><br>
-
-<br>
-Pre-requisite: Make sure you have installed the drivers for the Wemos d1 to communicate with your pc / laptop. Look below for troubleshooting. <br>
-<br>
-And you must connect the S0tool to your pc or laptop with a cable that transfers both power and data.
-<br>
-You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br><br>
+<h2 id="Installation">Installation</h2>
+<p>
+Pre-requisite: Make sure you have installed the drivers for the Wemos d1 to communicate with your pc / laptop. Look below for troubleshooting.<br> 
+And you must connect the S0tool to your pc or laptop with a cable that transfers both power and data.<br>
+You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br>
 <b>Works only for a Wemos d1 mini V1 & v3.0 & 4.0 esp8266 at this moment.</b><br>
-Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
+Wi-fi: IEEE 802.11 b/g/n 2.4GHz </p>
 <br>
     
       <h2 id="s0tool-Installation">S0tool Installation</h2>
-      <p></p>
-
       <p>
         Pick your product to turn it into a S0tool for Home Assistant.</p><p>
         No programming or other software required.
@@ -348,11 +173,9 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
           <input type="radio" name="type" value="s0tool-kwh-puls" /><br>
           <td><b>S0tool kWh meter</b></td><br>
         </label>
-        
         <br>
         <br>
-<hr>
-
+        <hr>
         <label class="special">
           <input type="radio" name="type" value="s0tool-dsz12d" /><br>
           <td><b>S0tool dsz12d</b></td><br>
@@ -476,13 +299,14 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
         <p>        
           Special for the kwh and watermeter(npn) with Internal resistor in the code<br>
           D2 & D5</p>
-          </p>
+          </p><p><img src="./assets/npn-kwh-s0.jpg" alt="S0tool-npn-s0"> </p>
       </div>
 
       <div class="hidden info s0tool-kwh-water-test">
         <h3>S0tool kwh-water-test</h3>
         <p>        
           Special for the kwh and watermeter(npn) test with debug mode on <br>
+          <b>At this moment not working and cant be installed yet (29-10-2023)</b><br>
           D2 & D5</p>
           </p><img src="./assets/debug.png" alt="s0tool-debug"> </p>
       </div>
@@ -496,14 +320,14 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz <br><br>
       </div>
       </center>
       <hr>
-       <p>Looking for the other versions? <a href="?special#s0tool-Installation"><b>Show Special configurations</b></a> Click to show more special versions.</p>
+       <p><center>Looking for the other versions? <a href="?special#s0tool-Installation"><b>Show Special configurations</b></a> Click to show more special versions.</center></p>
      <hr>
 <br>
 Its possible now to adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with reboot and after updating the firmware. <br> The combinations are possible between 10 and 4000 puls/kWh with steps of 10 pulses.
 <br>
-<br>
+<p>
 Special versions .<br>
-Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet. Or versions for a other watermeter.<br>
+Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet. Or versions for a other watermeter.</p>
 
 <h2 id="Troubleshooting">Troubleshooting</h2><br>
 
@@ -521,6 +345,8 @@ Only needed if the kWh counter has a impulse length other than between the 50 an
         </a> And you can find your readings and reset it
 <br>
 <p>Check also the readme file in the repro of the S0tool on github for more information <a href="https://github.com/huizebruin/s0tool">S0tool Github</a></p>
+
+<h4>Update function</h4>
 
 <h4>drivers</h4><br>
   If the serial port is not showing up, your computer might be missing the
@@ -542,12 +368,12 @@ Only needed if the kWh counter has a impulse length other than between the 50 an
   </li>
   </ul>
 <br>
-<h2 id="problemsandfix">For problems or solutions </h2><br>
-<b></b>
+<h2 id="problemsandfix">For problems or solutions </h2>
+<p>
 <b><a href="https://github.com/huizebruin/s0tool/pulls" rel="noreferer, ,noopener" target="_blank">Pull requests</a> </b>.<br> 
 For problems 
 <b><a href="https://github.com/huizebruin/s0tool/issues" rel="noreferer, ,noopener" target="_blank">issues</a> . </b>
-<br><br>
+</p>
 
 Have fun with the <b>S0tool</b>.
 <br><br><b>
