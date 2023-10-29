@@ -306,7 +306,6 @@ Wi-fi: IEEE 802.11 b/g/n 2.4GHz </p>
         <h3>S0tool kwh-water-test</h3>
         <p>        
           Special for the kwh and watermeter(npn) test with debug mode on <br>
-          <b>At this moment not working and cant be installed yet (29-10-2023)</b><br>
           D2 & D5</p>
           </p><img src="./assets/debug.png" alt="s0tool-debug"> </p>
       </div>
@@ -346,9 +345,14 @@ Only needed if the kWh counter has a impulse length other than between the 50 an
 <br>
 <p>Check also the readme file in the repro of the S0tool on github for more information <a href="https://github.com/huizebruin/s0tool">S0tool Github</a></p>
 
-<h4>Update function</h4>
-
-<h4>drivers</h4><br>
+<h4>Update function, Updating Through ESPHome Addon</h4>
+ <p>
+1. In HomeAssistant open the ESPHome addon.<br>
+2. Find the sensor (s0tool) you want to update and click the three dots in the bottom right.<br>
+3. Select “Validate” from the list.<br>
+4. Once the validation completes, click “Install” in the bottom right.<br>
+</p>
+<h4>drivers</h4><p>
   If the serial port is not showing up, your computer might be missing the
   drivers for the USB serial chip used in your ESP device.<br> These drivers
   work for most ESP devices:
