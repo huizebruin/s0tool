@@ -216,7 +216,8 @@ Or via<b> [issues](https://github.com/huizebruin/s0tool/issues) </b> requested o
 Wobbe </b><br>
 From <a href="https://www.Huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a>
 
-Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) 
+Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) <br>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W4QU9ZX)
 <br><br>
 For more information and connection diagrams, etc., take a look at the [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
 ***
