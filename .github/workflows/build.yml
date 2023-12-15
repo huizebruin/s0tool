@@ -63,7 +63,7 @@ jobs:
           jq -s '{"name": "${{ matrix.firmware.name }}", "version": "${{ steps.esphome-build.outputs.version }}", "home_assistant_domain": "esphome", "new_install_prompt_erase": false, "builds":.}' output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/${{ matrix.firmware.manifest_filename }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4.0.0
         with:
           name: ${{ matrix.firmware.name }}
           path: output
