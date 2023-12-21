@@ -53,6 +53,7 @@ binary_sensor:
     internal: False
     pin:
       number: D2
+      allow_other_uses: true
       inverted: true
       mode:
         input: true
@@ -66,7 +67,9 @@ sensor:
   - platform: pulse_meter #pulse_counter
     internal_filter_mode: "PULSE"
     internal_filter: 50ms
-    pin: D2
+    pin: 
+      number: D2
+      allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
     state_class: measurement
@@ -87,8 +90,6 @@ sensor:
       accuracy_decimals: 3
       filters:
         - multiply: 0.001
-      # filters:
-      #  lambda: return x * atof(id(Select_pulse_water).state.c_str());
 
 # ⬇ Watermeter stand bij benadering ⬇ #
   - platform: template

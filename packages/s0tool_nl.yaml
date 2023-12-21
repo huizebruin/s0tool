@@ -1,0 +1,39 @@
+s0tool_package:
+  sensor:
+#------------------------# s0tool template sensoren. #------------------------#
+# s0tool sensor watt naar kw
+  - platform: template
+    sensors:
+      huidig_energie_opbrengst:
+        value_template: '{{ (states("sensor.actuele_energie")| int / 1000) | round(2) }}'
+        icon_template: mdi:flash
+        unit_of_measurement: "kW"
+        friendly_name: "Huidig Energieverbruik"
+        unique_id: s0tool_W_to_kW
+
+
+# s0tool sensor m3 naar L
+      waterverbruik_liter_s0tool:
+        unique_id: s0toolwaterliterha
+        friendly_name: Water liter verbruik
+        value_template: "{{ (states('sensor.watermeter_totaal') | float * 1000) | int }}"
+        unit_of_measurement: L
+        icon_template: mdi:water
+
+#------------------------# sensor github versie S0tool #------------------------#
+## Om de github versie te vergelijken met de "running" versie van s0tool
+      s0tool_gelijk_github:
+        friendly_name: "s0Tool versie gelijk github versie"
+        unique_id: s0tool_up_to_date
+        value_template: "{{ states('sensor.s0tool_versie_github')  == states('sensor.s0tool_versie') }}"
+
+#sensor:
+  #####################################################
+  ### Toegevoegd om van de s0Tool de versie info uit github op te halen
+  #####################################################
+  - platform: rest
+    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    name: s0tool_versie_github
+    unique_id: s0tool_github_version
+    value_template: '{{ value_json.tag_name }}'
+    scan_interval: 3600

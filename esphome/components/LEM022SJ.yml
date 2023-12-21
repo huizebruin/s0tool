@@ -44,6 +44,7 @@ binary_sensor:
     internal: False
     pin:
       number: D5
+      allow_other_uses: true
       mode:
         input: true
     on_press:
@@ -53,7 +54,9 @@ binary_sensor:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    pin: D5
+    pin: 
+      number: D5
+      allow_other_uses: true
     name:  "Actuele energie"
     id: actual_power
     icon: "mdi:flash"

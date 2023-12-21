@@ -21,6 +21,7 @@ binary_sensor:
     internal: False
     pin:
       number: D5
+      allow_other_uses: true
       mode:
         input: true
         pullup: true
@@ -33,6 +34,7 @@ binary_sensor:
     internal: False
     pin:
       number: D2
+      allow_other_uses: true
       inverted: true
       mode:
         input: true
@@ -43,6 +45,7 @@ sensor:
   - platform: pulse_meter
     pin:
       number: D5
+      allow_other_uses: true
       mode:
         input: true
     name:  "Actuele test"
@@ -62,6 +65,7 @@ sensor:
     internal_filter: 50ms
     pin: 
       number: D2
+      allow_other_uses: true
       mode:
         input: true
         pullup: true

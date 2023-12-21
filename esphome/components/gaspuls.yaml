@@ -74,6 +74,7 @@ binary_sensor:
     name: "Pulse Sensor gas"
     pin:
       number: D5
+      allow_other_uses: true
       inverted: true
       mode:
         input: true
@@ -87,7 +88,9 @@ sensor:
   - platform: pulse_meter #pulse_counter
     internal_filter_mode: "PULSE"
     internal_filter: 50ms  
-    pin: D5
+    pin: 
+      number: D5
+      allow_other_uses: true
     id: gasmeter_pulse
     name: "gasmeter pulse"
     state_class: measurement

@@ -49,6 +49,7 @@ binary_sensor:
     internal: False
     pin:
       number: D5
+      allow_other_uses: true
       mode:
         input: true
         pullup: true
@@ -61,6 +62,7 @@ sensor:
   - platform: pulse_meter
     pin:
       number: D5
+      allow_other_uses: true
       mode:
         input: true
         pullup: true

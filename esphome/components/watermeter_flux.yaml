@@ -50,6 +50,7 @@ binary_sensor:
     internal: False
     pin:
       number: D2
+      allow_other_uses: true
       inverted: true
       mode:
         input: true
@@ -60,7 +61,9 @@ sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
   - platform: pulse_counter
-    pin: D2
+    pin: 
+      number: D2
+      allow_other_uses: true
     id: watermeter_pulse
     name: "l/min at the moment"
 #    state_class: measurement
