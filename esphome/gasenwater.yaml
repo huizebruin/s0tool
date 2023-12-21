@@ -25,6 +25,6 @@ packages:
     ref: main
     files:
       - esphome/components/basis.yaml
-      - esphome/components/gaspuls.yml
+      - esphome/components/gaspuls.yaml
       - esphome/components/watermeter.yaml
     refresh: 0d 
