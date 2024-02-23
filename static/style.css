@@ -120,7 +120,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* You can adjust the background color as needed */
+    background-color: rgb(138, 138, 148); /* You can adjust the background color as needed */
     z-index: 100; /* Ensure the menu is above other elements */
   }
 
@@ -140,7 +140,7 @@
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   nav ul li a:hover {

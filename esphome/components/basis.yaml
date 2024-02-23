@@ -4,8 +4,8 @@
 # © Huizebruin.nl
 substitutions:
   device_description: ${name} gemaakt door huizebruin.nl versie ${vdate}.
-  vdate: "v23.12.34" 
-  date: "21-12-2023"
+  vdate: "v24.02.23.35" 
+  date: "23-02-2024"
 
 preferences:
   flash_write_interval: 120min 
@@ -89,9 +89,11 @@ button:
   - platform: factory_reset
     name: "Restart with Factory Default Settings"
     entity_category: diagnostic
+    disabled_by_default: True
 
   # safe mode button
   - platform: safe_mode
     name: "Safe Mode"
     entity_category: diagnostic
+    disabled_by_default: True
 

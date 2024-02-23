@@ -45,8 +45,8 @@ Before update of the S0tool u should use, and above <br>
 
 | Program | version |
 | :------------- | :--------- |
-| Home Assistant | v2022.11.1 |
-| ESPHome | v2022.10.1 |
+| Home Assistant | v2024.1.0 |
+| ESPHome | v2024.02.0 |
 
 <br>
 
@@ -154,18 +154,33 @@ enz...
 ```
 Those in the file are in the folder [utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
 
-12. Optionally to see if there are new updates, you can create the following sensor in your configuration.yaml:<br>
-(or you copy the sensor file from the sensor folder and put it all in your own configuration).
+12. Optionally to see if there are new updates, you can create the following Line in your configuration.yaml:<br>
+```yaml
+homeassistant:
+  packages: !include_dir_merge_named packages/
+  ```
+And make a folder in youre comfig map on Home Asstant ```packages``` and make there a file like ```s0tool.yaml``` and ad there the code from the file from the [package map on the s0tool github](https://github.com/huizebruin/s0tool/tree/main/packages)
+(or you copy the package dutch or English file from the package folder and put it all in your own configuration).
 ```yaml
 #sensor: # get away if this is your first sensor
   - platform: rest
     resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
-    name: s0tool_versie_github
-    value_template: '​{{ value_json.tag_name }}​'
+    name: s0tool_version_github
+    unique_id: s0tool_github_version
+    value_template: '{{ value_json.tag_name }}'
+    scan_interval: 3600
+
+  template:
+      - binary_sensor:
+          - name: "s0Tool update online"
+            unique_id: s0tool_up_to_date
+            state: >
+              {% set a = states('sensor.s0tool_versie_github') %}
+              {% set b = states('sensor.s0tool_versie') %}
+              {{ version(a) > version(b) }}
+            device_class: update
 
 ```
-You can then compare this version with the entity "sensor.s0tool_versie".<br>
-These 2 are also in the sensor folder on this Github.
 
 13. Restart Home Assistant one more time to add everything to your Lovelace screen.
 
@@ -174,7 +189,7 @@ These 2 are also in the sensor folder on this Github.
 ``` yaml
 type: conditional
 conditions:
-  - entity: sensor.s0tool_gelijk_github
+  - entity: sensor.s0tool_up_to_date
     state_not: 'True'
 card:
   type: markdown
@@ -261,7 +276,7 @@ Who else is working on this project : <br>
 
 MIT License
 
-Copyright (c) 2021 / 2023 Huizebruin.nl
+Copyright (c) 2021 / 2024 Huizebruin.nl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

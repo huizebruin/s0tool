@@ -20,13 +20,6 @@ s0tool_package:
         unit_of_measurement: L
         icon_template: mdi:water
 
-#------------------------# sensor github versie S0tool #------------------------#
-## Om de github versie te vergelijken met de "running" versie van s0tool
-      s0tool_gelijk_github:
-        friendly_name: "s0Tool version same as GitHub version"
-        unique_id: s0tool_up_to_date
-        value_template: "{{ states('sensor.0tool_github_version')  == states('sensor.s0tool_versie') }}"
-
 #sensor:
   #####################################################
   ### Toegevoegd om van de s0Tool de versie info uit github op te halen
@@ -37,3 +30,13 @@ s0tool_package:
     unique_id: s0tool_github_version
     value_template: '{{ value_json.tag_name }}'
     scan_interval: 3600
+
+  template:
+      - binary_sensor:
+          - name: "s0Tool update online"
+            unique_id: s0tool_up_to_date
+            state: >
+              {% set a = states('sensor.s0tool_versie_github') %}
+              {% set b = states('sensor.s0tool_versie') %}
+              {{ version(a) > version(b) }}
+            device_class: update
