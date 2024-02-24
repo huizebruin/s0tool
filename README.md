@@ -126,7 +126,7 @@ Go to this link to install the drivers ch340.
 06/05/2022: <br> Now also possible to flash the <b>s0tool</b> directly via the browser.<br>
 Only possible with a chrome or edge and opera browser. <br>
 Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
- [https://huizebruin.github.io/s0tool/](https://huizebruin.github.io/s0tool/)
+ [https://s0tool.nl](https://s0tool.nl)
 
 1. Install Home Assistant & Esphome .
 2. Connect the wemos d1 mini to a USB charger.
@@ -229,7 +229,7 @@ Any additions / improvements <br> may be made via <b>[Pull requests](https://git
 Or via<b> [issues](https://github.com/huizebruin/s0tool/issues) </b> requested or added.
 <br><br><br><b>
 Wobbe </b><br>
-From <a href="https://www.Huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a>
+From <a href="https://www.Huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a> & <a href="https://s0tool.nl" rel="noreferer, ,noopener" target="_blank">S0tool.nl</a>
 
 Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) <br>
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W4QU9ZX)
@@ -276,7 +276,7 @@ Who else is working on this project : <br>
 
 MIT License
 
-Copyright (c) 2021 / 2024 Huizebruin.nl
+Copyright (c) 2021 / 2024 Huizebruin.nl / s0tool.nl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

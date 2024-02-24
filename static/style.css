@@ -8,9 +8,8 @@
         background-color: rgb(100, 100, 100);
       }
       .content {
-        max-width: 900px;
         margin: 0 auto;
-        padding: 12px;
+        padding: 20px;
         font-size: 14px;
         background-color: rgb(235, 233, 233);
       }
