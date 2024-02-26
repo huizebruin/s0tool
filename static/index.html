@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
     <meta charset="UTF-8">
     <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="S0tool" />
     <meta property="og:site_name" content="S0tool Repository" />
     <meta property="og:url" content="https://s0tool.nl"/>
@@ -14,6 +14,7 @@
     <meta property="og:description" content="Count your water use with the s0tool and Home Assistant and ESPHome." />
     <meta property="og:image" content="./assets/s0tool-logo.jpg" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
 <script>
@@ -30,19 +31,21 @@
     ></script>
   </head>
 <body>
-        <nav>
-            <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#diy-watercounter">Diy watercounter</a></li>
-        <li><a href="#information">Information</a></li>
-        <li><a href="#dashboard">Watermeter to energy dashboard</a></li>
-        <li><a href="#Installation">Installation</a></li>
-        <li><a href="#Troubleshooting">Troubleshooting</a></li>
-        <li><a href="#problemsandfix">For problems or solutions</a></li>
-        <li><a href="#Contributing">Contributing</a></li>
-        <li><a href="#License">License</a></li>
-            </ul>
-        </nav>
+    <div class="topnav" id="myTopnav">
+      <a href="#default" class="logo">S0tool.nl</a>
+
+      <a href="#home">Home</a>
+      <a href="#diy-watercounter">Diy or buy</a>
+      <a href="#information">Information</a>
+      <a href="#dashboard">Energy dashboard</a>
+      <a href="#Installation">Installation</a>
+      <a href="#Troubleshooting">Troubleshooting</a>
+      <a href="#Contributing">Contributing</a>
+      <a href="#License">License</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
     <div class="content">
     <center>     <h1 id="home"><a href="https://S0tool.nl" target="_blank">S0tool.nl</a></h1>
     <p>
@@ -82,7 +85,7 @@ S0tool & Made for ESPHome program <p>
     
 S0tool is a versatile tool for monitoring water and energy consumption. It works seamlessly with ESPHome and offers various features.
     </p>
-<br>
+
 With the<b> S0tool</b> you can keep track of the consumption of both your water meter and a kWh meter that has an S0 connection.
 <br>
 The tool is ideal for keeping track of the consumption of devices such as heat pumps, or the yield of your solar panels.
@@ -121,10 +124,11 @@ At this moment we only ship to : The Netherlands and België
 
 <br>
 <h2 id="information">Information:</h2> 
-<p>Wi-fi : IEEE 802.11 b/g/n 2.4GHz </p>  
+<li><b>Wi-fi : IEEE 802.11 b/g/n 2.4GHz </b></li>
+<li><b>Minimal ESPHome version 2024.02.x (20-02-2024)</b> </li>
+<li><b>Works only for a Wemos d1 mini V1 & v3.0 & 4.0 esp8266 at this moment.</b></li>
 
 
-<br>
 
 <h2 id="dashboard">Watermeter to energy dashboard.</h2><p>
 From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.
@@ -143,20 +147,14 @@ From Home Assistant version 2022.11.X it is possible to add the water meter to t
     </table>
     <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noreferrer noopener"><img src="https://my.home-assistant.io/badges/config_energy.svg" alt="Open your Home Assistant instance and show your energy configuration panel." /></a>
 <p> And look for <code>watermeter stand</code> and add that to the water usage ad the energy dashboard. </p>
-    <br>
-
-<br>
 
 <h2 id="Installation">Installation</h2>
 <p>
 Pre-requisite: Make sure you have installed the drivers for the Wemos d1 to communicate with your pc / laptop. Look below for troubleshooting.<br> 
 And you must connect the S0tool to your pc or laptop with a cable that transfers both power and data.<br>
 You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the browser.<br>
-<b>Works only for a Wemos d1 mini V1 & v3.0 & 4.0 esp8266 at this moment.</b><br>
-Wi-fi: IEEE 802.11 b/g/n 2.4GHz </p>
-<p><b>Minimal ESPHome version 2023.11.x (21-12-2023)</b> </p>
-<br>
-    
+</p>
+
       <h2 id="s0tool-Installation">S0tool Installation</h2>
       <p>
         Pick your product to turn it into a S0tool for Home Assistant.</p><p>
@@ -331,9 +329,9 @@ Its possible now to adjust the kWh puls rate settings from Home Assistant dashbo
 Special versions .<br>
 Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet. Or versions for a other watermeter.</p>
 
-<h2 id="Troubleshooting">Troubleshooting</h2><br>
+<h2 id="Troubleshooting">Troubleshooting</h2>
 
-<h4>How to change the total readings</h4><br>
+<h4>How to change the total readings</h4>
  <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool">
             <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_water">
         </a> For the water counter: D2
@@ -382,8 +380,6 @@ For problems
 <b><a href="https://github.com/huizebruin/s0tool/issues" rel="noreferer, ,noopener" target="_blank">issues</a> . </b>
 </p>
 
-
-<br><br>
 For more information about the code etc.
 <a href="https://github.com/huizebruin/s0tool" rel="noreferer, ,noopener" target="_blank">Github repro of the S0tool</a>
 <br>
@@ -404,8 +400,7 @@ For more information about the S0tool look at my (Dutch) <a href="https://www.hu
   </li>
 </ul>
 
-<p> <b></b>
-<br>
+<p> 
 <h2 id="Contributing">Contributing </h2><br>
 If you'd like to contribute to the s0tool project, please fork the repository and submit a pull request.<br> We welcome contributions of all kinds, including bug fixes, new features, and documentation updates. </p>
 Be sure to 🌟 <a href="https://github.com/huizebruin/s0tool/stargazers"> this repository for updates! </a>
@@ -427,7 +422,7 @@ From <a href="https://www.huizebruin.nl" rel="noreferer, ,noopener" target="_bla
     src='https://storage.ko-fi.com/cdn/kofi4.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 
-<h2 id="License">License </h2><br>
+<h2 id="License">License </h2>
 
 MIT License 
 Copyright (c) 2021 / 2024 From <a href="https://www.huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a> & <a
@@ -467,6 +462,14 @@ The above copyright notice and this permission notice shall be included in all c
       if (new URLSearchParams(document.location.search).has("special")) {
         document.body.classList.add("show-special");
       }
+      function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
     </script>
   </body>
 </html>
