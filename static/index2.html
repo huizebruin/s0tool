@@ -1,53 +1,61 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>S0tool </title>
-    <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-    <meta charset="UTF-8">
-    <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="S0tool" />
-    <meta property="og:site_name" content="S0tool Repository" />
-    <meta property="og:url" content="https://s0tool.nl"/>
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Count your water use with the s0tool and Home Assistant and ESPHome." />
-    <meta property="og:image" content="./assets/s0tool-logo.jpg" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en">
 
-  gtag('config', 'G-9HB5QGY82J');
-</script>
-   
-    <script
-      type="module"
-      src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"
-    ></script>
-  </head>
-<body>
-    <div class="topnav" id="myTopnav">
-      <a href="#default" class="logo">S0tool.nl</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S0tool</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+  <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome">
+  <meta property="og:title" content="S0tool">
+  <meta property="og:site_name" content="S0tool Repository">
+  <meta property="og:url" content="https://s0tool.nl">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Count your water use with the s0tool and Home Assistant and ESPHome.">
+  <meta property="og:image" content="./assets/s0tool-logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-      <a href="#home">Home</a>
-      <a href="#diy-watercounter">Diy or buy</a>
-      <a href="#information">Information</a>
-      <a href="#dashboard">Energy dashboard</a>
-      <a href="#Installation">Installation</a>
-      <a href="#Troubleshooting">Troubleshooting</a>
-      <a href="#Contributing">Contributing</a>
-      <a href="#License">License</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9HB5QGY82J');
+  </script>
+
+  <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-500 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#default" class="text-white font-bold text-lg">S0tool.nl</a>
+      <div class="flex space-x-4">
+        <a href="#home" class="text-white">Home</a>
+        <a href="#diy-watercounter" class="text-white">Diy or buy</a>
+        <a href="#information" class="text-white">Information</a>
+        <a href="#dashboard" class="text-white">Energy dashboard</a>
+        <a href="#installation" class="text-white">Installation</a>
+        <a href="#troubleshooting" class="text-white">Troubleshooting</a>
+        <a href="#contributing" class="text-white">Contributing</a>
+        <a href="#license" class="text-white">License</a>
+        <a href="javascript:void(0);" class="text-white ml-2 md:hidden" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
-    <div class="content">
-    <center>     <h1 id="home"><a href="https://S0tool.nl" target="_blank">S0tool.nl</a></h1>
+  </nav>
+
+
+     <h1 id="home"><a href="https://S0tool.nl" target="_blank">S0tool.nl</a></h1>
     <p>
         <a href="https://github.com/huizebruin/s0tool/commits/main">
             <img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="GitHub Activity">
@@ -76,8 +84,9 @@
         <a href="https://GitHub.com/huizebruin/s0tool/releases/">
           <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="release">
         </a>
-    </p></center>
-
+    </p>
+  <!-- Content -->
+  <div class="container mx-auto px-4 py-8">
 <br>
 S0tool & Made for ESPHome program <p>
 <img src="./assets/s0tool-logo.jpg" alt="S0tool-logo" width="200" height="100"><br>
