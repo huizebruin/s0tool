@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S0tool.nl - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+  <meta charset="UTF-8">
+  <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="S0tool.nl" />
+  <meta property="og:site_name" content="S0tool.nl" />
+  <meta property="og:url" content="https://s0tool.nl" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Count your water use with the s0tool and Home Assistant and ESPHome." />
+  <meta property="og:image" content="./assets/s0tool-logo.jpg" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9HB5QGY82J');
+  </script>
+  
+  <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <div class="container">
+      <aside id="sidebar">
+      </aside>
+    <main>
+    <div class="content">
+      <br>
+      <h2 id="Troubleshooting">Troubleshooting</h2>
+
+      <h4>How to change the total readings</h4>
+      <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool">
+        <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_water">
+      </a> For the water counter: D2
+      <br>
+      <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome: s0tool">
+        <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_kwh">
+      </a> For the S0 port of the kwh meter : D5
+      <br>
+      <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate">
+        <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="servescall_calibrate">
+      </a> And you can find your readings and reset it
+      <br>
+      <p>Check also the readme file in the repro of the S0tool on github for more information <a
+          href="https://github.com/huizebruin/s0tool">S0tool Github</a></p>
+
+      <h4>Update function, Updating Through ESPHome Addon</h4>
+      <p>
+        1. In HomeAssistant open the ESPHome addon.<br>
+        2. Find the sensor (s0tool) you want to update and click the three dots in the bottom right.<br>
+        3. Select “Validate” from the list.<br>
+        4. Once the validation completes, click “Install” in the bottom right.<br>
+      </p>
+      <h4>drivers</h4>
+      <p>
+        If the serial port is not showing up, your computer might be missing the
+        drivers for the USB serial chip used in your ESP device.<br> These drivers
+        work for most ESP devices:
+      </p>
+      <ul>
+        <li>
+          CP2102 (square chip):
+          <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers"
+            rel="noreferer, ,noopener" target="_blank">driver</a>
+        </li>
+        <li>
+          CH341:
+          <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" rel="noreferer, ,noopener"
+            target="_blank">driver</a>
+        </li>
+        <li>
+          CH340:
+          <a href="https://sparks.gogo.co.nz/ch340.html" rel="noreferer, ,noopener" target="_blank">driver</a>
+        </li>
+      </ul>
+      <br>
+      <h2 id="problemsandfix">For problems or solutions </h2>
+      <p>
+        <b><a href="https://github.com/huizebruin/s0tool/pulls" rel="noreferer, ,noopener" target="_blank">Pull requests</a>
+        </b>.<br>
+        For problems
+        <b><a href="https://github.com/huizebruin/s0tool/issues" rel="noreferer, ,noopener" target="_blank">issues</a> . </b>
+      </p>
+
+      For more information about the code etc.
+      <a href="https://github.com/huizebruin/s0tool" rel="noreferer, ,noopener" target="_blank">Github repro of the S0tool</a>
+      <br>
+      For more information about the S0tool look at my (Dutch) <a
+        href="https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/" rel="noreferer, ,noopener"
+        target="_blank">website</a>.
+
+      <br>
+      <h2>Advanced Users</h2>
+      <ul>
+        <li>
+          The device is adoptable in
+          <a
+            href="https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon">the
+            ESPHome dashboard</a>
+        </li>
+        <li>
+          The YAML configuration is on
+          <a href="https://github.com/huizebruin/s0tool">GitHub</a>
+        </li>
+      </ul>
+    </main>
+  </div>
+      <footer id="footer">
+        <!-- Footer content will be loaded here -->
+      </footer>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
