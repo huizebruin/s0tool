@@ -2,10 +2,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* This ensures the body expands to at least the height of the viewport */
 }
 
 header {
-    background-color:  rgb(1,171,126);
+    background-color: rgb(1, 171, 126);
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -36,6 +40,8 @@ header nav a.active {
 
 .container {
     display: flex;
+    flex: 1;
+    /* This ensures the container stretches to fill available space */
 }
 
 aside {
@@ -56,6 +62,9 @@ main {
 footer {
     background-color: rgb(1, 171, 126);
     color: #fff;
+    margin-top: auto;
+    /* This pushes the footer to the bottom */
+    padding: 10px;
 }
 
 .radios {
@@ -90,7 +99,6 @@ input:checked+img {
     border-color: #01ab7e;
 }
 
-
 @media only screen and (max-width: 450px) {
     .radios label {
         width: calc(50% - 16px);
@@ -117,23 +125,34 @@ body .special {
 body.show-special .special {
     display: initial;
 }
+
 .hidden {
-display: none;
+    display: none;
 }
+
 li {
-padding: 4px 0;
+    padding: 4px 0;
 }
+
 img {
     max-width: 280px;
     max-height: 280px;
-
 }
+
 h1 {
     text-decoration: none;
     color: #01ab7e;
 }
 
 h2 {
+    text-decoration: none;
+    color: #01ab7e;
+}
+h3 {
+    text-decoration: none;
+    color: #01ab7e;
+}
+h4 {
     text-decoration: none;
     color: #01ab7e;
 }
