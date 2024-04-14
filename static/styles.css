@@ -1,11 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 2px;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* This ensures the body expands to at least the height of the viewport */
 }
 
 header {
@@ -100,7 +99,7 @@ input:checked+img {
     border-color: #01ab7e;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 620px) {
     .container {
         flex-direction: column;
     }
