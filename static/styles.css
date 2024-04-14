@@ -46,8 +46,9 @@ header nav a.active {
 
 aside {
     background-color: #ddd;
-    width: 200px;
     padding: 20px;
+    width: 200px;
+    /* Set a default width for the sidebar */
 }
 
 aside h2 {
@@ -99,10 +100,16 @@ input:checked+img {
     border-color: #01ab7e;
 }
 
-@media only screen and (max-width: 450px) {
-    .radios label {
-        width: calc(50% - 16px);
-        max-width: initial;
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        /* Make the sidebar occupy full width on smaller screens */
+        margin-top: 20px;
+        /* Add some space between main content and sidebar on mobile */
     }
 }
 
@@ -148,10 +155,12 @@ h2 {
     text-decoration: none;
     color: #01ab7e;
 }
+
 h3 {
     text-decoration: none;
     color: #01ab7e;
 }
+
 h4 {
     text-decoration: none;
     color: #01ab7e;
