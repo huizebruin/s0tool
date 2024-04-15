@@ -20,7 +20,7 @@ jobs:
       uses: cicirello/generate-sitemap@v1
       with:
         base-url-path: https://s0tool.nl/
-        path-to-root: static
+#        path-to-root: static
   
 
     - name: Output stats
