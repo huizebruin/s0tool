@@ -32,6 +32,8 @@ time:
     id: time_homeassistant
     on_time_sync:
       - component.update: S0tool_uptime_timestamp  
+# https://esphome.io/components/safe_mode  need for ESPHome v2024.6.x
+safe_mode:
 
 sensor:
 #------------------------#  sensoren #------------------------#
@@ -96,4 +98,3 @@ button:
     name: "Safe Mode"
     entity_category: diagnostic
     disabled_by_default: True
-
