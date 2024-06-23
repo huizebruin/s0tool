@@ -1,6 +1,6 @@
 | Repository Status | ESPHome S0tool discord Community |
 | :--- | :--- |
-| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) 
+| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io)
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
 
@@ -9,7 +9,6 @@
 |  ![S0tool-logo](./static/assets/s0tool-logo.jpg) |
 | Made for ESPHome program |
 | ![ESPHome](./static/assets/made-for-esphome-black-on-white.png) |
-
 
 |  S0tool | Dashboard  |
 | :--- | :--- |
@@ -47,8 +46,8 @@ Before update of the S0tool u should use, and above <br>
 
 | Program | version |
 | :------------- | :--------- |
-| Home Assistant | v2024.1.0 |
-| ESPHome | v2024.02.0 |
+| Home Assistant | v 2024.6.0 |
+| ESPHome | v 2024.6.0 |
 
 <br>
 
