@@ -28,6 +28,7 @@ logger:
 ota:
   - platform: esphome
   - platform: http_request
+http_request:
   
 time:
   - platform: homeassistant
