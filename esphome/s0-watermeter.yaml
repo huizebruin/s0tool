@@ -27,4 +27,5 @@ packages:
     files:
       - esphome/components/basis.yaml
       - esphome/components/s0-watermeter.yaml
+      - esphome/components/s0tool-s0-watermeter-update.yml
     refresh: 0d
