@@ -23,6 +23,7 @@ captive_portal:
 # ⬇ Enable logging ⬇ # 
 logger:
   level: INFO
+  tx_buffer_size: 100
   esp8266_store_log_strings_in_flash: false
 
 ota:
