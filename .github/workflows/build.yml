@@ -1,5 +1,5 @@
 name: Build
-
+# Build the ESPHome firmwares for the S0tool project.
 on:
   workflow_dispatch:
   push:
