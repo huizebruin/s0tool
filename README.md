@@ -4,7 +4,7 @@
 |  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
 
 
-|  S0tool | 
+|  S0tool.nl | 
 | :--- | 
 |  ![S0tool-logo](./static/assets/s0tool-logo.jpg) |
 | Made for ESPHome program |
@@ -13,6 +13,10 @@
 |  S0tool | Dashboard  |
 | :--- | :--- |
 |  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
+
+## New website for the S0tool. (24-06-2024)
+
+For more information check also  [https://s0tool.nl](https://s0tool.nl)
 
 ## Dutch version
 For the Dutch version look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 
