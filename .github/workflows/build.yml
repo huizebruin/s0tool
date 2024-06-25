@@ -1,5 +1,5 @@
 name: Build
-
+# Build the ESPHome firmwares for the S0tool project.
 on:
   workflow_dispatch:
   push:
@@ -8,6 +8,11 @@ on:
   pull_request:
   schedule:
     - cron: '0 4 * * 1'
+
+env:
+  RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/latest
+  FIRMWARES: |
+    s0tool
 
 jobs:
   build:
@@ -56,6 +61,7 @@ jobs:
         with:
           yaml_file: ${{ matrix.firmware.file }}
           version: latest
+          release_url: ${{ github.event.release.html_url || env.RELEASE_URL }}
       - name: Copy firmware and manifest
         run: |
           mkdir output

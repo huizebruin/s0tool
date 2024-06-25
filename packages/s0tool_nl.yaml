@@ -1,29 +1,44 @@
-s0tool_package:
-  sensor:
+#s0tool_package:
+# Check for updates https://gist.github.com/huizebruin/93552a7595cd74fc6206876fd1a359be
 #------------------------# s0tool template sensoren. #------------------------#
 # s0tool sensor watt naar kw
-  - platform: template
-    sensors:
-      huidig_energie_opbrengst:
-        value_template: '{{ (states("sensor.actuele_energie")| int / 1000) | round(2) }}'
-        icon_template: mdi:flash
+template:
+  - sensor:
+      - name: "huidig-energie-opbrengst"
+        state: "{{ (states('sensor.actuele_energie')| int / 1000) | round(2) }}"
+        icon: mdi:flash
         unit_of_measurement: "kW"
-        friendly_name: "Huidig Energieverbruik"
+        # friendly_name: "Huidig Energieverbruik"
         unique_id: s0tool_W_to_kW
 
-
 # s0tool sensor m3 naar L
-      waterverbruik_liter_s0tool:
+  - sensor:
+      - name: "waterverbruik-liter-s0tool"
         unique_id: s0toolwaterliterha
-        friendly_name: Water liter verbruik
-        value_template: "{{ (states('sensor.watermeter_totaal') | float * 1000) | int }}"
+        # friendly_name: Water liter verbruik
+        state: "{{ (states('sensor.watermeter_totaal') | float * 1000) | int }}"
         unit_of_measurement: L
-        icon_template: mdi:water
+        icon: mdi:water
 
-#sensor:
-  #####################################################
-  ### Toegevoegd om van de s0Tool de versie info uit github op te halen
-  #####################################################
+  - sensor:
+      - name: Water Meter Reading
+        unique_id: water-meter-running-total
+        state_class: total_increasing
+        unit_of_measurement: m³
+        device_class: water
+        icon: mdi:gauge
+        state: "{{ 428.730 + states.sensor.watermeter_totaal.state | float }}"
+
+  - binary_sensor:
+      - name: s0tool update beschikbaar
+        unique_id: s0tool_up_to_date
+        state: >
+          {% set a = states('sensor.s0tool_versie_github') %}
+          {% set b = states('sensor.s0tool_versie') %}
+          {{ version(a) > version(b) }}
+        device_class: update
+
+sensor:
   - platform: rest
     resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
     name: s0tool_versie_github
@@ -31,12 +46,47 @@ s0tool_package:
     value_template: '{{ value_json.tag_name }}'
     scan_interval: 3600
 
-  template:
-      - binary_sensor:
-          - name: "s0Tool update beschikbaar"
-            unique_id: s0tool_up_to_date
-            state: >
-              {% set a = states('sensor.s0tool_versie_github') %}
-              {% set b = states('sensor.s0tool_versie') %}
-              {{ version(a) > version(b) }}
-            device_class: update
+utility_meter:
+  energy:
+    s0_per_kwartier:
+      source: sensor.totaal_opgebracht
+      cycle: quarter-hourly
+      unique_id: s0quarter
+    s0_per_uur:
+      source: sensor.totaal_opgebracht
+      cycle: hourly
+      unique_id: s0hour      
+    s0_per_dag:
+      source: sensor.totaal_opgebracht
+      cycle: daily
+      unique_id: s0day      
+    s0_per_week:
+      source: sensor.totaal_opgebracht
+      cycle: weekly
+      unique_id: s0week      
+    s0_per_maand:
+      source: sensor.totaal_opgebracht
+      cycle: monthly
+      unique_id: s0month      
+  
+  water:
+    waterverbruik_per_kwartier:
+      source: sensor.watermeter_totaal
+      cycle: quarter-hourly
+      unique_id: waterquarter
+    waterverbruik_per_uur:
+      source: sensor.watermeter_totaal
+      cycle: hourly
+      unique_id: waterhour
+    waterverbruik_per_dag:
+      source: sensor.watermeter_totaal
+      cycle: daily  
+      unique_id: waterdaily  
+    waterverbruik_per_week:
+      source: sensor.watermeter_totaal
+      cycle: weekly
+      unique_id: waterweek
+    waterverbruik_per_maand:
+      source: sensor.watermeter_totaal
+      cycle: monthly
+      unique_id: watermonth
