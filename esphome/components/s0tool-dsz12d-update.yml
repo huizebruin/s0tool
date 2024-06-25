@@ -1,3 +1,4 @@
+
 update:
   - platform: http_request
     name: Firmware Update
