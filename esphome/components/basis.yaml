@@ -4,8 +4,8 @@
 # © Huizebruin.nl & S0tool.nl
 substitutions:
   device_description: ${name} gemaakt door s0tool.nl versie ${vdate}.
-  vdate: "v24.02.23.36" 
-  date: "20-06-2024"
+  vdate: "v3.6.0" # From 23-06-2024 new version
+  date: "24-06-2024"
 
 preferences:
   flash_write_interval: 120min 
@@ -23,15 +23,20 @@ captive_portal:
 # ⬇ Enable logging ⬇ # 
 logger:
   level: INFO
+  tx_buffer_size: 100
   esp8266_store_log_strings_in_flash: false
 
 ota:
   - platform: esphome
+  - platform: http_request
+http_request:
+
 time:
   - platform: homeassistant
     id: time_homeassistant
     on_time_sync:
       - component.update: S0tool_uptime_timestamp  
+
 # https://esphome.io/components/safe_mode  need for ESPHome v2024.6.x
 safe_mode:
 

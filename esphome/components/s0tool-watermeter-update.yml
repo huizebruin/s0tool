@@ -1,0 +1,4 @@
+update:
+  - platform: http_request
+    name: Firmware Update
+    source: https://s0tool.nl/s0tool-watermeter-manifest.json

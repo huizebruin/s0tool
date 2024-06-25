@@ -1,0 +1,4 @@
+update:
+  - platform: http_request
+    name: Firmware Update
+    source: https://s0tool.nl/s0tool-wsz15d32a-manifest.json
