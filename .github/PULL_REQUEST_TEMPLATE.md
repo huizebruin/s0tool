@@ -6,7 +6,7 @@
   Je bent geweldig! Bedankt voor je bijdrage aan ons project!
    VERWIJDER GEEN TEKST van dit sjabloon! (tenzij geïnstrueerd).
 -->
-## Wat implementeert/repareert dit? 
+## What does this implement/fix? / Wat implementeert/repareert dit? 
 
 <!--
   If your PR contains a breaking change for existing users, it is important
@@ -23,7 +23,7 @@
    Opmerking: verwijder deze sectie als deze PR GEEN belangrijke wijziging is.
 -->
 
-## Proposed change
+## Proposed change / Voorgestelde verandering.
 
 <!--
   Describe the big picture of your changes here to communicate to the
@@ -39,7 +39,7 @@
 -->
 
 
-## Soorten wijzigingen 
+## Types of changes / Soorten wijzigingen .
 <!--
   What type of change does your PR introduce to the S0tool?
   NOTE: Please, check only 1! box!
@@ -53,20 +53,20 @@
    splits het op in meerdere PR's. Dit maakt het eenvoudiger en sneller om code te beoordelen.
 -->
 
-- [ ] Bugfix (vaste wijziging die een probleem verhelpt)
-- [ ] Nieuwe functie (bedankt!)
-- [ ] Breaking change (reparatie/functie waardoor bestaande functionaliteit kapot gaat)
-- [ ] Ander
+- [ ] Bugfix (fixed change that fixes an issue) / Bugfix (vaste wijziging die een probleem verhelpt)
+- [ ] New feature (thanks!) / Nieuwe functie (bedankt!)
+- [ ] Breaking change (repair/feature that breaks existing functionality) / Breaking change (reparatie/functie waardoor bestaande functionaliteit kapot gaat)
+- [ ] Other / Ander
 
 
-## Test Omgeving
+## Test Environment / Test Omgeving
 
-- [ ] Watermeter
-- [ ] S0 teller
-- [ ] ESPHome versie ````yaml # v202 ```
-- [ ] Home Assistant versie ````yaml # v202 ```
+- [ ] Water meter / Watermeter
+- [ ] S0 counter / S0 teller
+- [ ] ESPHome version / ESPHome versie ````yaml # v202 ```
+- [ ] Home Assistant version / Home Assistant versie ````yaml # v202 ```
 
-## Additional information
+## Additional information / Aanvullende info
 
 <!--
   Details are important, and help maintainers processing your PR.
@@ -77,11 +77,11 @@
    Zorg ervoor dat u aanvullende gegevens invult, indien van toepassing.
 -->
 
-- Deze PR repareert of sluit het probleem: fixes #
-- Deze PR is gerelateerd aan een probleem of discussie:
-- Link naar pull-aanvraag voor documentatie:
+- This PR fixes or closes the issue: fixes / Deze PR repareert of sluit het probleem: fixes #
+- This PR is related to an issue or discussion / Deze PR is gerelateerd aan een probleem of discussie:
+- Link to pull request for documentation / Link naar pull-aanvraag voor documentatie:
 
-## Voorbeeld invoer voor  `configuration.yaml`:
+## Supplying a configuration snippet / Voorbeeld invoer voor  `configuration.yaml`:
 <!--
   Supplying a configuration snippet, makes it easier for a maintainer to test
   your PR. Furthermore, for new integrations, it gives an impression of how
@@ -100,7 +100,7 @@
 
 ```
 
-## Checklijst:
+## Checklist / Checklijst:
 <!--
   Put an `x` in the boxes that apply. You can also fill these out after
   creating the PR. If you're unsure about any of them, don't hesitate to ask.
@@ -114,12 +114,12 @@
    voor voordat u uw code samenvoegt.
 -->
 
-  - [ ] De codewijziging is getest en werkt lokaal.
-  - [ ] De codewijziging is nog niet getest.
+  - [ ] The code change has been tested and works locally / De codewijziging is getest en werkt lokaal.
+  - [ ] The code change has not yet been tested / De codewijziging is nog niet getest.
   
-Als door de gebruiker zichtbare functionaliteit of configuratievariabelen worden toegevoegd/gewijzigd :
-  - [ ] Documentatie toegevoegd/bijgewerkt in de readme file.
-  - [ ] Documentatie toegevoegd/bijgewerkt voor de webpagina [www.huizebruin.nl] of [docs-flashpagina]
+If user-visible functionality or configuration variables are added/modified / Als door de gebruiker zichtbare functionaliteit of configuratievariabelen worden toegevoegd/gewijzigd :
+  - [ ] Documentation added/updated in the readme file / Documentatie toegevoegd/bijgewerkt in de readme file.
+  - [ ] Added/updated documentation for the web page / Documentatie toegevoegd/bijgewerkt voor de webpagina [https://s0tool.nl] or / of  [docs-flashpagina]
 
 <!--
   Thank you for contributing <3
@@ -128,5 +128,5 @@ Als door de gebruiker zichtbare functionaliteit of configuratievariabelen worden
   Bedankt voor je bijdrage <3
 -->
 
-[docs-flashpagina]: https://huizebruin.github.io/s0tool/
+[docs-flashpagina]: https://s0tool.nl/
 
