@@ -1,10 +1,11 @@
-# Delen en bewerken mag maar laat deze eerste regels staan.
-# Bron : https://s0tool.nl
-# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
-# © Huizebruin.nl & S0tool.nl
+
+# Sharing and editing is allowed, but leave these first lines alone.
+# Source: https://s0tool.nl
+# Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
+# © https://huizebruin.nl & https://s0tool.nl
 substitutions:
-  device_description: ${name} gemaakt door s0tool.nl versie ${vdate}.
-  vdate: "v3.6.0" # From 23-06-2024 new version
+  device_description: ${name} made by s0tool.nl project version ${vdate}.
+  vdate: "v3.6.1" # From 23-06-2024 new version
   date: "24-06-2024"
 
 preferences:
@@ -63,7 +64,7 @@ sensor:
       );
       return timestamp;  
 
-# ⬇ versie verbinding informatie sensoren voor in ha ⬇ #
+# ⬇ version connection information sensors for in ha ⬇ #
   # WiFi signal
   - platform: wifi_signal
     name: "${name} - WiFi Signal"
