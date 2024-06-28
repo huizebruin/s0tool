@@ -66,7 +66,7 @@ jobs:
         run: |
           mkdir output
           mv ${{ steps.esphome-build.outputs.name }} output/
-          jq -s '{"name": "${{ matrix.firmware.name }}", "version": "${{ "v3.6.1" }}", "home_assistant_domain": "esphome", "new_install_prompt_erase": false, "builds":.}' output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/${{ matrix.firmware.manifest_filename }}
+          jq -s '{"name": "${{ matrix.firmware.name }}", "version": "v3.6.1", "home_assistant_domain": "esphome", "new_install_prompt_erase": false, "builds":.}' output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/${{ matrix.firmware.manifest_filename }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4.3.3
