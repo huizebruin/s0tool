@@ -5,7 +5,7 @@
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl project version ${vdate}.
-  vdate: "v3.6.0" # From 23-06-2024 new version
+  vdate: "v3.6.1" # From 23-06-2024 new version
   date: "24-06-2024"
 
 preferences:
