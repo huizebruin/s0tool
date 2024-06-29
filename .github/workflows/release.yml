@@ -24,7 +24,7 @@ jobs:
       - uses: release-drafter/release-drafter@v6.0.0
         with:
           tag: ${{ steps.version.outputs.version }}
-          name: v${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
           version: ${{ steps.version.outputs.version }}
           publish: true
         env:
