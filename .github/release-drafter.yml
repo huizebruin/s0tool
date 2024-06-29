@@ -1,7 +1,7 @@
 ---
 name-template: "v$RESOLVED_VERSION"
 tag-template: "$RESOLVED_VERSION"
-change-template: "- #$NUMBER $TITLE @huizebruin"
+change-template: "- #$NUMBER $TITLE @$AUTHOR"
 sort-direction: ascending
 
 categories:
@@ -56,7 +56,7 @@ version-resolver:
   default: patch
 
 template: |
-  ## What's changed.
+  ## What's changed
 
   $CHANGES
 
