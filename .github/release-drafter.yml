@@ -1,7 +1,8 @@
 ---
 name-template: "v$RESOLVED_VERSION"
 tag-template: "$RESOLVED_VERSION"
-change-template: "- #$NUMBER $TITLE @$AUTHOR"
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
 sort-direction: ascending
 
 categories:
