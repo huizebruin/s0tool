@@ -1,7 +1,7 @@
 ---
 name-template: "v$RESOLVED_VERSION"
 tag-template: "$RESOLVED_VERSION"
-change-template: "- #$NUMBER $TITLE @$AUTHOR"
+change-template: "- #$NUMBER $TITLE @huizebruin"
 sort-direction: ascending
 
 categories:
@@ -27,7 +27,7 @@ categories:
     labels:
       - "documentation"
   - title: "⬆️ Dependency updates"
-    collapse-after: 5
+    collapse-after: 6
     labels:
       - "dependencies"
 
@@ -56,7 +56,7 @@ version-resolver:
   default: patch
 
 template: |
-  ## What's changed
+  ## What's changed.
 
   $CHANGES
 
