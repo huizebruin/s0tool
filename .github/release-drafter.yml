@@ -27,7 +27,7 @@ categories:
     labels:
       - "documentation"
   - title: "⬆️ Dependency updates"
-    collapse-after: 5
+    collapse-after: 6
     labels:
       - "dependencies"
 
