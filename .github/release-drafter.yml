@@ -18,7 +18,7 @@ categories:
     labels:
       - "bugfix"
   - title: "🚀 Enhancements"
-    collapse-after: 
+    collapse-after: 6
     labels:
       - "enhancement"
       - "refactor"
@@ -69,4 +69,3 @@ template: |
 
    **Contributors**: $CONTRIBUTORS
 
-  **Total PRs Merged**: $NUMBER	
