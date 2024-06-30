@@ -5,6 +5,7 @@ change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&'
 sort-direction: ascending
 
+
 categories:
   - title: "🚨 Breaking changes"
     labels:
@@ -13,14 +14,17 @@ categories:
     labels:
       - "new-feature"
   - title: "🐛 Bug fixes"
+    collapse-after: 8
     labels:
       - "bugfix"
   - title: "🚀 Enhancements"
+    collapse-after: 
     labels:
       - "enhancement"
       - "refactor"
       - "performance"
   - title: "🧰 Maintenance"
+    collapse-after: 6
     labels:
       - "maintenance"
       - "ci"
@@ -62,3 +66,7 @@ template: |
   $CHANGES
 
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
+
+   **Contributors**: $CONTRIBUTORS
+
+  **Total PRs Merged**: $TOTAL_PR_COUNT$NUMBER	
