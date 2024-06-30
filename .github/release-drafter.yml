@@ -69,4 +69,4 @@ template: |
 
    **Contributors**: $CONTRIBUTORS
 
-  **Total PRs Merged**: $TOTAL_PR_COUNT$NUMBER	
+  **Total PRs Merged**: $NUMBER	
