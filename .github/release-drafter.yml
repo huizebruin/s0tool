@@ -1,8 +1,7 @@
 ---
-name-template: "$RESOLVED_VERSION"
-tag-template: "$RESOLVED_VERSION"
+name-template: 'v$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-change-title-escapes: '\<*_&'
 sort-direction: ascending
 
 
@@ -66,3 +65,4 @@ template: |
   $CHANGES
 
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
+
