@@ -5,23 +5,14 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-
-permissions:
-  contents: read
 
 jobs:
   update_release_draft:
+    name: ✏️ Draft release
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
-      checks: write
-    name: ✏️ Draft release  
-    runs-on: ubuntu-latest
+      pull-requests: read
     steps:
       - name: 🚀 Run Release Drafter
         uses: release-drafter/release-drafter@v6.0.0
