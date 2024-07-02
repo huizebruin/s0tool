@@ -1,8 +1,7 @@
 | Repository Status | ESPHome S0tool discord Community |
 | :--- | :--- |
-| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io)
-|  [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![CodeFactor](https://www.codefactor.io/repository/github/huizebruin/s0tool/badge)](https://www.codefactor.io/repository/github/huizebruin/s0tool) | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases/)| 
-
+| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io) |
+| [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases) |
 
 |  S0tool.nl | 
 | :--- | 
@@ -16,13 +15,15 @@
 
 ## New website for the S0tool. (24-06-2024)
 
-For more information check also  [https://s0tool.nl](https://s0tool.nl)
+For more information, check also  [https://s0tool.nl](https://s0tool.nl)
 
 ## Dutch version
-For the Dutch version look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) 
- 
+For the Dutch version, look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
+
 <br><br>
+
 # How to order the <b>S0tool</b> ?
+
 [https://www.huizebruin.nl/shop](https://www.huizebruin.nl/shop)</br>
 At this moment we only ship to : The Netherlands and België 
 
