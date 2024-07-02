@@ -15,10 +15,10 @@
 
 ## New website for the S0tool. (24-06-2024)
 
-For more information check also  [https://s0tool.nl](https://s0tool.nl)
+For more information, check also  [https://s0tool.nl](https://s0tool.nl)
 
 ## Dutch version
-For the Dutch version look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
+For the Dutch version, look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
 
 <br><br>
 # How to order the <b>S0tool</b> ?
