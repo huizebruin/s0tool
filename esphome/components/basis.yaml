@@ -108,3 +108,11 @@ button:
     name: "Safe Mode"
     entity_category: diagnostic
     disabled_by_default: True
+
+  - platform: template
+    id: check_for_update_button
+    name: Check for firmware update
+    device_class: update
+    on_press:
+      then:
+        - component.update: update_http_request
