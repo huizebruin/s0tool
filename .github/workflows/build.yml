@@ -66,7 +66,7 @@ jobs:
           echo "project_version=$version" >> $GITHUB_ENV
 
       - name: Build firmware
-        uses: esphome/build-action@v3.2.0
+        uses: esphome/build-action@v3.1.0
         id: esphome-build
         with:
           yaml_file: ${{ matrix.firmware.file }}
@@ -86,6 +86,7 @@ jobs:
           path: output
 
   draft_release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     name: Draft Release Notes
     runs-on: ubuntu-latest
     steps:
