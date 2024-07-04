@@ -1,13 +1,21 @@
 name-template: 'Release v$NEXT_PATCH_VERSION'
-tag-template: 'v$NEXT_PATCH_VERSION'
+tag-template: "$RESOLVED_VERSION"
+change-template: "- #$NUMBER $TITLE @$AUTHOR"
+sort-direction: ascending
+
+
 categories:
   - title: '🚀 New Features'
+    collapse-after: 10  
     label: 'feature'
   - title: '🐛 Bug Fixes'
+    collapse-after: 10
+    labels:
     label: 'bug'
   - title: '🧰 Maintenance'
+    collapse-after: 5
+    labels:
     label: 'maintenance'
-change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
 no-changes-template: '- No changes'
 template: |
   ## What's Changed
