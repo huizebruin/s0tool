@@ -9,3 +9,9 @@ categories:
     label: 'maintenance'
 change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
 no-changes-template: '- No changes'
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+  **Full Changelog**: https://github.com/$REPO/compare/$PREVIOUS_TAG...$NEW_TAG
