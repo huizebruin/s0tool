@@ -28,4 +28,6 @@ packages:
       - esphome/components/basis.yaml
       - esphome/components/kwhpuls.yml
       - esphome/components/watermeter_flux.yaml
+      - esphome/components/s0tool-standard-flux-update.yml  
+
     refresh: 0d
