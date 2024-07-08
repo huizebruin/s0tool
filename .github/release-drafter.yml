@@ -5,21 +5,59 @@ sort-direction: ascending
 
 
 categories:
-  - title: '🚀 New Features'
-    collapse-after: 10  
-    label: 'feature'
-  - title: '🐛 Bug Fixes'
-    collapse-after: 10
+  - title: "🚨 Breaking changes"
     labels:
-    label: 'bug'
-  - title: '🧰 Maintenance'
+      - "breaking-change"
+  - title: "✨ New features"
+    labels:
+      - "new-feature"
+  - title: "🐛 Bug fixes"
+    labels:
+      - "bugfix"
+  - title: "🚀 Enhancements"
+    labels:
+      - "enhancement"
+      - "refactor"
+      - "performance"
+  - title: "🧰 Maintenance"
+    labels:
+      - "maintenance"
+      - "ci"
+  - title: "📚 Documentation"
+    labels:
+      - "documentation"
+  - title: "⬆️ Dependency updates"
     collapse-after: 5
     labels:
-    label: 'maintenance'
+      - "dependencies"
+
+exclude-labels:
+  - "sync"
+
+version-resolver:
+  major:
+    labels:
+      - "major"
+      - "breaking-change"
+  minor:
+    labels:
+      - "minor"
+      - "new-feature"
+  patch:
+    labels:
+      - "bugfix"
+      - "chore"
+      - "ci"
+      - "dependencies"
+      - "documentation"
+      - "enhancement"
+      - "performance"
+      - "refactor"
+  default: patch
 no-changes-template: '- No changes'
 template: |
   ## What's Changed
 
   $CHANGES
 
-  **Full Changelog**: https://github.com/$REPO/compare/$PREVIOUS_TAG...$NEW_TAG
+  **Full Changelog**: https://github.com/$REPO/compare/$PREVIOUS_TAG...$LATEST_TAG
