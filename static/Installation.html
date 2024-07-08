@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S0tool.nl - Installation</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
   <meta charset="UTF-8">
   <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
-  <meta name="keywords" content="s0tool, watermeter, home assistant, esphome, s0 port, water counter, water,">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="s0tool, watermeter, home assistant, esphome, s0 port, water counter, water, huizebruin watermeter, 5v NPN, Actaris, diy, Elster, Elster V100, esphome, home assistant, huizebruin, Itron, LJ12A3-4-Z/BX-5V, Maddalena, pcb, pulsteller, s0 kwh, s0tool, Sensus, slimme watermeter, tool, watermeter, watermeter home assistant, watermeter npn ">
   <meta name="author" content="Huizebruin" />
   <meta name="copyright" content="Huizebruin" />
   <meta http-equiv="cache-control" content="no-cache" />
@@ -29,34 +30,34 @@
 
     gtag('config', 'G-9HB5QGY82J');
   </script>
-  
   <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
-</head>
-
-<body>
-    <header id="header">
-    </header>
-    <div class="container">
-      <aside id="sidebar">
-      </aside>
-    <main>
-    <div class="content">
+  </head>
+  
+  <body>
+    <div id="navbar"></div>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="sidebar"></div>
+        </div>
+        <div class="col-md-9">
+          <main id="main-content">
       <br>
         <h2 id="Installation">Installation</h2>
-        <p>
+        
           Pre-requisite: Make sure you have installed the drivers for the Wemos d1 to communicate with your pc / laptop. Look
           for it at the troubleshooting page.<br>
           And you must connect the S0tool to your pc or laptop with a cable that transfers both power and data.<br>
           You can use the button below to install the <b>S0tool</b> firmware directly to your device via USB from the
           browser.<br>
-        </p>
+        
 
         <h2 id="s0tool-Installation">S0tool Installation</h2>
-        <p>
-          Pick your product to turn it into a S0tool for Home Assistant.</p>
-        <p>
+        
+          Pick your product to turn it into a S0tool for Home Assistant.
+        
           No programming or other software required.
-        </p>
+        
 
         <div class="radios">
           <label>
@@ -111,138 +112,147 @@
             <input type="radio" name="type" value="s0tool-blank" /><br>
             <td><b>S0tool blank</b></td><br>
           </label>
+          </label>
+          <label class="special">
+            <input type="radio" name="type" value="s0tool-standard-flux" /><br>
+            <td><b>s0tool-standard-flux</b></td><br>
+          </label>
         </div>
 
         <p class="button-row" align="center">
           <esp-web-install-button></esp-web-install-button>
-        </p>
+        
         <hr>
         <center>
           <div class="hidden info s0tool-standard">
             <h3>s0tool-standard</h3>
-            <p>
+            
               Standard with watermeter(npn) and kWh meter imp(50-100ms)<br>
               D2 & D5
-            </p>
-            <p><img src="./assets/npn-kwh-s0.jpg" alt="S0tool-npn-s0"> </p>
+            
+            <img src="./assets/npn-kwh-s0.jpg" class="img-fluid" alt="S0tool-npn-s0"> 
           </div>
 
           <div class="hidden info s0tool-watermeter">
             <h3>s0tool watermeter</h3>
-            <p>
+            
               Standard with watermeter(npn)<br>
               D2
-            </p>
-            <p><img src="./assets/npn.jpg" alt="S0tool-npn"> </p>
+            
+            <img src="./assets/npn.jpg" class="img-fluid" alt="S0tool-npn"> 
           </div>
 
           <div class="hidden info s0tool-kwh-puls">
             <h3>S0tool kWh meter</h3>
-            <p>
+            
               Standard with kWh meter imp(50-100ms)<br>
-              D5</p>
-            </p>
-            <p><img src="./assets/kwh-s0.png" alt="S0tool-s0"> </p>
+              D5
+            
+            <img src="./assets/kwh-s0.png" class="img-fluid" alt="S0tool-s0"> 
           </div>
 
           <div class="hidden info s0tool-dsz12d">
             <h3>S0tool dsz12d</h3>
-            <p>
+            
               Special for the dsz12d<br>
-              D5</p>
-            <p><img src="./assets/dsz12d.jpg" alt="s0tool-dsz12d"> </p>
-            </p>
+              D5
+            <img src="./assets/dsz12d.jpg" class="img-fluid" alt="s0tool-dsz12d"> 
+            
 
           </div>
 
           <div class="hidden info s0tool-lem022sj">
             <h3>S0tool lem022sj</h3>
-            <p>
+            
               Special for the lem022sj 400imp<br>
-              D5</p>
-            </p>
-            <p><img src="./assets/lem022sj.jpg" alt="s0tool-lem022sj"></p>
+              D5
+            
+            <img src="./assets/lem022sj.jpg" class="img-fluid" alt="s0tool-lem022sj">
           </div>
 
           <div class="hidden info s0tool-s0-watermeter">
             <h3>S0tool s0-watermeter </h3>
-            <p>
+            
               Special for the digital <b>s0-</b>watermeter devices<br>
-              D2</p>
+              D2
           </div>
 
           <div class="hidden info s0tool-fluxandpuls">
             <h3>S0tool flux and puls</h3>
-            <p>
+            
               Special for flow sensor and puls sensor<br>
-              D2</p>
+              D2
           </div>
 
           <div class="hidden info s0tool-wsz15d32a">
             <h3>S0tool wsz15d32a and water </h3>
-            <p>
+            
               Special for the wsz15d32a imp(30ms) and watermeter(npn)<br>
-              D5</p>
-            </p>
-            <p><img src="./assets/wsz15d32a.jpg" alt="s0tool-wsz15d32a"></p>
+              D5
+            
+            <img src="./assets/wsz15d32a.jpg" class="img-fluid" alt="s0tool-wsz15d32a">
           </div>
 
           <div class="hidden info s0tool-sdm72d">
             <h3>S0tool sdm72d and water</h3>
-            <p>
+            
               Special for the sdm72d imp(35ms) and watermeter(npn)<br>
-              D2 & D5</p>
-            </p>
-            <p><img src="./assets/sdm72d.jpg" alt="s0tool-sdm72d"></p>
+              D2 & D5
+            
+            <img src="./assets/sdm72d.jpg" class="img-fluid" alt="s0tool-sdm72d">
           </div>
 
           <div class="hidden info s0tool-puls-water-internal">
             <h3>S0tool puls-water-internal</h3>
-            <p>
+            
               Special for the kwh and watermeter(npn) with Internal resistor in the code<br>
-              D2 & D5</p>
-            </p>
-            <p><img src="./assets/npn-kwh-s0.jpg" alt="S0tool-npn-s0"> </p>
+              D2 & D5
+            
+            <img src="./assets/npn-kwh-s0.jpg" class="img-fluid" alt="S0tool-npn-s0"> 
           </div>
 
           <div class="hidden info s0tool-kwh-water-test">
             <h3>S0tool kwh-water-test</h3>
-            <p>
+            
               Special for the kwh and watermeter(npn) test with debug mode on <br>
-              D2 & D5</p>
-            </p><img src="./assets/debug.png" alt="s0tool-debug"> </p>
+              D2 & D5
+            <img src="./assets/debug.png" class="img-fluid" alt="s0tool-debug"> 
           </div>
 
           <div class="hidden info s0tool-blank">
             <h3>S0tool blank</h3>
-            <p>
+            
               Wipes the hole esp8266<br>
-            <p><img src="./assets/esp82.jpg" alt="s0tool-wipeesp"> </p>
-            </p>
+            <img src="./assets/esp82.jpg" class="img-fluid" alt="s0tool-wipeesp"> 
+            
           </div>
+          <div class="hidden info s0tool-blank">
+            <h3>s0tool-standard-flux</h3>
+            
+              s0tool-standard-flux sensor like the Dekaim Flussostato Acqua<br>
+            <img src="./assets/icon.ico" class="img-fluid" alt="s0tool-standard-flux"> 
+            
+          </div>
+
+
+          s0tool-standard-flux
         </center>
         <hr>
-        <p>
+        
           <center>Looking for the other versions? <a href="?special#s0tool-Installation"><b>Show Special configurations</b></a>
             Click to show more special versions.</center>
-        </p>
+        
         <hr>
         <br>
         Its possible now to adjust the kWh puls rate settings from Home Assistant dashboard an it stays on your setting with
         reboot and after updating the firmware. <br> The combinations are possible between 10 and 4000 puls/kWh with steps of 10
         pulses.
-        <br>
-        <p>
+        <br><br>
+        
           Special versions .<br>
           Only needed if the kWh counter has a impulse length other than between the 50 an 100ms on the datasheet. Or versions
-          for a other watermeter.</p>
-     
-    </main>
-  </div>
-      <footer id="footer">
-        <!-- Footer content will be loaded here -->
-      </footer>
-  <script src="script.js"></script>
+          for a other watermeter.<br>
+          
     <script>
       document.querySelectorAll('input[name="type"]').forEach((radio) =>
         radio.addEventListener("change", () => {
@@ -264,6 +274,18 @@
         document.body.classList.add("show-special");
       }
     </script>
-</body>
-
-</html>
+      </main>
+      </div>
+      </div>
+      </div>
+      
+      
+      <div id="footer"></div>
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="./js/script.js"></script>
+      </body>
+      
+      </html>
