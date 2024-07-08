@@ -24,8 +24,8 @@ footer {
     background-color: #343a40;
     color: white;
     padding: 2px 0;
-    position: fixed;
-    font-size: x-small;
+/*    position: fixed; */
+    font-size: small;
     bottom: 0;
     width: 100%;
 }
