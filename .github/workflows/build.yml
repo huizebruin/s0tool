@@ -54,6 +54,10 @@ jobs:
           - file: esphome/kwh-water-test.yaml
             name: s0tool-kwh-water-test
             manifest_filename: s0tool-kwh-water-test-manifest.json
+          - file: esphome/pulscounter_flux.yaml
+            name: s0tool-standard-flux
+            manifest_filename: s0tool-standard-flux-manifest.json
+            
       fail-fast: false
     steps:
       - name: Checkout source code
