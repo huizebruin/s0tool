@@ -57,7 +57,7 @@
 - [ ] New feature (thanks!) / Nieuwe functie (bedankt!)
 - [ ] Breaking change (repair/feature that breaks existing functionality) / Breaking change (reparatie/functie waardoor bestaande functionaliteit kapot gaat)
 - [ ] Other / Ander
-
+- [ ] Website of github readme file update
 
 ## Test Environment / Test Omgeving
 
@@ -65,6 +65,7 @@
 - [ ] S0 counter / S0 teller
 - [ ] ESPHome version / ESPHome versie ````yaml # v202 ```
 - [ ] Home Assistant version / Home Assistant versie ````yaml # v202 ```
+- [ ] Website of github readme file update
 
 ## Additional information / Aanvullende info
 
