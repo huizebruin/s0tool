@@ -1,5 +1,4 @@
 name: Build
-
 # Build the ESPHome firmwares for the S0tool project.
 on:
   workflow_dispatch:
@@ -9,8 +8,6 @@ on:
   pull_request:
   schedule:
     - cron: '0 4 * * 1'
-  release:
-    types: [published]
 
 env:
   RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/latest
@@ -57,7 +54,7 @@ jobs:
           - file: esphome/pulscounter_flux.yaml
             name: s0tool-standard-flux
             manifest_filename: s0tool-standard-flux-manifest.json
-            
+
       fail-fast: false
     steps:
       - name: Checkout source code
@@ -89,44 +86,11 @@ jobs:
           name: ${{ matrix.firmware.name }}
           path: output
 
-  draft_release:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    name: Draft Release Notes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-      - name: Draft a new release
-        uses: release-drafter/release-drafter@v6
-        with:
-          config-name: release-drafter.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  create_release:
-    if: github.event_name == 'release' && github.event.action == 'published'
-    name: Create Release 🚀
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.project_version }}
-          release_name: Release v${{ env.project_version }}
-          draft: false
-          prerelease: false
-
   consolidate:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     name: Consolidate firmwares 🚀
     runs-on: ubuntu-latest
-    needs: [build, create_release]
+    needs: build
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
