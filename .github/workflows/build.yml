@@ -63,7 +63,7 @@ jobs:
       - name: Read version from YAML file
         id: read_version
         run: |
-          project-version=$(grep 'project-version:' esphome/components/basis.yaml | awk '{print $2}' | tr -d '"')
+          project-version=$(grep 'project_version:' esphome/components/basis.yaml | awk '{print $2}' | tr -d '"')
           echo "project-version=$project-version" >> $GITHUB_ENV
 
       - name: Build firmware
