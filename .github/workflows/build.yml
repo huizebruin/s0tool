@@ -16,21 +16,44 @@ env:
 
 jobs:
   build:
-    name: Build firmware 🛠️
-    uses: esphome/workflows/.github/workflows/build.yml@main
-    with:
-      files: |
-        esphome/watermeter.yaml
-        esphome/pulscounter.yaml
-        esphome/S0-puls-kwhpuls.yaml
-        esphome/S0-puls-DSZ12D.yaml
-        esphome/S0-puls-LEM022SJ.yaml
-        esphome/s0-watermeter.yaml
-        esphome/wsz15d32a.yaml
-        esphome/sdm72d.yaml
-        esphome/puls-water-internal.yaml
-        esphome/kwh-water-test.yaml
-        esphome/pulscounter_flux.yaml
+    name: Build ${{ matrix.firmware.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        firmware:
+          - file: esphome/watermeter.yaml
+            name: s0tool-watermeter
+            manifest_filename: s0tool-watermeter-manifest.json
+          - file: esphome/pulscounter.yaml
+            name: s0tool-standard
+            manifest_filename: s0tool-standard-manifest.json
+          - file: esphome/S0-puls-kwhpuls.yaml
+            name: s0tool-kwh-puls
+            manifest_filename: s0tool-kwh-puls-manifest.json
+          - file: esphome/S0-puls-DSZ12D.yaml
+            name: s0tool-dsz12d
+            manifest_filename: s0tool-dsz12d-manifest.json
+          - file: esphome/S0-puls-LEM022SJ.yaml
+            name: s0tool-lem022sj
+            manifest_filename: s0tool-lem022sj-manifest.json
+          - file: esphome/s0-watermeter.yaml
+            name: s0tool-s0-watermeter
+            manifest_filename: s0tool-s0-watermeter-manifest.json
+          - file: esphome/wsz15d32a.yaml
+            name: s0tool-wsz15d32a
+            manifest_filename: s0tool-wsz15d32a-manifest.json
+          - file: esphome/sdm72d.yaml
+            name: s0tool-sdm72d
+            manifest_filename: s0tool-sdm72d-manifest.json
+          - file: esphome/puls-water-internal.yaml
+            name: s0tool-standard-internal
+            manifest_filename: s0tool-standard-internal-manifest.json
+          - file: esphome/kwh-water-test.yaml
+            name: s0tool-kwh-water-test
+            manifest_filename: s0tool-kwh-water-test-manifest.json
+          - file: esphome/pulscounter_flux.yaml
+            name: s0tool-standard-flux
+            manifest_filename: s0tool-standard-flux-manifest.json
 
       fail-fast: false
     steps:
@@ -48,7 +71,7 @@ jobs:
         id: esphome-build
         with:
           yaml-file: ${{ matrix.firmware.file }}
-          version: 2024.7.3
+          version: latest
           release-url: ${{ github.event.release.html_url || env.RELEASE_URL }}
 
       - name: Copy firmware and manifest 🔨
