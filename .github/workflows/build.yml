@@ -1,90 +1,35 @@
 name: Build
 # Build the ESPHome firmwares for the S0tool project.
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
   pull_request:
-  schedule:
-    - cron: '0 4 * * 1'
-
-env:
-  RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/latest
-  FIRMWARES: |
-    s0tool
+  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   build:
-    name: Build ${{ matrix.firmware.name }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        firmware:
-          - file: esphome/watermeter.yaml
-            name: s0tool-watermeter
-            manifest_filename: s0tool-watermeter-manifest.json
-          - file: esphome/pulscounter.yaml
-            name: s0tool-standard
-            manifest_filename: s0tool-standard-manifest.json
-          - file: esphome/S0-puls-kwhpuls.yaml
-            name: s0tool-kwh-puls
-            manifest_filename: s0tool-kwh-puls-manifest.json
-          - file: esphome/S0-puls-DSZ12D.yaml
-            name: s0tool-dsz12d
-            manifest_filename: s0tool-dsz12d-manifest.json
-          - file: esphome/S0-puls-LEM022SJ.yaml
-            name: s0tool-lem022sj
-            manifest_filename: s0tool-lem022sj-manifest.json
-          - file: esphome/s0-watermeter.yaml
-            name: s0tool-s0-watermeter
-            manifest_filename: s0tool-s0-watermeter-manifest.json
-          - file: esphome/wsz15d32a.yaml
-            name: s0tool-wsz15d32a
-            manifest_filename: s0tool-wsz15d32a-manifest.json
-          - file: esphome/sdm72d.yaml
-            name: s0tool-sdm72d
-            manifest_filename: s0tool-sdm72d-manifest.json
-          - file: esphome/puls-water-internal.yaml
-            name: s0tool-standard-internal
-            manifest_filename: s0tool-standard-internal-manifest.json
-          - file: esphome/kwh-water-test.yaml
-            name: s0tool-kwh-water-test
-            manifest_filename: s0tool-kwh-water-test-manifest.json
-          - file: esphome/pulscounter_flux.yaml
-            name: s0tool-standard-flux
-            manifest_filename: s0tool-standard-flux-manifest.json
-
-      fail-fast: false
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-
-      - name: Read version from YAML file
-        id: read_version
-        run: |
-          version=$(grep 'project-version:' esphome/components/basis.yaml | awk '{print $2}' | tr -d '"')
-          echo "project-version=$version" >> $GITHUB_ENV
-
-      - name: Build firmware
-        uses: esphome/build-action@v4.0.1
-        id: esphome-build
-        with:
-          yaml-file: ${{ matrix.firmware.file }}
-          version: latest
-          release-url: ${{ github.event.release.html_url || env.RELEASE_URL }}
-
-      - name: Copy firmware and manifest 🔨
-        run: |
-          mkdir output
-          mv ${{ steps.esphome-build.outputs.name }} output/
-          jq -s "{\"name\": \"${{ matrix.firmware.name }}\", \"version\": \"${{ env.project-version }}\", \"home_assistant_domain\": \"esphome\", \"new_install_prompt_erase\": false, \"builds\":.}" output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/${{ matrix.firmware.manifest_filename }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4.3.4
-        with:
-          name: ${{ matrix.firmware.name }}
-          path: output
+    name: Build firmware 🛠️
+    uses: esphome/workflows/.github/workflows/build.yml@main
+    with:
+      files: |
+        esphome/watermeter.yaml
+        esphome/pulscounter.yaml
+        esphome/S0-puls-kwhpuls.yaml
+        esphome/S0-puls-DSZ12D.yaml
+        esphome/S0-puls-LEM022SJ.yaml
+        esphome/s0-watermeter.yaml
+        esphome/wsz15d32a.yaml
+        esphome/sdm72d.yaml
+        esphome/puls-water-internal.yaml
+        esphome/kwh-water-test.yaml
+        esphome/pulscounter_flux.yaml
+      esphome-version: 2024.7.3
+      release-summary: ${{ github.event_name == 'release' && github.event.release.body || '' }}
+      release-url: ${{ github.event_name == 'release' && github.event.release.html_url || '' }}
+      release-version: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
 
   consolidate:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
