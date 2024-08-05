@@ -58,6 +58,7 @@
 - [ ] Breaking change (repair/feature that breaks existing functionality) / Breaking change (reparatie/functie waardoor bestaande functionaliteit kapot gaat)
 - [ ] Other / Ander
 - [ ] Website of github readme file update
+- [ ] Github workflows
 
 ## Test Environment / Test Omgeving
 
@@ -120,7 +121,7 @@
   
 If user-visible functionality or configuration variables are added/modified / Als door de gebruiker zichtbare functionaliteit of configuratievariabelen worden toegevoegd/gewijzigd :
   - [ ] Documentation added/updated in the readme file / Documentatie toegevoegd/bijgewerkt in de readme file.
-  - [ ] Added/updated documentation for the web page / Documentatie toegevoegd/bijgewerkt voor de webpagina [https://s0tool.nl] or / of  [docs-flashpagina]
+  - [ ] Added/updated documentation for the web page / Documentatie toegevoegd/bijgewerkt voor de webpagina (s0tool.nl)[https://s0tool.nl].
 
 <!--
   Thank you for contributing <3
@@ -129,5 +130,5 @@ If user-visible functionality or configuration variables are added/modified / Al
   Bedankt voor je bijdrage <3
 -->
 
-[docs-flashpagina]: https://s0tool.nl/
+
 
