@@ -4,8 +4,8 @@
 # Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
-  device_description: ${name} made by s0tool.nl project version ${project_version}.
-  project_version: "3.6.1" # From 23-06-2024 new version
+  device_description: ${name} made by s0tool.nl project version ${project-version}.
+  project-version: "3.6.1" # From 23-06-2024 new version
   date: "24-06-2024"
 
 preferences:
@@ -78,7 +78,7 @@ text_sensor:
     update_interval: 6h
     entity_category: diagnostic
     lambda: |-
-      return {"${project_version}"};
+      return {"${project-version}"};
 
   - platform: wifi_info
     ip_address:
