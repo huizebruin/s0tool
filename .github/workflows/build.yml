@@ -67,11 +67,11 @@ jobs:
           echo "project_version=$project_version" >> $GITHUB_ENV
 
       - name: Build firmware
-        uses: esphome/build-action@v4.0.1
+        uses: esphome/build-action@v3.2.0
         id: esphome-build
         with:
           yaml-file: ${{ matrix.firmware.file }}
-          version: latest
+          version: 2024.7.3
           release-url: ${{ github.event.release.html_url || env.RELEASE_URL }}
 
       - name: Copy firmware and manifest 🔨
