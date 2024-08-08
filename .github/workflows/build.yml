@@ -70,9 +70,9 @@ jobs:
         uses: esphome/build-action@v3.2.0
         id: esphome-build
         with:
-          yaml-file: ${{ matrix.firmware.file }}
+          yaml_file: ${{ matrix.firmware.file }}
           version: 2024.7.3
-          release-url: ${{ github.event.release.html_url || env.RELEASE_URL }}
+          release_url: ${{ github.event.release.html_url || env.RELEASE_URL }}
 
       - name: Copy firmware and manifest 🔨
         run: |
