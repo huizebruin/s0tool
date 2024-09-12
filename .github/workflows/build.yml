@@ -9,7 +9,6 @@ on:
   release:
     types: [published]
 
-
 env:
   RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/latest
   FIRMWARES: |
@@ -64,25 +63,25 @@ jobs:
       - name: Read version from YAML file
         id: read_version
         run: |
-          version=$(grep 'project_version:' esphome/components/basis.yaml | awk '{print $2}' | tr -d '"')
-          echo "project-version=$version" >> $GITHUB_ENV
+          project_version=$(grep 'project_version:' esphome/components/basis.yaml | awk '{print $2}' | tr -d '"')
+          echo "project_version=$project_version" >> $GITHUB_ENV
 
       - name: Build firmware
-        uses: esphome/build-action@v4.0.1
+        uses: esphome/build-action@v3.2.0
         id: esphome-build
         with:
-          yaml-file: ${{ matrix.firmware.file }}
-          version: latest
-          release-url: ${{ github.event.release.html_url || env.RELEASE_URL }}
+          yaml_file: ${{ matrix.firmware.file }}
+          version: 2024.7.3
+          release_url: ${{ github.event.release.html_url || env.RELEASE_URL }}
 
       - name: Copy firmware and manifest 🔨
         run: |
           mkdir output
           mv ${{ steps.esphome-build.outputs.name }} output/
-          jq -s "{\"name\": \"${{ matrix.firmware.name }}\", \"version\": \"${{ env.project-version }}\", \"home_assistant_domain\": \"esphome\", \"new_install_prompt_erase\": false, \"builds\":.}" output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/${{ matrix.firmware.manifest_filename }}
+          jq -s "{\"name\": \"${{ matrix.firmware.name }}\", \"version\": \"${{ env.project_version }}\", \"home_assistant_domain\": \"esphome\", \"new_install_prompt_erase\": false, \"builds\":.}" output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/${{ matrix.firmware.manifest_filename }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4.3.4
+        uses: actions/upload-artifact@v4.4.0
         with:
           name: ${{ matrix.firmware.name }}
           path: output
