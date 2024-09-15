@@ -55,6 +55,13 @@ jobs:
           mkdir output
           cp -R static/* output/
           cp -R firmwares/* output/
+      - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
+        run: |-
+          for device in firmwares/*; do
+            jq --arg device "$device" \
+                '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
+                firmwares/$device/manifest.json > output/$device-manifest.json
+          done
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
