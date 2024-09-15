@@ -58,6 +58,7 @@ jobs:
       - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
         run: |-
           for device in firmwares/*; do
+            device=$(basename $device)
             jq --arg device "$device" \
                 '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
                 firmwares/$device/manifest.json > output/$device-manifest.json
