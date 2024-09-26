@@ -29,6 +29,9 @@ categories:
     collapse-after: 5
     labels:
       - "dependencies"
+  - title: "🚨🚨 Security Fixes 🚨🚨"
+    labels:
+      - "security"
 
 exclude-labels:
   - "sync"
@@ -52,6 +55,7 @@ version-resolver:
       - "enhancement"
       - "performance"
       - "refactor"
+      - "security"
   default: patch
 no-changes-template: '- No changes'
 template: |
