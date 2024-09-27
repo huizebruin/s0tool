@@ -3,4 +3,4 @@ update:
   - platform: http_request
     name: Firmware Update
     id: update_http_request
-    source: https://s0tool.nl/s0tool-dsz12d-manifest.json
+    source: https://s0tool.nl/s0tool-dsz12d/manifest.json

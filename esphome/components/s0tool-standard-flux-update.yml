@@ -2,4 +2,4 @@ update:
   - platform: http_request
     name: Firmware Update
     id: update_http_request
-    source: https://s0tool.nl/s0tool-standard-flux-manifest.json
+    source: https://s0tool.nl/s0tool-standard-flux/manifest.json
