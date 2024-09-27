@@ -5,23 +5,24 @@
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl project version ${project_version}.
-  project_version: "3.6.1" # From 23-06-2024 new version
-  date: "24-06-2024"
+  project_version: "3.6.2" # From 23-06-2024 new version
+  date: "27-09-2024"
 
 preferences:
-  flash_write_interval: 120min 
+  flash_write_interval: 120min
 
 improv_serial:
-  
+
 wifi:
   ap:
 
 web_server:
   port: 80
-  
+  version: 3
+
 captive_portal:
 
-# ⬇ Enable logging ⬇ # 
+# ⬇ Enable logging ⬇ #
 logger:
   level: INFO
   tx_buffer_size: 100
@@ -40,7 +41,7 @@ time:
   - platform: homeassistant
     id: time_homeassistant
     on_time_sync:
-      - component.update: S0tool_uptime_timestamp  
+      - component.update: S0tool_uptime_timestamp
 
 # https://esphome.io/components/safe_mode  need for ESPHome v2024.6.x
 safe_mode:
@@ -62,19 +63,19 @@ sensor:
       static float timestamp = (
         id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
       );
-      return timestamp;  
+      return timestamp;
 
 # ⬇ version connection information sensors for in ha ⬇ #
   # WiFi signal
   - platform: wifi_signal
     name: "${name} - WiFi Signal"
     update_interval: 120s
-    
+
 text_sensor:
   - platform: template
     name: "s0tool_versie"
     id: s0tool_versie
-    icon: 'mdi:alpha-v-circle-outline' 
+    icon: 'mdi:alpha-v-circle-outline'
     update_interval: 6h
     entity_category: diagnostic
     lambda: |-
@@ -92,11 +93,11 @@ text_sensor:
       icon: mdi:folder-key-network-outline
 
 #  restart button  #
-button:  
+button:
   - platform: restart
     name: "${name} Restart device"
     entity_category: diagnostic
-    
+
 # Factory Reset Switch from ESPHome v2022.09
   - platform: factory_reset
     name: "Restart with Factory Default Settings"
