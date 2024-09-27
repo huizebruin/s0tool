@@ -63,4 +63,4 @@ template: |
 
   $CHANGES
 
-  **Full Changelog**: https://github.com/$REPO/compare/$PREVIOUS_TAG...$LATEST_TAG
+  **Full Changelog**: https://github.com/huizebruin/s0tool/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
