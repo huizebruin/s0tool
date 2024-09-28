@@ -34,7 +34,7 @@ body:
       description: "The version info block."
       placeholder: "Please post S0tool version / ESPHome version / Home Assistant version "
   - type: textarea
-    id: ESPHome-version-info
+    id: esphome-version-info
     validations:
       required: true
     attributes:
@@ -42,7 +42,7 @@ body:
       description: "The version info block."
       placeholder: "Please post ESPHome version"
   - type: textarea
-    id: Home Assistant-version-info
+    id: home-assistant-version-info
     validations:
       required: true
     attributes:
@@ -51,7 +51,7 @@ body:
       placeholder: "Please post Home Assistant version "
 
   - type: textarea
-    id: Additional-context
+    id: additional-context
     validations:
       required: true
     attributes:
