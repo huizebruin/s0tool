@@ -108,3 +108,6 @@
 - name: wifi
   description: wifi-specific issue
   color: a1887f
+- name: esphome
+  description: ESPHome-specific issue
+  color: ee0701
