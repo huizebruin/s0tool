@@ -5,8 +5,8 @@
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl project version ${project_version}.
-  project_version: "3.6.2" # From 23-06-2024 new version
-  date: "27-09-2024"
+  project_version: "3.6.3" # From 23-06-2024 new version
+  date: "28-09-2024"
 
 preferences:
   flash_write_interval: 120min
@@ -29,10 +29,10 @@ logger:
   esp8266_store_log_strings_in_flash: false
 
 ota:
-  - platform: esphome
-    id: ota_esphome
-  - platform: http_request
-    id: ota_http_request
+  # - platform: esphome
+  #   id: ota_esphome
+  # - platform: http_request
+  #   id: ota_http_request
 
 http_request:
   verify_ssl: false
@@ -110,10 +110,10 @@ button:
     entity_category: diagnostic
     disabled_by_default: True
 
-  - platform: template
-    id: check_for_update_button
-    name: Check for firmware update
-    device_class: update
-    on_press:
-      then:
-        - component.update: update_http_request
+  # - platform: template
+  #   id: check_for_update_button
+  #   name: Check for firmware update
+  #   device_class: update
+  #   on_press:
+  #     then:
+  #       - component.update: update_http_request
