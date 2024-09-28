@@ -29,8 +29,8 @@ logger:
   esp8266_store_log_strings_in_flash: false
 
 ota:
-  # - platform: esphome
-  #   id: ota_esphome
+  - platform: esphome
+    id: ota_esphome
   # - platform: http_request
   #   id: ota_http_request
 
