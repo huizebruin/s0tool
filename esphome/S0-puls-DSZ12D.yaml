@@ -28,5 +28,5 @@ packages:
     files:
       - esphome/components/basis.yaml
       - esphome/components/DSZ12D.yml
-      - esphome/components/s0tool-dsz12d-update.yml
+      # - esphome/components/s0tool-dsz12d-update.yml
     refresh: 0d

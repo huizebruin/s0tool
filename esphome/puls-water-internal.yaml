@@ -28,5 +28,5 @@ packages:
       - esphome/components/basis.yaml
       - esphome/components/kwhpuls-resistor.yml
       - esphome/components/water-resistor.yaml
-      - esphome/components/s0tool-standard-internal-update.yml
+      # - esphome/components/s0tool-standard-internal-update.yml
     refresh: 0d
