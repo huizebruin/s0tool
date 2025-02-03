@@ -40,3 +40,19 @@ s0tool_package:
               {% set b = states('sensor.s0tool_versie') %}
               {{ version(a) > version(b) }}
             device_class: update
+
+  customize:
+    binary_sensor.water_sensor_status:
+      friendly_name: Water sensor status
+    sensor.watermeter_flow:
+      friendly_name: Water flow
+    sensor.watermeter_stand:
+      friendly_name: Water meter stand
+    sensor.watermeter_totaal:
+      friendly_name: Water meter total
+    number.initiele_meterstand_m3:
+      friendly_name: Initial meter stand m3
+    number.initiele_meterstand_kwh:
+      friendly_name: Initial meter stand kwh
+    sensor.actuele_energie:
+      friendly_name: Current energy
