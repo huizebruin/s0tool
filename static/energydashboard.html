@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S0tool.nl - Energy dashboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>S0tool.nl - Energy Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
   <meta name="description" content="Count your water use with the s0tool and Home Assistant and ESPHome" />
@@ -19,63 +20,92 @@
   <meta property="og:url" content="https://s0tool.nl" />
   <meta property="og:type" content="website" />
   <meta property="og:description" content="Count your water use with the s0tool and Home Assistant and ESPHome." />
-  <meta property="og:image" content="./assets/header.png" /> 
+  <meta property="og:image" content="./assets/header.png" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-9HB5QGY82J');
   </script>
-  </head>
-  
-  <body>
-    <div id="navbar"></div>
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-3">
-          <div id="sidebar"></div>
-        </div>
-        <div class="col-md-9">
-          <main id="main-content">
-      <br>
-      <h2 id="dashboard">Watermeter and s0 port in to energy dashboard.</h2>
+</head>
 
-        From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool
-        from version v22.10.20.<br>
-        But also the s0 port (D5) for heating units or solar power or units with a s0 port on it.
-
-<br><br>
-      <table border="0">
-        <tr>
-          <th>water & energy-dashboard</th>
-          <th>dashboard</th>
-        </tr>
-        <tr>
-          <td><img src="./assets/water-energydashboard.jpg" class="img-fluid" alt="energiedash"></td>
-          <td><img src="./assets/s0tool-dashboard.png" class="img-fluid" alt="sotooldash"></td>
-
-        </tr>
-      </table><br>
-      <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noreferrer noopener"><img
-          src="https://my.home-assistant.io/badges/config_energy.svg"
-          alt="Open your Home Assistant instance and show your energy configuration panel." /></a><br>
-       And look for <code>watermeter stand</code> and add that to the water usage ad the energy dashboard.<br>
-       And look for <code>Totaal opgebracht</code> and add that to the 0s port usage ad the energy dashboard.
-      </main>
+<body>
+  <div id="navbar"></div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar"></div>
       </div>
-      </div>
-      </div>
+      <div class="col-md-9">
+        <main id="main-content">
+          <h2 id="dashboard">Watermeter and S0 Port in Energy Dashboard</h2>
+          <p>From Home Assistant version 2022.11.X, it is possible to add the water meter to the energy dashboard with
+            the S0tool from version v22.10.20. You can also use the S0 port (D5) for heating units, solar power, or
+            units with an S0 port.</p>
 
-      <div id="footer"></div>
-      
-      <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-     
-      <script src="./js/script.js"></script>
-      </body>
-      
-      </html>
+          <div class="mb-4">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th>Water & Energy Dashboard</th>
+                  <th>Dashboard</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="./assets/water-energydashboard.jpg" class="img-fluid" alt="Water Energy Dashboard"></td>
+                  <td><img src="./assets/s0tool-dashboard.png" class="img-fluid" alt="S0tool Dashboard"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noreferrer noopener">
+              <img src="https://my.home-assistant.io/badges/config_energy.svg"
+                alt="Open your Home Assistant instance and show your energy configuration panel." />
+            </a>
+          </p>
+          <p>Look for <code>watermeter stand</code> and add it to the water usage in the energy dashboard. Look for
+            <code>Totaal opgebracht</code> and add it to the S0 port usage in the energy dashboard.</p>
+
+          <h4>How to Change the Total Readings</h4>
+          <p>
+            <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool">
+              <img src="https://my.home-assistant.io/badges/developer_call_service.svg"
+                alt="Water Counter Service Call">
+            </a> For the water counter: D2
+          </p>
+          <p>
+            <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool">
+              <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="S0 Port Service Call">
+            </a> For the S0 port of the kWh meter: D5
+          </p>
+          <p>
+            <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate">
+              <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="Calibration Service Call">
+            </a> You can find your readings and reset them.
+          </p>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
