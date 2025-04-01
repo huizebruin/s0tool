@@ -15,19 +15,26 @@ p {
 
 .navbar {
     margin-bottom: 20px;
-    background-color: #343a40;
+    background-color: #F7F7F7;
+    /* Light Gray */
+    color: #032B44;
+    /* Navy Blue */
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     align-items: center;
     text-align: center;
 }
 
-footer {
-    background-color: #343a40;
+.footer {
+    background-color: #032B44;
     color: white;
-    padding: 2px 0;
+    padding: 3px 0;
 /*    position: fixed; */
     font-size: small;
     bottom: 0;
     width: 100%;
+    align-items: center;
+    text-align: center;
 }
 
 .container {
@@ -96,4 +103,21 @@ body.show-special .special {
 
 .hidden {
     display: none;
+}
+
+body {
+    padding-top: 1px;
+    /* Adds space to prevent page jump when the navbar is fixed */
+}
+
+.nav-link {
+    border-radius: 0.4rem;
+    /* Slightly rounded corners for buttons */
+}
+
+.nav-link:hover {
+    background-color: #0056b3;
+    /* Darker shade on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
 }
