@@ -37,9 +37,9 @@ jobs:
     needs: build
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
       - name: Download built firmwares
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.2.1
         with:
           path: firmwares
       - name: Remove intermediate version folder
@@ -64,7 +64,7 @@ jobs:
                 firmwares/$device/manifest.json > output/$device-manifest.json
           done
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3.0.0
         with:
           path: output
 
@@ -87,4 +87,4 @@ jobs:
 
       - name: Deploy Firmware to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4.0.4
