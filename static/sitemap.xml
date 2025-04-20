@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-		<loc>https://s0tool.nl/</loc>
-		<lastmod>2024-07-08T11:56:31+00:00</lastmod>
-	</url>
-	<url><loc>https://s0tool.nl/diyorbuy.html</loc></url>
-	<url><loc>https://s0tool.nl/information.html</loc></url>
-	<url><loc>https://s0tool.nl/energydashboard.html</loc></url>
-	<url><loc>https://s0tool.nl/Installation.html</loc></url>
-	<url><loc>https://s0tool.nl/Troubleshooting.html</loc></url>
-	<url><loc>https://s0tool.nl/contributing.html</loc></url>
-	<url><loc>https://s0tool.nl/license.html</loc></url>
-	<url><loc>https://s0tool.nl/contact.html</loc></url>
-</urlset>  
+  <url>
+    <loc>https://s0tool.nl/</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/diyorbuy.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/information.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/energydashboard.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/Installation.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/Troubleshooting.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/contributing.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://s0tool.nl/license.html</loc>
+    <lastmod>2025-04-20T11:56:31+00:00</lastmod>
+  </url>
+
+</urlset>

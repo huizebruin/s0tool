@@ -22,4 +22,13 @@ fetch('footer.html')
     })
     .catch(error => console.error('Error loading footer:', error));
 
+// Scramble and display email address
+document.addEventListener("DOMContentLoaded", function () {
+  const emailUser = "support";
+  const emailDomain = "s0tool.nl";
+  const emailLink = document.getElementById("email-link");
+  emailLink.href = `mailto:${emailUser}@${emailDomain}`;
+  emailLink.textContent = `${emailUser}@${emailDomain}`;
+});
+
 
