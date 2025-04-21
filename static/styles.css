@@ -1,6 +1,13 @@
+:root {
+    --primary-color: #032B44;
+    --secondary-color: #f8f9fa;
+    --hover-color: #0056b3;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--secondary-color);
+    padding-top: 1px; /* Adds space to prevent page jump when the navbar is fixed */
 }
 
 h1 {
@@ -15,10 +22,8 @@ p {
 
 .navbar {
     margin-bottom: 20px;
-    background-color: #F7F7F7;
-    /* Light Gray */
-    color: #032B44;
-    /* Navy Blue */
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     padding: 15px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     align-items: center;
@@ -26,7 +31,7 @@ p {
 }
 
 .footer {
-    background-color: #032B44;
+    background-color: var(--primary-color);
     color: white;
     padding: 3px 0;
 /*    position: fixed; */
@@ -105,19 +110,21 @@ body.show-special .special {
     display: none;
 }
 
-body {
-    padding-top: 1px;
-    /* Adds space to prevent page jump when the navbar is fixed */
-}
-
 .nav-link {
     border-radius: 0.4rem;
     /* Slightly rounded corners for buttons */
 }
 
 .nav-link:hover {
-    background-color: #0056b3;
+    background-color: var(--hover-color);
     /* Darker shade on hover */
     transition: background-color 0.3s ease;
     /* Smooth transition for hover effect */
+}
+
+.card-img-top {
+    width: 100%;
+    min-height: 150px;
+    object-fit: contain;
+    background-color: #f8f9fa;
 }

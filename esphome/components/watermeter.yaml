@@ -11,7 +11,7 @@ api:
       then:
         - globals.set:
             id: initial_water_usage
-            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) );"
+            value: !lambda "return ( meter_value * atof(id(Select_pulse_water).state.c_str()) ) ;"
         - globals.set:
             id: total_water_pulses
             value:  "0"
@@ -34,8 +34,8 @@ select:
     options:
       - "0.0001"
       - "0.0005"
-      - "0.001"  
-      - "0.01"  
+      - "0.001"
+      - "0.01"
       - "0.1"
     initial_option: "0.001"
     restore_value: yes
@@ -88,6 +88,7 @@ sensor:
       allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
+    timeout: 15s
     state_class: measurement
     unit_of_measurement: "l/min"
     accuracy_decimals: 1
