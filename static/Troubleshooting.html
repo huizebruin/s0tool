@@ -49,6 +49,7 @@
             <li>Select “Validate” from the list.</li>
             <li>Once the validation completes, click “Install” in the bottom right.</li>
           </ol>
+
           <h4>Drivers</h4>
           <p>If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip
             used in your ESP device. These drivers work for most ESP devices:</p>
@@ -59,15 +60,7 @@
                 rel="noopener">driver</a></li>
             <li>CH340: <a href="https://sparks.gogo.co.nz/ch340.html" target="_blank" rel="noopener">driver</a></li>
           </ul>
-          <h4 id="problemsandfix" class="mt-4">For Problems or Solutions</h4>
-          <p>Submit a <b><a href="https://github.com/huizebruin/s0tool/pulls" target="_blank" rel="noopener">Pull
-                Request</a></b> or report <b><a href="https://github.com/huizebruin/s0tool/issues" target="_blank"
-                rel="noopener">Issues</a></b>.</p>
-          <p>For more information about the code, visit the <a href="https://github.com/huizebruin/s0tool"
-              target="_blank" rel="noopener">GitHub repository</a>.</p>
-          <p>For more information about the S0tool, visit my (Dutch) <a
-              href="https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/" target="_blank" rel="noopener">website</a>.
-          </p>
+
           <h4 class="mt-4">Blueprint for Update Notifications</h4>
           <p>With this, you can create an automation that will notify you when a new version is online on GitHub. You
             must have added all the above sensors.</p>
@@ -83,10 +76,158 @@
             <li>The YAML configuration is available on <a href="https://github.com/huizebruin/s0tool" target="_blank"
                 rel="noopener">GitHub</a>.</li>
           </ul>
+          <h4 class="mt-4">Types of Water Meters with NPN Sensors</h4>
+          <p>The following table lists common water meters compatible with NPN sensors:</p>
+          <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Compatibility</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Elster</td>
+                <td>V200</td>
+                <td>Compatible</td>
+                <td>NL</td>
+              </tr>
+              <tr>
+                <td>Itron</td>
+                <td>Aquadis+</td>
+                <td>Compatible</td>
+                <td>NL</td>
+              </tr>
+              <tr>
+                <td>Sensus</td>
+                <td>620</td>
+                <td>Compatible</td>
+                <td>NL</td>
+              </tr>
+              <tr>
+                <td>Maddalena</td>
+                <td>CD SD Plus</td>
+                <td>Compatible</td>
+                <td>BE</td>
+              </tr>
+              <tr>
+                <td>Actaris</td>
+                <td>Single-Jet</td>
+                <td>Compatible</td>
+                <td>NL</td>
+              </tr>
+              <tr>
+                <td>Zenner</td>
+                <td>MNK-RP-N</td>
+                <td>Compatible</td>
+                <td>DE</td>
+              </tr>
+              <tr>
+                <td>Kamstrup</td>
+                <td>Multical 21</td>
+                <td>Compatible</td>
+                <td>EU</td>
+              </tr>
+              <tr>
+                <td>Diehl</td>
+                <td>Hydrus</td>
+                <td>Compatible</td>
+                <td>EU</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>If you know more compatible water meters, please contribute to the discussion on GitHub:
+            <a href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank" rel="noopener">
+              Add to the list
+            </a>.
+          </p>
+            <img src="./assets/watermeter.jpg" alt="Watermeter" class="card-img-top" style="max-width: 250px;">
+    <div class="col-md-9">
+      <main id="main-content">
+        <h2 id="dashboard">Watermeter and S0 Port in Energy Dashboard</h2>
+        <p>As of Home Assistant version 2022.11.X, you can effortlessly integrate your water meter into the energy
+          dashboard using the S0tool from version v22.10.20. The S0 port (D5) is also compatible with heating units,
+          solar power systems, and any devices equipped with an S0 port.</p>
+    
+        <div class="mb-4">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Water & Energy Dashboard</th>
+                <th>S0tool Dashboard</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="./assets/water-energydashboard.jpg" class="img-fluid" alt="Water Energy Dashboard"></td>
+                <td><img src="./assets/s0tool-dashboard.png" class="img-fluid" alt="S0tool Dashboard"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <p>
+          <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noreferrer noopener">
+            <img src="https://my.home-assistant.io/badges/config_energy.svg"
+              alt="Open your Home Assistant instance and show your energy configuration panel." />
+          </a>
+        </p>
+    
+        <h4>Setup Your Water Meter</h4>
+        <p>In the energy dashboard, look for <code>watermeter stand</code> to add your water usage metrics.</p>
+        <p>For S0 port usage, search for <code>Totaal opgebracht</code> to monitor metrics from appliances or energy
+          systems using S0 connectivity.</p>
+    
+        <h4>Changing Total Readings</h4>
+        <p>
+          Use the following links to adjust your total readings for various sensors and meters:
+        </p>
+        <ul>
+          <li>
+            <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool">
+              <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="Water Counter Service Call">
+              Water Counter: <strong>D2</strong>
+            </a>
+          </li>
+          <li>
+            <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool">
+              <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="S0 Port Service Call">
+              S0 Port of kWh Meter: <strong>D5</strong>
+            </a>
+          </li>
+          <li>
+            <a href="https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate">
+              <img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="Calibration Service Call">
+              Find your readings and reset them with a Calibration Service Call
+            </a>
+          </li>
+        </ul>
+    
+        <h4>Advanced Configuration</h4>
+        <p>If you want to dive deeper into customizing your configuration, refer to the official <a
+            href="https://www.home-assistant.io/integrations/esphome/" target="_blank">ESPHome documentation</a>. You
+          can set up automations based on your water and energy consumption data for better resource management.</p>
+      </main>
+
+              <h4 id="problemsandfix" class="mt-4">For Problems or Solutions</h4>
+              <p>Submit a <b><a href="https://github.com/huizebruin/s0tool/pulls" target="_blank" rel="noopener">Pull
+                    Request</a></b> or report <b><a href="https://github.com/huizebruin/s0tool/issues" target="_blank"
+                    rel="noopener">Issues</a></b>.</p>
+              <p>For more information about the code, visit the <a href="https://github.com/huizebruin/s0tool" target="_blank"
+                  rel="noopener">GitHub repository</a>.</p>
+              <p>For more information about the S0tool, visit my (Dutch) <a
+                  href="https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/" target="_blank" rel="noopener">website</a>.
+              </p>
         </main>
       </div>
     </div>
+      </div>
+      </div>
+      </div>
   </div>
+
   <div id="footer"></div>
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
     integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>

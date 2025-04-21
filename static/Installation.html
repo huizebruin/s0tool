@@ -41,7 +41,6 @@
           <main id="main-content">
             <br>
 
-  <!-- Hero Section -->
   <header class="bg-primary text-white text-center py-5">
     <div class="container">
       <h1 class="display-4">S0tool Installation</h1>
@@ -49,43 +48,39 @@
     </div>
   </header>
 
-  <!-- Installation Instructions -->
   <section id="installation" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Installation Guide</h2>
       <p>Before proceeding, ensure you have installed the necessary drivers for the Wemos D1 to communicate with your PC or laptop. Refer to the <a href="troubleshooting.html">troubleshooting page</a> for details.</p>
       <p>Connect the S0tool to your PC or laptop using a USB cable that supports both power and data transfer. Use the button below to install the <b>S0tool</b> firmware directly to your device via USB from your browser.</p>
-
     </div>
   </section>
-            <!-- Installation Section -->
-            <section id="installation" class="bg-light py-5">
-              <div class="container">
-                <h2 class="text-center mb-4">Installation</h2>
-                <p>Follow these steps to install the firmware on your S0tool:</p>
-                <ol>
-                  <li>Click the blue connect button below; a pop-up window will appear with a list of available USB devices.</li>
-                  <li>Plug the USB cable into the ESP and connect it to your computer.</li>
-                  <li>Select the USB serial port and click Connect.</li>
-                  <li>Choose Install S0tool, then click Install.</li>
-                  <li>If the installation fails, hold down the boot button and try again.</li>
-                  <li>Once completed, click Next.</li>
-                </ol>
-                <p>After installation, connect the S0tool to your Wi-Fi network:</p>
-                <ol>
-                  <li>Select your network from the list and enter your 2.4 GHz Wi-Fi credentials.</li>
-                  <li>Click Connect.</li>
-                </ol>
-                <p>Congratulations 🎉 The S0tool is now connected to your network!</p>
-              </div>
-            </section>
 
-  <!-- Standard Configurations -->
+  <section id="installation" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Installation</h2>
+      <p>Follow these steps to install the firmware on your S0tool:</p>
+      <ol>
+        <li>Click the blue connect button below; a pop-up window will appear with a list of available USB devices.</li>
+        <li>Plug the USB cable into the ESP and connect it to your computer.</li>
+        <li>Select the USB serial port and click Connect.</li>
+        <li>Choose Install S0tool, then click Install.</li>
+        <li>If the installation fails, hold down the boot button and try again.</li>
+        <li>Once completed, click Next.</li>
+      </ol>
+      <p>After installation, connect the S0tool to your Wi-Fi network:</p>
+      <ol>
+        <li>Select your network from the list and enter your 2.4 GHz Wi-Fi credentials.</li>
+        <li>Click Connect.</li>
+      </ol>
+      <p>Congratulations 🎉 The S0tool is now connected to your network!</p>
+    </div>
+  </section>
+
   <section id="standard-configurations" class="bg-light py-5">
     <div class="container">
       <h2 class="text-center mb-4">Standard Configurations</h2>
       <div class="row g-4">
-        <!-- S0tool Standard -->
         <div class="col-md-4">
           <div class="card h-100">
             <img src="./assets/npn-kwh-s0.jpg" class="card-img-top" alt="S0tool Standard">
@@ -98,7 +93,6 @@
           </div>
         </div>
 
-        <!-- S0tool Watermeter -->
         <div class="col-md-4">
           <div class="card h-100">
             <img src="./assets/npn.jpg" class="card-img-top" alt="S0tool Watermeter">
@@ -111,7 +105,6 @@
           </div>
         </div>
 
-        <!-- S0tool kWh Meter -->
         <div class="col-md-4">
           <div class="card h-100">
             <img src="./assets/kwh-s0.png" class="card-img-top" alt="S0tool kWh Meter">
@@ -126,15 +119,15 @@
       </div>
     </div>
   </section>
-      <div class="text-center">
-        <esp-web-install-button></esp-web-install-button>
-      </div>
-  <!-- Special Configurations -->
+
+  <div class="text-center">
+    <esp-web-install-button></esp-web-install-button>
+  </div>
+
   <section id="special-configurations" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Special Configurations</h2>
       <div class="row g-4">
-        <!-- S0tool DSZ12D -->
         <div class="col-md-4">
           <div class="card h-100">
             <img src="./assets/dsz12d.jpg" class="card-img-top" alt="S0tool DSZ12D">
@@ -147,7 +140,6 @@
           </div>
         </div>
 
-        <!-- S0tool LEM022SJ -->
         <div class="col-md-4">
           <div class="card h-100">
             <img src="./assets/lem022sj.jpg" class="card-img-top" alt="S0tool LEM022SJ">
@@ -160,7 +152,6 @@
           </div>
         </div>
 
-        <!-- S0tool Flux and Puls -->
         <div class="col-md-4">
           <div class="card h-100">
             <img src="./assets/fluxandpuls.jpg" class="card-img-top" alt="S0tool Flux and Puls">
@@ -172,95 +163,24 @@
             </div>
           </div>
         </div>
-      <div class="text-center">
-        <esp-web-install-button></esp-web-install-button>
-      </div>
-        <!-- S0tool WSZ15D32A -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="./assets/wsz15d32a.jpg" class="card-img-top" alt="S0tool WSZ15D32A">
-            <div class="card-body">
-              <h5 class="card-title">S0tool WSZ15D32A</h5>
-              <p class="card-text">Special configuration for WSZ15D32A and water meters.</p>
-              <input type="radio" name="type" value="s0tool-wsz15d32a" class="form-check-input">
-              <label class="form-check-label">Select</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- S0tool SDM72D -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="./assets/sdm72d.jpg" class="card-img-top" alt="S0tool SDM72D">
-            <div class="card-body">
-              <h5 class="card-title">S0tool SDM72D</h5>
-              <p class="card-text">Special configuration for SDM72D and water meters.</p>
-              <input type="radio" name="type" value="s0tool-sdm72d" class="form-check-input">
-              <label class="form-check-label">Select</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- S0tool S0-Watermeter -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="./assets/s0-watermeter.jpg" class="card-img-top" alt="S0tool S0-Watermeter">
-            <div class="card-body">
-              <h5 class="card-title">S0tool S0-Watermeter</h5>
-              <p class="card-text">Special configuration for S0-watermeter.</p>
-              <input type="radio" name="type" value="s0tool-s0-watermeter" class="form-check-input">
-              <label class="form-check-label">Select</label>
-            </div>
-          </div>
-        </div>
-      <div class="text-center">
-        <esp-web-install-button></esp-web-install-button>
-      </div>
-        <!-- S0tool Puls-Water-Internal -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="./assets/puls-water-internal.jpg" class="card-img-top" alt="S0tool Puls-Water-Internal">
-            <div class="card-body">
-              <h5 class="card-title">S0tool Puls-Water-Internal</h5>
-              <p class="card-text">Special configuration for puls-water-internal meters.</p>
-              <input type="radio" name="type" value="s0tool-puls-water-internal" class="form-check-input">
-              <label class="form-check-label">Select</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- S0tool Standard-Flux -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="./assets/standard-flux.jpg" class="card-img-top" alt="S0tool Standard-Flux">
-            <div class="card-body">
-              <h5 class="card-title">S0tool Standard-Flux</h5>
-              <p class="card-text">Special configuration for standard-flux meters.</p>
-              <input type="radio" name="type" value="s0tool-standard-flux" class="form-check-input">
-              <label class="form-check-label">Select</label>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-      <div class="text-center">
-        <esp-web-install-button></esp-web-install-button>
-      </div>
-            <!-- Connect Section -->
-            <section id="connect" class="py-5">
-              <div class="container">
-                <h2 class="text-center mb-4">Connect to Home Assistant</h2>
-                <h3>Option 1: During Firmware Installation</h3>
-                <p>After setting up your Wi-Fi, you will see an option to add the S0tool to Home Assistant. Follow the link to
-                  configure it.</p>
-                <h3>Option 2: Auto Discovery</h3>
-                <p>If your Home Assistant instance is on the same network, the S0tool will be automatically discovered under
-                  Settings > Devices & Services.</p>
-              </div>
-            </section>
-  <!-- Footer -->
+  <div class="text-center">
+    <esp-web-install-button></esp-web-install-button>
+  </div>
+
+  <section id="connect" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Connect to Home Assistant</h2>
+      <h3>Option 1: During Firmware Installation</h3>
+      <p>After setting up your Wi-Fi, you will see an option to add the S0tool to Home Assistant. Follow the link to configure it.</p>
+      <h3>Option 2: Auto Discovery</h3>
+      <p>If your Home Assistant instance is on the same network, the S0tool will be automatically discovered under Settings > Devices & Services.</p>
+    </div>
+  </section>
+
   <div id="footer"></div>
 
   <script>
