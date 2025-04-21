@@ -124,7 +124,7 @@ body.show-special .special {
 
 .card-img-top {
     width: 100%;
-    min-height: 150px;
+    max-height: 100px;
     object-fit: contain;
     background-color: #f8f9fa;
 }
