@@ -1,4 +1,3 @@
----
 version: 2
 updates:
   - package-ecosystem: "github-actions"
@@ -6,3 +5,4 @@ updates:
     schedule:
       interval: daily
       time: "06:00"
+    open-pull-requests-limit: 10
