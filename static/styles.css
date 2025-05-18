@@ -21,10 +21,10 @@ p {
 }
 
 .navbar {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    padding: 15px 20px;
+    padding: 10px 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     align-items: center;
     text-align: center;

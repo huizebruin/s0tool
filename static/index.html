@@ -9,9 +9,9 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-  <meta name="description" content="Count your water use with the S0tool and Home Assistant and ESPHome.">
+  <meta name="description" content="Count your water use and kWh with the S0tool and Home Assistant and ESPHome.">
   <meta name="keywords"
-    content="s0tool, watermeter, home assistant, esphome, s0 port, water counter, water usage monitor, energy monitor, huizebruin watermeter, 5v NPN, Actaris, diy watermeter, Elster, Elster V100, esphome integration, home assistant energy, huizebruin, Itron, LJ12A3-4-Z/BX-5V, Maddalena, pcb, pulsteller, s0 kwh meter, s0tool setup, Sensus, slimme watermeter, smart watermeter, tool, watermeter home assistant, watermeter npn, energy optimization, real-time monitoring, smart meter, energy tracking, ESP8266, Wemos D1 mini, DIY energy monitor, ESPHome watermeter, ESPHome energy monitor, smart home, home automation, energy efficiency">
+    content="S0Tool, watermeter, water counter, water usage monitor, energy monitor, Home Assistant, ESPHome, S0 port, ESPHome S0 sensor, ESP32 pulse counter, ESP8266, Wemos D1 mini, DIY energy monitor, real-time monitoring, energy tracking, smart meter, smart home, home automation, energy efficiency, Itron, Sensus, Elster, Elster V100, Maddalena, Actaris, LJ12A3-4-Z/BX-5V, 5V NPN sensor, pcb, pulsteller, S0 kWh meter, S0 pulse counter, ESPHome integration, Home Assistant energy, Huizebruin, diy watermeter, ESPHome watermeter, ESPHome energy monitor, watermeter Home Assistant, watermeter NPN, ESP8266 S0 input, utility meter integration, YAML ESPHome config, MQTT pulse counter, global energy monitoring, smart watermeter, energy optimization, S0 pulse reader, Home Assistant DIY project, tool">
   <meta name="author" content="Huizebruin">
   <meta name="copyright" content="Huizebruin">
   <meta http-equiv="cache-control" content="no-cache">
@@ -19,7 +19,7 @@
   <meta property="og:site_name" content="S0tool.nl">
   <meta property="og:url" content="https://s0tool.nl">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="Count your water use with the S0tool and Home Assistant and ESPHome.">
+  <meta property="og:description" content="Count your water use and kWh with the S0tool and Home Assistant and ESPHome.">
   <meta property="og:image" content="./assets/header.png">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
@@ -55,10 +55,14 @@
   <section id="about-s0tool" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">About S0tool</h2>
-      <p class="text-center">The S0tool is a versatile tool for monitoring water and energy consumption. It seamlessly
-        integrates with ESPHome and offers various features to help you track and optimize your usage.</p>
+      <p class="text-center">
+        The S0tool is a versatile tool for monitoring water and energy consumption. It seamlessly
+        integrates with ESPHome and offers various features to help you track and optimize your usage.
+      </p>
+  
       <h3 class="text-center mt-4">Compatible Water Meters</h3>
-      <p>The S0tool works with a variety of water meters that support NPN sensors. Below is a list of compatible water meters:</p>
+      <p>The S0tool works with a variety of water meters that support NPN sensors. Below is a list of compatible water
+        meters:</p>
       <table class="table table-bordered table-striped">
         <thead class="table-dark">
           <tr>
@@ -119,13 +123,74 @@
           </tr>
         </tbody>
       </table>
-      <p>If you know more compatible water meters, please contribute to the discussion on GitHub: 
+      <p>
+        If you know more compatible water meters, please contribute to the discussion on GitHub:
         <a href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank" rel="noopener">
           Add to the list
         </a>.
       </p>
+  
+      <hr>
+  
+      <h3 class="text-center mt-5">Compatible Power Meters (S0 Output)</h3>
+      <p>These meters have a standard <strong>S0 pulse output</strong> (open collector) and work with the S0tool:</p>
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Compatibility</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Eastron</td>
+            <td>SDM120 / SDM220</td>
+            <td>Compatible</td>
+            <td>S0 pulse terminals</td>
+          </tr>
+          <tr>
+            <td>ABB</td>
+            <td>B23 / B24 series</td>
+            <td>Compatible</td>
+            <td>External S0 wiring required</td>
+          </tr>
+          <tr>
+            <td>Schneider</td>
+            <td>iEM3000 series</td>
+            <td>Compatible</td>
+            <td>Needs S0 connection setup</td>
+          </tr>
+          <tr>
+            <td>Carlo Gavazzi</td>
+            <td>EM24 / EM340</td>
+            <td>Compatible</td>
+            <td>Pulse settings configurable</td>
+          </tr>
+          <tr>
+            <td>Finder</td>
+            <td>7E.23 / 7E.36 series</td>
+            <td>Compatible</td>
+            <td>DIN rail mountable</td>
+          </tr>
+          <tr>
+            <td>Eltako</td>
+            <td>DSZ15D-3x80A</td>
+            <td>Compatible</td>
+            <td>DIN rail mountable</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        If you know more compatible s0 kWh meters, please contribute to the discussion on GitHub:
+        <a href="https://github.com/huizebruin/s0tool/discussions/250" target="_blank" rel="noopener">
+          Add to the list
+        </a>.
+        </p>
     </div>
   </section>
+  
 
   <section id="key-features" class="bg-light py-5">
     <div class="container">
@@ -176,7 +241,7 @@
     </div>
   </section>
 
-      <div id="footer"></div>
+  <div id="footer"></div>
 
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
