@@ -10,7 +10,8 @@ esphome:
   name_add_mac_suffix: true
   comment: '${device_description}'
   project:
-    name: "huizebruin.${name}"
+    #name: "huizebruin.${name}"
+    name: "samimasad_test.${name}"
     version: "${project_version}"
   min_version: 2024.12.0
 esp8266:
