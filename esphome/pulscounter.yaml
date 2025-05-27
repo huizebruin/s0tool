@@ -24,8 +24,8 @@ dashboard_import:
 
 packages:
   remote_package:
-    #url: https://github.com/huizebruin/s0tool/
-    url: github://samimasad/s0tool_detectleak/
+    # url: https://github.com/huizebruin/s0tool/
+    url: https://github.com/samimasad/s0tool_detectleak/
     ref: main
     files:
       - esphome/components/basis.yaml
