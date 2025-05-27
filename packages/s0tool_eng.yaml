@@ -25,7 +25,7 @@ s0tool_package:
   ### Toegevoegd om van de s0Tool de versie info uit github op te halen
   #####################################################
   - platform: rest
-    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    resource: https://api.github.com/repos/samimasad/s0tool_detectleak/releases/latest
     name: s0tool_version_github
     unique_id: s0tool_github_version
     value_template: '{{ value_json.tag_name }}'

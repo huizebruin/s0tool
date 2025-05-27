@@ -40,7 +40,7 @@ template:
 
 sensor:
   - platform: rest
-    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    resource: https://api.github.com/repos/samimasad/s0tool_detectleak/releases/latest
     name: s0tool_versie_github
     unique_id: s0tool_github_version
     value_template: '{{ value_json.tag_name }}'

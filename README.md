@@ -1,7 +1,7 @@
 | Repository Status | ESPHome S0tool discord Community |
 | :--- | :--- |
 | [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io) |
-| [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases) |
+| [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/samimasad/s0tool_detectleak.svg)](https://GitHub.com/samimasad/s0tool_detectleak/releases) |
 
 |  S0tool.nl | 
 | :--- | 
@@ -41,7 +41,7 @@ And a usb cable and minimal a usb power adapter with 5v and 1A
 
 ![S0tool-diy](./static/assets/npn-watermeter-wemosd1.png)
 
-Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57<br>
+Will it work with my meter check it out here. https://github.com/samimasad/s0tool_detectleak/discussions/57<br>
 
 
 
@@ -64,7 +64,7 @@ Before update of the S0tool u should use, and above <br>
 ***
 <br>
 
-### Software update information at [releases](https://github.com/huizebruin/s0tool/releases) here on Github.
+### Software update information at [releases](https://github.com/samimasad/s0tool_detectleak/releases) here on Github.
 ***
 
 # Hardware
@@ -158,19 +158,19 @@ Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
     cycle: hourly
 enz...
 ```
-Those in the file are in the folder [utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
+Those in the file are in the folder [utility_meter/utility.yaml](https://github.com/samimasad/s0tool_detectleak/blob/main/utility_meter/utility.yaml) 
 
 12. Optionally to see if there are new updates, you can create the following Line in your configuration.yaml:<br>
 ```yaml
 homeassistant:
   packages: !include_dir_merge_named packages/
   ```
-And make a folder in youre comfig map on Home Asstant ```packages``` and make there a file like ```s0tool.yaml``` and ad there the code from the file from the [package map on the s0tool github](https://github.com/huizebruin/s0tool/tree/main/packages)
+And make a folder in youre comfig map on Home Asstant ```packages``` and make there a file like ```s0tool.yaml``` and ad there the code from the file from the [package map on the s0tool github](https://github.com/samimasad/s0tool_detectleak/tree/main/packages)
 (or you copy the package dutch or English file from the package folder and put it all in your own configuration).
 ```yaml
 #sensor: # get away if this is your first sensor
   - platform: rest
-    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    resource: https://api.github.com/repos/samimasad/s0tool_detectleak/releases/latest
     name: s0tool_version_github
     unique_id: s0tool_github_version
     value_template: '{{ value_json.tag_name }}'
@@ -231,8 +231,8 @@ This can be done by the ESPHome dashboard by now.
 ***
 
 Have fun with this tool.<br>
-Any additions / improvements <br> may be made via <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b> be supplemented.<br> 
-Or via<b> [issues](https://github.com/huizebruin/s0tool/issues) </b> requested or added.
+Any additions / improvements <br> may be made via <b>[Pull requests](https://github.com/samimasad/s0tool_detectleak/pulls)</b> be supplemented.<br> 
+Or via<b> [issues](https://github.com/samimasad/s0tool_detectleak/issues) </b> requested or added.
 <br><br><br><b>
 Wobbe </b><br>
 From <a href="https://www.Huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a> & <a href="https://s0tool.nl" rel="noreferer, ,noopener" target="_blank">S0tool.nl</a>
@@ -248,7 +248,7 @@ This is an active open source project. <br>
 We are always open to people who want to use or contribute to the code. 
 
 Who else is working on this project : <br>
-![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
+![GitHub contributors](https://img.shields.io/github/contributors/samimasad/s0tool_detectleak?style=plastic)<br>
 
 ****
 
@@ -302,19 +302,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 
-[commits-shield]: https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg
-[commits]: https://github.com/huizebruin/s0tool/commits/main
-[github-last-commit]: https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=plasticr
-[github-master]: https://github.com/huizebruin/s0tool/commits/main
-[license-shield]: https://img.shields.io/github/license/huizebruin/s0tool.svg
+[commits-shield]: https://img.shields.io/github/commit-activity/m/samimasad/s0tool_detectleak.svg
+[commits]: https://github.com/samimasad/s0tool_detectleak/commits/main
+[github-last-commit]: https://img.shields.io/github/last-commit/samimasad/s0tool_detectleak.svg?style=plasticr
+[github-master]: https://github.com/samimasad/s0tool_detectleak/commits/main
+[license-shield]: https://img.shields.io/github/license/samimasad/s0tool_detectleak.svg
 [discord-shield]: https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=7289da
 [discord]: https://discord.gg/bN8rC7gEng
-[contributors-url]: https://github.com/huizebruin/s0tool/graphs/contributors
-[contributors-shield]: https://img.shields.io/github/contributors/huizebruin/s0tool.svg
-[forks-shield]: https://img.shields.io/github/forks/huizebruin/s0tool.svg
-[forks-url]: https://github.com/huizebruin/s0tool/network/members
-[stars-shield]: https://img.shields.io/github/stars/huizebruin/s0tool.svg
-[stars-url]: https://github.com/huizebruin/s0tool/stargazers
-[issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
-[issues-url]: https://github.com/huizebruin/s0tool/issues
+[contributors-url]: https://github.com/samimasad/s0tool_detectleak/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/samimasad/s0tool_detectleak.svg
+[forks-shield]: https://img.shields.io/github/forks/samimasad/s0tool_detectleak.svg
+[forks-url]: https://github.com/samimasad/s0tool_detectleak/network/members
+[stars-shield]: https://img.shields.io/github/stars/samimasad/s0tool_detectleak.svg
+[stars-url]: https://github.com/samimasad/s0tool_detectleak/stargazers
+[issues-shield]: https://img.shields.io/github/issues/samimasad/s0tool_detectleak.svg
+[issues-url]: https://github.com/samimasad/s0tool_detectleak/issues
 

@@ -7,7 +7,7 @@ body:
     id: no-duplicate-issues
     attributes:
       label: "Please verify that this feature request has NOT been suggested before."
-      description: "Search in the issues sections by clicking [HERE](https://github.com/huizebruin/s0tool/issues?q=)"
+      description: "Search in the issues sections by clicking [HERE](https://github.com/samimasad/s0tool_detectleak/issues?q=)"
       options:
         - label: "I checked and didn't find a similar feature request"
           required: true

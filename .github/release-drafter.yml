@@ -63,7 +63,7 @@ template: |
 
   $CHANGES
 
-  **Full Changelog**: https://github.com/huizebruin/s0tool/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
+  **Full Changelog**: https://github.com/samimasad/s0tool_detectleak/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
 
    _To receive a notification on new releases, click on **Watch** > **Custom** > **Releases** on the top._
 

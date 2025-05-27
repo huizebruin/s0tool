@@ -1,6 +1,6 @@
 # Delen en bewerken mag maar laat deze eerste regels staan.
 # Bron : https://www.huizebruin.nl
-# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
+# Bron File : https://github.com/samimasad/s0tool_detectleak/tree/main/esphome
 # © Huizebruin.nl
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
@@ -61,7 +61,7 @@ binary_sensor:
       - then:
           lambda: id(total_water_pulses) += 1;
 
-#https://github.com/huizebruin/s0tool/issues/156
+#https://github.com/samimasad/s0tool_detectleak/issues/156
 number:
   - name: Initiële meterstand m3
     platform: template

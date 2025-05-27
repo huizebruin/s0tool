@@ -1,7 +1,7 @@
 
 # Sharing and editing is allowed, but leave these first lines alone.
 # Source: https://s0tool.nl
-# Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
+# Source File: https://github.com/samimasad/s0tool_detectleak/tree/main/esphome
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl project version ${project_version}.
