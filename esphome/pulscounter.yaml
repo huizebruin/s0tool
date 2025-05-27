@@ -19,11 +19,13 @@ esp8266:
   restore_from_flash: true
 
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+  #package_import_url: github://huizebruin/s0tool/esphome/pulscounter.yaml@main
+  package_import_url: github://samimasad/s0tool_detectleak/esphome/pulscounter.yaml@main
 
 packages:
   remote_package:
-    url: https://github.com/huizebruin/s0tool/
+    #url: https://github.com/huizebruin/s0tool/
+    url: github://samimasad/s0tool_detectleak/
     ref: main
     files:
       - esphome/components/basis.yaml
