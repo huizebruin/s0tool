@@ -17,7 +17,7 @@ esphome:
 esp8266:
   board:  d1_mini
   restore_from_flash: true
-
+dada
 dashboard_import:
   #package_import_url: github://samimasad/s0tool_detectleak/esphome/pulscounter.yaml@main
   package_import_url: github://samimasad/s0tool_detectleak/esphome/pulscounter.yaml@main
