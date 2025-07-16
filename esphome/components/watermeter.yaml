@@ -2,7 +2,7 @@
 # Bron : https://www.huizebruin.nl
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
-#  # ⬇ Enable Home Assistant API ⬇ # 
+#  # ⬇ Enable Home Assistant API ⬇ #
 api:
   services:
     - service: meterstand_water
@@ -83,12 +83,12 @@ sensor:
   - platform: pulse_meter #pulse_counter
     internal_filter_mode: "PULSE"
     internal_filter: 50ms
-    pin: 
+    pin:
       number: D2
       allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
-    timeout: 15s
+    timeout: 700s
     state_class: measurement
     unit_of_measurement: "l/min"
     accuracy_decimals: 1
