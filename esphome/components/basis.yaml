@@ -25,7 +25,7 @@ captive_portal:
 # ⬇ Enable logging ⬇ #
 logger:
   level: INFO
-  # tx_buffer_size: 200  #16-07-2025 # exit tx_buffer_size 100 bytes for ESPHome v2024.7.x
+  tx_buffer_size: 200  #16-07-2025 tx_buffer_size to 200 bytes for ESPHome v2024.7.x
   esp8266_store_log_strings_in_flash: false
 
 ota:
