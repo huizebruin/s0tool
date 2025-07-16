@@ -2,7 +2,7 @@
 # Bron : https://www.huizebruin.nl
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
-#  # ⬇ Enable Home Assistant API ⬇ # 
+#  # ⬇ Enable Home Assistant API ⬇ #
 api:
   services:
     - service: meterstand_water
@@ -24,7 +24,6 @@ globals:
   - id: total_water_pulses
     type: int
     restore_value: yes
-  
 
 #   # ⬇ Water per liter rate ⬇ #
 number:
@@ -61,7 +60,7 @@ sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
   - platform: pulse_counter
-    pin: 
+    pin:
       number: D2
       allow_other_uses: true
     id: watermeter_pulse
@@ -74,7 +73,7 @@ sensor:
     filters:
       lambda: return (x / (id(select_flow_pulse).state * 60 ));
 
-# ⬇ Totaal watermeter ⬇ #      
+# ⬇ Totaal watermeter ⬇ #
     total:
       id: sensor_pulse_meter_total
       name: "Total Liters"
@@ -85,7 +84,7 @@ sensor:
       filters:
         lambda: return (x / (id(select_flow_pulse).state * 60 ));
 
-      
+
 # ⬇ Total M3 ⬇ #
   - platform: template
     id: watermeter_total
@@ -103,7 +102,7 @@ sensor:
     state_class: "total_increasing"
     accuracy_decimals: 0
     lambda: return id(initial_water_usage);
-    
+
   - platform: template
     id: watermeter_q_test
     name: "watermeter Q test"
