@@ -20,10 +20,11 @@ globals:
   - id: initial_water_usage
     type: float
     restore_value: yes
-#    initial_value: '010'
+    initial_value: '0'
   - id: total_water_pulses
     type: int
     restore_value: yes
+    initial_value: '0'
 
 #   # ⬇ Water per liter rate ⬇ #
 number:
@@ -46,16 +47,17 @@ binary_sensor:
   - platform: gpio
     id: water_sensor_status
     name: "Water sensor status"
-    internal: False
+    internal: false
+    use_interrupt: false
     pin:
       number: D2
-      allow_other_uses: true
       inverted: true
       mode:
         input: true
+      allow_other_uses: true
     on_press:
-      - then:
-          lambda: id(total_water_pulses) += 1;
+      - lambda: |-
+          id(total_water_pulses) += 1;
 sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #

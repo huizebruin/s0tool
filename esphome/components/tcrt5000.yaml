@@ -21,17 +21,19 @@ globals:
   - id: initial_water_usage
     type: float
     restore_value: yes
-    initial_value: '010'
+    initial_value: '0'
   - id: total_water_pulses
     type: int
     restore_value: yes
+    initial_value: '0'
     
 #------------------------# Watermeter #------------------------#
 binary_sensor:
   - platform: gpio
     id: water_sensor_status
     name: "Water sensor status"
-    internal: False
+    internal: false
+    use_interrupt: false
     pin:
       number: D2
       allow_other_uses: true
