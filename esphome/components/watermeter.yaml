@@ -43,8 +43,8 @@ select:
     on_value:
       then:
         - logger.log:
-            format: "Chosen option: %s (index %d)"
-            args: ["x.c_str()", "i"]
+            format: "Chosen option: %s "
+            args: ["x.c_str()"]
 #------------------------# Watermeter #------------------------#
 binary_sensor:
   - platform: gpio
