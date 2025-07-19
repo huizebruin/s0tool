@@ -21,10 +21,11 @@ globals:
   - id: initial_gas_usage
     type: float
     restore_value: yes
-    initial_value: '010'
+    initial_value: '0'
   - id: total_gas_pulses
     type: int
     restore_value: yes
+    initial_value: '0'
     
 select:
   # ⬇ gas per m3 rate ⬇ #
@@ -72,6 +73,8 @@ binary_sensor:
   - platform: gpio
     id: internal_pulse_counter
     name: "Pulse Sensor gas"
+    internal: false
+    use_interrupt: False
     pin:
       number: D5
       allow_other_uses: true

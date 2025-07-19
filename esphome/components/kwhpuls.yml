@@ -19,10 +19,11 @@ globals:
   - id: initial_kwh_usage
     type: float
     restore_value: yes
-    initial_value: '00010'
+    initial_value: '0'
   - id: total_kwh_pulses
     type: int
     restore_value: yes
+    initial_value: '0'
 
 number:
   - platform: template
@@ -46,7 +47,8 @@ binary_sensor:
   - platform: gpio
     id: kwh_sensor_status
     name: "kWh sensor status"
-    internal: False
+    internal: false
+    use_interrupt: False
     pin:
       number: D5
       allow_other_uses: true

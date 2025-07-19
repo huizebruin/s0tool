@@ -31,7 +31,8 @@ binary_sensor:
   - platform: gpio
     id: water_sensor_test
     name: "Water sensor test"
-    internal: False
+    internal: false
+    use_interrupt: False
     pin:
       number: D2
       allow_other_uses: true
