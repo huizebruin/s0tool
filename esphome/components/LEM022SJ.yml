@@ -43,15 +43,16 @@ binary_sensor:
     id: kwh_sensor_status
     name: "kWh sensor status"
     internal: false
-    use_interrupt: false
+    use_interrupt: False
     pin:
       number: D5
-      allow_other_uses: true
+      inverted: true
       mode:
         input: true
+      allow_other_uses: true
     on_press:
-      - then:
-          lambda: id(total_kwh_pulses) += 1;
+      - lambda: |-
+          id(total_kwh_pulses) += 1;
 #------------------------# Kwh meter S0 poort 1 #------------------------#
 sensor:
 # ⬇ kwh meter s0 ⬇ #
