@@ -74,7 +74,7 @@ binary_sensor:
     id: internal_pulse_counter
     name: "Pulse Sensor gas"
     internal: false
-    use_interrupt: False
+    use_interrupt: false
     pin:
       number: D5
       allow_other_uses: true

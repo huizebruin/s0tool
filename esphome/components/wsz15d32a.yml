@@ -48,7 +48,7 @@ binary_sensor:
     id: kwh_sensor_status
     name: "kWh sensor status"
     internal: false
-    use_interrupt: False
+    use_interrupt: false
     pin:
       number: D5
       allow_other_uses: true

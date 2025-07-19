@@ -52,7 +52,7 @@ binary_sensor:
     id: water_sensor_status
     name: "Water sensor status"
     internal: false
-    use_interrupt: False
+    use_interrupt: false
     pin:
       number: D2
       allow_other_uses: true
