@@ -40,12 +40,11 @@ select:
       - "0.1"
     initial_option: "0.001"
     restore_value: yes
-    on_value:
-      then:
-        - logger.log:
-            format: "Chosen option: %s (index %d)"
-            args: ["x.c_str()", "i"]
-#------------------------# Watermeter #------------------------#
+    # on_value:
+    #   then:
+    #     - logger.log:
+    #         format: "Chosen option: %s (index %d)"
+    #         args: ["x.c_str()", "i"]#------------------------# Watermeter #------------------------#
 binary_sensor:
   - platform: gpio
     id: water_sensor_status
