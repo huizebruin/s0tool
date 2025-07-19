@@ -36,13 +36,11 @@ number:
     step: '10'
     restore_value: yes
     initial_value: '2000'
-    on_value:
-      then:
-        - logger.log:
-            format: "Chosen option: %s "
-            args: ["std::to_string(x)"]
-
-binary_sensor:
+    # on_value:
+    #   then:
+    #     - logger.log:
+    #         format: "Chosen option: %s (index %d)"
+    #         args: ["x.c_str()", "i"]binary_sensor:
  #------------------------# kwh #------------------------#
   - platform: gpio
     id: kwh_sensor_status

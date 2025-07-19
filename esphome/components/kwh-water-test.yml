@@ -32,7 +32,7 @@ binary_sensor:
     id: water_sensor_test
     name: "Water sensor test"
     internal: false
-    use_interrupt: false
+    use_interrupt: False
     pin:
       number: D2
       allow_other_uses: true

@@ -49,13 +49,11 @@ select:
       - "0.1"
     initial_option: "0.001"
     restore_value: yes
-    on_value:
-      then:
-        - logger.log:
-            format: "Chosen option: %s "
-            args: ["std::to_string(x)"]
-
-number:
+    # on_value:
+    #   then:
+    #     - logger.log:
+    #         format: "Chosen option: %s (index %d)"
+    #         args: ["x.c_str()", "i"]number:
   - platform: template
     id: Select_pulse_gas
     name: 'Pulsrate gas per m3'

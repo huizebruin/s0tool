@@ -39,13 +39,12 @@ select:
       - "0.01"
       - "0.1"
     initial_option: "0.001"
-    restore_value: yes
-    on_value:
-      then:
-        - logger.log:
-            format: "Chosen option: %s "
-            args: ["std::to_string(x)"]
-
+    # restore_value: yes
+    # on_value:
+    #   then:
+    #     - logger.log:
+    #         format: "Chosen option: %s "
+    #         args: ["x.c_str()"]
 #------------------------# Watermeter #------------------------#
 binary_sensor:
   - platform: gpio
