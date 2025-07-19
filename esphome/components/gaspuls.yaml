@@ -52,9 +52,8 @@ select:
     on_value:
       then:
         - logger.log:
-            format: "Chosen option: %s "
-            args: ["[x]"]
-
+            format: "Chosen option: %s (index %d)"
+            args: ["x.c_str()", "i"]
 number:
   - platform: template
     id: Select_pulse_gas

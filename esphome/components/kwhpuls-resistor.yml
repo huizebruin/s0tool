@@ -39,9 +39,8 @@ number:
     on_value:
       then:
         - logger.log:
-            format: "Chosen option: %s "
-            args: ["[x]"]
-
+            format: "Chosen option: %s (index %d)"
+            args: ["x.c_str()", "i"]
 binary_sensor:
 #------------------------# kwh #------------------------#
   - platform: gpio
