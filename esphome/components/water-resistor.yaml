@@ -45,6 +45,7 @@ select:
     #     - logger.log:
     #         format: "Chosen option: %s (index %d)"
     #         args: ["x.c_str()", "i"]#------------------------# Watermeter #------------------------#
+    
 binary_sensor:
   - platform: gpio
     id: water_sensor_status

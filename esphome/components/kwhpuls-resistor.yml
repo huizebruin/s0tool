@@ -42,6 +42,7 @@ number:
     #         format: "Chosen option: %s (index %d)"
     #         args: ["x.c_str()", "i"]binary_sensor:
 #------------------------# kwh #------------------------#
+binary_sensor:
   - platform: gpio
     id: kwh_sensor_status
     name: "kWh sensor status"
