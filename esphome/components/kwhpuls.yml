@@ -40,7 +40,7 @@ number:
       then:
         - logger.log:
             format: "Chosen option: %s "
-            args: ["x.c_str()"]
+            args: ["std::to_string(x)"]
 
 binary_sensor:
 #------------------------# kwh #------------------------#
@@ -61,7 +61,7 @@ binary_sensor:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    pin: 
+    pin:
       number: D5
       allow_other_uses: true
     name:  "Actuele energie"
