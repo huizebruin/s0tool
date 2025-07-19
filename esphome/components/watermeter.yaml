@@ -44,7 +44,7 @@ select:
       then:
         - logger.log:
             format: "Chosen option: %s "
-            args: ["std::to_string(x)"]
+            args: ["[x]"]
 
 #------------------------# Watermeter #------------------------#
 binary_sensor:
