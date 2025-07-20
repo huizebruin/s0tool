@@ -90,7 +90,7 @@ sensor:
       allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
-    timeout: 700s
+    timeout: 60s
     state_class: measurement
     unit_of_measurement: "l/min"
     accuracy_decimals: 1
