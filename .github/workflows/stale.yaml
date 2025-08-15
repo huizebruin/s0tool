@@ -1,5 +1,9 @@
 ---
 name: Stale
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
 
 # yamllint disable-line rule:truthy
 on:
