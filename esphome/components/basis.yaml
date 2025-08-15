@@ -6,7 +6,7 @@
 substitutions:
   device_description: ${name} made by s0tool.nl version ${project_version} - date ${date}.
   project_version: "3.6.6" # From 23-06-2024 new version
-  date: "20-07-2025"
+  date: "15-08-2025"
 
 preferences:
   flash_write_interval: 120min

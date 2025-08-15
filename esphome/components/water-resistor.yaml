@@ -117,3 +117,15 @@ sensor:
     accuracy_decimals: 0
     lambda: return id(total_water_pulses);
     internal: True
+
+# ⬇ Totaal watermeter in liter ⬇
+  - platform: template
+    name: "watermeter Totaal (L)"
+    unit_of_measurement: "L"
+    accuracy_decimals: 0
+    icon: mdi:water
+    lambda: |-
+      return id(sensor_pulse_meter_total).state * 1000;
+    update_interval: 10s
+    state_class: "total_increasing"
+    device_class: water
