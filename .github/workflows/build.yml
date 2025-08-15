@@ -33,6 +33,8 @@ jobs:
 
   consolidate:
     name: Consolidate firmwares 🚀
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     needs: build
     steps:
