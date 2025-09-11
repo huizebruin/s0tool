@@ -573,3 +573,15 @@ body.show-special .special {
         margin-top: 0.5rem;
     }
 }
+
+/* Voeg toe aan styles.css */
+code {
+  background: #e6f4ea;
+  color: #256d3b;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 1.05em;
+  font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
+  box-shadow: 0 1px 4px rgba(60, 179, 113, 0.07);
+  margin: 0 2px;
+}

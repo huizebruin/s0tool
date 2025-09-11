@@ -45,7 +45,8 @@
           <li>Find the sensor (S0tool) you want to update and click the three dots in the bottom right.</li>
           <li>Select “Validate” from the list.</li>
           <li>Once the validation completes, click “Install” in the bottom right.</li>
-        </ol>
+        </ol></section>
+        <section>
         <h4>Drivers</h4>
         <p>If the serial port is not showing up, your computer might be missing the drivers for the USB serial chip
           used in your ESP device. These drivers work for most ESP devices:</p>
@@ -55,14 +56,16 @@
           <li>CH341: <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank"
               rel="noopener">driver</a></li>
           <li>CH340: <a href="https://sparks.gogo.co.nz/ch340.html" target="_blank" rel="noopener">driver</a></li>
-        </ul>
+        </ul></section>
+        <section>
         <h4>Blueprint for Update Notifications</h4>
         <p>With this, you can create an automation that will notify you when a new version is online on GitHub. You
           must have added all the above sensors.</p>
         <a
           href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e">
           <img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Blueprint Import Badge">
-        </a>
+        </a></section>
+        <section>
         <h4>Advanced Users</h4>
         <ul>
           <li>The device is adoptable in the <a
@@ -70,7 +73,8 @@
               target="_blank" rel="noopener">ESPHome dashboard</a>.</li>
           <li>The YAML configuration is available on <a href="https://github.com/huizebruin/s0tool" target="_blank"
               rel="noopener">GitHub</a>.</li>
-        </ul>
+        </ul></section>
+        <section>
         <h4>Types of Water Meters with NPN Sensors</h4>
         <p>The following table lists common water meters compatible with NPN sensors:</p>
         <table>
@@ -138,7 +142,10 @@
             Add to the list
           </a>.
         </p>
-        <img src="./assets/watermeter.jpg" alt="Watermeter">
+        <img src="./assets/watermeter.jpg" alt="Watermeter" style="max-width:300px; width:100%; border-radius:8px; margin:1rem auto; display:block;">
+        </section>
+        <section>
+
         <h2 id="dashboard">Watermeter and S0 Port in Energy Dashboard</h2>
         <p>As of Home Assistant version 2022.11.X, you can effortlessly integrate your water meter into the energy
           dashboard using the S0tool from version v22.10.20. The S0 port (D5) is also compatible with heating units,
@@ -165,10 +172,12 @@
               alt="Open your Home Assistant instance and show your energy configuration panel." />
           </a>
         </p>
+        
         <h4>Setup Your Water Meter</h4>
         <p>In the energy dashboard, look for <code>watermeter stand</code> to add your water usage metrics.</p>
         <p>For S0 port usage, search for <code>Totaal opgebracht</code> to monitor metrics from appliances or energy
-          systems using S0 connectivity.</p>
+          systems using S0 connectivity.</p></section>
+          <section>
         <h4>Changing Total Readings</h4>
         <p>
           Use the following links to adjust your total readings for various sensors and meters:
@@ -192,7 +201,8 @@
               Find your readings and reset them with a Calibration Service Call
             </a>
           </li>
-        </ul>
+        </ul></section>
+        <section>
         <h4>Advanced Configuration</h4>
         <p>If you want to dive deeper into customizing your configuration, refer to the official <a
             href="https://www.home-assistant.io/integrations/esphome/" target="_blank">ESPHome documentation</a>. You
