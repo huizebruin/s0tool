@@ -1,6 +1,9 @@
 ---
 name: Stale
-
+permissions:
+  contents: read
+  pull-requests: write
+  
 # yamllint disable-line rule:truthy
 on:
   schedule:

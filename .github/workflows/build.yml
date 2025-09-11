@@ -1,4 +1,8 @@
 name: Build
+permissions:
+  contents: read
+  pull-requests: write
+  
 # Build the ESPHome firmwares for the S0tool project.
 on:
   push:

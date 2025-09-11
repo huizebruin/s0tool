@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diy or Buy - s0tool.nl</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
   <meta name="description" content="Count your water use with the S0tool and Home Assistant and ESPHome.">
@@ -21,7 +19,6 @@
   <meta property="og:type" content="website">
   <meta property="og:description" content="Count your water use with the S0tool and Home Assistant and ESPHome.">
   <meta property="og:image" content="./assets/header.png">
-
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,102 +26,94 @@
     gtag('js', new Date());
     gtag('config', 'G-9HB5QGY82J');
   </script>
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
   <div id="navbar"></div>
-
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar"></div>
-      </div>
-
-      <div class="col-md-9">
-        <main id="main-content">
-          <h3 id="diy-watercounter">DIY Water Counter</h3>
-          <p>To create a DIY water counter, you'll need specific components like the Wemos D1 mini, an NPN sensor, and a
-            10K resistor. The 10K resistor should be connected between the 5V and D2, and from D2 to the NPN sensor.</p>
-          
-            <h3 id="hardware-requirements">Hardware Requirements</h3>
-          <ul>
-            <li><strong>Wi-Fi:</strong> IEEE 802.11 b/g/n 2.4GHz</li>
-            <li><strong>Minimal ESPHome version:</strong> 2024.12.x</li>
-            <li><strong>Minimal Home Assistant version:</strong> 2025.01.x</li>
-            <li class="text-danger">Works only for a Wemos D1 mini V1, V3.0 ESP8266 at this moment.</li>
-            <li class="text-danger">Additionally, you will need a USB cable and a USB power adapter with at least 5V and 1A.</li>
-          </ul>
-          <h4>What You Need 🛒</h4>
-          <ul>
-            <li>
-              <strong>Wemos D1 Mini ESP8266:</strong> <a href="https://s.click.AliExpress.com/e/_9fhHxf" target="_blank">AliExpress</a>
-              or <a href="https://amzn.to/3FL7O48" target="_blank">Amazon</a>
-            </li>
-            <li>
-              <strong>NPN Sensor:</strong> <a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank">AliExpress</a> or <a
-                href="https://amzn.to/3DFVsaL" target="_blank">Amazon</a> or Dutch webshop <a
-                href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github"
-                target="_blank">Opencircuit</a>
-            </li>
-            <li>
-              <strong>10K Resistor:</strong> <a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank">AliExpress</a> or <a
-                href="https://amzn.to/3NBjjx2" target="_blank">Amazon</a> or Dutch webshop <a
-                href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github"
-                target="_blank">Opencircuit</a>
-            </li>
-            <li><strong>USB Cable and a USB power adapter with at least 5V and 1A.</strong></li>
-          </ul>
-
-          <p>
-            <a href="./assets/npn-watermeter-wemosd1.png" target="_blank">
-              <img src="./assets/npn-watermeter-wemosd1.png" class="img-fluid" alt="S0tool DIY Wiring">
-            </a>
-          </p>
-
-          <p>Will it work with my meter? Check it out here: <a
-              href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank">GitHub Discussion</a></p>
-
-          <h3 id="buy-s0tool">How to Order the S0tool 🛒</h3>
-          <p>You can order it from: <a href="https://www.huizebruin.nl/product/s0tool/" target="_blank">Huizebruin
-              Shop</a></p>
-          <p>At this moment, we only ship to: The Netherlands and België.</p>
-
-
-
-          <h3 id="kwh-meter">kWh Meter Integration</h3>
-          <p>The S0tool can also be used to monitor your kWh meter. This allows you to track your energy consumption in
-            real-time and integrate it into Home Assistant for better energy management.</p>
-          <p>To connect your kWh meter:</p>
-          <ol>
-            <li>Ensure your kWh meter has an S0 output port.</li>
-            <li>Connect the S0 output to the S0tool using the appropriate wiring.</li>
-            <li>Configure the S0tool in ESPHome or Home Assistant to read the pulses from the kWh meter.</li>
-          </ol>
-
-          <h3>The S0 Connection</h3>
-          <p>
-            <img src="./assets/kwh_Meter_Pulse.jpg" alt="S0 Connection Diagram" class="img-fluid"><br>
-            How to put it to your setup<br>
-            <img src="./assets/s0tool-s0-kwh-poort.jpg" alt="S0tool S0 kWh Port Setup" class="img-fluid"><br>
-          </p>
-          <p>For more details, visit the <a href="https://github.com/huizebruin/s0tool" target="_blank">GitHub
-              repository</a>.</p>
-        </main>
-      </div>
-    </div>
+  <div class="layout">
+    <div id="sidebar"></div>
+    <main>
+      <section>
+        <h1>Diy or Buy</h1>
+        <h3 id="diy-watercounter">DIY Water Counter</h3>
+        <p>To create a DIY water counter, you'll need specific components like the Wemos D1 mini, an NPN sensor, and a
+          10K resistor. The 10K resistor should be connected between the 5V and D2, and from D2 to the NPN sensor.</p>
+        <h3 id="hardware-requirements">Hardware Requirements</h3>
+        <ul>
+          <li><strong>Wi-Fi:</strong> IEEE 802.11 b/g/n 2.4GHz</li>
+          <li><strong>Minimal ESPHome version:</strong> 2024.12.x</li>
+          <li><strong>Minimal Home Assistant version:</strong> 2025.01.x</li>
+          <li style="color:#d32f2f;">Works only for a Wemos D1 mini V1, V3.0 ESP8266 at this moment.</li>
+          <li style="color:#d32f2f;">Additionally, you will need a USB cable and a USB power adapter with at least 5V and 1A.</li>
+        </ul>
+        <h4>What You Need 🛒</h4>
+        <ul>
+          <li>
+            <strong>Wemos D1 Mini ESP8266:</strong> <a href="https://s.click.AliExpress.com/e/_9fhHxf" target="_blank">AliExpress</a>
+            or <a href="https://amzn.to/3FL7O48" target="_blank">Amazon</a>
+          </li>
+          <li>
+            <strong>NPN Sensor:</strong> <a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank">AliExpress</a> or <a
+              href="https://amzn.to/3DFVsaL" target="_blank">Amazon</a> or Dutch webshop <a
+              href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github"
+              target="_blank">Opencircuit</a>
+          </li>
+          <li>
+            <strong>10K Resistor:</strong> <a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank">AliExpress</a> or <a
+              href="https://amzn.to/3NBjjx2" target="_blank">Amazon</a> or Dutch webshop <a
+              href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github"
+              target="_blank">Opencircuit</a>
+          </li>
+          <li><strong>USB Cable and a USB power adapter with at least 5V and 1A.</strong></li>
+        </ul>
+        <p>
+          <a href="./assets/npn-watermeter-wemosd1.png" target="_blank">
+            <img src="./assets/npn-watermeter-wemosd1.png" alt="S0tool DIY Wiring">
+          </a>
+        </p>
+        <p>Will it work with my meter? Check it out here: <a
+            href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank">GitHub Discussion</a></p>
+        <h3 id="buy-s0tool">How to Order the S0tool 🛒</h3>
+        <p>You can order it from: <a href="https://www.huizebruin.nl/product/s0tool/" target="_blank">Huizebruin
+            Shop</a></p>
+        <p>At this moment, we only ship to: The Netherlands and België.</p>
+        <h3 id="kwh-meter">kWh Meter Integration</h3>
+        <p>The S0tool can also be used to monitor your kWh meter. This allows you to track your energy consumption in
+          real-time and integrate it into Home Assistant for better energy management.</p>
+        <p>To connect your kWh meter:</p>
+        <ol>
+          <li>Ensure your kWh meter has an S0 output port.</li>
+          <li>Connect the S0 output to the S0tool using the appropriate wiring.</li>
+          <li>Configure the S0tool in ESPHome or Home Assistant to read the pulses from the kWh meter.</li>
+        </ol>
+        <h3>The S0 Connection</h3>
+        <p>
+          <img src="./assets/kwh_Meter_Pulse.jpg" alt="S0 Connection Diagram"><br>
+          How to put it to your setup<br>
+          <img src="./assets/s0tool-s0-kwh-poort.jpg" alt="S0tool S0 kWh Port Setup"><br>
+        </p>
+        <p>For more details, visit the <a href="https://github.com/huizebruin/s0tool" target="_blank">GitHub
+            repository</a>.</p>
+      </section>
+    </main>
   </div>
-
   <div id="footer"></div>
+  <script>
+    // Navbar en sidebar includen
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('navbar').innerHTML = html);
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
-    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('sidebar').innerHTML = html);
 
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
   <script src="./js/script.js"></script>
 </body>
 
