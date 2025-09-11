@@ -223,32 +223,32 @@ section {
 
 /* Installation cards grid */
 .config-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    justify-items: center;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  justify-items: center;
+  margin-top: 2rem;
 }
 .config-card {
-    background: #f4f6f8;
-    border-radius: 12px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    width: 210px;
-    max-width: 95vw;
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    word-break: break-word;
+  background: #f4f6f8;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  width: 180px;         /* SMALLER WIDTH */
+  max-width: 95vw;
+  padding: 1rem 0.7rem; /* LESS PADDING */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-break: break-word;
 }
 .config-card img {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 8px;
-    margin-bottom: 0.7rem;
-    background: #fff;
-    object-fit: contain;
+  width: 100%;
+  max-width: 120px;     /* SMALLER IMAGE */
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  background: #fff;
+  object-fit: contain;
 }
 .config-card h5 {
     margin: 0.5rem 0;
@@ -267,17 +267,17 @@ section {
     cursor: pointer;
 }
 @media (max-width: 900px) {
-    .config-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .config-card {
-        width: 95vw;
-        max-width: 350px;
-    }
-    .config-card img {
-        max-width: 180px;
-    }
+  .config-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .config-card {
+    width: 95vw;
+    max-width: 350px;
+  }
+  .config-card img {
+    max-width: 180px;
+  }
 }
 
 /* Connect button styling */
