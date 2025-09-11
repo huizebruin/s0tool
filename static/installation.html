@@ -180,23 +180,23 @@
         <p>If your Home Assistant instance is on the same network, the S0tool will be automatically discovered under Settings &gt; Devices &amp; Services.</p>
       </section>
     </main>
+    </div>
     <div id="footer"></div>
-  </div>
-  <script>
-    // Navbar en sidebar includen
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('navbar').innerHTML = html);
+    <script>
+      // Navbar en sidebar includen
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => document.getElementById('navbar').innerHTML = html);
 
-    fetch('sidebar.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('sidebar').innerHTML = html);
+      fetch('sidebar.html')
+        .then(response => response.text())
+        .then(html => document.getElementById('sidebar').innerHTML = html);
 
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('footer').innerHTML = html);
-  </script>
-  <script src="./js/script.js"></script>
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="./js/script.js"></script>
   <script>
     // Radio button manifest logic
     document.querySelectorAll('input[name="type"]').forEach((radio) =>
