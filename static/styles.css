@@ -496,3 +496,9 @@ code {
   box-shadow: 0 1px 4px rgba(60, 179, 113, 0.07);
   margin: 0 2px;
 }
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: #3cb371; /* Huizebruin groen */
+  margin-bottom: 0.5rem;
+}
