@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S0tool - Monitor Your Water and Energy Usage</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
   <meta name="description" content="Count your water use and kWh with the S0tool and Home Assistant and ESPHome.">
@@ -21,7 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:description" content="Count your water use and kWh with the S0tool and Home Assistant and ESPHome.">
   <meta property="og:image" content="./assets/header.png">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -32,226 +30,201 @@
 </head>
 
 <body>
-    <div id="navbar"></div>
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-3">
-          <div id="sidebar"></div>
-        </div>
-        <div class="col-md-9">
-          <main id="main-content">
-            <br>
-
-  <header class="bg-primary text-white text-center py-5">
-    <div class="container">
-      <img src="./assets/header.png" alt="S0tool Logo" class="img-fluid mb-3" style="max-width: 350px;">
-      <h1 class="display-4">Welcome to S0tool.nl</h1>
-      <p class="lead bg-dark text-white d-inline-block px-3 py-2 rounded">
-        Monitor your water and energy consumption with ease and precision.
-      </p>
-    </div>
-  </header>
-
-  <section id="about-s0tool" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">About S0tool</h2>
-      <p class="text-center">
-        The S0tool is a versatile tool for monitoring water and energy consumption. It seamlessly
-        integrates with ESPHome and offers various features to help you track and optimize your usage.
-      </p>
-  
-      <h3 class="text-center mt-4">Compatible Water Meters</h3>
-      <p>The S0tool works with a variety of water meters that support NPN sensors. Below is a list of compatible water
-        meters:</p>
-      <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-          <tr>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Compatibility</th>
-            <th>Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Elster</td>
-            <td>V200</td>
-            <td>Compatible</td>
-            <td>NL</td>
-          </tr>
-          <tr>
-            <td>Itron</td>
-            <td>Aquadis+</td>
-            <td>Compatible</td>
-            <td>NL</td>
-          </tr>
-          <tr>
-            <td>Sensus</td>
-            <td>620</td>
-            <td>Compatible</td>
-            <td>NL</td>
-          </tr>
-          <tr>
-            <td>Maddalena</td>
-            <td>CD SD Plus</td>
-            <td>Compatible</td>
-            <td>BE</td>
-          </tr>
-          <tr>
-            <td>Actaris</td>
-            <td>Single-Jet</td>
-            <td>Compatible</td>
-            <td>NL</td>
-          </tr>
-          <tr>
-            <td>Zenner</td>
-            <td>MNK-RP-N</td>
-            <td>Compatible</td>
-            <td>DE</td>
-          </tr>
-          <tr>
-            <td>Kamstrup</td>
-            <td>Multical 21</td>
-            <td>Compatible</td>
-            <td>EU</td>
-          </tr>
-          <tr>
-            <td>Diehl</td>
-            <td>Hydrus</td>
-            <td>Compatible</td>
-            <td>EU</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        If you know more compatible water meters, please contribute to the discussion on GitHub:
-        <a href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank" rel="noopener">
-          Add to the list
-        </a>.
-      </p>
-  
-      <hr>
-  
-      <h3 class="text-center mt-5">Compatible Power Meters (S0 Output)</h3>
-      <p>These meters have a standard <strong>S0 pulse output</strong> (open collector) and work with the S0tool:</p>
-      <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-          <tr>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Compatibility</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Eastron</td>
-            <td>SDM120 / SDM220</td>
-            <td>Compatible</td>
-            <td>S0 pulse terminals</td>
-          </tr>
-          <tr>
-            <td>ABB</td>
-            <td>B23 / B24 series</td>
-            <td>Compatible</td>
-            <td>External S0 wiring required</td>
-          </tr>
-          <tr>
-            <td>Schneider</td>
-            <td>iEM3000 series</td>
-            <td>Compatible</td>
-            <td>Needs S0 connection setup</td>
-          </tr>
-          <tr>
-            <td>Carlo Gavazzi</td>
-            <td>EM24 / EM340</td>
-            <td>Compatible</td>
-            <td>Pulse settings configurable</td>
-          </tr>
-          <tr>
-            <td>Finder</td>
-            <td>7E.23 / 7E.36 series</td>
-            <td>Compatible</td>
-            <td>DIN rail mountable</td>
-          </tr>
-          <tr>
-            <td>Eltako</td>
-            <td>DSZ15D-3x80A</td>
-            <td>Compatible</td>
-            <td>DIN rail mountable</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        If you know more compatible s0 kWh meters, please contribute to the discussion on GitHub:
-        <a href="https://github.com/huizebruin/s0tool/discussions/250" target="_blank" rel="noopener">
-          Add to the list
-        </a>.
+  <div id="navbar"></div>
+  <div class="layout">
+    <div id="sidebar"></div>
+    <main>
+        <section id="header" >
+        <img src="./assets/header.png" alt="S0tool Logo" style="max-width: 300px; margin: 0 auto 1rem; display: block;">
+        <h1 class="section-title text-center">Welcome to S0tool.nl</h1>
+        <p class="text-center">
+          Monitor your water and energy consumption with ease and precision.
         </p>
-    </div>
-  </section>
-  
+        </section>
 
-  <section id="key-features" class="bg-light py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Key Features</h2>
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <h4>Real-Time Monitoring</h4>
-          <p>Track water and energy consumption in real-time with ESPHome and Home Assistant.</p>
+      <section id="about-s0tool" class="section-card">
+        <h2 class="section-title text-center">About S0tool</h2>
+        <p class="text-center">
+          The S0tool is a versatile tool for monitoring water and energy consumption. It seamlessly
+          integrates with ESPHome and offers various features to help you track and optimize your usage.
+        </p>
+        <h3 class="text-center mt-4">Compatible Water Meters</h3>
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Compatibility</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Elster</td>
+              <td>V200</td>
+              <td>Compatible</td>
+              <td>NL</td>
+            </tr>
+            <tr>
+              <td>Itron</td>
+              <td>Aquadis+</td>
+              <td>Compatible</td>
+              <td>NL</td>
+            </tr>
+            <tr>
+              <td>Sensus</td>
+              <td>620</td>
+              <td>Compatible</td>
+              <td>NL</td>
+            </tr>
+            <tr>
+              <td>Maddalena</td>
+              <td>CD SD Plus</td>
+              <td>Compatible</td>
+              <td>BE</td>
+            </tr>
+            <tr>
+              <td>Actaris</td>
+              <td>Single-Jet</td>
+              <td>Compatible</td>
+              <td>NL</td>
+            </tr>
+            <tr>
+              <td>Zenner</td>
+              <td>MNK-RP-N</td>
+              <td>Compatible</td>
+              <td>DE</td>
+            </tr>
+            <tr>
+              <td>Kamstrup</td>
+              <td>Multical 21</td>
+              <td>Compatible</td>
+              <td>EU</td>
+            </tr>
+            <tr>
+              <td>Diehl</td>
+              <td>Hydrus</td>
+              <td>Compatible</td>
+              <td>EU</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Know more compatible water meters? <a href="https://github.com/huizebruin/s0tool/discussions/57" target="_blank" rel="noopener">Add to the list</a>.
+        </p>
+        <hr>
+        <h3 class="text-center mt-5">Compatible Power Meters (S0 Output)</h3>
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Compatibility</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Eastron</td>
+              <td>SDM120 / SDM220</td>
+              <td>Compatible</td>
+              <td>S0 pulse terminals</td>
+            </tr>
+            <tr>
+              <td>ABB</td>
+              <td>B23 / B24 series</td>
+              <td>Compatible</td>
+              <td>External S0 wiring required</td>
+            </tr>
+            <tr>
+              <td>Schneider</td>
+              <td>iEM3000 series</td>
+              <td>Compatible</td>
+              <td>Needs S0 connection setup</td>
+            </tr>
+            <tr>
+              <td>Carlo Gavazzi</td>
+              <td>EM24 / EM340</td>
+              <td>Compatible</td>
+              <td>Pulse settings configurable</td>
+            </tr>
+            <tr>
+              <td>Finder</td>
+              <td>7E.23 / 7E.36 series</td>
+              <td>Compatible</td>
+              <td>DIN rail mountable</td>
+            </tr>
+            <tr>
+              <td>Eltako</td>
+              <td>DSZ15D-3x80A</td>
+              <td>Compatible</td>
+              <td>DIN rail mountable</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Know more compatible S0 kWh meters? <a href="https://github.com/huizebruin/s0tool/discussions/250" target="_blank" rel="noopener">Add to the list</a>.
+        </p>
+      </section>
+
+      <section id="key-features" class="section-card bg-light">
+        <h2 class="section-title text-center">Key Features</h2>
+        <div class="row text-center">
+          <div class="col-md-4 mb-4">
+            <div class="feature-icon"><i class="bi bi-lightning-charge"></i></div>
+            <h4>Real-Time Monitoring</h4>
+            <p>Track water and energy consumption in real-time with ESPHome and Home Assistant.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="feature-icon"><i class="bi bi-house-door"></i></div>
+            <h4>Smart Integration</h4>
+            <p>Transform non-smart meters into smart meters with S0tool's advanced capabilities.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="feature-icon"><i class="bi bi-bar-chart-line"></i></div>
+            <h4>Energy Optimization</h4>
+            <p>Identify areas for improvement and make informed decisions about your energy usage.</p>
+          </div>
         </div>
-        <div class="col-md-4 text-center">
-          <h4>Smart Integration</h4>
-          <p>Transform non-smart meters into smart meters with S0tool's advanced capabilities.</p>
+      </section>
+
+      <section id="s0tool-benefits" class="section-card">
+        <h2 class="section-title text-center">Benefits</h2>
+        <p class="text-center">With the S0tool, you can easily monitor your water and energy consumption in real-time.
+          This helps you identify areas for improvement and make informed decisions about your energy usage.</p>
+      </section>
+
+      <section id="made-for-esphome" class="section-card bg-light text-center">
+        <h2 class="section-title mb-4">Made for ESPHome</h2>
+        <img src="./assets/made-for-esphome-black-on-white.png" class="img-fluid mb-3" alt="Made for ESPHome Program"
+          width="220" height="80">
+        <p>The S0tool has an official Made for ESPHome license, ensuring seamless integration and reliable performance.</p>
+      </section>
+
+      <section id="contact" class="section-card">
+        <h2 class="section-title text-center">Contact Us</h2>
+        <p class="text-center">Have questions or need support? Reach out to us, and we'll be happy to assist you.</p>
+        <div class="text-center">
+          <a id="email-link" class="contact-btn" href="mailto:info@s0tool.nl">Email Us</a>
         </div>
-        <div class="col-md-4 text-center">
-          <h4>Energy Optimization</h4>
-          <p>Identify areas for improvement and make informed decisions about your energy usage.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="s0tool-benefits" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Benefits</h2>
-      <p class="text-center">With the S0tool, you can easily monitor your water and energy consumption in real-time.
-        This
-        helps you identify areas for improvement and make informed decisions about your energy usage.</p>
-    </div>
-  </section>
-
-  <section id="made-for-esphome" class="bg-light py-5">
-    <div class="container text-center">
-      <h2 class="mb-4">Made for ESPHome</h2>
-      <img src="./assets/made-for-esphome-black-on-white.png" class="img-fluid mb-3" alt="Made for ESPHome Program"
-        width="300" height="100">
-      <p>The S0tool has an official Made for ESPHome license, ensuring seamless integration and reliable performance.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Contact Us</h2>
-      <p class="text-center">Have questions or need support? Reach out to us, and we'll be happy to assist you.</p>
-      <div class="text-center">
-        <a id="email-link" class="btn btn-primary">Email Us</a>
-      </div>
-    </div>
-  </section>
-
+      </section>
+    </main>
+  </div>
   <div id="footer"></div>
+  <script>
+    // Navbar en sidebar includen
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('navbar').innerHTML = html);
 
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('sidebar').innerHTML = html);
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
-    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
   <script src="./js/script.js"></script>
 </body>
 

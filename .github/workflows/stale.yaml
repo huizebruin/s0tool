@@ -1,6 +1,9 @@
 ---
 name: Stale
-
+permissions:
+  contents: read
+  pull-requests: write
+  
 # yamllint disable-line rule:truthy
 on:
   schedule:
@@ -13,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚀 Run stale
-        uses: actions/stale@v9
+        uses: actions/stale@v10
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-stale: 30
