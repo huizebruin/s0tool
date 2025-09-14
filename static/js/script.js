@@ -3,6 +3,14 @@ fetch('navbar.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar').innerHTML = data;
+        // Mobile menu toggle logic
+        const toggle = document.getElementById('navbar-toggle');
+        const links = document.getElementById('navbar-links');
+        if (toggle && links) {
+            toggle.onclick = function() {
+                links.classList.toggle('show');
+            };
+        }
     })
     .catch(error => console.error('Error loading navbar:', error));
 
@@ -27,8 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailUser = "support";
   const emailDomain = "s0tool.nl";
   const emailLink = document.getElementById("email-link");
-  emailLink.href = `mailto:${emailUser}@${emailDomain}`;
-  emailLink.textContent = `${emailUser}@${emailDomain}`;
+  if (emailLink) {
+    emailLink.href = `mailto:${emailUser}@${emailDomain}`;
+    emailLink.textContent = `${emailUser}@${emailDomain}`;
+  }
 });
 
 

@@ -1,6 +1,9 @@
 ---
 name: Sync labels
-
+permissions:
+  contents: read
+  pull-requests: write
+  
 on:
   push:
     branches:
@@ -12,6 +15,9 @@ on:
 jobs:
   labels:
     name: ♻️ Sync labels
+    permissions:
+      contents: read
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code from GitHub
