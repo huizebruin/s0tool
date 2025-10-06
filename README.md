@@ -21,7 +21,7 @@
 
 ![Made for ESPHome](./static/assets/made-for-esphome-black-on-white.png)
 
-[Website](https://s0tool.nl) • [Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) • [Shop](https://www.huizebruin.nl/shop) • [Discord](https://discord.gg/bN8rC7gEng)
+[Website](https://s0tool.nl) • [Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) • [Shop](https://www.huizebruin.nl/shop) • [Discord](https://discord.gg/AskpfnY)
 
 </div>
 
@@ -475,7 +475,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <div align="center">
 
-**[Website](https://s0tool.nl)** • **[Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)** • **[Shop](https://www.huizebruin.nl/shop)** • **[Discord](https://discord.gg/bN8rC7gEng)**
+**[Website](https://s0tool.nl)** • **[Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)** • **[Shop](https://www.huizebruin.nl/shop)** • **[Discord](https://discord.gg/AskpfnY)**
 
 Made with ❤️ for the Home Assistant community
 
@@ -488,7 +488,7 @@ Made with ❤️ for the Home Assistant community
 [github-master]: https://github.com/huizebruin/s0tool/commits/main
 [license-shield]: https://img.shields.io/github/license/huizebruin/s0tool.svg
 [discord-shield]: https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=7289da
-[discord]: https://discord.gg/bN8rC7gEng
+[discord]: https://discord.gg/AskpfnY
 [contributors-url]: https://github.com/huizebruin/s0tool/graphs/contributors
 [contributors-shield]: https://img.shields.io/github/contributors/huizebruin/s0tool.svg
 [forks-shield]: https://img.shields.io/github/forks/huizebruin/s0tool.svg
@@ -497,3 +497,4 @@ Made with ❤️ for the Home Assistant community
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
+
