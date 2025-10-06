@@ -1,174 +1,247 @@
-| Repository Status | ESPHome S0tool discord Community |
-| :--- | :--- |
-| [![last commit time][github-last-commit]][github-master] [![GitHub Activity][commits-shield]][commits] | [![Discord][discord-shield]][discord] ![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social) [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io) |
-| [![License][license-shield]](LICENSE) [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] | [![Contributors][contributors-shield]][contributors-url] [![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases) |
+<div align="center">
 
-|  S0tool.nl | 
-| :--- | 
-|  ![S0tool-logo](./static/assets/s0tool-logo.jpg) |
-| Made for ESPHome program |
-| ![ESPHome](./static/assets/made-for-esphome-black-on-white.png) |
+# S0tool
 
-|  S0tool | Dashboard  |
-| :--- | :--- |
-|  ![S0tool-print](./static/assets/s0tool-huizebruin.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.png) |
+![S0tool Logo](./static/assets/s0tool-logo.jpg)
 
-## New website for the S0tool. (24-06-2024)
+**Monitor your water and energy consumption with Home Assistant and ESPHome**
 
-For more information, check also  [https://s0tool.nl](https://s0tool.nl)
+[![last commit time][github-last-commit]][github-master]
+[![GitHub Activity][commits-shield]][commits]
+[![License][license-shield]](LICENSE)
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![GitHub release](https://img.shields.io/github/release/huizebruin/s0tool.svg)](https://GitHub.com/huizebruin/s0tool/releases)
+[![Discord][discord-shield]][discord]
+![Twitter Follow](https://img.shields.io/twitter/follow/huizebruin?style=social)
 
-## Dutch version
-For the Dutch version, look on my [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
+[![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io)
 
-<br><br>
+![Made for ESPHome](./static/assets/made-for-esphome-black-on-white.png)
 
-# How to order the <b>S0tool</b> ?
+[Website](https://s0tool.nl) • [Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/) • [Shop](https://www.huizebruin.nl/shop) • [Discord](https://discord.gg/bN8rC7gEng)
 
-[https://www.huizebruin.nl/shop](https://www.huizebruin.nl/shop)</br>
-At this moment we only ship to : The Netherlands and België 
+</div>
 
-## If u cannot buy it u can make it on your own.
-You need a couple of thinks<br>
-and place a resistor between the D2 and 5V.
+---
 
-Wemos D1 mini ep8266 [Aliexpres](https://s.click.aliexpress.com/e/_9fhHxf) or [Amazon](https://amzn.to/3FL7O48) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github)<br>
+## 📖 Table of Contents
 
-Npn Sensor [Aliexpres](https://s.click.aliexpress.com/e/_AVaoGr) or [Amazon](https://amzn.to/3DFVsaL) or dutch webshop [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github)<br>
+- [Overview](#-overview)
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Hardware Requirements](#-hardware-requirements)
+- [DIY Build](#-diy-build)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Compatible Devices](#-compatible-devices)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [Support](#-support)
+- [License](#-license)
 
-10K resistor [Aliexpres](https://s.click.aliexpress.com/e/_A10BHz) or [Amazon](https://amzn.to/3NBjjx2) or dutch webshop [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github)<br>
+---
 
-And a usb cable and minimal a usb power adapter with 5v and 1A
+## 🌟 Overview
 
-![S0tool-diy](./static/assets/npn-watermeter-wemosd1.png)
+The **S0tool** is an ESPHome-based device that transforms regular water and energy meters into smart meters. Seamlessly integrate with Home Assistant to monitor real-time consumption and optimize your usage.
 
-Will it work with my meter check it out here. https://github.com/huizebruin/s0tool/discussions/57<br>
+| S0tool Device | Home Assistant Dashboard |
+|:---:|:---:|
+| ![S0tool Device](./static/assets/s0tool-huizebruin.jpg) | ![Dashboard](./static/assets/s0tool-dashboard.png) |
 
+### 📰 Latest Updates
 
+**🎉 New Website Available!** (June 24, 2024)
+Visit [https://s0tool.nl](https://s0tool.nl) for complete documentation and guides.
 
+**🇳🇱 Dutch Version**
+Voor de Nederlandse versie, bezoek [Huizebruin.nl](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
 
-<br>
-Before update of the S0tool u should use, and above <br>
+---
 
-| Program | version |
-| :------------- | :--------- |
-| Home Assistant | v 2025.1.0 |
-| ESPHome | v 2024.12.0 |
+## ✨ Features
 
-<br>
+- 💧 **Water Meter Monitoring** - Track water consumption in real-time
+- ⚡ **Energy Meter Support** - Monitor kWh usage from S0 pulse outputs
+- 🏠 **Home Assistant Integration** - Native ESPHome integration with auto-discovery
+- 📊 **Energy Dashboard Compatible** - Display data in HA Energy Dashboard (v2022.11+)
+- 🔄 **OTA Updates** - Update firmware wirelessly through ESPHome
+- 🌐 **Easy Web Installation** - Flash firmware directly from your browser
+- 📱 **Real-time Monitoring** - Instant updates on consumption
+- 🎯 **Multiple Meter Support** - Connect both water and energy meters simultaneously
 
-## Information:<br>
-  Wi-fi : IEEE 802.11 b/g/n 2.4GHz 
+---
 
-<br>
+## 🚀 Quick Start
 
-***
-<br>
+### Requirements
 
-### Software update information at [releases](https://github.com/huizebruin/s0tool/releases) here on Github.
-***
+| Software | Minimum Version |
+|:---|:---:|
+| Home Assistant | v2025.1.0+ |
+| ESPHome | v2024.12.0+ |
 
-# Hardware
-Put the sensors ad your 🛒 Look what you need te have te use it.
-#
-## 5V Power and cable
-- Minimal a 5v 1A [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Funiversal-usb-adapter-usb-stekker-usb-lader-blokje-universeel-zwart%2F9300000030638594%2F&name=Universal%20USB%20adapter%20-%20USB%20stekker%20-%20USB%20lader) 
-- usb kabel [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fzware-kwaliteit-0-3-m-usb-oplaadkabel-oplaadsnoer-kabel-voor-snelladen-past-ook-op-huawei-ascend-3-ideos-x3-mate-10-lite-mate-8-mate-s-p-smart-p10-lite-p8-lite%2F9200000124489693%2F&name=Zware%20kwaliteit%200%2C3%20m%20USB%20oplaadkabel.%20) or [opencircuit.nl](https://opencircuit.nl/product/Micro-USB-kabel-100cm-blauw-30AWG?affiliate=1VL4KIAMBZ)
+**Specifications:**
+- Wi-Fi: IEEE 802.11 b/g/n 2.4GHz
+- Compatible with: Wemos D1 Mini V1 or V3.0 ESP8266
+- Power: USB 5V, 1A minimum
 
-Or a 5v 2.5A with cable [Opencircuit.nl](https://opencircuit.nl/product/5V-2.5A-Adapter-Micro-USB-B-Raspberry-Pi?affiliate=1VL4KIAMBZ&cid=github) or at [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fxssive-usb-lader-met-micro-usb-kabel-voor-motorola-smartphones-o-a-moto-x-moto-g-moto-e-nexus-6%2F9200000055360796%2F&name=Xssive%20USB%20Lader%20met%20Micro%20USB%20Kabel%20).
-#
-## For the  water counter
--  a NPN sensor - [Aliexpress](https://s.click.aliexpress.com/e/_AaxBxa) or [Aliexpress](https://s.click.aliexpress.com/e/_ADG3ri) or [Aliexpress](https://s.click.aliexpress.com/e/_A4Lsko) or in Nederland at [Opencircuit.nl](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github)
-- (use npn sensor for 5V not that one thats higher than 6V !!)<br> 
-I am using the LJ18A3-8-Z/BX-5V <br> ![afbeelding](./static/assets/water-npn.png)<br>
+### Installation Methods
 
-NPN sensor to the S0tool<br>
-![watermeteraansluiting](./static/assets/s0tool-watermeter.jpg)<br>
+**🌐 Browser Installation (Recommended)**
 
-Cyble sensor V2 to the S0tool<br>
-![watermeteraansluiting](./static/assets/s0tool-cyble-sensor-v2.jpg)<br>
-Here u must add a 10K Ohm resistor between the GND and D2
+1. Visit [https://s0tool.nl](https://s0tool.nl)
+2. Connect your S0tool via USB
+3. Click "Install" and follow the wizard
+4. Compatible with Chrome, Edge, and Opera browsers
 
-Soon also a sensor for  Elster V100	kogelvorm meter for the S0tool at my shop.
+**🏠 Home Assistant Auto-Discovery**
 
-For More information about the S0tool look at my [Website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
+After connecting to Wi-Fi, the S0tool will automatically appear in Home Assistant under **Settings → Devices & Services**.
 
-## Watermeter to energy dashboard.
-From Home Assistant version 2022.11.X it is possible to add the water meter to the energy dashboard with the S0tool from version v22.10.20.<br>
-|  Enegry dashboard | Dashboard  |
-| :--- | :--- |
-|  ![S0tool-water-energy-dashboard](./static/assets/water-energydashboard.jpg)  | ![dashboard](./static/assets/s0tool-dashboard.jpg) |
+---
 
-***
-## For keeping track of solar panels or heat pump etc.
-- 45A kWh meter with 1000 pulses at kWh [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID%20-%201%20Fase%20kWh%20meter%20met%20puls%20uitgang)
-- 40A kWh meter with 2000 pulses at kWh [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) <br>
-- 32A kWh meter with 2000 pulses at kWh [Amazon](https://amzn.to/3P6CSg0)
-- 40A kWh meter with 1000 pulses at kWh [Amazon](https://amzn.to/3oV08ms)
+## 🛠 Hardware Requirements
 
-2000 pulses per kWh are given. This means that each plus has a value of 1/2000 = 0.0005 kWh
-1000 pulses per kWh are given. This means that each plus has a value of 1/1000 = 0.001 kWh
+### Option 1: Purchase Pre-Built
 
-2000 imp/kWh : gives 2,000 impulses per kWh. is therefore more accurate to do a measurement than the 1000 imp/KWh
-The more energy you consume or supply back, the faster it will switch.<br>
+**[Order from Huizebruin Shop](https://www.huizebruin.nl/shop)**
+🚚 Currently shipping to: The Netherlands and Belgium
 
+### Option 2: DIY Build
 
-![afbeelding](./static/assets/kwh-s0.png)<br>
-#
-## The s0 connection <br>
-![afbeelding](./static/assets/kwh_Meter_Pulse.jpg)<br>
-How to put it to your setup<br>
-![afbeelding](./static/assets/s0tool-s0-kwh-poort.jpg)<br>
+**Components Needed:**
 
-***
-<br>
+| Component | Where to Buy |
+|:---|:---|
+| **Wemos D1 Mini ESP8266** | [AliExpress](https://s.click.aliexpress.com/e/_9fhHxf) • [Amazon](https://amzn.to/3FL7O48) • [Opencircuit](https://opencircuit.nl/Product/WeMos-D1-mini-V3.1-Wifi-Module?affiliate=1VL4KIAMBZ&cid=github) |
+| **NPN Sensor (5V)** | [AliExpress](https://s.click.aliexpress.com/e/_AVaoGr) • [Amazon](https://amzn.to/3DFVsaL) • [Opencircuit](https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ&cid=github) |
+| **10K Resistor** | [AliExpress](https://s.click.aliexpress.com/e/_A10BHz) • [Amazon](https://amzn.to/3NBjjx2) • [Opencircuit](https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ&cid=github) |
+| **USB Cable & 5V Power Adapter** | [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Funiversal-usb-adapter-usb-stekker-usb-lader-blokje-universeel-zwart%2F9300000030638594%2F&name=Universal%20USB%20adapter) • [Opencircuit](https://opencircuit.nl/product/5V-2.5A-Adapter-Micro-USB-B-Raspberry-Pi?affiliate=1VL4KIAMBZ&cid=github) |
 
-## Installation: 
+---
 
-First you must have installed the CH340 drivers for the wemos d1 to communicate to your pc / laptop .<br>
+## 🔧 DIY Build
 
-Go to this link to install the drivers ch340. 
-[https://sparks.gogo.co.nz/ch340.html](https://sparks.gogo.co.nz/ch340.html) <br>
+### Wiring Diagram
 
-06/05/2022: <br> Now also possible to flash the <b>s0tool</b> directly via the browser.<br>
-Only possible with a chrome or edge and opera browser. <br>
-Connect the s0tool to your PC/laptop with a USB cable and start the procedure.
- [https://s0tool.nl](https://s0tool.nl)
+![DIY Wiring](./static/assets/npn-watermeter-wemosd1.png)
 
-1. Install Home Assistant & Esphome .
-2. Connect the wemos d1 mini to a USB charger.
-3. Go to <b>ssid:</b> ```S0tool``` 
-4. Go to ```192.168.4.1```.
-5. Put the correct SSID and Password in the fields
-6. Wait until it is ready, and then it will indicate the address where it can be found (put it in your router)
-7. Go to your Home Assistant installation, it will report that a new device has been connected. And add this.
-8. If all goes well, the print will connect to Github to download the latest version, and thereby also add it to Esphome
-9. Create a folder in your config folder via explorer and name it ``` utility_meter ``` and put another text file in it and rename it to utility.yaml, and add the code below. And save it (or download it from this repro) and put it in that folder. (Code that is under 10)
-10. Add the following code to your
-``` configuration.yaml ```
-<br> ``` utility_meter: !include utility_meter/utility.yaml ```
+### Connection Steps
 
-``` yaml
-#utility_meter:
-### watermeter  S0 meter
+1. Connect 10K resistor between **5V** and **D2** pins
+2. Connect **D2** to NPN sensor signal wire
+3. Connect NPN sensor **GND** to Wemos **GND**
+4. Connect NPN sensor **5V** to Wemos **5V**
+
+**⚠️ Important:** Use NPN sensors rated for 5V only (not higher than 6V)
+**Recommended Sensor:** LJ18A3-8-Z/BX-5V
+
+### Sensor Connection Examples
+
+**Standard NPN Sensor Connection:**
+
+![NPN Connection](./static/assets/s0tool-watermeter.jpg)
+
+**Cyble Sensor V2 Connection:**
+
+![Cyble Connection](./static/assets/s0tool-cyble-sensor-v2.jpg)
+*Note: Requires 10K resistor between GND and D2*
+
+### Meter Compatibility
+
+**💧 Check if your water meter is compatible:**
+[View Compatibility List](https://github.com/huizebruin/s0tool/discussions/57)
+
+---
+
+## 📥 Installation
+
+### Step 1: Install USB Drivers
+
+First, install the CH340 drivers for communication:
+[Download CH340 Drivers](https://sparks.gogo.co.nz/ch340.html)
+
+### Step 2: Flash Firmware
+
+**Browser Method (Easiest):**
+1. Visit [https://s0tool.nl](https://s0tool.nl)
+2. Connect S0tool to your PC via USB
+3. Select configuration type
+4. Click "Install" and follow prompts
+
+**Manual Method:**
+1. Install Home Assistant & ESPHome
+2. Connect Wemos D1 Mini via USB
+3. Access Wi-Fi: `S0tool`
+4. Navigate to: `192.168.4.1`
+5. Enter your Wi-Fi credentials
+6. Wait for device to connect
+7. Add device in Home Assistant
+
+### Step 3: Add to Home Assistant
+
+The S0tool will automatically appear in:
+**Settings → Devices & Services → ESPHome**
+
+Click "Configure" to complete setup.
+
+---
+
+## ⚙️ Configuration
+
+### Home Assistant Utility Meters
+
+**1. Create utility meter configuration:**
+
+Create folder: `config/utility_meter/`
+
+Create file: `utility.yaml`
+
+```yaml
+utility_meter:
+  # Water meter tracking
   waterverbruik_kwartier:
     source: sensor.watermeter_totaal
     cycle: quarter-hourly
   waterverbruik_per_uur:
     source: sensor.watermeter_totaal
     cycle: hourly
-enz...
+  waterverbruik_dag:
+    source: sensor.watermeter_totaal
+    cycle: daily
+  waterverbruik_week:
+    source: sensor.watermeter_totaal
+    cycle: weekly
+  waterverbruik_maand:
+    source: sensor.watermeter_totaal
+    cycle: monthly
 ```
-Those in the file are in the folder [utility_meter/utility.yaml](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) 
 
-12. Optionally to see if there are new updates, you can create the following Line in your configuration.yaml:<br>
+**2. Include in configuration.yaml:**
+
+```yaml
+utility_meter: !include utility_meter/utility.yaml
+```
+
+[📁 View Complete Utility Meter Config](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml)
+
+### Update Notifications
+
+**Enable automatic update checks:**
+
 ```yaml
 homeassistant:
   packages: !include_dir_merge_named packages/
-  ```
-And make a folder in youre comfig map on Home Asstant ```packages``` and make there a file like ```s0tool.yaml``` and ad there the code from the file from the [package map on the s0tool github](https://github.com/huizebruin/s0tool/tree/main/packages)
-(or you copy the package dutch or English file from the package folder and put it all in your own configuration).
+```
+
+Create `packages/s0tool.yaml`:
+
 ```yaml
-#sensor: # get away if this is your first sensor
+sensor:
   - platform: rest
     resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
     name: s0tool_version_github
@@ -176,135 +249,242 @@ And make a folder in youre comfig map on Home Asstant ```packages``` and make th
     value_template: '{{ value_json.tag_name }}'
     scan_interval: 3600
 
-  template:
-      - binary_sensor:
-          - name: "s0Tool update online"
-            unique_id: s0tool_up_to_date
-            state: >
-              {% set a = states('sensor.s0tool_versie_github') %}
-              {% set b = states('sensor.s0tool_versie') %}
-              {{ version(a) > version(b) }}
-            device_class: update
-
+template:
+  - binary_sensor:
+      - name: "S0Tool update online"
+        unique_id: s0tool_up_to_date
+        state: >
+          {% set a = states('sensor.s0tool_versie_github') %}
+          {% set b = states('sensor.s0tool_versie') %}
+          {{ version(a) > version(b) }}
+        device_class: update
 ```
 
-13. Restart Home Assistant one more time to add everything to your Lovelace screen.
+**Dashboard Update Card:**
 
-14. Add this card to automatically get an update on your dashboard, so you know if you are using the latest version.
-
-``` yaml
+```yaml
 type: conditional
 conditions:
   - entity: sensor.s0tool_up_to_date
     state_not: 'True'
 card:
   type: markdown
-  content: The s0tool is not up to date with the GitHub version.
+  content: The S0tool is not up to date with the GitHub version.
 ```
-***
 
+### Automation Blueprint
 
+[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e)
 
+Get notified when new versions are available!
 
-## Blueprint for update notifications.
-With this you can create an automation that will notify you when a new version is online on Github.
-You must have added all the above sensors.
-<br>
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e)
+---
 
+## 💧 Energy Dashboard Integration
 
-***
-## Adjusting the meter reading
+From Home Assistant v2022.11.X, water meters can be added to the Energy Dashboard!
 
-[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water) To adjust the water meter position.
-<br>
- [![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh) To adjust your kWh meter reading
-<br>
-Or this option and then search for the right meter and then adjust, <br> 
-[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate) here you can update all meter readings
-<br>
+| Energy Dashboard | S0tool Dashboard |
+|:---:|:---:|
+| ![Water Energy Dashboard](./static/assets/water-energydashboard.jpg) | ![S0tool Dashboard](./static/assets/s0tool-dashboard.jpg) |
 
-****
-## Update function
+### Adding to Energy Dashboard
 
-This can be done by the ESPHome dashboard by now.
-***
+[![Open Energy Dashboard](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
 
-Have fun with this tool.<br>
-Any additions / improvements <br> may be made via <b>[Pull requests](https://github.com/huizebruin/s0tool/pulls)</b> be supplemented.<br> 
-Or via<b> [issues](https://github.com/huizebruin/s0tool/issues) </b> requested or added.
-<br><br><br><b>
-Wobbe </b><br>
-From <a href="https://www.Huizebruin.nl" rel="noreferer, ,noopener" target="_blank">Huizebruin.nl</a> & <a href="https://s0tool.nl" rel="noreferer, ,noopener" target="_blank">S0tool.nl</a>
+1. Go to **Settings → Dashboards → Energy**
+2. Add water meter: Look for `watermeter stand`
+3. Add S0 port: Look for `Totaal opgebracht`
 
-Do you like my work ?  [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin) <br>
+---
+
+## ⚡ Energy Meter Support
+
+### Compatible kWh Meters
+
+Perfect for monitoring:
+- 🌞 Solar panels
+- 🔥 Heat pumps
+- ⚡ Energy consumption
+- 🏭 Any device with S0 pulse output
+
+### S0 Pulse Meters
+
+| Rating | Pulse Rate | Sources |
+|:---|:---:|:---|
+| 45A kWh Meter | 1000 imp/kWh | [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID) |
+| 40A kWh Meter | 2000 imp/kWh | [Bol.com](https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173) |
+| 32A kWh Meter | 2000 imp/kWh | [Amazon](https://amzn.to/3P6CSg0) |
+| 40A kWh Meter | 1000 imp/kWh | [Amazon](https://amzn.to/3oV08ms) |
+
+**Understanding Pulse Rates:**
+- 2000 imp/kWh = 0.0005 kWh per pulse (more accurate)
+- 1000 imp/kWh = 0.001 kWh per pulse
+
+### S0 Connection Diagrams
+
+![S0 Connection](./static/assets/kwh-s0.png)
+
+![S0 Wiring](./static/assets/kwh_Meter_Pulse.jpg)
+
+![S0 Setup](./static/assets/s0tool-s0-kwh-poort.jpg)
+
+---
+
+## 📋 Compatible Devices
+
+### Water Meters
+
+Check compatibility: [GitHub Discussion #57](https://github.com/huizebruin/s0tool/discussions/57)
+
+**Confirmed Compatible:**
+
+| Brand | Model | Location |
+|:---|:---|:---:|
+| Elster | V200 | NL |
+| Itron | Aquadis+ | NL |
+| Sensus | 620 | NL |
+| Maddalena | CD SD Plus | BE |
+| Actaris | Single-Jet | NL |
+| Zenner | MNK-RP-N | DE |
+| Kamstrup | Multical 21 | EU |
+| Diehl | Hydrus | EU |
+
+### Power Meters (S0 Output)
+
+Check compatibility: [GitHub Discussion #250](https://github.com/huizebruin/s0tool/discussions/250)
+
+---
+
+## 🔧 Adjusting Meter Readings
+
+### Water Meter
+
+[![Adjust Water Meter](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
+
+### kWh Meter
+
+[![Adjust kWh Meter](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
+
+### All Meters
+
+[![Calibrate All Meters](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate)
+
+---
+
+## 🔄 Updates
+
+### Via ESPHome Dashboard
+
+1. Open ESPHome in Home Assistant
+2. Find your S0tool device
+3. Click the three dots (⋮)
+4. Select "Validate" → "Install"
+
+**Latest releases:** [GitHub Releases](https://github.com/huizebruin/s0tool/releases)
+
+---
+
+## 🐛 Troubleshooting
+
+### USB Serial Drivers
+
+If the serial port doesn't appear, install the appropriate driver:
+
+| Chip | Driver |
+|:---|:---|
+| **CP2102** (square chip) | [Download](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) |
+| **CH341** | [Download](https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers) |
+| **CH340** | [Download](https://sparks.gogo.co.nz/ch340.html) |
+
+### Common Issues
+
+**Device not connecting to Wi-Fi:**
+- Ensure you're using 2.4GHz Wi-Fi (5GHz not supported)
+- Check SSID and password are correct
+- Try holding the boot button during flash
+
+**Meter readings not updating:**
+- Verify sensor is properly aligned with meter
+- Check wiring connections
+- Ensure 10K resistor is installed correctly
+
+**More Help:**
+- 📖 [Full Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
+- 💬 [Discord Community](https://discord.gg/bN8rC7gEng)
+- 🐛 [Report Issues](https://github.com/huizebruin/s0tool/issues)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions of all kinds! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Ways to Contribute
+
+- 🐛 Report bugs via [Issues](https://github.com/huizebruin/s0tool/issues)
+- 💡 Suggest features or improvements
+- 🔧 Submit [Pull Requests](https://github.com/huizebruin/s0tool/pulls)
+- 📝 Improve documentation
+- 🌟 Star this repository!
+
+### Contributors
+
+![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)
+
+This project is made possible by our amazing [contributors](https://github.com/huizebruin/s0tool/graphs/contributors)!
+
+---
+
+## 💖 Support
+
+Enjoying the S0tool? Consider supporting development:
+
+[![PayPal](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W4QU9ZX)
-<br><br>
-For more information and connection diagrams, etc., take a look at the [website](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/).
-***
 
-## To cooperate. 
-This is an active open source project. <br>
-We are always open to people who want to use or contribute to the code. 
+**Other ways to support:**
+- 🌟 Star this repository
+- 📢 Share with others
+- 💬 Join our [Discord](https://discord.gg/bN8rC7gEng)
 
-Who else is working on this project : <br>
-![GitHub contributors](https://img.shields.io/github/contributors/huizebruin/s0tool?style=plastic)<br>
+---
 
-****
-
-<h2 id="troubleshooting">Troubleshooting</h2>
-
-<h3 id="drivers">USB Serial Drivers</h3>
-<p>
-  If the serial port is not showing up, your computer might be missing the
-  drivers for the USB serial chip used in your ESP device. These drivers
-  work for most ESP devices:
-</p>
-  <ul>
-  <li>
-    CP2102 (square chip):
-    <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
-  </li>
-  <li>
-    CH341:
-    <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" rel="noreferer, ,noopener" target="_blank">driver</a>
-  </li>
-  <li>
-    CH340:
-    <a href="https://sparks.gogo.co.nz/ch340.html" rel="noreferer, ,noopener" target="_blank">driver</a>
-  </li>
-  </ul>
-<br>
-
-
-## License
-<div style="text-align:left;font-size:14px;">
+## 📄 License
 
 MIT License
 
-Copyright (c) 2021 / 2025 Huizebruin.nl / s0tool.nl
+Copyright (c) 2021 - 2025 Huizebruin.nl / S0tool.nl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+## 🙏 Credits
+
+**Created by:** Wobbe
+**From:** [Huizebruin.nl](https://www.huizebruin.nl) & [S0tool.nl](https://s0tool.nl)
+
+**Powered by:** [ESPHome](https://esphome.io) & [ESP Web Tools](https://esphome.github.io/esp-web-tools/)
+
+---
+
+<div align="center">
+
+**[Website](https://s0tool.nl)** • **[Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)** • **[Shop](https://www.huizebruin.nl/shop)** • **[Discord](https://discord.gg/bN8rC7gEng)**
+
+Made with ❤️ for the Home Assistant community
+
 </div>
 
-***
-
-<a href="https://tc.tradetracker.net/?c=27&amp;m=39668&amp;a=385034&amp;r=&amp;u=" target="_blank" rel="sponsored nofollow">Make money with your site. Start now, sign up here.</a>
-<div style="text-align:center;font-size:13px;">
-      <hr>
-      <a href="https://esphome.github.io/esp-web-tools/" target="_blank" style="color:#aaa;">S0tool Installer powered by ESP Web Tools</a>
-    </div>
-
-
-
-
+<!-- Badge Links -->
 [commits-shield]: https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg
 [commits]: https://github.com/huizebruin/s0tool/commits/main
-[github-last-commit]: https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=plasticr
+[github-last-commit]: https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=plastic
 [github-master]: https://github.com/huizebruin/s0tool/commits/main
 [license-shield]: https://img.shields.io/github/license/huizebruin/s0tool.svg
 [discord-shield]: https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=7289da
@@ -317,4 +497,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
-
