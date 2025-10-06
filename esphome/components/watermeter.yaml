@@ -90,7 +90,7 @@ sensor:
       allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
-    timeout: 15s
+    # timeout: 15s
     state_class: measurement
     unit_of_measurement: "l/min"
     accuracy_decimals: 1
@@ -119,7 +119,7 @@ sensor:
     device_class: water
     icon: mdi:water
     unit_of_measurement: "m³"
-    update_interval: 30s
+    # update_interval: 30s
     accuracy_decimals: 3
     lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
 
@@ -140,6 +140,6 @@ sensor:
     icon: mdi:water
     lambda: |-
       return id(sensor_pulse_meter_total).state * 1000;
-    update_interval: 10s
+    # update_interval: 10s
     state_class: "total_increasing"
     device_class: water

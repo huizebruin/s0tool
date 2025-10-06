@@ -69,7 +69,7 @@ sensor:
     name: "l/min at the moment"
 #    state_class: measurement
     unit_of_measurement: "l/min"
-    update_interval: 60s
+    # update_interval: 60s
     accuracy_decimals: 1
     icon: "mdi:water-pump"
     filters:
