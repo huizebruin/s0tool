@@ -463,6 +463,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=huizebruin/s0tool,huizebruin/s0tool&type=date&legend=top-left)](https://www.star-history.com/#huizebruin/s0tool&huizebruin/s0tool&type=date&legend=top-left)
 
 ## 🙏 Credits
 
@@ -481,6 +484,7 @@ Made with ❤️ for the Home Assistant community
 
 </div>
 
+
 <!-- Badge Links -->
 [commits-shield]: https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg
 [commits]: https://github.com/huizebruin/s0tool/commits/main
@@ -497,4 +501,5 @@ Made with ❤️ for the Home Assistant community
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
+
 
