@@ -465,7 +465,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ---
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=huizebruin/s0tool,huizebruin/s0tool&type=date&legend=top-left)](https://www.star-history.com/#huizebruin/s0tool&huizebruin/s0tool&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=huizebruin/s0tool&type=date&legend=top-left)](https://www.star-history.com/#huizebruin/s0tool&type=date&legend=top-left)
 
 ## 🙏 Credits
 
@@ -501,5 +501,6 @@ Made with ❤️ for the Home Assistant community
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
+
 
 
