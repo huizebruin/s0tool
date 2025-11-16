@@ -62,6 +62,7 @@ binary_sensor:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
+    internal_filter_mode: "PULSE" #test 06-10-2025
     pin: 
       number: D5
       allow_other_uses: true

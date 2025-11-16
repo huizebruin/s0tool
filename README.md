@@ -92,8 +92,7 @@ Voor de Nederlandse versie, bezoek [Huizebruin.nl](https://www.huizebruin.nl/hom
 ### Installation Methods
 
 **🌐 Browser Installation (Recommended)**
-
-1. Visit [https://s0tool.nl](https://s0tool.nl)
+1. Visit [https://s0tool.nl/installation.html](https://s0tool.nl/installation.html)
 2. Connect your S0tool via USB
 3. Click "Install" and follow the wizard
 4. Compatible with Chrome, Edge, and Opera browsers
@@ -109,7 +108,7 @@ After connecting to Wi-Fi, the S0tool will automatically appear in Home Assistan
 ### Option 1: Purchase Pre-Built
 
 **[Order from Huizebruin Shop](https://www.huizebruin.nl/shop)**
-🚚 Currently shipping to: The Netherlands and Belgium
+🚚 Currently shipping to: multiple country's so check it out on our shop
 
 ### Option 2: DIY Build
 
@@ -168,7 +167,7 @@ First, install the CH340 drivers for communication:
 ### Step 2: Flash Firmware
 
 **Browser Method (Easiest):**
-1. Visit [https://s0tool.nl](https://s0tool.nl)
+1. Visit  [https://s0tool.nl/installation.html](https://s0tool.nl/installation.html)
 2. Connect S0tool to your PC via USB
 3. Select configuration type
 4. Click "Install" and follow prompts
@@ -411,7 +410,7 @@ If the serial port doesn't appear, install the appropriate driver:
 
 **More Help:**
 - 📖 [Full Documentation](https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/)
-- 💬 [Discord Community](https://discord.gg/bN8rC7gEng)
+- 💬 [Discord Community](https://discord.gg/AskpfnY)
 - 🐛 [Report Issues](https://github.com/huizebruin/s0tool/issues)
 
 ---
@@ -446,7 +445,7 @@ Enjoying the S0tool? Consider supporting development:
 **Other ways to support:**
 - 🌟 Star this repository
 - 📢 Share with others
-- 💬 Join our [Discord](https://discord.gg/bN8rC7gEng)
+- 💬 Join our Dutch [Discord](https://discord.gg/AskpfnY)
 
 ---
 
@@ -497,4 +496,3 @@ Made with ❤️ for the Home Assistant community
 [stars-url]: https://github.com/huizebruin/s0tool/stargazers
 [issues-shield]: https://img.shields.io/github/issues/huizebruin/s0tool.svg
 [issues-url]: https://github.com/huizebruin/s0tool/issues
-
