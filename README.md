@@ -167,7 +167,7 @@ First, install the CH340 drivers for communication:
 ### Step 2: Flash Firmware
 
 **Browser Method (Easiest):**
-1. Visit [https://s0tool.nl](https://s0tool.nl)
+1. Visit  [https://s0tool.nl/installation.html](https://s0tool.nl/installation.html)
 2. Connect S0tool to your PC via USB
 3. Select configuration type
 4. Click "Install" and follow prompts
