@@ -108,7 +108,7 @@ After connecting to Wi-Fi, the S0tool will automatically appear in Home Assistan
 ### Option 1: Purchase Pre-Built
 
 **[Order from Huizebruin Shop](https://www.huizebruin.nl/shop)**
-🚚 Currently shipping to: multiple country's so check it out on our shop
+🚚 Currently shipping to: multiple countries so check it out on our shop
 
 ### Option 2: DIY Build
 
@@ -167,7 +167,7 @@ First, install the CH340 drivers for communication:
 ### Step 2: Flash Firmware
 
 **Browser Method (Easiest):**
-1. Visit [https://s0tool.nl](https://s0tool.nl)
+1. Visit  [https://s0tool.nl/installation.html](https://s0tool.nl/installation.html)
 2. Connect S0tool to your PC via USB
 3. Select configuration type
 4. Click "Install" and follow prompts
