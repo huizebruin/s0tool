@@ -108,7 +108,7 @@ After connecting to Wi-Fi, the S0tool will automatically appear in Home Assistan
 ### Option 1: Purchase Pre-Built
 
 **[Order from Huizebruin Shop](https://www.huizebruin.nl/shop)**
-🚚 Currently shipping to: multiple country's so check it out on our shop
+🚚 Currently shipping to: multiple countries so check it out on our shop
 
 ### Option 2: DIY Build
 
