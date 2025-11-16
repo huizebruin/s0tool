@@ -92,8 +92,7 @@ Voor de Nederlandse versie, bezoek [Huizebruin.nl](https://www.huizebruin.nl/hom
 ### Installation Methods
 
 **🌐 Browser Installation (Recommended)**
-
-1. Visit [https://s0tool.nl](https://s0tool.nl)
+1. Visit [https://s0tool.nl/installation.html](https://s0tool.nl/installation.html)
 2. Connect your S0tool via USB
 3. Click "Install" and follow the wizard
 4. Compatible with Chrome, Edge, and Opera browsers
@@ -109,7 +108,7 @@ After connecting to Wi-Fi, the S0tool will automatically appear in Home Assistan
 ### Option 1: Purchase Pre-Built
 
 **[Order from Huizebruin Shop](https://www.huizebruin.nl/shop)**
-🚚 Currently shipping to: The Netherlands and Belgium
+🚚 Currently shipping to: multiple country's so check it out on our shop
 
 ### Option 2: DIY Build
 
