@@ -7,7 +7,8 @@
   <title>S0tool.nl - Installation</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-  <meta name="description" content="Easily install and configure your S0tool for Home Assistant and ESPHome. Includes configurations for DSZ12D, LEM022SJ, and more.">
+  <meta name="description"
+    content="Easily install and configure your S0tool for Home Assistant and ESPHome. Includes configurations for DSZ12D, LEM022SJ, and more.">
   <meta name="keywords"
     content="s0tool, watermeter, home assistant, esphome, s0 port, water counter, water, huizebruin watermeter, 5v NPN, Actaris, diy, Elster, Elster V100, esphome, home assistant, huizebruin, Itron, LJ12A3-4-Z/BX-5V, Maddalena, pcb, pulsteller, s0 kwh, s0tool, Sensus, slimme watermeter, tool, watermeter, watermeter home assistant, watermeter npn">
   <meta name="author" content="Huizebruin">
@@ -28,7 +29,6 @@
     gtag('config', 'G-9HB5QGY82J');
   </script>
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
-  <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -38,22 +38,25 @@
   <div class="layout">
     <div id="sidebar"></div>
     <main>
-        <section id="header">
-          <h1>S0tool Installation</h1>
-          <p>Easily install and configure your S0tool for Home Assistant and ESPHome.</p>
-          
-        </section>
+      <section id="header">
+        <h1>S0tool Installation</h1>
+        <p>Easily install and configure your S0tool for Home Assistant and ESPHome.</p>
+
+      </section>
       <section id="installation-guide">
         <h2>Installation Guide</h2>
-        <p>Before proceeding, ensure you have installed the necessary drivers for the Wemos D1 to communicate with your PC or laptop. Refer to the <a href="troubleshooting.html">troubleshooting page</a> for details.</p>
-        <p>Connect the S0tool to your PC or laptop using a USB cable that supports both power and data transfer. Use the button below to install the <b>S0tool</b> firmware directly to your device via USB from your browser.</p>
+        <p>Before proceeding, ensure you have installed the necessary drivers for the Wemos D1 to communicate with your
+          PC or laptop. Refer to the <a href="troubleshooting.html">troubleshooting page</a> for details.</p>
+        <p>Connect the S0tool to your PC or laptop using a USB cable that supports both power and data transfer. Use the
+          button below to install the <b>S0tool</b> firmware directly to your device via USB from your browser.</p>
       </section>
 
       <section id="installation-steps">
         <h2>Installation</h2>
         <p>Follow these steps to install the firmware on your S0tool:</p>
         <ol>
-          <li>Click the blue connect button below; a pop-up window will appear with a list of available USB devices.</li>
+          <li>Click the blue connect button below; a pop-up window will appear with a list of available USB devices.
+          </li>
           <li>Plug the USB cable into the ESP and connect it to your computer.</li>
           <li>Select the USB serial port and click Connect.</li>
           <li>Choose Install S0tool, then click Install.</li>
@@ -176,28 +179,30 @@
       <section id="connect-ha">
         <h2>Connect to Home Assistant</h2>
         <h3>Option 1: During Firmware Installation</h3>
-        <p>After setting up your Wi-Fi, you will see an option to add the S0tool to Home Assistant. Follow the link to configure it.</p>
+        <p>After setting up your Wi-Fi, you will see an option to add the S0tool to Home Assistant. Follow the link to
+          configure it.</p>
         <h3>Option 2: Auto Discovery</h3>
-        <p>If your Home Assistant instance is on the same network, the S0tool will be automatically discovered under Settings &gt; Devices &amp; Services.</p>
+        <p>If your Home Assistant instance is on the same network, the S0tool will be automatically discovered under
+          Settings &gt; Devices &amp; Services.</p>
       </section>
     </main>
-    </div>
-    <div id="footer"></div>
-    <script>
-      // Navbar en sidebar includen
-      fetch('navbar.html')
-        .then(response => response.text())
-        .then(html => document.getElementById('navbar').innerHTML = html);
+  </div>
+  <div id="footer"></div>
+  <script>
+    // Navbar en sidebar includen
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('navbar').innerHTML = html);
 
-      fetch('sidebar.html')
-        .then(response => response.text())
-        .then(html => document.getElementById('sidebar').innerHTML = html);
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('sidebar').innerHTML = html);
 
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(html => document.getElementById('footer').innerHTML = html);
-    </script>
-    <script src="./js/script.js"></script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+  <script src="./js/script.js"></script>
   <script>
     // Radio button manifest logic
     document.querySelectorAll('input[name="type"]').forEach((radio) =>
