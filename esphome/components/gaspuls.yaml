@@ -11,7 +11,7 @@ api:
       then:
         - globals.set:
             id: initial_gas_usage
-            value: !lambda "return ( meter_value - (id(total_gas_pulses)) * atof(id(Select_pulse_gas).state.c_str()) ) ;"
+            value: !lambda "return ( meter_value - (id(total_gas_pulses)) * atof(id(Select_pulse_gas).current_option()) ) ;"
         - globals.set:
             id: total_gas_pulses
             value:  "0"
@@ -101,7 +101,7 @@ sensor:
     accuracy_decimals: 1
     icon: "mdi:gas-burner"
     filters:
-      lambda: return x * atof(id(Select_pulse_gas).state.c_str()) * 1000;
+      lambda: return x * atof(id(Select_pulse_gas).current_option()) * 1000;
 
 # ⬇ Totaal gasmeter ⬇ #      
     total:
@@ -112,7 +112,7 @@ sensor:
       device_class: gas
       accuracy_decimals: 3
       filters:
-        lambda: return x * atof(id(Select_pulse_gas).state.c_str());
+        lambda: return x * atof(id(Select_pulse_gas).current_option());
 
       
 # ⬇ gasmeter stand bij benadering ⬇ #
@@ -123,7 +123,7 @@ sensor:
     icon: mdi:meter-gas
     unit_of_measurement: "m³"
     accuracy_decimals: 3
-    lambda: return id(initial_gas_usage) + (id(total_gas_pulses) * atof(id(Select_pulse_gas).state.c_str()));
+    lambda: return id(initial_gas_usage) + (id(total_gas_pulses) * atof(id(Select_pulse_gas).current_option()));
 
 # ⬇ gaspulses  only web interface for debugging ⬇ #
   - platform: template
