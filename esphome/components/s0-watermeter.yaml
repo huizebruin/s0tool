@@ -11,7 +11,9 @@ api:
       then:
         - globals.set:
             id: initial_water_usage
-            value: !lambda "return ( meter_value - (id(total_water_pulses)) * atof(id(Select_pulse_water).state.c_str()) ) ;"
+            value: !lambda |
+              auto option = id(Select_pulse_water).current_option();
+              return ( meter_value - (id(total_water_pulses)) * atof(option.c_str()) );
         - globals.set:
             id: total_water_pulses
             value:  "0"
@@ -76,7 +78,9 @@ sensor:
     accuracy_decimals: 1
     icon: "mdi:water-pump"
     filters:
-      lambda: return x * atof(id(Select_pulse_water).state.c_str()) * 1000;
+      lambda: |
+        auto option = id(Select_pulse_water).current_option();
+        return x * atof(option.c_str()) * 1000;
 
 # ⬇ Totaal watermeter ⬇ #
     total:
@@ -87,7 +91,9 @@ sensor:
       device_class: water
       accuracy_decimals: 3
       filters:
-        lambda: return x * atof(id(Select_pulse_water).state.c_str());
+        lambda: |
+          auto option = id(Select_pulse_water).current_option();
+          return x * atof(option.c_str());
 
       
 # ⬇ Watermeter stand bij benadering ⬇ #
@@ -98,7 +104,9 @@ sensor:
     icon: mdi:water
     unit_of_measurement: "m³"
     accuracy_decimals: 3
-    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(Select_pulse_water).state.c_str()));
+    lambda: |
+      auto option = id(Select_pulse_water).current_option();
+      return id(initial_water_usage) + (id(total_water_pulses) * atof(option.c_str()));
 
 # ⬇ Waterpulses  only web interface for debugging ⬇ #
   - platform: template
