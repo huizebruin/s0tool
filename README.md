@@ -478,6 +478,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Made with ❤️ for the Home Assistant community
 
+
+<h2>Star History</h2>
+
+[![Star History Chart](https://api.star-history.com/svg?repos=huizebruin/s0tool&type=Date)](https://www.star-history.com/#huizebruin/s0tool&Date)
+
 </div>
 
 <!-- Badge Links -->
