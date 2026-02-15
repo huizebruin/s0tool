@@ -63,6 +63,27 @@ template: |
 
   $CHANGES
 
+  ## 💖 Support This Project
+  If you find S0tool useful, consider supporting development:
+
+  [![PayPal](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/huizebruin)
+  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W4QU9ZX)
+
+  #### Community Contributions
+  We encourage all community members to contribute to the development of s0tool! Whether you have ideas for new features, want to help improve the documentation, or can contribute to our website, your input is valuable. Together, we can create an amazing tool!
+
+  #### Ways to Contribute
+  - **Code Contributions:** Feel free to submit pull requests or open issues with suggestions.
+  - **Improving Documentation:** Help us by creating or enhancing the documentation for s0tool.
+  - **Website Contributions:** If you have suggestions for website improvements, let us know!
+
+  **Other ways to support:**
+  - 🌟 Star this repository
+  - 📢 Share with others
+  - 💬 Join our Dutch Discord but have a s0tool english room too [Discord](https://discord.gg/AskpfnY)
+
+  ---
+
   **Full Changelog**: https://github.com/huizebruin/s0tool/compare/$PREVIOUS_TAG...$RESOLVED_VERSION
 
    _To receive a notification on new releases, click on **Watch** > **Custom** > **Releases** on the top._
