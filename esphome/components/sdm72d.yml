@@ -41,6 +41,17 @@ number:
     #     - logger.log:
     #         format: "Chosen option: %s (index %d)"
     #         args: ["x.c_str()", "i"]binary_sensor:
+
+  - platform: template
+    id: max_power_limit
+    name: "Max Power Limit"
+    optimistic: true
+    mode: box
+    min_value: 1000
+    max_value: 35000
+    step: 500
+    restore_value: yes
+    initial_value: 10000
 #------------------------# kwh #------------------------#
 binary_sensor:
   - platform: gpio
@@ -61,20 +72,22 @@ binary_sensor:
 sensor:
 # ⬇ kwh meter s0 ⬇ #
   - platform: pulse_meter
-    internal_filter_mode: "PULSE" #test 06-10-2025
-    pin: 
+    pin:
       number: D5
       allow_other_uses: true
-    name:  "Actuele energie"
+    name: "Actuele energie"
     id: actual_power
-    icon: "mdi:flash"
-    internal_filter: ${impulslengte}
-    accuracy_decimals: 0 #3
-    unit_of_measurement:  "W" #'kW'
-    state_class: measurement
+    unit_of_measurement: W
     device_class: power
+    state_class: measurement
+    accuracy_decimals: 0
+    internal_filter_mode: PULSE
     filters:
-       lambda: return x * (60.0 / id(Select_pulse_rate).state)* 1000 ;
+      - lambda: |-
+          float watt = x * (60.0 / id(Select_pulse_rate).state) * 1000.0;
+          if (watt > id(max_power_limit).state) return NAN;
+          return watt;
+    internal_filter: ${impulslengte}
 
 # ⬇ Totaal opgebracht ⬇ #
     total:

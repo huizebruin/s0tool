@@ -17,7 +17,6 @@ api:
         - globals.set:
             id: total_water_pulses
             value:  "0"
-            
 
 globals:
   - id: initial_water_usage
