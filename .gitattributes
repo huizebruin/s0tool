@@ -1,0 +1,3 @@
+# Fix language detection for ESPHome YAML configs
+*.yaml linguist-language=YAML
+esphome/ linguist-language=YAML
