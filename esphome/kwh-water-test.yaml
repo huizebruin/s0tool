@@ -26,6 +26,6 @@ packages:
     ref: main
     files:
       - esphome/components/basis.yaml
-      - esphome/components/kwh-water-test.yml
-      # - esphome/components/s0tool-kwh-water-test-update.yml
+      - esphome/components/kwh-water-test.yaml
+      # - esphome/components/s0tool-kwh-water-test-update.yaml
     refresh: 0d

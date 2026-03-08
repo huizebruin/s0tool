@@ -26,7 +26,7 @@ packages:
     ref: main
     files:
       - esphome/components/basis.yaml
-      - esphome/components/kwhpuls.yml
+      - esphome/components/kwhpuls.yaml
       - esphome/components/watermeter.yaml
-      # - esphome/components/s0tool-standard-update.yml
+      # - esphome/components/s0tool-standard-update.yaml
     refresh: 0d

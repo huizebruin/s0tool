@@ -54,7 +54,7 @@ The **S0tool** is an ESPHome-based device that transforms regular water and ener
 
 ### 📰 Latest Updates
 
-**🎉 New Website Available!** (June 24, 2024)
+**🎉 Latest Firmware Updated!** (08/03/2026)
 Visit [https://s0tool.nl](https://s0tool.nl) for complete documentation and guides.
 
 **🇳🇱 Dutch Version**
@@ -81,8 +81,8 @@ Voor de Nederlandse versie, bezoek [Huizebruin.nl](https://www.huizebruin.nl/hom
 
 | Software | Minimum Version |
 |:---|:---:|
-| Home Assistant | v2025.1.0+ |
-| ESPHome | v2024.12.0+ |
+| Home Assistant | v2026.2.0+ |
+| ESPHome | v2026.2.0+ |
 
 **Specifications:**
 - Wi-Fi: IEEE 802.11 b/g/n 2.4GHz
@@ -453,7 +453,7 @@ Enjoying the S0tool? Consider supporting development:
 
 MIT License
 
-Copyright (c) 2021 - 2025 Huizebruin.nl / S0tool.nl
+Copyright (c) 2021 - 2026 Huizebruin.nl / S0tool.nl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

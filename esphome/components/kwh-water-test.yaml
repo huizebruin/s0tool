@@ -1,0 +1,89 @@
+logger:
+  level: debug
+debug:
+  update_interval: 5s
+
+api:
+
+text_sensor:
+  - platform: debug
+    device:
+      name: "Device Info"
+    reset_reason:
+      name: "Reset Reason"
+
+
+binary_sensor:
+#------------------------# kwh #------------------------#
+  - platform: gpio
+    id: kwh_test
+    name: "kWh sensor test"
+    internal: False
+    pin:
+      number: D5
+      allow_other_uses: true
+      mode:
+        input: true
+        pullup: true
+
+#------------------------# Watermeter #------------------------#
+# binary_sensor:
+  - platform: gpio
+    id: water_sensor_test
+    name: "Water sensor test"
+    internal: false
+    use_interrupt: False
+    pin:
+      number: D2
+      allow_other_uses: true
+      inverted: true
+      mode:
+        input: true
+
+#------------------------# Kwh meter S0 poort 1 #------------------------#
+sensor:
+# ⬇ kwh meter s0 ⬇ #
+  - platform: pulse_meter
+    pin:
+      number: D5
+      allow_other_uses: true
+      mode:
+        input: true
+    name:  "Actuele test"
+    id: actual_power_test
+    icon: "mdi:flash"
+    accuracy_decimals: 0 #3
+    unit_of_measurement:  "W" #'kW'
+    state_class: measurement
+    device_class: power
+
+
+#sensor:
+#------------------------# Watermeter #------------------------#
+# ⬇ watermeter pulsen ⬇ #
+  - platform: pulse_meter 
+    internal_filter_mode: "PULSE"
+    internal_filter: 50ms
+    pin: 
+      number: D2
+      allow_other_uses: true
+      mode:
+        input: true
+        pullup: true
+    id: watermeter_flow_test
+    name: "watermeter flow test"
+    state_class: measurement
+    unit_of_measurement: "l/min"
+    accuracy_decimals: 1
+    icon: "mdi:water-pump"
+
+
+  - platform: debug
+    free:
+      name: "Heap Free"
+    fragmentation:
+      name: "Heap Fragmentation"
+    block:
+      name: "Heap Max Block"
+    loop_time:
+      name: "Loop Time"
