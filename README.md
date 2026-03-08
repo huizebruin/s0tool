@@ -82,7 +82,7 @@ Voor de Nederlandse versie, bezoek [Huizebruin.nl](https://www.huizebruin.nl/hom
 | Software | Minimum Version |
 |:---|:---:|
 | Home Assistant | v2026.2.0+ |
-| ESPHome | v2026.3.0+ |
+| ESPHome | v2026.2.0+ |
 
 **Specifications:**
 - Wi-Fi: IEEE 802.11 b/g/n 2.4GHz
