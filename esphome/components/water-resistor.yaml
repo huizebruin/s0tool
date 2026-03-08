@@ -80,8 +80,9 @@ sensor:
     id: watermeter_flow
     name: "watermeter flow"
     state_class: measurement
-    unit_of_measurement: "l/min"
-    accuracy_decimals: 1
+    unit_of_measurement: "L/min"
+    device_class: volume_flow_rate
+    accuracy_decimals: 2
     icon: "mdi:water-pump"
     filters:
       lambda: |

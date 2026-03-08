@@ -67,10 +67,10 @@ sensor:
       allow_other_uses: true
     id: watermeter_pulse
     name: "l/min at the moment"
-#    state_class: measurement
-    unit_of_measurement: "l/min"
-    # update_interval: 60s
-    accuracy_decimals: 1
+    state_class: measurement
+    unit_of_measurement: "L/min"
+    device_class: volume_flow_rate
+    accuracy_decimals: 2
     icon: "mdi:water-pump"
     filters:
       lambda: return (x / (id(select_flow_pulse).state * 60 ));
