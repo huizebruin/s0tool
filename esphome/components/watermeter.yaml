@@ -92,7 +92,7 @@ sensor:
       allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
-    # timeout: 15s
+    timeout: 60s
     state_class: measurement
     unit_of_measurement: "L/min"
     device_class: volume_flow_rate
