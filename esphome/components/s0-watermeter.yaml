@@ -77,7 +77,6 @@ sensor:
     unit_of_measurement: "L/min"
     device_class: volume_flow_rate
     accuracy_decimals: 2
-    timeout: 60s
     icon: "mdi:water-pump"
     filters:
       lambda: |
@@ -117,4 +116,5 @@ sensor:
     state_class: "total_increasing"
     accuracy_decimals: 0
     lambda: return id(total_water_pulses);
+
     internal: True
