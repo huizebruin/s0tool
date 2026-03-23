@@ -1,6 +1,7 @@
 /* S0tool — shared JavaScript
    Loaded by every page as: <script src="./js/script.js"></script>
    All functions are global so onclick= attributes can reach them.
+   NOTE: Theme is applied in <head> before CSS loads to prevent flash.
 */
 
 /* ── Theme ───────────────────────────────────────────────────────── */
@@ -13,12 +14,6 @@ function applyTheme(dark) {
   });
   try { localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light'); } catch(e) {}
 }
-
-/* Apply theme immediately — before DOM ready — to prevent flash */
-var _saved = '';
-try { _saved = localStorage.getItem(THEME_KEY) || ''; } catch(e) {}
-var _prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-applyTheme(_saved ? (_saved === 'dark') : _prefersDark);
 
 /* ── Tab switcher — GLOBAL, called by onclick="showTab(event,'id')" */
 function showTab(e, tabName) {

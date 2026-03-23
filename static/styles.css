@@ -328,6 +328,7 @@ tr:hover td { background: var(--surface); color: var(--text); }
 
 /* ── Config grid (installation) ───────────────────────────────── */
 .config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+.config-grid.config-grid--standard { grid-template-columns: repeat(3, 1fr); }
 .config-card {
   background: var(--bg3); border: 2px solid var(--border); border-radius: var(--radius);
   padding: 1rem; text-align: center; cursor: pointer; transition: all var(--transition);
@@ -583,6 +584,678 @@ body.show-special .special { display: initial; }
   padding-top: 0.8rem;
   border-top: 1px solid var(--border);
 }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
+
+/* ── Compat add-meter form ────────────────────────────────────── */
+.compat-add-card {
+  background: var(--bg3);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.4rem;
+}
+
+/* ── Meter type badges ────────────────────────────────────────── */
+.badge-water {
+  background: rgba(0,153,255,0.15);
+  color: #4db8ff;
+  border: 1px solid rgba(0,153,255,0.3);
+}
+.badge-power {
+  background: rgba(255,200,0,0.13);
+  color: #f6c90e;
+  border: 1px solid rgba(255,200,0,0.3);
+}
+
+/* ── Release cards ────────────────────────────────────────────── */
+.release-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: border-color var(--transition);
+}
+.release-card:first-child { border-color: var(--accent); }
+.release-card:hover { border-color: var(--accent); }
+.release-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+.release-title  { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.release-version { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.release-version:hover { opacity: 0.8; }
+.release-version i { margin-right: 0.3rem; }
+.release-name { font-family: var(--sans); font-size: 0.9rem; color: var(--text-dim); }
+.release-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+.release-meta i { color: var(--accent); margin-right: 0.2rem; }
+.release-body { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1rem; }
+.release-body p  { margin-bottom: 0.6rem; color: var(--text-dim); }
+.release-body h2 { font-size: 1rem; margin: 0.8rem 0 0.4rem; color: var(--text); }
+.release-body h3 { font-size: 0.9rem; margin: 0.6rem 0 0.3rem; color: var(--accent); }
+.release-body h4 { font-size: 0.85rem; margin: 0.5rem 0 0.25rem; color: var(--text-dim); }
+.release-body ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.release-body li { margin-bottom: 0.2rem; color: var(--text-dim); }
+.release-body code { font-size: 0.82em; }
+.release-body a { color: var(--accent); }
+.release-body strong { color: var(--text); }
+.release-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-q {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform var(--transition);
+}
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  display: none;
+  padding: 0.8rem 1.1rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--accent); }
+.faq-a code { font-size: 0.85em; }
 
 /* ── Compat add-meter form ────────────────────────────────────── */
 .compat-add-card {

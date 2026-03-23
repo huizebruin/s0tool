@@ -11,6 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="./assets/header.png">
   <meta property="og:description" content="Flash S0tool firmware from your browser. Chrome/Edge required.">
+  <script>try{var t=localStorage.getItem("s0tool-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.setAttribute("data-theme",d?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","dark");}</script>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -81,7 +82,7 @@
 </section>
 <section id="standard-configurations">
   <h2>Standard Configurations</h2>
-  <div class="config-grid">
+  <div class="config-grid config-grid--standard">
     <div class="config-card"><img src="./assets/npn-kwh-s0.jpg" alt="Standard"><h5>Standard</h5><p>Watermeter (NPN) + kWh (50-100ms)</p><input type="radio" name="type" value="s0tool-standard" checked id="r-std"><label for="r-std">&#10003; Select</label></div>
     <div class="config-card"><img src="./assets/npn.jpg" alt="Watermeter"><h5>Watermeter only</h5><p>NPN sensor only</p><input type="radio" name="type" value="s0tool-watermeter" id="r-wm"><label for="r-wm">Select</label></div>
     <div class="config-card"><img src="./assets/kwh-s0.png" alt="kWh"><h5>kWh Meter only</h5><p>S0 pulse input (50-100ms)</p><input type="radio" name="type" value="s0tool-kwh-puls" id="r-kwh"><label for="r-kwh">Select</label></div>
@@ -126,26 +127,92 @@
 <script src="./js/script.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+  /* ── Config radio → manifest + GA event ── */
   document.querySelectorAll('input[name="type"]').forEach(function(r) {
     r.addEventListener('change', function() {
       document.querySelectorAll('esp-web-install-button').forEach(function(b) { b.manifest='./' + r.value + '/manifest.json'; });
       document.querySelectorAll('.config-card').forEach(function(c) { c.classList.remove('selected'); });
       var card = r.closest('.config-card'); if (card) card.classList.add('selected');
       document.querySelectorAll('.config-card label').forEach(function(l) { l.textContent = l.htmlFor===r.id ? '\u2713 Selected' : 'Select'; });
+      /* Track config selection */
+      if (typeof gtag === 'function') {
+        gtag('event', 'config_selected', {
+          event_category: 'installation',
+          event_label: r.value
+        });
+      }
     });
   });
+
   var ch = document.querySelector('input[name="type"]:checked');
   if (ch) ch.dispatchEvent(new Event('change'));
+
   document.querySelectorAll('.config-card').forEach(function(c) {
     c.addEventListener('click', function() { var r=c.querySelector('input[type="radio"]'); if(r){r.checked=true;r.dispatchEvent(new Event('change'));} });
   });
+
+  /* ── Show/hide specials ── */
   var sb = document.getElementById('show-special-btn');
   if (sb) sb.addEventListener('click', function() {
     var sp = document.getElementById('special-configurations');
     sp.classList.toggle('hidden'); document.body.classList.toggle('show-special');
     this.innerHTML = sp.classList.contains('hidden') ? '<i class="bi bi-chevron-down"></i> Show special configurations' : '<i class="bi bi-chevron-up"></i> Hide special configurations';
     if (!sp.classList.contains('hidden')) sp.scrollIntoView({behavior:'smooth'});
+    if (typeof gtag === 'function') {
+      gtag('event', 'show_special_configs', { event_category: 'installation' });
+    }
   });
+
+  /* ── Track esp-web-install-button interactions ── */
+  /* The button fires these custom events: */
+  document.querySelectorAll('esp-web-install-button').forEach(function(btn) {
+
+    /* User clicked Connect */
+    btn.addEventListener('state-changed', function(e) {
+      if (!e.detail) return;
+      var state = e.detail.state || '';
+      var config = (document.querySelector('input[name="type"]:checked') || {}).value || 'unknown';
+      if (typeof gtag !== 'function') return;
+
+      if (state === 'CONNECTING' || state === 'initializing') {
+        gtag('event', 'install_connect_clicked', {
+          event_category: 'installation',
+          event_label: config
+        });
+      }
+      if (state === 'INSTALLING' || state === 'installing') {
+        gtag('event', 'install_started', {
+          event_category: 'installation',
+          event_label: config
+        });
+      }
+      if (state === 'FINISHED' || state === 'finished') {
+        gtag('event', 'install_completed', {
+          event_category: 'installation',
+          event_label: config
+        });
+      }
+      if (state === 'ERROR' || state === 'error') {
+        gtag('event', 'install_error', {
+          event_category: 'installation',
+          event_label: config
+        });
+      }
+    });
+
+    /* Fallback: track any click on the shadow DOM button */
+    btn.addEventListener('click', function() {
+      var config = (document.querySelector('input[name="type"]:checked') || {}).value || 'unknown';
+      if (typeof gtag === 'function') {
+        gtag('event', 'install_button_clicked', {
+          event_category: 'installation',
+          event_label: config
+        });
+      }
+    });
+  });
+
 });
 </script>
 </body>
