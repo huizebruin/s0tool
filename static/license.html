@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S0tool.nl - License</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-  <meta name="description" content="Count your water use with the S0tool and Home Assistant and ESPHome">
-  <meta name="keywords"
-    content="s0tool, watermeter, home assistant, esphome, s0 port, water counter, water, huizebruin watermeter, 5v NPN, Actaris, diy, Elster, Elster V100, esphome, home assistant, huizebruin, Itron, LJ12A3-4-Z/BX-5V, Maddalena, pcb, pulsteller, s0 kwh, s0tool, Sensus, slimme watermeter, tool, watermeter, watermeter home assistant, watermeter npn">
+  <title>S0tool — License</title>
+  <meta name="description" content="S0tool MIT License.">
   <meta name="author" content="Huizebruin">
-  <meta name="copyright" content="Huizebruin">
-  <meta http-equiv="cache-control" content="no-cache">
-  <meta property="og:title" content="S0tool.nl">
-  <meta property="og:site_name" content="S0tool.nl">
+  <meta property="og:title" content="S0tool — License">
   <meta property="og:url" content="https://s0tool.nl">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="Count your water use with the S0tool and Home Assistant and ESPHome.">
   <meta property="og:image" content="./assets/header.png">
+  <meta property="og:description" content="S0tool MIT License.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-9HB5QGY82J');
-  </script>
-
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9HB5QGY82J");</script>
 </head>
-
 <body>
-  <div id="navbar"></div>
-  <div class="layout">
-    <div id="sidebar"></div>
-    <main>
-      <section>
-        <h1 id="License">License</h1>
-        <p>MIT License</p>
-        <p>
-          Copyright &copy; 2021 - 2025 From <a href="https://www.huizebruin.nl" rel="noopener"
-            target="_blank">Huizebruin.nl</a> &amp; <a href="https://s0tool.nl" rel="noopener"
-            target="_blank">s0tool.nl</a>.
-        </p>
-        <p>
-          Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-          documentation files (the “Software”), to deal in the Software without restriction, including without
-          limitation
-          the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
-          and
-          to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-        </p>
-        <p>
-          The above copyright notice and this permission notice shall be included in all copies or substantial portions
-          of
-          the Software.
-        </p>
-        <p>
-          THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
-          TO
-          THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
-          CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-          DEALINGS IN THE SOFTWARE.
-        </p>
-      </section>
-    </main>
+<nav class="custom-navbar">
+  <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+  <ul class="navbar-links" id="navbar-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="diyorbuy.html">DIY or Buy</a></li>
+    <li><a href="installation.html">Installation</a></li>
+    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="contributing.html">Contributing</a></li>
+    <li><a href="license.html">License</a></li>
+  </ul>
+  <div class="navbar-right">
+    <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+    <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+    <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener" style="margin-left:0.3rem;">
+      <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release" style="height:20px;vertical-align:middle;">
+    </a>
   </div>
-  <div id="footer"></div>
-  <script>
-    // Navbar en sidebar includen
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('navbar').innerHTML = html);
+</nav>
+<div class="layout">
+<aside class="custom-sidebar">
+  <div class="sidebar-inner">
+    <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+    <div class="sidebar-label">Project stats</div>
+    <ul class="sidebar-badges">
+      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
+      <li><a href="https://esphome.io" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat" alt="Contributors"></a></li>
+      <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
+      <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+    </ul>
+  </div>
+</aside>
+<main>
 
-    fetch('sidebar.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('sidebar').innerHTML = html);
+<section>
+  <h1>License</h1>
+  <p>S0tool is released under the <strong>MIT License</strong> &mdash; free to use, modify, and distribute.</p>
+  <p>Copyright &copy; 2021&ndash;<span class="current-year">2026</span> <a href="https://www.huizebruin.nl" target="_blank" rel="noopener">Huizebruin.nl</a> &amp; <a href="https://s0tool.nl" target="_blank" rel="noopener">s0tool.nl</a></p>
+</section>
+<section>
+  <h2>MIT License Text</h2>
+  <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+  <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+  <p style="color:var(--text-muted);font-size:0.88rem;">THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.</p>
+</section>
 
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(html => document.getElementById('footer').innerHTML = html);
-  </script>
-  <script src="./js/script.js"></script>
+</main>
+</div>
+<footer class="custom-footer">
+  <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+  <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl &mdash; All rights reserved</div>
+  <div>
+    <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> &mdash;
+    Installer powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a> &mdash;
+    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script src="./js/script.js"></script>
 </body>
-
 </html>

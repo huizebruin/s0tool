@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S0tool — FAQ</title>
+  <meta name="description" content="Frequently asked questions about S0tool, ESPHome, Home Assistant and compatible meters.">
+  <meta name="author" content="Huizebruin">
+  <meta property="og:title" content="S0tool — FAQ">
+  <meta property="og:url" content="https://s0tool.nl">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/header.png">
+  <meta property="og:description" content="Frequently asked questions about S0tool, ESPHome, Home Assistant and compatible meters.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9HB5QGY82J");</script>
+</head>
+<body>
+<nav class="custom-navbar">
+  <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+  <ul class="navbar-links" id="navbar-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="diyorbuy.html">DIY or Buy</a></li>
+    <li><a href="installation.html">Installation</a></li>
+    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="contributing.html">Contributing</a></li>
+    <li><a href="license.html">License</a></li>
+  </ul>
+  <div class="navbar-right">
+    <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+    <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+    <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener" style="margin-left:0.3rem;">
+      <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release" style="height:20px;vertical-align:middle;">
+    </a>
+  </div>
+</nav>
+<div class="layout">
+<aside class="custom-sidebar">
+  <div class="sidebar-inner">
+    <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+    <div class="sidebar-label">Project stats</div>
+    <ul class="sidebar-badges">
+      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
+      <li><a href="https://esphome.io" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat" alt="Contributors"></a></li>
+      <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
+      <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+    </ul>
+  </div>
+</aside>
+<main>
+
+<section>
+  <h1><i class="bi bi-question-circle" style="color:var(--accent);"></i> FAQ</h1>
+  <p>Frequently asked questions about S0tool. Can't find your answer here? Ask on <a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener">Discord</a> or open a <a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener">GitHub Issue</a>.</p>
+</section>
+
+<section>
+  <h2><i class="bi bi-droplet" style="color:var(--accent);"></i> Water Meter Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Does S0tool work with my water meter?</div>
+    <div class="faq-a">S0tool works with most water meters that have a pulse output or a reflective disc that an NPN sensor can detect. Check the <a href="community.html#compat">compatibility list</a> for known working meters. If yours is not listed, it may still work &mdash; ask on Discord or test it yourself.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Which NPN sensor do I need?</div>
+    <div class="faq-a">Use a <strong>5V NPN sensor</strong> &mdash; specifically the <strong>LJ18A3-8-Z/BX-5V</strong> (M18, 8mm detection) or the smaller <strong>LJ12A3-4-Z/BX-5V</strong> (M12). Make sure it is rated for 5V, not 6V or higher. See the <a href="diyorbuy.html">DIY or Buy</a> page for purchase links.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I position the NPN sensor on the meter?</div>
+    <div class="faq-a">The sensor should be placed against the glass or plastic window of the water meter so it can detect the rotating reflective disc inside. Most meters have a small metal insert or star-wheel visible through the window &mdash; point the sensor directly at that.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What does "1 pulse = X litre" mean?</div>
+    <div class="faq-a">Most water meters generate 1 pulse per litre of water used. Some models use different ratios (e.g. 1 pulse per 0.1L or 10L). Check your meter's datasheet or the label on the meter itself. The S0tool firmware defaults to 1 pulse = 1 litre but this can be configured in ESPHome.</div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="bi bi-lightning" style="color:var(--accent);"></i> kWh / S0 Port Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">What is an S0 port?</div>
+    <div class="faq-a">An S0 port is a standardized pulse output found on many energy meters (kWh meters). Each pulse represents a fixed amount of energy &mdash; typically 1000 pulses per kWh. The S0tool reads these pulses on pin <code>D5</code> and translates them into energy readings in Home Assistant.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I monitor my solar panels with S0tool?</div>
+    <div class="faq-a">Yes! Any device with an S0 output can be connected, including solar inverters, heat pumps, and EV chargers. Connect the S0 output to pin <code>D5</code> as described on the <a href="diyorbuy.html#kwh-meter">DIY or Buy page</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I use both water meter and kWh meter at the same time?</div>
+    <div class="faq-a">Yes &mdash; that is exactly what the <strong>Standard</strong> configuration does. The water meter NPN sensor connects to <code>D2</code> and the S0 kWh input connects to <code>D5</code>. Both are monitored simultaneously.</div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="bi bi-cpu" style="color:var(--accent);"></i> Hardware Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Which ESP board does S0tool support?</div>
+    <div class="faq-a">Currently only the <strong>Wemos D1 mini V1 or V3.0 (ESP8266)</strong> is supported. The ESP32 is not supported at this time.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">DIY or buy the ready-made PCB?</div>
+    <div class="faq-a">The DIY version costs less than &euro;10 in parts and works great if you are comfortable with basic wiring. The <a href="https://www.huizebruin.nl/product/s0tool/" target="_blank" rel="noopener">ready-made S0tool PCB</a> (&euro;18&ndash;&euro;30) comes fully assembled with the resistor already soldered on, and is easier to install. Currently ships to Netherlands, Belgium, Germany and Estonia &mdash; more countries coming soon, <a href="mailto:support@s0tool.nl">contact by email</a> to ask about yours. Both versions run the same firmware.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Do I need a 10K&#8486; resistor?</div>
+    <div class="faq-a">Yes, for the DIY build. The resistor acts as a pull-up between <code>5V</code> and <code>D2</code> (water) or between <code>GND</code> and <code>D5</code> (S0/kWh). The ready-made PCB already has this resistor built in.</div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="bi bi-house-door" style="color:var(--accent);"></i> Home Assistant &amp; ESPHome</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I add S0tool to the Home Assistant Energy Dashboard?</div>
+    <div class="faq-a">
+      In the Energy Dashboard settings:
+      <ul style="margin-top:0.5rem;">
+        <li><strong>Water consumption:</strong> search for <code>watermeter Totaal</code></li>
+        <li><strong>Water flow (new in v3.6.9):</strong> search for <code>watermeter flow</code> and add it under Water flow (Waterdoorstroom). If HA shows a unit changed warning, choose to relabel <code>l/min</code> to <code>L/min</code> without conversion and click Repair.</li>
+        <li><strong>S0 port / kWh:</strong> search for <code>Totaal opgebracht</code></li>
+      </ul>
+      This works from Home Assistant 2022.11 and S0tool v22.10.20+. The flow sensor requires v3.6.9+. See the <a href="troubleshooting.html#dashboard">Troubleshooting page</a> for screenshots.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">My meter reading is wrong / jumped. How do I fix it?</div>
+    <div class="faq-a">Use the Home Assistant service call to set the correct value. Go to <em>Developer Tools &rarr; Services</em> and call the S0tool calibration service. Instructions are on the <a href="troubleshooting.html">Troubleshooting page</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I update S0tool?</div>
+    <div class="faq-a">Open the ESPHome add-on in Home Assistant, find your S0tool device, click the three dots, select Validate, then Install. You can also use the <a href="installation.html">web installer</a> to flash the latest firmware over USB.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I get notified of new S0tool versions?</div>
+    <div class="faq-a">Yes! Import the update notification Blueprint into Home Assistant. It creates an automation that alerts you when a new version is released on GitHub. See the <a href="troubleshooting.html">Troubleshooting page</a> for the import link.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does S0tool send data to the cloud?</div>
+    <div class="faq-a">No. S0tool runs entirely on your local network. All data stays on your Home Assistant instance. No cloud connection, no account, no subscription required.</div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="bi bi-tools" style="color:var(--accent);"></i> Still need help?</h2>
+  <p>If your question isn't answered here, the community is happy to help.</p>
+  <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1rem;">
+    <a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener" class="btn btn-primary"><i class="bi bi-discord"></i> Ask on Discord</a>
+    <a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener" class="btn btn-secondary"><i class="bi bi-github"></i> Open GitHub Issue</a>
+    <a href="troubleshooting.html" class="btn btn-secondary"><i class="bi bi-wrench"></i> Troubleshooting page</a>
+  </div>
+</section>
+
+</main>
+</div>
+<footer class="custom-footer">
+  <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+  <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl &mdash; All rights reserved</div>
+  <div>
+    <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> &mdash;
+    Installer powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a> &mdash;
+    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script src="./js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      q.closest('.faq-item').classList.toggle('open');
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S0tool — Community</title>
+  <meta name="description" content="Reviews, meters, Discord and wiki for S0tool.">
+  <meta name="author" content="Huizebruin">
+  <meta property="og:title" content="S0tool — Community">
+  <meta property="og:url" content="https://s0tool.nl">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/header.png">
+  <meta property="og:description" content="Reviews, meters, Discord and wiki for S0tool.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9HB5QGY82J");</script>
+</head>
+<body>
+<nav class="custom-navbar">
+  <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+  <ul class="navbar-links" id="navbar-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="diyorbuy.html">DIY or Buy</a></li>
+    <li><a href="installation.html">Installation</a></li>
+    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="contributing.html">Contributing</a></li>
+    <li><a href="license.html">License</a></li>
+  </ul>
+  <div class="navbar-right">
+    <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+    <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+    <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener" style="margin-left:0.3rem;">
+      <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release" style="height:20px;vertical-align:middle;">
+    </a>
+  </div>
+</nav>
+<div class="layout">
+<aside class="custom-sidebar">
+  <div class="sidebar-inner">
+    <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+    <div class="sidebar-label">Project stats</div>
+    <ul class="sidebar-badges">
+      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
+      <li><a href="https://esphome.io" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat" alt="Contributors"></a></li>
+      <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
+      <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
+      <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+    </ul>
+  </div>
+</aside>
+<main>
+
+<section>
+  <h1><i class="bi bi-people" style="color:var(--accent);"></i> Community</h1>
+  <p>Share your experience, add your meter to the list, read reviews, or get help from other S0tool users.</p>
+</section>
+
+<section id="compat">
+  <h2><i class="bi bi-patch-check" style="color:var(--accent);"></i> Compatible Meters</h2>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(event,'c-water')">Water Meters</button>
+    <button class="tab" onclick="showTab(event,'c-power')">Power Meters</button>
+  </div>
+  <div id="c-water" class="tab-content active">
+    <div class="table-container"><table><thead><tr><th>Brand</th><th>Model</th><th>Type</th><th>Status</th><th>Region</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Elster</strong></td><td>V200</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Itron</strong></td><td>Aquadis+</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Sensus</strong></td><td>620</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Maddalena</strong></td><td>CD SD Plus</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>BE</td><td></td></tr><tr><td><strong>Actaris</strong></td><td>Single-Jet</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Zenner</strong></td><td>MNK-RP-N</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>DE</td><td></td></tr><tr><td><strong>Kamstrup</strong></td><td>Multical 21</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td></td></tr><tr><td><strong>Diehl</strong></td><td>Hydrus</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td></td></tr></tbody></table></div>
+    
+<div class="compat-add-card" id="compat-add-water-add">
+  <h4 style="margin-bottom:0.4rem;"><i class="bi bi-plus-circle" style="color:var(--accent);"></i> Add a Compatible Water Meter</h4>
+  <p style="font-size:0.85rem;margin-bottom:1rem;color:var(--text-muted);">Know a water meter (NPN sensor) that works with S0tool? Share it so others can benefit!</p>
+  <div class="review-form-grid">
+    <div class="form-group">
+      <label>Meter type</label>
+      <input type="text" id="water-add-type" value="&#x1F4A7; Water meter" readonly style="opacity:0.6;cursor:default;">
+    </div>
+    <div class="form-group">
+      <label>Country / Region</label>
+      <input type="text" id="water-add-region" placeholder="e.g. NL, BE, DE, EU" maxlength="40">
+    </div>
+    <div class="form-group">
+      <label>Brand</label>
+      <input type="text" id="water-add-brand" placeholder="e.g. Itron, Elster, Sensus" maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input type="text" id="water-add-model" placeholder="e.g. Aquadis+, V200, 620" maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Your name (optional)</label>
+      <input type="text" id="water-add-name" placeholder="e.g. Wobbe" maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Notes (optional)</label>
+      <input type="text" id="water-add-notes" placeholder="Any tips, wiring notes, sensor type?" maxlength="200">
+    </div>
+  </div>
+  <div id="water-add-error" class="form-error hidden"></div>
+  <button class="btn btn-primary" onclick="submitMeter('water-add')" style="margin-top:0.8rem;">
+    <i class="bi bi-github"></i> Submit via GitHub Discussion
+  </button>
+  <p class="form-note"><i class="bi bi-info-circle"></i> Opens the GitHub Discussion with your meter pre-filled. A free GitHub account is required. A maintainer will add it to the list once verified.</p>
+</div>
+  </div>
+  <div id="c-power" class="tab-content">
+    <div class="table-container"><table><thead><tr><th>Brand</th><th>Model</th><th>Type</th><th>Status</th><th>Region</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Eastron</strong></td><td>SDM120 / SDM220</td><td><span class="badge badge-power">&#x26A1; kWh</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td>S0 pulse terminals</td></tr><tr><td><strong>ABB</strong></td><td>B23 / B24 series</td><td><span class="badge badge-power">&#x26A1; kWh</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td>External S0 wiring required</td></tr><tr><td><strong>Schneider</strong></td><td>iEM3000 series</td><td><span class="badge badge-power">&#x26A1; kWh</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td>Needs S0 connection setup</td></tr><tr><td><strong>Carlo Gavazzi</strong></td><td>EM24 / EM340</td><td><span class="badge badge-power">&#x26A1; kWh</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td>Pulse settings configurable</td></tr><tr><td><strong>Finder</strong></td><td>7E.23 / 7E.36</td><td><span class="badge badge-power">&#x26A1; kWh</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td>DIN rail mountable</td></tr><tr><td><strong>Eltako</strong></td><td>DSZ15D-3x80A</td><td><span class="badge badge-power">&#x26A1; kWh</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td>DIN rail mountable</td></tr></tbody></table></div>
+    
+<div class="compat-add-card" id="compat-add-power-add">
+  <h4 style="margin-bottom:0.4rem;"><i class="bi bi-plus-circle" style="color:var(--accent);"></i> Add a Compatible kWh Meter</h4>
+  <p style="font-size:0.85rem;margin-bottom:1rem;color:var(--text-muted);">Know a kWh / energy meter (S0 port) that works with S0tool? Share it so others can benefit!</p>
+  <div class="review-form-grid">
+    <div class="form-group">
+      <label>Meter type</label>
+      <input type="text" id="power-add-type" value="&#x26A1; kWh meter" readonly style="opacity:0.6;cursor:default;">
+    </div>
+    <div class="form-group">
+      <label>Country / Region</label>
+      <input type="text" id="power-add-region" placeholder="e.g. NL, BE, DE, EU" maxlength="40">
+    </div>
+    <div class="form-group">
+      <label>Brand</label>
+      <input type="text" id="power-add-brand" placeholder="e.g. Eastron, ABB, Finder" maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input type="text" id="power-add-model" placeholder="e.g. SDM120, B23, EM340" maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Your name (optional)</label>
+      <input type="text" id="power-add-name" placeholder="e.g. Wobbe" maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Notes (optional)</label>
+      <input type="text" id="power-add-notes" placeholder="Any tips, wiring notes, sensor type?" maxlength="200">
+    </div>
+  </div>
+  <div id="power-add-error" class="form-error hidden"></div>
+  <button class="btn btn-primary" onclick="submitMeter('power-add')" style="margin-top:0.8rem;">
+    <i class="bi bi-github"></i> Submit via GitHub Discussion
+  </button>
+  <p class="form-note"><i class="bi bi-info-circle"></i> Opens the GitHub Discussion with your meter pre-filled. A free GitHub account is required. A maintainer will add it to the list once verified.</p>
+</div>
+  </div>
+</section>
+
+<section id="meter-reviews">
+  <h2><i class="bi bi-star" style="color:var(--accent);"></i> Meter Reviews
+    <span id="review-count" style="font-family:var(--mono);font-size:0.8rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;"></span>
+  </h2>
+  <p>Has the S0tool worked on your meter? Fill in the form and submit via GitHub &mdash; your review appears here once approved with the label <code>meter-review</code>.</p>
+
+  <div class="review-form-card">
+    <h3 style="margin-bottom:1.2rem;color:var(--text);"><i class="bi bi-pencil-square" style="color:var(--accent);font-size:1rem;"></i> Add Your Review</h3>
+    <div class="review-form-grid">
+      <div class="form-group"><label for="rf-name">Your name / GitHub username</label><input type="text" id="rf-name" placeholder="e.g. Wobbe" maxlength="60"></div>
+      <div class="form-group"><label for="rf-country">Country</label>
+        <select id="rf-country">
+          <option value="">Select country&hellip;</option>
+          <option>&#x1F1F3;&#x1F1F1; Netherlands</option>
+          <option>&#x1F1E7;&#x1F1EA; Belgium</option>
+          <option>&#x1F1E9;&#x1F1EA; Germany</option>
+          <option>&#x1F1EB;&#x1F1F7; France</option>
+          <option>&#x1F1EC;&#x1F1E7; United Kingdom</option>
+          <option>&#x1F1E6;&#x1F1F9; Austria</option>
+          <option>&#x1F1F3;&#x1F1F4; Norway</option>
+          <option>&#x1F1F8;&#x1F1EA; Sweden</option>
+          <option>&#x1F1E9;&#x1F1F0; Denmark</option>
+          <option>&#x1F1F5;&#x1F1F1; Poland</option>
+          <option>&#x1F1FA;&#x1F1F8; United States</option>
+          <option>&#x1F30D; Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="rf-meter-brand">Meter brand</label><input type="text" id="rf-meter-brand" placeholder="e.g. Itron, Elster" maxlength="60"></div>
+      <div class="form-group"><label for="rf-meter-model">Meter model</label><input type="text" id="rf-meter-model" placeholder="e.g. Aquadis+, V200" maxlength="60"></div>
+      <div class="form-group form-group--full"><label>Meter type</label>
+        <div class="radio-row">
+          <label class="radio-opt"><input type="radio" name="rf-type" value="Water meter" checked> &#x1F4A7; Water meter</label>
+          <label class="radio-opt"><input type="radio" name="rf-type" value="kWh meter"> &#x26A1; kWh meter</label>
+          <label class="radio-opt"><input type="radio" name="rf-type" value="Both"> &#x1F4A7;&#x26A1; Both</label>
+        </div>
+      </div>
+      <div class="form-group form-group--full"><label>Rating</label>
+        <div class="star-picker" id="star-picker">
+          <span class="star active" data-val="1">&#9733;</span>
+          <span class="star active" data-val="2">&#9733;</span>
+          <span class="star active" data-val="3">&#9733;</span>
+          <span class="star active" data-val="4">&#9733;</span>
+          <span class="star active" data-val="5">&#9733;</span>
+        </div>
+        <input type="hidden" id="rf-rating" value="5">
+      </div>
+      <div class="form-group form-group--full"><label for="rf-review">Your review</label>
+        <textarea id="rf-review" rows="3" placeholder="Did it work? Any tips for others?" maxlength="500"></textarea>
+        <div class="char-count"><span id="char-count">0</span> / 500</div>
+      </div>
+    </div>
+    <div id="rf-error" class="form-error hidden"></div>
+    <button class="btn btn-primary" id="rf-submit" style="margin-top:1rem;"><i class="bi bi-github"></i> Submit via GitHub</button>
+    <p class="form-note"><i class="bi bi-info-circle"></i> Opens a pre-filled GitHub Issue. Free GitHub account required. Review appears once labeled <code>meter-review</code> by a maintainer.</p>
+  </div>
+
+  <div style="margin-top:2rem;">
+    <div class="review-filters" id="review-filters" style="display:none;">
+      <input type="text" id="filter-search" placeholder="Search by meter, country&hellip;">
+      <select id="filter-type"><option value="">All types</option><option value="Water">&#x1F4A7; Water</option><option value="kWh">&#x26A1; kWh</option><option value="Both">Both</option></select>
+      <select id="filter-country"><option value="">All countries</option></select>
+    </div>
+    <div id="reviews-container"><div class="reviews-loading"><div class="spinner"></div><span>Loading reviews from GitHub&hellip;</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="bi bi-book" style="color:var(--accent);"></i> Wiki &amp; Docs</h2>
+  <p>Detailed guides on the S0tool wiki at Huizebruin.nl (Dutch):</p>
+  <div class="wiki-grid">
+    <a href="https://www.huizebruin.nl/docs/wemos-d1-mini-v4-0-ipv-wemos-d1-mini-v1-0-tbv-watermeter-uitlezen/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-cpu"></i><span>WeMos D1 mini V4 vs V1 compatibility</span></a>
+    <a href="https://www.huizebruin.nl/docs/s0tool-aanpassen/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-sliders"></i><span>Customising S0tool</span></a>
+    <a href="https://www.huizebruin.nl/docs/npn-houders/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-box"></i><span>NPN sensor mounts</span></a>
+    <a href="https://www.huizebruin.nl/docs/s0tool-verbruik-rechttrekken-binnen-home-assistant/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-graph-up-arrow"></i><span>Fix usage readings in HA</span></a>
+    <a href="https://www.huizebruin.nl/docs/updaten-van-de-s0tool/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-arrow-repeat"></i><span>Updating S0tool</span></a>
+    <a href="https://www.huizebruin.nl/docs/s0tool-meterstand-invullen-in-home-assistant/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-123"></i><span>Set meter reading in HA</span></a>
+    <a href="https://www.huizebruin.nl/docs/met-welke-watermeters-kan-ik-meten-met-de-npn-sensor/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-droplet-half"></i><span>Which water meters work?</span></a>
+    <a href="https://www.huizebruin.nl/docs/reading-failed-bad_indicator-errno11/" target="_blank" rel="noopener" class="wiki-card"><i class="bi bi-exclamation-triangle"></i><span>Reading failed: BAD_INDICATOR</span></a>
+  </div>
+  <div style="margin-top:1.2rem;display:flex;gap:0.8rem;flex-wrap:wrap;">
+    <a href="https://www.huizebruin.nl/wiki/s0tool/" target="_blank" rel="noopener" class="btn btn-secondary"><i class="bi bi-journal-text"></i> Full wiki (Dutch)</a>
+    <a href="https://www.huizebruin.nl/domotica/arduino/wat-is-de-s0tool/" target="_blank" rel="noopener" class="btn btn-secondary"><i class="bi bi-info-circle"></i> More info (Dutch)</a>
+  </div>
+</section>
+
+<section>
+  <h2><i class="bi bi-discord" style="color:var(--accent);"></i> Discord Community</h2>
+  <p>Join the S0tool Discord server for help, tips and sharing your setup. The server is <strong>primarily Dutch</strong>, but has dedicated <strong>English channels</strong> for international users.</p>
+  <div class="features" style="margin-top:1rem;">
+    <div class="feature-card">
+      <span class="feature-icon">&#x1F1F3;&#x1F1F1;</span>
+      <h3>Dutch channels</h3>
+      <p>Help, questions and tips about S0tool, Home Assistant and ESPHome &mdash; in Dutch.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">&#x1F1EC;&#x1F1E7;</span>
+      <h3>English channels</h3>
+      <p>Dedicated English-language channels for S0tool questions and international community support.</p>
+    </div>
+  </div>
+  <a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1.2rem;display:inline-flex;"><i class="bi bi-discord"></i> Join Discord</a>
+</section>
+
+<section id="shop-reviews">
+  <h2><i class="bi bi-star" style="color:var(--accent);"></i> Shop Reviews</h2>
+  <p>Rated <strong>4.8 / 5</strong> based on 38 reviews from buyers of the ready-made S0tool on the Huizebruin shop.</p>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">&ldquo;Works perfectly on my Itron Aquadis+. Installed in under 10 minutes and immediately visible in Home Assistant.&rdquo;</p>
+      <div class="review-author">&mdash; Dutch user, NL</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">&ldquo;Great product. Finally insight into my water usage. Installation via the website works flawlessly.&rdquo;</p>
+      <div class="review-author">&mdash; Dutch user, NL</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">&ldquo;Also reading the kWh meter of my heat pump. Amazing value for money!&rdquo;</p>
+      <div class="review-author">&mdash; Dutch user, NL</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <p class="review-text">&ldquo;Fast shipping, clear instructions. Takes a little getting used to but works great. Highly recommended!&rdquo;</p>
+      <div class="review-author">&mdash; Dutch user, NL</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">&ldquo;Super handy tool. Works great with my Sensus 620 water meter. Installation was straightforward.&rdquo;</p>
+      <div class="review-author">&mdash; International user, BE</div>
+    </div>
+  </div>
+  <p style="margin-top:1.2rem;">
+    <a href="https://www.huizebruin.nl/product/s0tool/#tab-reviews" target="_blank" rel="noopener" class="btn btn-secondary">
+      <i class="bi bi-box-arrow-up-right"></i> Read all reviews on Huizebruin.nl
+    </a>
+  </p>
+</section>
+
+</main>
+</div>
+<footer class="custom-footer">
+  <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+  <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl &mdash; All rights reserved</div>
+  <div>
+    <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> &mdash;
+    Installer powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a> &mdash;
+    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script src="./js/script.js"></script>
+<script>
+(function() {
+  var REPO  = 'huizebruin/s0tool';
+  var LABEL = 'meter-review';
+  var currentRating = 5;
+
+  function setStars(val) {
+    currentRating = val;
+    var ri = document.getElementById('rf-rating');
+    if (ri) ri.value = val;
+    document.querySelectorAll('.star').forEach(function(s) {
+      s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    setStars(5);
+
+    var picker = document.getElementById('star-picker');
+    if (picker) {
+      picker.querySelectorAll('.star').forEach(function(s) {
+        s.addEventListener('mouseenter', function() { setStars(parseInt(s.dataset.val)); });
+        s.addEventListener('click',      function() { setStars(parseInt(s.dataset.val)); });
+      });
+      picker.addEventListener('mouseleave', function() { setStars(currentRating); });
+    }
+
+    var ta = document.getElementById('rf-review');
+    if (ta) ta.addEventListener('input', function() {
+      var cc = document.getElementById('char-count');
+      if (cc) cc.textContent = this.value.length;
+    });
+
+    var submitBtn = document.getElementById('rf-submit');
+    if (submitBtn) submitBtn.addEventListener('click', function() {
+      var name    = (document.getElementById('rf-name').value || '').trim();
+      var country = document.getElementById('rf-country').value;
+      var brand   = (document.getElementById('rf-meter-brand').value || '').trim();
+      var model   = (document.getElementById('rf-meter-model').value || '').trim();
+      var type    = document.querySelector('input[name="rf-type"]:checked').value;
+      var rating  = document.getElementById('rf-rating').value;
+      var review  = (document.getElementById('rf-review').value || '').trim();
+      var err     = document.getElementById('rf-error');
+      err.classList.add('hidden');
+      if (!name || !country || !brand || !model || !review) {
+        err.textContent = 'Please fill in all fields.';
+        err.classList.remove('hidden');
+        return;
+      }
+      var stars = '';
+      for (var i = 1; i <= 5; i++) stars += i <= parseInt(rating) ? '\u2605' : '\u2606';
+      var title = '[Meter Review] ' + brand + ' ' + model + ' \u2014 ' + country;
+      var body  = '## S0tool Meter Review\n\n'
+        + '| Field | Value |\n|-------|-------|\n'
+        + '| **Name** | ' + name + ' |\n'
+        + '| **Country** | ' + country + ' |\n'
+        + '| **Meter brand** | ' + brand + ' |\n'
+        + '| **Meter model** | ' + model + ' |\n'
+        + '| **Meter type** | ' + type + ' |\n'
+        + '| **Rating** | ' + stars + ' (' + rating + '/5) |\n\n'
+        + '### Review\n\n' + review + '\n\n---\n'
+        + '_Submitted via [s0tool.nl/community.html](https://s0tool.nl/community.html)_';
+      window.open('https://github.com/' + REPO + '/issues/new'
+        + '?title=' + encodeURIComponent(title)
+        + '&body='  + encodeURIComponent(body)
+        + '&labels=' + encodeURIComponent(LABEL), '_blank');
+    });
+
+    /* Load reviews from GitHub */
+    fetch('https://api.github.com/repos/' + REPO + '/issues?labels=' + LABEL + '&state=open&per_page=100')
+      .then(function(r) { return r.json(); })
+      .then(function(issues) {
+        var container = document.getElementById('reviews-container');
+        var filterBar = document.getElementById('review-filters');
+        if (!Array.isArray(issues) || !issues.length) {
+          container.innerHTML = '<p class="reviews-empty">No reviews yet \u2014 be the first!</p>';
+          return;
+        }
+        document.getElementById('review-count').textContent = '(' + issues.length + ')';
+        var all = issues.map(function(issue) {
+          var b = issue.body || '';
+          function field(n) { var m = b.match(new RegExp('\\|\\s*\\*\\*' + n + '\\*\\*\\s*\\|\\s*([^|\\n]+)')); return m ? m[1].trim() : ''; }
+          var rm = b.match(/### Review\s*\n+([\s\S]*?)(?:\n---|$)/);
+          var rm2 = b.match(/(\u2605+)/u);
+          return { name: field('Name') || issue.user.login, country: field('Country'), brand: field('Meter brand'), model: field('Meter model'), type: field('Meter type'), rating: rm2 ? rm2[1].length : 5, review: rm ? rm[1].trim() : b.slice(0,200), date: (issue.created_at||'').slice(0,10), url: issue.html_url };
+        });
+        var countries = [];
+        all.forEach(function(r) { if (r.country && countries.indexOf(r.country) < 0) countries.push(r.country); });
+        countries.sort().forEach(function(c) { var o = document.createElement('option'); o.value = c; o.textContent = c; document.getElementById('filter-country').appendChild(o); });
+        filterBar.style.display = 'flex';
+        function esc(s) { return String(s||'').replace(/[&<>"]/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+        function render(list) {
+          if (!list.length) { container.innerHTML = '<p class="reviews-empty">No reviews match your filter.</p>'; return; }
+          container.innerHTML = list.map(function(r) {
+            var st = ''; for (var i=1;i<=5;i++) st += i<=r.rating?'\u2605':'\u2606';
+            return '<div class="review-card"><div class="review-card-header"><div class="review-card-meter"><i class="bi bi-speedometer2"></i> <strong>'+esc(r.brand)+' '+esc(r.model)+'</strong>'+(r.type?'<span class="review-type-badge">'+esc(r.type)+'</span>':'')+'</div><div class="review-stars review-stars--sm">'+st+'</div></div><p class="review-text">&ldquo;'+esc(r.review)+'&rdquo;</p><div class="review-card-footer"><span><i class="bi bi-person"></i> '+esc(r.name)+'</span>'+(r.country?'<span><i class="bi bi-geo-alt"></i> '+esc(r.country)+'</span>':'')+(r.date?'<span><i class="bi bi-calendar3"></i> '+r.date+'</span>':'')+'<a href="'+r.url+'" target="_blank" rel="noopener"><i class="bi bi-github"></i></a></div></div>';
+          }).join('');
+        }
+        function applyFilters() {
+          var s = (document.getElementById('filter-search').value||'').toLowerCase();
+          var t = (document.getElementById('filter-type').value||'').toLowerCase();
+          var c = (document.getElementById('filter-country').value||'').toLowerCase();
+          render(all.filter(function(r) { return (!s||(r.brand+' '+r.model+' '+r.review+' '+r.country).toLowerCase().includes(s))&&(!t||r.type.toLowerCase().includes(t))&&(!c||r.country.toLowerCase().includes(c)); }));
+        }
+        ['filter-search','filter-type','filter-country'].forEach(function(id) { var el=document.getElementById(id); if(el) el.addEventListener('input',applyFilters); });
+        render(all);
+      })
+      .catch(function() { document.getElementById('reviews-container').innerHTML='<p class="reviews-empty"><i class="bi bi-wifi-off"></i> Could not load reviews. <a href="https://github.com/huizebruin/s0tool/issues?q=label:meter-review" target="_blank">View on GitHub</a></p>'; });
+  });
+}());
+</script><script>
+function submitMeter(prefix) {
+  var brand  = (document.getElementById(prefix+'-brand').value  || '').trim();
+  var model  = (document.getElementById(prefix+'-model').value  || '').trim();
+  var region = (document.getElementById(prefix+'-region').value || '').trim();
+  var name   = (document.getElementById(prefix+'-name').value   || '').trim();
+  var notes  = (document.getElementById(prefix+'-notes').value  || '').trim();
+  var err    = document.getElementById(prefix+'-error');
+  err.classList.add('hidden');
+  if (!brand || !model || !region) {
+    err.textContent = 'Please fill in brand, model and region.';
+    err.classList.remove('hidden');
+    return;
+  }
+  var mtype = prefix === 'water-add' ? 'water' : 'power';
+  var title = '[Compatible Meter] ' + brand + ' ' + model + ' (' + region + ')';
+  var body  = '## Compatible Meter Submission\n\n'
+    + '| Field | Value |\n|-------|-------|\n'
+    + '| **Meter type** | ' + mtype + ' |\n'
+    + '| **Brand** | ' + brand + ' |\n'
+    + '| **Model** | ' + model + ' |\n'
+    + '| **Region** | ' + region + ' |\n'
+    + '| **Notes** | ' + (notes || '-') + ' |\n'
+    + '| **Submitted by** | ' + (name || 'anonymous') + ' |\n\n'
+    + '---\n_Submitted via [s0tool.nl](https://s0tool.nl)_';
+  var disc = mtype === 'water'
+    ? 'https://github.com/huizebruin/s0tool/discussions/57'
+    : 'https://github.com/huizebruin/s0tool/discussions/250';
+  window.open(disc + '?body=' + encodeURIComponent(body), '_blank');
+}
+</script>
+</body>
+</html>
