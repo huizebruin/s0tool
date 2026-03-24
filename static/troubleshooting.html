@@ -80,18 +80,39 @@
 </section>
 <section>
   <h2><i class="bi bi-graph-up" style="color:var(--accent);"></i> Energy Dashboard</h2>
-  <p>From HA 2022.11, add your data to the Energy Dashboard (S0tool v22.10.20+).</p>
+  <p>From HA 2022.11, add your data to the Energy Dashboard (S0tool 3.0.*).</p>
+
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+    <img src="./assets/water-energydashboard.png" alt="Energy Dashboard"
+      style="max-width:300px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+    <img src="./assets/s0tool-dashboard.png" alt="S0tool Dashboard"
+      style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+  </div>
+  <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noopener"><img
+      src="https://my.home-assistant.io/badges/config_energy.svg" alt="Open Energy Config"></a>
+
 
   <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Water consumption</h3>
   <ul>
     <li>Search for <code>watermeter Totaal</code> and add it under <strong>Water consumption</strong>.</li>
   </ul>
 
-  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Water flow <span class="badge badge-water" style="font-size:0.7rem;vertical-align:middle;">New in v3.6.9</span></h3>
+  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Water flow <span class="badge badge-water" style="font-size:0.7rem;vertical-align:middle;">New in v3.6.9</span><span class="badge badge-water" style="font-size:0.7rem;vertical-align:middle;">New in HA 2026.3.0</span></h3>
   <ul>
     <li>Since <strong>S0tool v3.6.9</strong> you can also add the water flow sensor to the dashboard.</li>
     <li>Search for <code>watermeter flow</code> and add it under <strong>Water flow</strong> (Waterdoorstroom).</li>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+        <img src="./assets/flow-settings.png" alt="flow settings"
+          style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"></div>
+          <div>
+        <img src="./assets/flow-now-dashboard.png" alt="flow now dashboard"
+          style="max-width:700px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+      </div>
     <li>If Home Assistant shows a unit warning (unit changed warning), choose <strong>"Change historical values from 'l/min' to 'L/min' without conversion"</strong> and click Repair.</li>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+            <img src="./assets/repair.png" alt="repair warning"
+              style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+          </div>
   </ul>
   <div class="tip-box">
     <strong>Tip:</strong> The flow sensor shows your current water usage in <code>L/min</code> in real-time on the <em>Nu</em> (Now) tab of the Energy Dashboard &mdash; very useful for detecting leaks or high usage.
@@ -100,13 +121,27 @@
   <h3 style="color:var(--text);margin:1rem 0 0.5rem;">S0 port (kWh / solar)</h3>
   <ul>
     <li>Search for <code>Totaal opgebracht</code> and add it under the relevant energy category.</li>
+    <li>Search for <code>Actuele energie</code> and add it under the relevant energy category.</li>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+      <img src="./assets/solar-settings-energy-dashboard.png" alt="solar settings energy dashboard"
+        style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+    </div>
   </ul>
+  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Individual electrical devices</h3>
+  <ul>
+  
+    <ul>
+      <li>If you use the s0tool s0 port for a other purpose, you can add individual electrical devices to the Energy Dashboard.</li>
+      <li>Search for <code>Totaal opgebracht</code> and add it under the relevant energy category.</li>
+      <li>Search for <code>Actuele energie</code> and add it under the relevant energy category.</li>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+        <img src="./assets/Individual electrical devices.png" alt="solar settings energy dashboard"
+          style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+      </div>
+    </ul>
+  
 
-  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
-    <img src="./assets/water-energydashboard.jpg" alt="Energy Dashboard" style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-    <img src="./assets/s0tool-dashboard.png" alt="S0tool Dashboard" style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-  </div>
-  <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noopener"><img src="https://my.home-assistant.io/badges/config_energy.svg" alt="Open Energy Config"></a>
+
 </section>
 <section>
   <h2><i class="bi bi-sliders" style="color:var(--accent);"></i> Changing Total Readings</h2>
