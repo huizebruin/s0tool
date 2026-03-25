@@ -2,35 +2,41 @@
 
 /* ── Dark theme (default) ─────────────────────────────────────── */
 :root {
-  --bg:         #0f1117;
-  --bg2:        #171c27;
-  --bg3:        #1e2535;
-  --surface:    #242a3a;
-  --border:     #2e3650;
-  --accent:     #00d4aa;
-  --accent-dim: rgba(0,212,170,0.12);
-  --text:       #e8eaf0;
-  --text-dim:   #8892a4;
-  --text-muted: #555f75;
-  --mono:       'Space Mono', monospace;
-  --sans:       'DM Sans', sans-serif;
-  --radius:     10px;
-  --radius-lg:  16px;
+  /* Light theme = default */
+  --bg: #f0f4fb;
+  --bg2: #ffffff;
+  --bg3: #e8edf7;
+  --surface: #dce3f0;
+  --surface2: #e8eef5;
+  --border: #c8d3e8;
+  --accent: #007a8a;
+  --accent2: #2563eb;
+  --accent3: #d97706;
+  --accent-dim: rgba(0, 122, 138, 0.10);
+  --text: #1e293b;
+  --text-dim: #4a5568;
+  --text-muted: #8899b0;
+  --muted: #64748b;
+  --mono: 'Space Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --radius: 10px;
+  --radius-lg: 16px;
   --transition: 0.2s ease;
+
 }
 
-/* ── Light theme ──────────────────────────────────────────────── */
-[data-theme="light"] {
-  --bg:         #f0f4fb;
-  --bg2:        #ffffff;
-  --bg3:        #e8edf7;
-  --surface:    #dce3f0;
-  --border:     #c8d3e8;
-  --accent:     #007a8a;
-  --accent-dim: rgba(0,122,138,0.10);
-  --text:       #1a1f2e;
-  --text-dim:   #4a5568;
-  --text-muted: #8899b0;
+/* ── Dark theme (alleen actief als expliciet gezet) ───────────── */
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --bg2: #171c27;
+  --bg3: #1e2535;
+  --surface: #242a3a;
+  --border: #2e3650;
+  --accent: #00d4aa;
+  --accent-dim: rgba(0, 212, 170, 0.12);
+  --text: #e8eaf0;
+  --text-dim: #8892a4;
+  --text-muted: #555f75;
 }
 
 /* ── Reset ────────────────────────────────────────────────────── */
@@ -1352,3 +1358,6 @@ body.show-special .special { display: initial; }
 .faq-item.open .faq-a { display: block; }
 .faq-a a { color: var(--accent); }
 .faq-a code { font-size: 0.85em; }
+
+
+

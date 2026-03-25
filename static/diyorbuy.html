@@ -1,126 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S0tool — DIY or Buy</title>
-  <meta name="description" content="Build your own S0tool or order ready-made. ESPHome water and kWh monitoring.">
+  
+  <!-- Primary Meta Tags -->
+  <title>DIY or Buy S0tool - Build Your Own or Purchase Pre-Made | S0tool</title>
+  <meta name="title" content="DIY or Buy S0tool - Build Your Own or Purchase Pre-Made">
+  <meta name="description"
+    content="Choose between building your own S0tool or buying a ready-made device. Compare costs, difficulty, and features. All components and suppliers listed.">
+  <meta name="keywords"
+    content="S0tool DIY, buy S0tool, ESP32, ESP8266, NPN sensor, pulse counter kit, smart meter components">
   <meta name="author" content="Huizebruin">
-  <meta property="og:title" content="S0tool — DIY or Buy">
-  <meta property="og:url" content="https://s0tool.nl">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://s0tool.nl/diyorbuy.html">
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/header.png">
-  <meta property="og:description" content="Build your own S0tool or order ready-made. ESPHome water and kWh monitoring.">
-  <script>try{var t=localStorage.getItem("s0tool-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.setAttribute("data-theme",d?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","dark");}</script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9HB5QGY82J");</script>
+  <meta property="og:url" content="https://s0tool.nl/diyorbuy.html">
+  <meta property="og:title" content="DIY or Buy S0tool - Build or Purchase Your Meter Reader">
+  <meta property="og:description"
+    content="Compare DIY vs pre-made S0tool options. Full component lists and purchasing guides included.">
+  <meta property="og:image" content="https://s0tool.nl/assets/header.png">
+  <meta property="og:site_name" content="S0tool">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://s0tool.nl/diyorbuy.html">
+  <meta name="twitter:title" content="DIY or Buy S0tool">
+  <meta name="twitter:description" content="Build your own or buy ready-made. Compare options and costs.">
+  <meta name="twitter:image" content="https://s0tool.nl/assets/header.png">
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://s0tool.nl"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "DIY or Buy",
+        "item": "https://s0tool.nl/diyorbuy.html"
+      }]
+    }
+    </script>
+      <script>try { var t = localStorage.getItem("s0tool-theme"); var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }</script>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+      <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-9HB5QGY82J");</script>
 </head>
+
 <body>
-<nav class="custom-navbar">
-  <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
-  <ul class="navbar-links" id="navbar-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="diyorbuy.html">DIY or Buy</a></li>
-    <li><a href="installation.html">Installation</a></li>
-    <li><a href="troubleshooting.html">Troubleshooting</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="community.html">Community</a></li>
-    <li><a href="releases.html">Releases</a></li>
-    <li><a href="contributing.html">Contributing</a></li>
-    <li><a href="license.html">License</a></li>
-  </ul>
-  <div class="navbar-right">
-    <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
-    <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
-    <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener" style="margin-left:0.3rem;">
-      <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release" style="height:20px;vertical-align:middle;">
-    </a>
-  </div>
-</nav>
-<div class="layout">
-<aside class="custom-sidebar">
-  <div class="sidebar-inner">
-    <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
-    <div class="sidebar-label">Project stats</div>
-    <ul class="sidebar-badges">
-      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
-      <li><a href="https://esphome.io" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat" alt="Contributors"></a></li>
-      <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
-      <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+  <nav class="custom-navbar">
+    <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="diyorbuy.html">DIY or Buy</a></li>
+      <li><a href="installation.html">Installation</a></li>
+      <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="releases.html">Releases</a></li>
+      <li><a href="contributing.html">Contributing</a></li>
+      <li><a href="license.html">License</a></li>
     </ul>
-  </div>
-</aside>
-<main>
+    <div class="navbar-right">
+      <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+      <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+      <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"
+        style="margin-left:0.3rem;">
+        <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release"
+          style="height:20px;vertical-align:middle;">
+      </a>
+    </div>
+  </nav>
 
-<section><h1>DIY or Buy</h1><p>Build your own S0tool from cheap off-the-shelf parts, or order a ready-made PCB from the Huizebruin shop.</p></section>
-<section>
-  <h2><i class="bi bi-tools" style="color:var(--accent);"></i> Build It Yourself</h2>
-  <p>Wemos D1 mini + NPN proximity sensor + 10K&#8486; resistor. Total cost under &euro;10.</p>
-  <ol>
-    <li>Connect one end of the 10K&#8486; resistor to <code>5V</code>.</li>
-    <li>Connect the other end to <code>D2</code>.</li>
-    <li>Connect <code>D2</code> to the signal wire of the NPN sensor.</li>
-    <li>Connect the GND wire of the NPN sensor to <code>GND</code>.</li>
-  </ol>
-  <div class="warn-box" style="margin-top:0.8rem;"><strong>Note:</strong> Currently only works with <strong>Wemos D1 mini V1 or V3.0 (ESP8266)</strong>. You also need a USB cable and 5V/1A adapter.<br>Min ESPHome: 2026.1.x &mdash; Min Home Assistant: 2026.1.x</div>
-</section>
-<section>
-  <h2><i class="bi bi-bag" style="color:var(--accent);"></i> Shopping List</h2>
-  <div class="table-container"><table>
-    <thead><tr><th>Part</th><th>Where to buy</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Wemos D1 Mini (ESP8266)</strong></td><td><a href="https://s.click.AliExpress.com/e/_9fhHxf" target="_blank" rel="noopener">AliExpress</a> &middot; <a href="https://amzn.to/3FL7O48" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td><strong>NPN Proximity Sensor (5V)</strong></td><td><a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank" rel="noopener">AliExpress</a> &middot; <a href="https://amzn.to/3DFVsaL" target="_blank" rel="noopener">Amazon</a> &middot; <a href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ" target="_blank" rel="noopener">Opencircuit (NL)</a></td></tr>
-      <tr><td><strong>10K&#8486; Resistor</strong></td><td><a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank" rel="noopener">AliExpress</a> &middot; <a href="https://amzn.to/3NBjjx2" target="_blank" rel="noopener">Amazon</a> &middot; <a href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ" target="_blank" rel="noopener">Opencircuit (NL)</a></td></tr>
-      <tr><td><strong>USB cable + 5V adapter</strong></td><td>Any Micro-B phone charger</td></tr>
-    </tbody>
-  </table></div>
-</section>
-<section>
-  <h2><i class="bi bi-diagram-3" style="color:var(--accent);"></i> Wiring Schematic</h2>
-  <a href="./assets/npn-watermeter-wemosd1.png" target="_blank"><img src="./assets/npn-watermeter-wemosd1.png" alt="Wiring" style="max-width:280px;width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block;margin:0 auto;"></a>
-  <p style="text-align:center;font-size:0.85rem;margin-top:0.5rem;">Click to enlarge</p>
-</section>
-<section>
-  <h2><i class="bi bi-shop" style="color:var(--accent);"></i> Buy a Ready-Made S0tool</h2>
-  <p>Skip the soldering and order a fully assembled PCB from the Huizebruin shop. The 10K&#8486; resistor is already on the PCB. Currently shipping to <strong>Netherlands</strong>, <strong>Belgium</strong>, <strong>Germany</strong> and <strong>Estonia</strong>. More countries coming soon &mdash; <a href="mailto:support@s0tool.nl">contact us by email</a> to ask about shipping to your country.</p>
-  <a href="https://www.huizebruin.nl/product/s0tool/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:0.8rem;display:inline-flex;"><i class="bi bi-bag-check"></i> Order from Huizebruin Shop</a>
-</section>
-<section>
-  <h2><i class="bi bi-lightning" style="color:var(--accent);"></i> kWh Meter Integration</h2>
-  <ol>
-    <li>Ensure your kWh meter has an S0 output port.</li>
-    <li>Connect a 10K&#8486; resistor between <code>GND</code> and <code>D5</code>.</li>
-    <li>Connect <code>5V</code> to <strong>port 20</strong> of the S0 terminal.</li>
-    <li>Connect <code>D5</code> to <strong>port 21</strong> of the S0 terminal.</li>
-  </ol>
-  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;">
-    <img src="./assets/kwh_Meter_Pulse.jpg" alt="S0 connection" style="max-width:200px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-    <img src="./assets/s0tool-s0-kwh-poort.jpg" alt="S0tool kWh" style="max-width:200px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-  </div>
-</section>
 
-</main>
-</div>
-<footer class="custom-footer">
-  <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
-  <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl &mdash; All rights reserved</div>
-  <div>
-    <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> &mdash;
-    Installer powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a> &mdash;
-    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+  <div class="layout">
+    <aside class="custom-sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+        <div class="sidebar-label">Project stats</div>
+        <ul class="sidebar-badges">
+          <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
+          <li><a href="https://esphome.io" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a>
+          </li>
+          <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat" alt="Contributors"></a>
+          </li>
+          <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a>
+          </li>
+          <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
+          <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img
+                src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main>
+      <section>
+        <h1>DIY or Buy Your S0tool</h1>
+        <p>Choose the approach that fits you best: <strong>build your own S0tool</strong> from affordable, off-the-shelf
+          components, or <strong>order a fully assembled PCB</strong> from the Huizebruin shop. Both options give you a
+          local, ESPHome-compatible water and energy meter for Home Assistant.</p>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-tools" style="color:var(--accent);"></i> Build It Yourself</h2>
+        <p>Use a Wemos D1 Mini (ESP8266) with a 5V NPN proximity sensor and a 10K&#8486; resistor — total cost under
+          €10. Perfect for DIY enthusiasts and hobbyists.</p>
+        <ol>
+          <li>Connect one end of the 10K&#8486; resistor to <code>5V</code>.</li>
+          <li>Connect the other end to <code>D2</code>.</li>
+          <li>Attach <code>D2</code> to the signal wire of the NPN sensor.</li>
+          <li>Connect the sensor's GND wire to <code>GND</code>.</li>
+        </ol>
+        <div class="warn-box">
+          <strong>Note:</strong> Compatible only with <strong>Wemos D1 Mini V1 or V3.0 (ESP8266)</strong>. You will also
+          need a USB cable and 5V/1A power adapter.<br>
+          Minimum ESPHome: 2026.1.x — Minimum Home Assistant: 2026.1.x
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-bag" style="color:var(--accent);"></i> Shopping List</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Part</th>
+                <th>Where to Buy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Wemos D1 Mini (ESP8266)</strong></td>
+                <td><a href="https://s.click.AliExpress.com/e/_9fhHxf" target="_blank" rel="noopener">AliExpress</a>
+                  &middot; <a href="https://amzn.to/3FL7O48" target="_blank" rel="noopener">Amazon</a></td>
+              </tr>
+              <tr>
+                <td><strong>NPN Proximity Sensor (5V)</strong></td>
+                <td><a href="https://s.click.aliexpress.com/e/_AVaoGr" target="_blank" rel="noopener">AliExpress</a>
+                  &middot; <a href="https://amzn.to/3DFVsaL" target="_blank" rel="noopener">Amazon</a> &middot; <a
+                    href="https://opencircuit.nl/product/lj18a3-8-z-bx-5v-nabijheids-sensor-n-o-npn-8mm?affiliate=1VL4KIAMBZ"
+                    target="_blank" rel="noopener">Opencircuit (NL)</a></td>
+              </tr>
+              <tr>
+                <td><strong>10K&#8486; Resistor</strong></td>
+                <td><a href="https://s.click.aliexpress.com/e/_A10BHz" target="_blank" rel="noopener">AliExpress</a>
+                  &middot; <a href="https://amzn.to/3NBjjx2" target="_blank" rel="noopener">Amazon</a> &middot; <a
+                    href="https://opencircuit.nl/Product/10K%CE%A9-Metaalfilm-weerstand-1-4W-10-stuks?affiliate=1VL4KIAMBZ"
+                    target="_blank" rel="noopener">Opencircuit (NL)</a></td>
+              </tr>
+              <tr>
+                <td><strong>USB Cable + 5V Adapter</strong></td>
+                <td>Any Micro-B phone charger</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-diagram-3" style="color:var(--accent);"></i> Wiring Schematic</h2>
+        <a href="./assets/npn-watermeter-wemosd1.png" target="_blank">
+          <img src="./assets/npn-watermeter-wemosd1.png" alt="S0tool DIY Wiring Diagram"
+            style="max-width:280px;width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block;margin:0 auto;">
+        </a>
+        <p style="text-align:center;font-size:0.85rem;margin-top:0.5rem;">Click image to enlarge</p>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-shop" style="color:var(--accent);"></i> Buy a Ready-Made S0tool</h2>
+        <p>Skip soldering and order a fully assembled S0tool PCB. Comes with the 10K&#8486; resistor pre-installed.
+          Shipping currently available to <strong>Netherlands</strong>, <strong>Belgium</strong>,
+          <strong>Germany</strong>, and <strong>Estonia</strong>. For other countries, <a
+            href="mailto:support@s0tool.nl">contact us by email</a>.</p>
+        <a href="https://www.huizebruin.nl/product/s0tool/" target="_blank" rel="noopener" class="btn btn-primary"
+          style="margin-top:0.8rem;display:inline-flex;">
+          <i class="bi bi-bag-check"></i> Order from Huizebruin Shop
+        </a>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-lightning" style="color:var(--accent);"></i> kWh Meter Integration</h2>
+        <ol>
+          <li>Ensure your kWh meter has an S0 output port.</li>
+          <li>Connect a 10K&#8486; resistor between <code>GND</code> and <code>D5</code>.</li>
+          <li>Connect <code>5V</code> to port 20 of the S0 terminal.</li>
+          <li>Connect <code>D5</code> to port 21 of the S0 terminal.</li>
+        </ol>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;">
+          <img src="./assets/kwh_Meter_Pulse.jpg" alt="S0 kWh Connection"
+            style="max-width:200px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+          <img src="./assets/s0tool-s0-kwh-poort.jpg" alt="S0tool kWh Ready"
+            style="max-width:200px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+        </div>
+      </section>
+
+    </main>
   </div>
-</footer>
-<script src="./js/script.js"></script>
+
+  <footer class="custom-footer">
+    <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+    <div>&copy; 2021&ndash;<span class="current-year">2026</span> S0tool.nl — All rights reserved</div>
+    <div>
+      <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> —
+      Installer powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web
+        Tools</a> —
+      <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+  <script src="./js/script.js"></script>
 </body>
+
 </html>

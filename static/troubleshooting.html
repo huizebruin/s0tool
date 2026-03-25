@@ -1,179 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S0tool — Troubleshooting</title>
-  <meta name="description" content="Troubleshooting guide for S0tool.">
+  
+  <!-- Primary Meta Tags -->
+  <title>S0tool Troubleshooting Guide - Fix Common Issues | Support & Solutions</title>
+  <meta name="title" content="S0tool Troubleshooting Guide - Fix Common Issues">
+  <meta name="description"
+    content="Solve S0tool problems quickly. Common issues with WiFi, pulse detection, Home Assistant integration, and sensor readings. Step-by-step solutions included.">
+  <meta name="keywords"
+    content="S0tool troubleshooting, fix pulse counter, WiFi connection issues, Home Assistant problems, sensor not working, ESPHome debugging">
   <meta name="author" content="Huizebruin">
-  <meta property="og:title" content="S0tool — Troubleshooting">
-  <meta property="og:url" content="https://s0tool.nl">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/header.png">
-  <meta property="og:description" content="Troubleshooting guide for S0tool.">
-  <script>try{var t=localStorage.getItem("s0tool-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.setAttribute("data-theme",d?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","dark");}</script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-9HB5QGY82J");</script>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://s0tool.nl/troubleshooting.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://s0tool.nl/troubleshooting.html">
+  <meta property="og:title" content="S0tool Troubleshooting - Fix Common Problems">
+  <meta property="og:description" content="Quick solutions for WiFi, sensors, and Home Assistant integration issues.">
+  <meta property="og:image" content="https://s0tool.nl/assets/header.png">
+  <meta property="og:site_name" content="S0tool">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://s0tool.nl/troubleshooting.html">
+  <meta name="twitter:title" content="S0tool Troubleshooting Guide">
+  <meta name="twitter:description" content="Fix common S0tool issues quickly with our troubleshooting guide.">
+  <meta name="twitter:image" content="https://s0tool.nl/assets/header.png">
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://s0tool.nl"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Troubleshooting",
+        "item": "https://s0tool.nl/troubleshooting.html"
+      }]
+    }
+    </script>
+      <script>try { var t = localStorage.getItem("s0tool-theme"); var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }</script>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HB5QGY82J"></script>
+      <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-9HB5QGY82J");</script>
 </head>
+
 <body>
-<nav class="custom-navbar">
-  <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
-  <ul class="navbar-links" id="navbar-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="diyorbuy.html">DIY or Buy</a></li>
-    <li><a href="installation.html">Installation</a></li>
-    <li><a href="troubleshooting.html">Troubleshooting</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="community.html">Community</a></li>
-    <li><a href="releases.html">Releases</a></li>
-    <li><a href="contributing.html">Contributing</a></li>
-    <li><a href="license.html">License</a></li>
-  </ul>
-  <div class="navbar-right">
-    <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
-    <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
-    <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener" style="margin-left:0.3rem;">
-      <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release" style="height:20px;vertical-align:middle;">
-    </a>
-  </div>
-</nav>
-<div class="layout">
-<aside class="custom-sidebar">
-  <div class="sidebar-inner">
-    <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
-    <div class="sidebar-label">Project stats</div>
-    <ul class="sidebar-badges">
-      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
-      <li><a href="https://esphome.io" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat" alt="Contributors"></a></li>
-      <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
-      <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
-      <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+  <nav class="custom-navbar">
+    <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="diyorbuy.html">DIY or Buy</a></li>
+      <li><a href="installation.html">Installation</a></li>
+      <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="releases.html">Releases</a></li>
+      <li><a href="contributing.html">Contributing</a></li>
+      <li><a href="license.html">License</a></li>
     </ul>
-  </div>
-</aside>
-<main>
-
-<section><h1>Troubleshooting</h1><p>Common issues and solutions. Also check the <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub README</a>.</p></section>
-<section>
-  <h2><i class="bi bi-arrow-repeat" style="color:var(--accent);"></i> Updating via ESPHome</h2>
-  <ol><li>Open the <strong>ESPHome</strong> add-on in Home Assistant.</li><li>Find your S0tool, click the <strong>three dots</strong>.</li><li>Select <strong>Validate</strong>, then <strong>Install</strong>.</li></ol>
-</section>
-<section>
-  <h2><i class="bi bi-usb-plug" style="color:var(--accent);"></i> USB Drivers</h2>
-  <div class="table-container"><table>
-    <thead><tr><th>Chip</th><th>Description</th><th>Driver</th></tr></thead>
-    <tbody>
-      <tr><td><strong>CP2102</strong></td><td>Common on Wemos D1 mini</td><td><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" target="_blank" rel="noopener">Silicon Labs</a></td></tr>
-      <tr><td><strong>CH341</strong></td><td>Older NodeMCU boards</td><td><a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank" rel="noopener">GitHub</a></td></tr>
-      <tr><td><strong>CH340</strong></td><td>Common clone boards</td><td><a href="https://sparks.gogo.co.nz/ch340.html" target="_blank" rel="noopener">sparks.gogo.co.nz</a></td></tr>
-    </tbody>
-  </table></div>
-</section>
-<section>
-  <h2><i class="bi bi-graph-up" style="color:var(--accent);"></i> Energy Dashboard</h2>
-  <p>From HA 2022.11, add your data to the Energy Dashboard (S0tool 3.0.*).</p>
-
-  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
-    <img src="./assets/water-energydashboard.png" alt="Energy Dashboard"
-      style="max-width:300px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-    <img src="./assets/s0tool-dashboard.png" alt="S0tool Dashboard"
-      style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-  </div>
-  <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noopener"><img
-      src="https://my.home-assistant.io/badges/config_energy.svg" alt="Open Energy Config"></a>
-
-
-  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Water consumption</h3>
-  <ul>
-    <li>Search for <code>watermeter Totaal</code> and add it under <strong>Water consumption</strong>.</li>
-  </ul>
-
-  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Water flow <span class="badge badge-water" style="font-size:0.7rem;vertical-align:middle;">New in v3.6.9</span><span class="badge badge-water" style="font-size:0.7rem;vertical-align:middle;">New in HA 2026.3.0</span></h3>
-  <ul>
-    <li>Since <strong>S0tool v3.6.9</strong> you can also add the water flow sensor to the dashboard.</li>
-    <li>Search for <code>watermeter flow</code> and add it under <strong>Water flow</strong> (Waterdoorstroom).</li>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
-        <img src="./assets/flow-settings.png" alt="flow settings"
-          style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"></div>
-          <div>
-        <img src="./assets/flow-now-dashboard.png" alt="flow now dashboard"
-          style="max-width:700px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-      </div>
-    <li>If Home Assistant shows a unit warning (unit changed warning), choose <strong>"Change historical values from 'l/min' to 'L/min' without conversion"</strong> and click Repair.</li>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
-            <img src="./assets/repair.png" alt="repair warning"
-              style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
-          </div>
-  </ul>
-  <div class="tip-box">
-    <strong>Tip:</strong> The flow sensor shows your current water usage in <code>L/min</code> in real-time on the <em>Nu</em> (Now) tab of the Energy Dashboard &mdash; very useful for detecting leaks or high usage.
-  </div>
-
-  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">S0 port (kWh / solar)</h3>
-  <ul>
-    <li>Search for <code>Totaal opgebracht</code> and add it under the relevant energy category.</li>
-    <li>Search for <code>Actuele energie</code> and add it under the relevant energy category.</li>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
-      <img src="./assets/solar-settings-energy-dashboard.png" alt="solar settings energy dashboard"
-        style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+    <div class="navbar-right">
+      <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+      <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+      <a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"
+        style="margin-left:0.3rem;">
+        <img src="https://img.shields.io/github/release/huizebruin/s0tool.svg" alt="Release"
+          style="height:20px;vertical-align:middle;">
+      </a>
     </div>
-  </ul>
-  <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Individual electrical devices</h3>
-  <ul>
-  
-    <ul>
-      <li>If you use the s0tool s0 port for a other purpose, you can add individual electrical devices to the Energy Dashboard.</li>
-      <li>Search for <code>Totaal opgebracht</code> and add it under the relevant energy category.</li>
-      <li>Search for <code>Actuele energie</code> and add it under the relevant energy category.</li>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
-        <img src="./assets/Individual electrical devices.png" alt="solar settings energy dashboard"
-          style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+  </nav>
+  <div class="layout">
+    <aside class="custom-sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+        <div class="sidebar-label">Project stats</div>
+        <ul class="sidebar-badges">
+          <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
+          <li><a href="https://esphome.io" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a>
+          </li>
+          <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat"
+                alt="Contributors"></a></li>
+          <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a>
+          </li>
+          <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
+          <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img
+                src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
+          <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img
+                src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+        </ul>
       </div>
-    </ul>
-  
+    </aside>
+    <main>
 
+      <section>
+        <h1>Troubleshooting</h1>
+        <p>Find solutions to common S0tool issues. For additional help, check the <a
+            href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub README</a>.</p>
+      </section>
 
-</section>
-<section>
-  <h2><i class="bi bi-sliders" style="color:var(--accent);"></i> Changing Total Readings</h2>
-  <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
-    <li><a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool" target="_blank"><img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="D2"></a> &nbsp; Water Counter &mdash; <strong>D2</strong></li>
-    <li><a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool" target="_blank"><img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="D5"></a> &nbsp; S0 Port / kWh &mdash; <strong>D5</strong></li>
-    <li><a href="https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate" target="_blank"><img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="Cal"></a> &nbsp; Calibration service call</li>
-  </ul>
-</section>
-<section>
-  <h2><i class="bi bi-droplet" style="color:var(--accent);"></i> Compatible Water Meters</h2>
-  <div class="table-container"><table><thead><tr><th>Brand</th><th>Model</th><th>Type</th><th>Status</th><th>Region</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Elster</strong></td><td>V200</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Itron</strong></td><td>Aquadis+</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Sensus</strong></td><td>620</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Maddalena</strong></td><td>CD SD Plus</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>BE</td><td></td></tr><tr><td><strong>Actaris</strong></td><td>Single-Jet</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>NL</td><td></td></tr><tr><td><strong>Zenner</strong></td><td>MNK-RP-N</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>DE</td><td></td></tr><tr><td><strong>Kamstrup</strong></td><td>Multical 21</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td></td></tr><tr><td><strong>Diehl</strong></td><td>Hydrus</td><td><span class="badge badge-water">&#x1F4A7; Water</span></td><td><span class="badge">Compatible</span></td><td>EU</td><td></td></tr></tbody></table></div>
-  <p style="margin-top:0.8rem;">Know a compatible meter? <a href="community.html#compat">Add it via Community &rarr;</a></p>
-  <img src="./assets/watermeter.jpg" alt="Watermeter" style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);margin-top:1rem;display:block;">
-</section>
-<section>
-  <h2><i class="bi bi-gear" style="color:var(--accent);"></i> Advanced &amp; Problems</h2>
-  <p>S0tool is adoptable in the <a href="https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon" target="_blank" rel="noopener">ESPHome dashboard</a>.</p>
-  <p>Submit a <a href="https://github.com/huizebruin/s0tool/pulls" target="_blank" rel="noopener"><strong>Pull Request</strong></a> or open an <a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><strong>Issue</strong></a>. More info (Dutch) at <a href="https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/" target="_blank" rel="noopener">huizebruin.nl</a>.</p>
-</section>
+      <section>
+        <h2><i class="bi bi-arrow-repeat" style="color:var(--accent);"></i> Updating via ESPHome</h2>
+        <ol>
+          <li>Open the <strong>ESPHome</strong> add-on in Home Assistant.</li>
+          <li>Locate your S0tool device and click the <strong>three dots</strong> menu.</li>
+          <li>Select <strong>Validate</strong>, then click <strong>Install</strong>.</li>
+        </ol>
+      </section>
 
-</main>
-</div>
-<footer class="custom-footer">
-  <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
-  <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl &mdash; All rights reserved</div>
-  <div>
-    <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> &mdash;
-    Installer powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a> &mdash;
-    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+<section id="drivers">
+  <h2><i class="bi bi-usb-plug" style="color:var(--accent);"></i> USB Drivers</h2>
+  <p>Before flashing S0tool for the first time, install the correct USB-to-serial driver for your board's chip. Use
+    Device Manager (Windows) or <code>dmesg</code> (Linux/macOS) to identify the chip.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Chip</th>
+          <th>Common Board</th>
+          <th>OS</th>
+          <th>Driver / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CP2102</strong></td>
+          <td>Wemos D1 Mini, some NodeMCU</td>
+          <td>Win / Mac / Linux</td>
+          <td><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers"
+              target="_blank" rel="noopener">Silicon Labs VCP Driver</a></td>
+        </tr>
+        <tr>
+          <td><strong>CH340</strong></td>
+          <td>Common clone boards, most cheap ESP8266</td>
+          <td>Win / Mac</td>
+          <td><a href="https://sparks.gogo.co.nz/ch340.html" target="_blank" rel="noopener">sparks.gogo.co.nz</a> —
+            Linux has built-in support</td>
+        </tr>
+        <tr>
+          <td><strong>CH341</strong></td>
+          <td>Older NodeMCU devkits</td>
+          <td>Win / Mac</td>
+          <td><a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank"
+              rel="noopener">NodeMCU GitHub</a></td>
+        </tr>
+        <tr>
+          <td><strong>FTDI FT232</strong></td>
+          <td>Some dev boards &amp; USB adapters</td>
+          <td>Win / Mac / Linux</td>
+          <td><a href="https://ftdichip.com/drivers/vcp-drivers/" target="_blank" rel="noopener">FTDI VCP Drivers</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</footer>
-<script src="./js/script.js"></script>
+
+  <div class="callout callout-info">
+    <i class="bi bi-info-circle-fill"></i>
+    <p><strong>macOS 12+:</strong> Silicon Labs and FTDI drivers may require manual approval in <em>System Settings →
+        Privacy &amp; Security</em> after installation.</p>
+  </div>
+  <div class="callout callout-info">
+    <i class="bi bi-info-circle-fill"></i>
+    <p><strong>Linux:</strong> CH340/CH341 are usually plug-and-play. If not recognized, install
+      <code>linux-modules-extra-$(uname -r)</code> or add yourself to the <code>dialout</code> group:
+      <code>sudo usermod -aG dialout $USER</code></p>
+  </div>
+<p>
+  
+  <details>
+    <summary><i class="bi bi-question-circle"></i> How do I identify which chip my board uses?</summary>
+    <div class="details-body">
+      <p><strong>Windows:</strong> Open Device Manager → look under <em>Ports (COM &amp; LPT)</em> when the board is
+        plugged in. The chip name appears in parentheses.</p>
+      <p><strong>macOS/Linux:</strong> Run <code>dmesg | tail -20</code> after plugging in. Look for lines like
+        <code>usb: cp210x converter</code> or <code>ch341-uart</code>.</p>
+      <p><strong>Visual inspection:</strong> The chip is usually a small black IC near the USB connector. Look for
+        markings like <em>CP2102</em>, <em>CH340G</em>, or <em>FT232</em>.</p>
+    </div>
+  </details>
+</section></p>
+<hr class="section-divider">
+
+      <section>
+        <h2><i class="bi bi-graph-up" style="color:var(--accent);"></i> Energy Dashboard</h2>
+        <p>Since Home Assistant 2022.11, you can add your S0tool data to the Energy Dashboard (S0tool v3.0+).</p>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+          <img src="./assets/water-energydashboard.png" alt="Energy Dashboard"
+            style="max-width:300px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"
+            loading="lazy">
+          <img src="./assets/s0tool-dashboard.png" alt="S0tool Dashboard"
+            style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"
+            loading="lazy">
+        </div>
+
+        <a href="https://my.home-assistant.io/redirect/config_energy/" target="_blank" rel="noopener"><img
+            src="https://my.home-assistant.io/badges/config_energy.svg" alt="Open Energy Config"></a>
+
+        <h3>Water consumption</h3>
+        <ul>
+          <li>Search for <code>watermeter Totaal</code> and add it under <strong>Water consumption</strong>.</li>
+        </ul>
+
+        <h3>Water flow <span class="badge badge-water" style="font-size:0.7rem;">New in v3.6.9</span><span
+            class="badge badge-water" style="font-size:0.7rem;">New in HA 2026.3.0</span></h3>
+        <ul>
+          <li>Since <strong>S0tool v3.6.9</strong>, add the water flow sensor to the dashboard.</li>
+          <li>Search for <code>watermeter flow</code> and add it under <strong>Water flow</strong> (Waterdoorstroom).
+          </li>
+          <li>If Home Assistant shows a unit warning, choose <strong>"Change historical values from 'l/min' to 'L/min'
+              without conversion"</strong> and click Repair.</li>
+        </ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+          <img src="./assets/flow-settings.png" alt="Flow settings"
+            style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"
+            loading="lazy">
+          <img src="./assets/flow-now-dashboard.png" alt="Flow Now Dashboard"
+            style="max-width:700px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"
+            loading="lazy">
+        </div>
+        <div class="tip-box">
+          <strong>Tip:</strong> The flow sensor shows real-time water usage in <code>L/min</code> on the <em>Nu</em> tab
+          of the Energy Dashboard — useful for detecting leaks or high usage.
+        </div>
+
+        <h3>S0 port (kWh / solar)</h3>
+        <ul>
+          <li>Search for <code>Totaal opgebracht</code> and add it under the relevant energy category.</li>
+          <li>Search for <code>Actuele energie</code> and add it under the relevant energy category.</li>
+        </ul>
+
+        <h3>Individual electrical devices</h3>
+        <ul>
+          <li>If using the S0tool S0 port for another purpose, you can add individual electrical devices to the Energy
+            Dashboard.</li>
+          <li>Search for <code>Totaal opgebracht</code> and <code>Actuele energie</code> under the relevant energy
+            category.</li>
+        </ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;">
+          <img src="./assets/Individual electrical devices.png" alt="Individual electrical devices"
+            style="max-width:350px;width:100%;border-radius:var(--radius);border:1px solid var(--border);"
+            loading="lazy">
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-sliders" style="color:var(--accent);"></i> Changing Total Readings</h2>
+        <ul class="service-links">
+          <li><a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool"
+              target="_blank"><img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="D2"></a>
+            Water Counter — <strong>D2</strong></li>
+          <li><a href="https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome:s0tool"
+              target="_blank"><img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="D5"></a> S0
+            Port / kWh — <strong>D5</strong></li>
+          <li><a href="https://my.home-assistant.io/redirect/developer_call_service/?service=Nutsmeter%3A+Calibrate"
+              target="_blank"><img src="https://my.home-assistant.io/badges/developer_call_service.svg" alt="Cal"></a>
+            Calibration service call</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-droplet" style="color:var(--accent);"></i> Compatible Water Meters</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">Type</th>
+                <th scope="col">Status</th>
+                <th scope="col">Region</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Elster</strong></td>
+                <td>V200</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>NL</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Itron</strong></td>
+                <td>Aquadis+</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>NL</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Sensus</strong></td>
+                <td>620</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>NL</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Maddalena</strong></td>
+                <td>CD SD Plus</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>BE</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Actaris</strong></td>
+                <td>Single-Jet</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>NL</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Zenner</strong></td>
+                <td>MNK-RP-N</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>DE</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Kamstrup</strong></td>
+                <td>Multical 21</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>EU</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Diehl</strong></td>
+                <td>Hydrus</td>
+                <td><span class="badge badge-water">&#x1F4A7; Water</span></td>
+                <td><span class="badge">Compatible</span></td>
+                <td>EU</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:0.8rem;">Know a compatible meter? <a href="community.html#compat">Add it via Community
+            &rarr;</a></p>
+        <img src="./assets/watermeter.jpg" alt="Watermeter"
+          style="max-width:260px;width:100%;border-radius:var(--radius);border:1px solid var(--border);margin-top:1rem;display:block;"
+          loading="lazy">
+      </section>
+
+      <section>
+        <h2><i class="bi bi-gear" style="color:var(--accent);"></i> Advanced & Problems</h2>
+        <p>S0tool is configurable in the <a
+            href="https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon"
+            target="_blank" rel="noopener">ESPHome dashboard</a>.</p>
+        <p>Submit a <a href="https://github.com/huizebruin/s0tool/pulls" target="_blank" rel="noopener"><strong>Pull
+              Request</strong></a> or open an <a href="https://github.com/huizebruin/s0tool/issues" target="_blank"
+            rel="noopener"><strong>Issue</strong></a>. More info (Dutch) at <a
+            href="https://www.huizebruin.nl/home-assistant/wat-is-de-s0tool/" target="_blank"
+            rel="noopener">huizebruin.nl</a>.</p>
+      </section>
+
+
+<section id="configuration">
+  <h2>⚙️ Configuration & Troubleshooting</h2>
+
+  <h3>Automatic Update Notifications & Sensors</h3>
+  
+      <p>Include this package in <code>configuration.yaml</code>:</p>
+      <pre><code class="yaml">homeassistant:
+        packages: !include_dir_merge_named packages/</code></pre>
+<p>Use the following YAML package for S0tool sensors and update checks.
+   Copy it directly to
+  <code>packages/s0tool.yaml</code> in Home Assistant config folder.
+</p>
+  <div class="yaml-block">
+    <button class="copy-btn" onclick="copyYaml(this)">Copy YAML</button>
+    <pre><code class="yaml"># s0tool_package:
+
+#------------------------# S0tool Template Sensors #------------------------#
+# Convert watt to kW
+template:
+  - sensor:
+      - name: "current_energy_output"
+        state: "{{ (states('sensor.actual_energy') | int / 1000) | round(2) }}"
+        icon: mdi:flash
+        unit_of_measurement: "kW"
+        unique_id: s0tool_W_to_kW
+
+# Convert cubic meters to liters
+  - sensor:
+      - name: "water_consumption_liters_s0tool"
+        unique_id: s0tool_water_liters
+        state: "{{ (states('sensor.watermeter_total') | float * 1000) | int }}"
+        unit_of_measurement: L
+        icon: mdi:water
+
+  - sensor:
+      - name: "Water Meter Reading"
+        unique_id: water_meter_running_total
+        state_class: total_increasing
+        unit_of_measurement: m³
+        device_class: water
+        icon: mdi:gauge
+        state: "{{ 428.730 + states.sensor.watermeter_total.state | float }}"
+
+# Binary sensor for S0tool updates
+  - binary_sensor:
+      - name: "S0tool Update Available"
+        unique_id: s0tool_up_to_date
+        state: >
+          {% set a = states('sensor.s0tool_version_github') %}
+          {% set b = states('sensor.s0tool_version') %}
+          {{ version(a) > version(b) }}
+        device_class: update
+
+# REST sensor to fetch latest GitHub release
+sensor:
+  - platform: rest
+    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    name: s0tool_version_github
+    unique_id: s0tool_github_version
+    value_template: '{{ value_json.tag_name }}'
+    scan_interval: 3600
+</code></pre>
+  </div>
+
+  <script>
+    function copyYaml(button) {
+      const yaml = button.nextElementSibling.innerText;
+      navigator.clipboard.writeText(yaml).then(() => {
+        button.innerText = "Copied!";
+        setTimeout(() => button.innerText = "Copy YAML", 1500);
+      });
+    }
+  </script>
+
+
+
+</section>
+   <section>  
+        <h3>Automation Blueprint</h3>
+        <p>Import this blueprint to get notified of new S0tool versions:</p>
+        <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2Fhuizebruin%2Fcc87171b7974517497fbb55cd4bef83e"
+          target="_blank">
+          <img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Import Blueprint">
+        </a>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="custom-footer">
+    <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+    <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl — All rights reserved</div>
+    <div>
+      <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> — Installer powered by <a
+        href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a> — <a
+        href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+  <script src="./js/script.js"></script>
 </body>
+
 </html>
