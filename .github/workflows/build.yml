@@ -92,4 +92,4 @@ jobs:
         uses: actions/configure-pages@v6.0.0
       - name: 🏗️ Deploy Firmware to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v5.0.0
