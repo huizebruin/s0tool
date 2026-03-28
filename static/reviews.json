@@ -1,5 +1,82 @@
 {
-  "updated": "2026-03-28T18:07:52.100Z",
-  "total": 0,
-  "reviews": []
+  "updated": "2026-03-28T18:09:51.977Z",
+  "total": 4,
+  "reviews": [
+    {
+      "id": 310,
+      "source": "issue",
+      "title": "[s0tool review] Sensus 620 — 🇳🇱 Netherlands",
+      "date": "2026-03-26T19:50:16Z",
+      "url": "https://github.com/huizebruin/s0tool/issues/310",
+      "author": {
+        "name": "Mark / Markgiesing01",
+        "login": "MarkGiesing01",
+        "avatar": "https://avatars.githubusercontent.com/u/96375004?v=4",
+        "url": "https://github.com/MarkGiesing01"
+      },
+      "country": "🇳🇱 Netherlands",
+      "brand": "Sensus",
+      "model": "620",
+      "type": "Water meter",
+      "rating": 5,
+      "review": "Works like a sharm"
+    },
+    {
+      "id": 308,
+      "source": "issue",
+      "title": "[s0tool review] DMMetering PRO‑1D V20.112 — 🇳🇱 Netherlands",
+      "date": "2026-03-26T18:32:47Z",
+      "url": "https://github.com/huizebruin/s0tool/issues/308",
+      "author": {
+        "name": "Perrykipkerrie",
+        "login": "perrykipkerrie",
+        "avatar": "https://avatars.githubusercontent.com/u/12323503?v=4",
+        "url": "https://github.com/perrykipkerrie"
+      },
+      "country": "🇳🇱 Netherlands",
+      "brand": "DMMetering",
+      "model": "PRO‑1D V20.112",
+      "type": "kWh meter",
+      "rating": 5,
+      "review": "Works as intended"
+    },
+    {
+      "id": 307,
+      "source": "issue",
+      "title": "[s0tool review] Sensus 620 — 🇳🇱 Netherlands",
+      "date": "2026-03-26T18:30:12Z",
+      "url": "https://github.com/huizebruin/s0tool/issues/307",
+      "author": {
+        "name": "Perrykipkerrie",
+        "login": "perrykipkerrie",
+        "avatar": "https://avatars.githubusercontent.com/u/12323503?v=4",
+        "url": "https://github.com/perrykipkerrie"
+      },
+      "country": "🇳🇱 Netherlands",
+      "brand": "Sensus",
+      "model": "620",
+      "type": "Water meter",
+      "rating": 5,
+      "review": "Works perfectly as described"
+    },
+    {
+      "id": 306,
+      "source": "issue",
+      "title": "[Meter Review] Elster v200 — 🇳🇱 Netherlands",
+      "date": "2026-03-26T17:38:28Z",
+      "url": "https://github.com/huizebruin/s0tool/issues/306",
+      "author": {
+        "name": "Timieh",
+        "login": "Timieh",
+        "avatar": "https://avatars.githubusercontent.com/u/97851001?v=4",
+        "url": "https://github.com/Timieh"
+      },
+      "country": "🇳🇱 Netherlands",
+      "brand": "Elster",
+      "model": "v200",
+      "type": "Water meter",
+      "rating": 5,
+      "review": "Simple implementation. Only needed some trail error with exact induction sensor location on the \"red (rotating) radar\""
+    }
+  ]
 }
