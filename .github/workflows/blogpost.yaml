@@ -1,0 +1,64 @@
+name: Generate Blog Feed JSON
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Fetch discussions and generate blog_feed.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: 'huizebruin/s0tool'
+          CATEGORY_ID: 'DIC_kwDOGVgygc4C5WOf'
+        run: |
+          python3 - << 'EOF'
+          import requests, json, os
+          token = os.environ['GITHUB_TOKEN']
+          repo = os.environ['REPO']
+          category_id = os.environ['CATEGORY_ID']
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github.v3+json"
+          }
+          url = f"https://api.github.com/repos/{repo}/discussions?category_id={category_id}&per_page=100"
+          resp = requests.get(url, headers=headers)
+          discussions = resp.json()
+
+          feed = [
+              {
+                  "title": d['title'],
+                  "url": d['html_url'],
+                  "created_at": d['created_at'],
+                  "author": d['user']['login'],
+                  "body": d.get('body', '')
+              }
+              for d in discussions
+          ]
+
+          # Schrijf naar static map
+          output_path = "static/blog_feed.json"
+          with open(output_path, "w") as f:
+              json.dump(feed, f, indent=2)
+          EOF
+
+      - name: Commit and push blog_feed.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/blog_feed.json
+          git commit -m "Update blog_feed.json [skip ci]" || echo "No changes to commit"
+          git push

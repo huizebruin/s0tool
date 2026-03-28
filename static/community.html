@@ -69,6 +69,7 @@
     <li><a href="community.html">Community</a></li>
     <li><a href="releases.html">Releases</a></li>
     <li><a href="contributing.html">Contributing</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="license.html">License</a></li>
   </ul>
   <div class="navbar-right">
@@ -193,7 +194,7 @@
 </section>
 
 <section id="meter-reviews">
-  <h2><i class="bi bi-star" style="color:var(--accent);"></i> Meter Reviews
+  <h2><i class="bi bi-star" style="color:var(--accent);"></i> S0tool Reviews
     <span id="review-count" style="font-family:var(--mono);font-size:0.8rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;"></span>
   </h2>
   <p>Has the S0tool worked on your meter? Fill in the form and submit via GitHub &mdash; your review appears here once approved with the label <code>meter-review</code>.</p>
@@ -345,145 +346,184 @@
 </footer>
 <script src="./js/script.js"></script>
 <script>
-(function() {
-  var REPO  = 'huizebruin/s0tool';
-  var LABEL = 'meter-review';
-  var currentRating = 5;
+  (function () {
+    var REPO = 'huizebruin/s0tool';
+    var currentRating = 5;
 
-  function setStars(val) {
-    currentRating = val;
-    var ri = document.getElementById('rf-rating');
-    if (ri) ri.value = val;
-    document.querySelectorAll('.star').forEach(function(s) {
-      s.classList.toggle('active', parseInt(s.dataset.val) <= val);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    setStars(5);
-
-    var picker = document.getElementById('star-picker');
-    if (picker) {
-      picker.querySelectorAll('.star').forEach(function(s) {
-        s.addEventListener('mouseenter', function() { setStars(parseInt(s.dataset.val)); });
-        s.addEventListener('click',      function() { setStars(parseInt(s.dataset.val)); });
+    function setStars(val) {
+      currentRating = val;
+      var ri = document.getElementById('rf-rating');
+      if (ri) ri.value = val;
+      document.querySelectorAll('.star').forEach(function (s) {
+        s.classList.toggle('active', parseInt(s.dataset.val) <= val);
       });
-      picker.addEventListener('mouseleave', function() { setStars(currentRating); });
     }
 
-    var ta = document.getElementById('rf-review');
-    if (ta) ta.addEventListener('input', function() {
-      var cc = document.getElementById('char-count');
-      if (cc) cc.textContent = this.value.length;
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+      setStars(5);
 
-    var submitBtn = document.getElementById('rf-submit');
-    if (submitBtn) submitBtn.addEventListener('click', function() {
-      var name    = (document.getElementById('rf-name').value || '').trim();
-      var country = document.getElementById('rf-country').value;
-      var brand   = (document.getElementById('rf-meter-brand').value || '').trim();
-      var model   = (document.getElementById('rf-meter-model').value || '').trim();
-      var type    = document.querySelector('input[name="rf-type"]:checked').value;
-      var rating  = document.getElementById('rf-rating').value;
-      var review  = (document.getElementById('rf-review').value || '').trim();
-      var err     = document.getElementById('rf-error');
-      err.classList.add('hidden');
-      if (!name || !country || !brand || !model || !review) {
-        err.textContent = 'Please fill in all fields.';
-        err.classList.remove('hidden');
-        return;
+      var picker = document.getElementById('star-picker');
+      if (picker) {
+        picker.querySelectorAll('.star').forEach(function (s) {
+          s.addEventListener('mouseenter', function () { setStars(parseInt(s.dataset.val)); });
+          s.addEventListener('click', function () { setStars(parseInt(s.dataset.val)); });
+        });
+        picker.addEventListener('mouseleave', function () { setStars(currentRating); });
       }
-      var stars = '';
-      for (var i = 1; i <= 5; i++) stars += i <= parseInt(rating) ? '\u2605' : '\u2606';
-      var title = '[s0tool review] ' + brand + ' ' + model + ' \u2014 ' + country;
-      var body  = '## S0tool Meter Review\n\n'
-        + '| Field | Value |\n|-------|-------|\n'
-        + '| **Name** | ' + name + ' |\n'
-        + '| **Country** | ' + country + ' |\n'
-        + '| **Meter brand** | ' + brand + ' |\n'
-        + '| **Meter model** | ' + model + ' |\n'
-        + '| **Meter type** | ' + type + ' |\n'
-        + '| **Rating** | ' + stars + ' (' + rating + '/5) |\n\n'
-        + '### Review\n\n' + review + '\n\n---\n'
-        + '_Submitted via [s0tool.nl/community.html](https://s0tool.nl/community.html)_';
-      window.open('https://github.com/' + REPO + '/issues/new'
-        + '?title=' + encodeURIComponent(title)
-        + '&body='  + encodeURIComponent(body)
-        + '&labels=' + encodeURIComponent(LABEL), '_blank');
-    });
 
-    /* Load reviews from GitHub */
-    fetch('https://api.github.com/repos/' + REPO + '/issues?labels=' + LABEL + '&state=open&per_page=100')
-      .then(function(r) { return r.json(); })
-      .then(function(issues) {
-        var container = document.getElementById('reviews-container');
-        var filterBar = document.getElementById('review-filters');
-        if (!Array.isArray(issues) || !issues.length) {
-          container.innerHTML = '<p class="reviews-empty">No reviews yet \u2014 be the first!</p>';
+      var ta = document.getElementById('rf-review');
+      if (ta) ta.addEventListener('input', function () {
+        var cc = document.getElementById('char-count');
+        if (cc) cc.textContent = this.value.length;
+      });
+
+      /* ── Submit knop: maakt GitHub Issue aan (pre-filled) ── */
+      var submitBtn = document.getElementById('rf-submit');
+      if (submitBtn) submitBtn.addEventListener('click', function () {
+        var name = (document.getElementById('rf-name').value || '').trim();
+        var country = document.getElementById('rf-country').value;
+        var brand = (document.getElementById('rf-meter-brand').value || '').trim();
+        var model = (document.getElementById('rf-meter-model').value || '').trim();
+        var type = document.querySelector('input[name="rf-type"]:checked').value;
+        var rating = document.getElementById('rf-rating').value;
+        var review = (document.getElementById('rf-review').value || '').trim();
+        var err = document.getElementById('rf-error');
+        err.classList.add('hidden');
+
+        if (!name || !country || !brand || !model || !review) {
+          err.textContent = 'Please fill in all fields.';
+          err.classList.remove('hidden');
           return;
         }
-        document.getElementById('review-count').textContent = '(' + issues.length + ')';
-        var all = issues.map(function(issue) {
-          var b = issue.body || '';
-          function field(n) { var m = b.match(new RegExp('\\|\\s*\\*\\*' + n + '\\*\\*\\s*\\|\\s*([^|\\n]+)')); return m ? m[1].trim() : ''; }
-          var rm = b.match(/### Review\s*\n+([\s\S]*?)(?:\n---|$)/);
-          var rm2 = b.match(/(\u2605+)/u);
-          return { name: field('Name') || issue.user.login, country: field('Country'), brand: field('Meter brand'), model: field('Meter model'), type: field('Meter type'), rating: rm2 ? rm2[1].length : 5, review: rm ? rm[1].trim() : b.slice(0,200), date: (issue.created_at||'').slice(0,10), url: issue.html_url };
+
+        var stars = '';
+        for (var i = 1; i <= 5; i++) stars += i <= parseInt(rating) ? '\u2605' : '\u2606';
+
+        var title = '[s0tool review] ' + brand + ' ' + model + ' \u2014 ' + country;
+        var body = '## S0tool Meter Review\n\n'
+          + '| Field | Value |\n|-------|-------|\n'
+          + '| **Name** | ' + name + ' |\n'
+          + '| **Country** | ' + country + ' |\n'
+          + '| **Meter brand** | ' + brand + ' |\n'
+          + '| **Meter model** | ' + model + ' |\n'
+          + '| **Meter type** | ' + type + ' |\n'
+          + '| **Rating** | ' + stars + ' (' + rating + '/5) |\n\n'
+          + '### Review\n\n' + review + '\n\n---\n'
+          + '_Submitted via [s0tool.nl/community.html](https://s0tool.nl/community.html)_';
+
+        window.open(
+          'https://github.com/' + REPO + '/issues/new'
+          + '?title=' + encodeURIComponent(title)
+          + '&body=' + encodeURIComponent(body)
+          + '&labels=' + encodeURIComponent('meter-review'),
+          '_blank'
+        );
+      });
+
+      /* ── Laad reviews uit reviews.json (aangemaakt door GitHub Action) ── */
+      loadReviews();
+    });
+
+    function loadReviews() {
+      var container = document.getElementById('reviews-container');
+      var filterBar = document.getElementById('review-filters');
+      var countEl = document.getElementById('review-count');
+
+      fetch('/reviews.json?t=' + Date.now())
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          var reviews = data.reviews || [];
+
+          if (!reviews.length) {
+            container.innerHTML = '<p class="reviews-empty">No reviews yet \u2014 be the first!</p>';
+            return;
+          }
+
+          if (countEl) countEl.textContent = '(' + reviews.length + ')';
+
+          /* Verzamel unieke landen voor filter */
+          var countries = [];
+          reviews.forEach(function (r) {
+            if (r.country && countries.indexOf(r.country) < 0) countries.push(r.country);
+          });
+          countries.sort().forEach(function (c) {
+            var o = document.createElement('option');
+            o.value = c; o.textContent = c;
+            document.getElementById('filter-country').appendChild(o);
+          });
+
+          if (filterBar) filterBar.style.display = 'flex';
+
+          var all = reviews;
+
+          function esc(s) {
+            return String(s || '').replace(/[&<>"]/g, function (c) {
+              return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+            });
+          }
+
+          function renderStars(n) {
+            var s = '';
+            for (var i = 1; i <= 5; i++) s += i <= n ? '\u2605' : '\u2606';
+            return s;
+          }
+
+          function render(list) {
+            if (!list.length) {
+              container.innerHTML = '<p class="reviews-empty">No reviews match your filter.</p>';
+              return;
+            }
+            container.innerHTML = list.map(function (r) {
+              return '<div class="review-card">'
+                + '<div class="review-card-header">'
+                + '<div class="review-card-meter">'
+                + '<i class="bi bi-speedometer2"></i> <strong>' + esc(r.brand) + ' ' + esc(r.model) + '</strong>'
+                + (r.type ? '<span class="review-type-badge">' + esc(r.type) + '</span>' : '')
+                + '</div>'
+                + '<div class="review-stars review-stars--sm">' + renderStars(r.rating || 5) + '</div>'
+                + '</div>'
+                + '<p class="review-text">&ldquo;' + esc(r.review) + '&rdquo;</p>'
+                + '<div class="review-card-footer">'
+                + '<span><i class="bi bi-person"></i> ' + esc(r.author ? r.author.name : r.name || '') + '</span>'
+                + (r.country ? '<span><i class="bi bi-geo-alt"></i> ' + esc(r.country) + '</span>' : '')
+                + (r.date ? '<span><i class="bi bi-calendar3"></i> ' + r.date.slice(0, 10) + '</span>' : '')
+                + '<a href="' + esc(r.url) + '" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>'
+                + '</div>'
+                + '</div>';
+            }).join('');
+          }
+
+          function applyFilters() {
+            var s = (document.getElementById('filter-search').value || '').toLowerCase();
+            var t = (document.getElementById('filter-type').value || '').toLowerCase();
+            var c = (document.getElementById('filter-country').value || '').toLowerCase();
+            render(all.filter(function (r) {
+              var authorName = r.author ? r.author.name : (r.name || '');
+              var haystack = (r.brand + ' ' + r.model + ' ' + r.review + ' ' + r.country + ' ' + authorName).toLowerCase();
+              return (!s || haystack.includes(s))
+                && (!t || (r.type || '').toLowerCase().includes(t))
+                && (!c || (r.country || '').toLowerCase().includes(c));
+            }));
+          }
+
+          ['filter-search', 'filter-type', 'filter-country'].forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) el.addEventListener('input', applyFilters);
+          });
+
+          render(all);
+        })
+        .catch(function () {
+          container.innerHTML = '<p class="reviews-empty"><i class="bi bi-wifi-off"></i> Could not load reviews. '
+            + '<a href="https://github.com/' + REPO + '/issues?q=label:meter-review" target="_blank">View on GitHub</a></p>';
         });
-        var countries = [];
-        all.forEach(function(r) { if (r.country && countries.indexOf(r.country) < 0) countries.push(r.country); });
-        countries.sort().forEach(function(c) { var o = document.createElement('option'); o.value = c; o.textContent = c; document.getElementById('filter-country').appendChild(o); });
-        filterBar.style.display = 'flex';
-        function esc(s) { return String(s||'').replace(/[&<>"]/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-        function render(list) {
-          if (!list.length) { container.innerHTML = '<p class="reviews-empty">No reviews match your filter.</p>'; return; }
-          container.innerHTML = list.map(function(r) {
-            var st = ''; for (var i=1;i<=5;i++) st += i<=r.rating?'\u2605':'\u2606';
-            return '<div class="review-card"><div class="review-card-header"><div class="review-card-meter"><i class="bi bi-speedometer2"></i> <strong>'+esc(r.brand)+' '+esc(r.model)+'</strong>'+(r.type?'<span class="review-type-badge">'+esc(r.type)+'</span>':'')+'</div><div class="review-stars review-stars--sm">'+st+'</div></div><p class="review-text">&ldquo;'+esc(r.review)+'&rdquo;</p><div class="review-card-footer"><span><i class="bi bi-person"></i> '+esc(r.name)+'</span>'+(r.country?'<span><i class="bi bi-geo-alt"></i> '+esc(r.country)+'</span>':'')+(r.date?'<span><i class="bi bi-calendar3"></i> '+r.date+'</span>':'')+'<a href="'+r.url+'" target="_blank" rel="noopener"><i class="bi bi-github"></i></a></div></div>';
-          }).join('');
-        }
-        function applyFilters() {
-          var s = (document.getElementById('filter-search').value||'').toLowerCase();
-          var t = (document.getElementById('filter-type').value||'').toLowerCase();
-          var c = (document.getElementById('filter-country').value||'').toLowerCase();
-          render(all.filter(function(r) { return (!s||(r.brand+' '+r.model+' '+r.review+' '+r.country).toLowerCase().includes(s))&&(!t||r.type.toLowerCase().includes(t))&&(!c||r.country.toLowerCase().includes(c)); }));
-        }
-        ['filter-search','filter-type','filter-country'].forEach(function(id) { var el=document.getElementById(id); if(el) el.addEventListener('input',applyFilters); });
-        render(all);
-      })
-      .catch(function() { document.getElementById('reviews-container').innerHTML='<p class="reviews-empty"><i class="bi bi-wifi-off"></i> Could not load reviews. <a href="https://github.com/huizebruin/s0tool/issues?q=label:meter-review" target="_blank">View on GitHub</a></p>'; });
-  });
-}());
-</script><script>
-function submitMeter(prefix) {
-  var brand  = (document.getElementById(prefix+'-brand').value  || '').trim();
-  var model  = (document.getElementById(prefix+'-model').value  || '').trim();
-  var region = (document.getElementById(prefix+'-region').value || '').trim();
-  var name   = (document.getElementById(prefix+'-name').value   || '').trim();
-  var notes  = (document.getElementById(prefix+'-notes').value  || '').trim();
-  var err    = document.getElementById(prefix+'-error');
-  err.classList.add('hidden');
-  if (!brand || !model || !region) {
-    err.textContent = 'Please fill in brand, model and region.';
-    err.classList.remove('hidden');
-    return;
-  }
-  var mtype = prefix === 'water-add' ? 'water' : 'power';
-  var title = '[Compatible Meter] ' + brand + ' ' + model + ' (' + region + ')';
-  var body  = '## Compatible Meter Submission\n\n'
-    + '| Field | Value |\n|-------|-------|\n'
-    + '| **Meter type** | ' + mtype + ' |\n'
-    + '| **Brand** | ' + brand + ' |\n'
-    + '| **Model** | ' + model + ' |\n'
-    + '| **Region** | ' + region + ' |\n'
-    + '| **Notes** | ' + (notes || '-') + ' |\n'
-    + '| **Submitted by** | ' + (name || 'anonymous') + ' |\n\n'
-    + '---\n_Submitted via [s0tool.nl](https://s0tool.nl)_';
-  var disc = mtype === 'water'
-    ? 'https://github.com/huizebruin/s0tool/discussions/57'
-    : 'https://github.com/huizebruin/s0tool/discussions/250';
-  window.open(disc + '?body=' + encodeURIComponent(body), '_blank');
-}
+    }
+
+  }());
 </script>
+
 </body>
 </html>
