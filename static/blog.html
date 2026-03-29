@@ -117,14 +117,38 @@ fetch("/blog_feed.json")
     container.innerHTML = "";
     posts.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)); // newest first
     posts.forEach(post => {
-      const div = document.createElement("div");
-      div.classList.add("blog-card");
-      div.innerHTML = `
-        <h2><a href="${post.url}" target="_blank">${post.title}</a></h2>
-        <p class="meta">by ${post.author} | ${new Date(post.created_at).toLocaleDateString()}</p>
-        <p>${post.body.substring(0, 250).replace(/\n/g,'<br>')}...</p>
-      `;
-      container.appendChild(div);
+      const section = document.createElement("section");
+      section.classList.add("blog-post");
+
+      section.innerHTML = `
+    <article>
+      <header>
+        <h2>
+          <a href="${post.url}" target="_blank" rel="noopener">
+            ${post.title}
+          </a>
+        </h2>
+        <p class="meta">
+          by ${post.author} |
+          <time datetime="${post.created_at}">
+            ${new Date(post.created_at).toLocaleDateString()}
+          </time>
+        </p>
+      </header>
+
+      <div class="content">
+        <p>${post.body.substring(0, 250).replace(/\n/g, '<br>')}...</p>
+      </div>
+
+      <footer>
+        <a href="${post.url}" target="_blank" rel="noopener" class="read-more">
+          Read more →
+        </a>
+      </footer>
+    </article>
+  `;
+
+      container.appendChild(section);
     });
   })
   .catch(err => {

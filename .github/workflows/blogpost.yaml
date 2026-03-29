@@ -2,8 +2,12 @@ name: Generate Blog Feed JSON
 
 on:
   discussion:
-    types: [created, edited]   # triggert bij nieuwe of gewijzigde discussion
+    types: [created]   # triggert alleen bij nieuwe discussion, niet bij edits
   workflow_dispatch:
+
+concurrency:
+  group: blog-feed
+  cancel-in-progress: true
 
 jobs:
   generate:
