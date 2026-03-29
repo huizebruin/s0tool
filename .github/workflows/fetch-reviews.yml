@@ -1,13 +1,15 @@
 name: Fetch Reviews
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'   # elke 6 uur
-  workflow_dispatch:          # ook handmatig te starten
+  issues:
+    types: [labeled]   # triggert wanneer een label wordt toegevoegd aan een issue
+  workflow_dispatch:
 
 jobs:
   fetch-reviews:
     runs-on: ubuntu-latest
+    # Alleen uitvoeren als het label 'meter-review' is — of handmatig gestart
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'meter-review'
     permissions:
       contents: write
       issues: write
@@ -36,13 +38,11 @@ jobs:
           git add static/reviews.json
           git diff --cached --quiet && echo "Geen wijzigingen." && exit 0
 
-          # Maak een tijdelijke branch aan
           BRANCH="reviews/update-$(date +%Y%m%d-%H%M%S)"
           git checkout -b "$BRANCH"
           git commit -m "chore: update reviews.json"
           git push https://x-access-token:${GH_TOKEN}@github.com/huizebruin/s0tool.git "$BRANCH"
 
-          # Maak automatisch een Pull Request aan
           gh pr create \
             --title "chore: update reviews.json" \
             --body "Automatisch aangemaakt door de Fetch Reviews Action. Reviews.json bijgewerkt met nieuwe meter reviews." \

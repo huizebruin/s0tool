@@ -1,15 +1,19 @@
 name: Generate Blog Feed JSON
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'  
+  discussion:
+    types: [created, edited]   # triggert bij nieuwe of gewijzigde discussion
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -21,7 +25,7 @@ jobs:
 
       - name: Fetch discussions and generate blog_feed.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REVIEWS_PAT }}
           REPO: 'huizebruin/s0tool'
           CATEGORY_ID: 'DIC_kwDOGVgygc4C5WOf'
         run: |
@@ -49,16 +53,27 @@ jobs:
               for d in discussions
           ]
 
-          # Schrijf naar static map
           output_path = "static/blog_feed.json"
           with open(output_path, "w") as f:
               json.dump(feed, f, indent=2)
           EOF
 
-      - name: Commit and push blog_feed.json
+      - name: Commit en maak Pull Request aan
+        env:
+          GH_TOKEN: ${{ secrets.REVIEWS_PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add static/blog_feed.json
-          git commit -m "Update blog_feed.json [skip ci]" || echo "No changes to commit"
-          git push
+          git diff --cached --quiet && echo "Geen wijzigingen." && exit 0
+
+          BRANCH="blog/update-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH"
+          git commit -m "chore: update blog_feed.json"
+          git push https://x-access-token:${GH_TOKEN}@github.com/huizebruin/s0tool.git "$BRANCH"
+
+          gh pr create \
+            --title "chore: update blog_feed.json" \
+            --body "Automatisch aangemaakt door de Blog Feed Action. blog_feed.json bijgewerkt met nieuwe blog posts." \
+            --base main \
+            --head "$BRANCH"
