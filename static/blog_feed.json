@@ -1,0 +1,163 @@
+[
+  {
+    "title": "Pullup resistor?",
+    "url": "https://github.com/huizebruin/s0tool/discussions/17",
+    "created_at": "2022-03-01T11:58:29Z",
+    "author": "JGeeforce",
+    "body": "Hi,\r\n\r\nI see your website in renewed and I miss the part where you had the pictures about the pull up resistor. Over which wires do I have to place the pull up resistor?\r\n\r\nThanks!"
+  },
+  {
+    "title": "KWH meter code update",
+    "url": "https://github.com/huizebruin/s0tool/discussions/45",
+    "created_at": "2022-10-02T06:24:21Z",
+    "author": "Delusional112",
+    "body": "Hi,\r\n\r\nI have a KWH meter connected to my electric car charger. It's an LEM022SJ with 400 pulses per KWH. I added the 400 to the options in the code.\r\n\r\nI would like to read the KWH usage of the car charger. I have the ESP connected and online. But it is reading usage even if I'm not charging the car.\r\n\r\nDanny"
+  },
+  {
+    "title": "How to update manually via EspHome",
+    "url": "https://github.com/huizebruin/s0tool/discussions/59",
+    "created_at": "2022-11-03T08:17:28Z",
+    "author": "zjean",
+    "body": "Hi,\r\nI am using the s0tool solely as watermeter. It works well, I am very happy with it.\r\nI made a few adjustments to the entity names when first flashing the s0tool via Esphome.\r\nWhat are the steps of performing updates to my s0tool?\r\n\r\nWhich file of the repo should I use (and adjust it to my entity names)?\r\nThanks!\r\n\r\nBelow my current yaml, but I would like to incorporate the energy dashboard feature.\r\n\r\n```\r\n# Delen en bewerken mag maar laat deze eerste regels staan.\r\n# Bron : https://www.huizebruin.nl\r\n# Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome\r\n# \u00a9 Huizebruin.nl\r\nsubstitutions:\r\n  vdate: \"v22.08.15\"\r\n  device_description: watermeter (s0tool) gemaakt door huizebruin.nl versie ${vdate} .\r\n  name: s0tool\r\n\r\nesphome:\r\n  name: ${name}\r\n  platform: ESP8266\r\n  board: d1_mini\r\n  comment: '${device_description}'\r\n  project:\r\n    name: huizebruin.${name}\r\n    version: \"${vdate}\"\r\n  \r\ndashboard_import:\r\n  package_import_url: github://huizebruin/s0tool/esphome/watermeter.yaml\r\n\r\nimprov_serial:\r\n  \r\nwifi:\r\n# secrets rechts boven binnen esphome (vanaf versie 2021.12.0 - 11th standaard in de secrets)\r\n  networks:\r\n    - ssid: !secret wifi_ssid\r\n      password: !secret wifi_password\r\n  fast_connect: true\r\n  use_address: s0tool.local\r\n  domain: \".local\"\r\n#------------------------##------------------------##------------------------##------------------------#\r\n# \u2b07 Hieronder niets veranderen tenzij je het overal goed aanpast \u2b07 #\r\n# \u2b07 Schakel fallback-hotspot (captive portal) in voor het geval de wifi-verbinding mislukt \u2b07 #\r\n  ap:\r\n    ssid: \"${name}\"\r\n\r\nweb_server:\r\n  port: 80\r\n  \r\ncaptive_portal:\r\n# \u2b07 Enable logging \u2b07 # \r\nlogger:\r\n  level: INFO\r\n  \r\n#  # \u2b07 Enable Home Assistant API \u2b07 # \r\napi:\r\n  services:\r\n    - service: meterstand_water\r\n      variables:\r\n        meter_value: int \r\n      then:\r\n        - globals.set:\r\n            id: totalWaterUsage\r\n            value: !lambda \"return ( meter_value ) ;\"\r\n\r\nglobals:\r\n  - id: totalWaterUsage\r\n    type: int \r\n# \u2b07 Bij het updaten onder de waarde, verander dit in no voor 1 run  \u2b07 # \r\n    restore_value: no      \r\n# \u2b07 Bij het flashen,pas dit aan! \u2b07 #        \r\n    initial_value: '201' \r\n\r\nota:\r\n  safe_mode: true\r\n  reboot_timeout: 10min\r\n  num_attempts: 5\r\n\r\n#  \u2b07 Enable time component voor reset elke nacht \u2b07 #\r\ntime:\r\n  - platform: homeassistant\r\n    id: time_homeassistant\r\n    on_time_sync:\r\n      - component.update: S0tool_uptime_timestamp\r\n\r\nsensor:\r\n#------------------------# Watermeter #------------------------#\r\n# \u2b07 watermeter pulsen \u2b07 #\r\n  - platform: pulse_counter\r\n    pin: D2\r\n    id: watermeter_pulse\r\n    name: \"watermeter pulse\"\r\n    state_class: measurement\r\n    accuracy_decimals: 1\r\n\r\n# \u2b07 Totaal watermeter \u2b07 #      \r\n    total:\r\n      id: sensor_pulse_meter_total\r\n      name: \"watermeter Totaal\"\r\n      icon: \"mdi:cube-outline\"\r\n      state_class: \"total_increasing\"\r\n      unit_of_measurement: m3\r\n      accuracy_decimals: 3\r\n      filters:\r\n      - multiply: 0.001\r\n      \r\n# \u2b07 Watermeter stand bij benadering \u2b07 #\r\n  - platform: template\r\n    id: watermeter_total\r\n    name: \"watermeter stand\"\r\n    state_class: \"total_increasing\"\r\n    icon: mdi:water\r\n    unit_of_measurement: m3\r\n    accuracy_decimals: 3\r\n    lambda:       \r\n      return id(sensor_pulse_meter_total).state + id(totalWaterUsage);\r\n      \r\n# \u2b07 watermeter l/min \u2b07 #\r\n  - platform: template\r\n    name: \"Water verbruik Liter\"\r\n    id: watermeter_flow\r\n    accuracy_decimals: 1\r\n    unit_of_measurement: \"l/min\"\r\n    icon: \"mdi:water\"\r\n    lambda: return (id(watermeter_pulse).state);\r\n#------------------------#  sensoren #------------------------#\r\n  - platform: uptime\r\n    id: S0tool_uptime\r\n\r\n  - platform: template\r\n    id: S0tool_uptime_timestamp\r\n    name: \"online sinds\"\r\n    device_class: \"timestamp\"\r\n    accuracy_decimals: 0\r\n    update_interval: never\r\n    lambda: |-\r\n      static float timestamp = (\r\n        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state\r\n      );\r\n      return timestamp;  \r\n\r\n  # WiFi signal\r\n  - platform: wifi_signal\r\n    name: \"${name} - WiFi Signal\"\r\n    update_interval: 120s  \r\n        \r\n# \u2b07 versie verbinding informatie sensoren voor in ha \u2b07 #\r\n  - platform: wifi_signal\r\n    name: \"${name} - WiFi Signal\"\r\n    update_interval: 120s\r\n    \r\ntext_sensor:\r\n  - platform: template\r\n    name: \"s0tool_versie\"\r\n    id: s0tool_versie\r\n    icon: \"mdi:label-outline\"\r\n    update_interval: 6h\r\n    lambda: |-\r\n      return {\"${vdate}\"};\r\n\r\n  - platform: wifi_info\r\n    ip_address:\r\n      name: IP-adres\r\n      id: s0tool_ip_adres\r\n      icon: mdi:ip-network\r\n    ssid:\r\n      name: Netwerk\r\n      id: s0tool_netwerk\r\n      icon: mdi:access-point-network\r\n    mac_address:\r\n      name: Mac-adres\r\n      id: s0tool_mac_adres\r\n      icon: mdi:folder-key-network-outline\r\n\r\n# \u2b07 restart button voor de s0tool \u2b07 #\r\nbutton:  \r\n  - platform: restart\r\n    name: \"Restart device\"\r\n\r\n```"
+  },
+  {
+    "title": "[FR] Add list for water meters",
+    "url": "https://github.com/huizebruin/s0tool/discussions/58",
+    "created_at": "2022-11-03T17:25:09Z",
+    "author": "el97",
+    "body": "First of I want to say great work with this project! I think that this will come in handy for many users that want to track water usage and so on.\r\nI would like to see a list for water meters support this function. That will make it easier for others to see if they can use this for tracking water usage and then buy the needed components. The list can be implemented if people share their experience and then write if it works or not for their water meter."
+  },
+  {
+    "title": "Working Watermeters",
+    "url": "https://github.com/huizebruin/s0tool/discussions/57",
+    "created_at": "2022-11-03T20:52:28Z",
+    "author": "huizebruin",
+    "body": "At this moment i know this ones are working.\r\n\r\nWatermerk type :\tExtra info :\tLand:\tSensor\r\nItron\t\tNL\tNpn sensor\r\nSensus\t\tNL\tNpn sensor # Metaal zit in het rode wijzertje\r\nActaris\t\tNL\tNpn sensor\r\nElster\t\tNL\tNpn sensor\r\nMaddalena\tBE\tNpn sensor\r\n\r\nor other meters but the must have a turning weel with metal inside or on top of it.\r\n\r\n![watermeter](https://user-images.githubusercontent.com/62996429/199828840-28d2cf97-9a30-4504-9ce9-1d596ab04272.jpg)\r\n\r\n\r\nWhen u have a other meter u can post it here."
+  },
+  {
+    "title": "S0 Drehstromz\u00e4hler DSZ15D-3x80A MID",
+    "url": "https://github.com/huizebruin/s0tool/discussions/88",
+    "created_at": "2022-12-18T12:54:36Z",
+    "author": "Sn4k3E4t3r",
+    "body": "do you have an idea how I could manage that I can count my three-phase meter Eltako DSZ15D-3x80A MID the S0 pulses? \r\n\r\nhe can also blink in the display but this is not an IR LED or something?"
+  },
+  {
+    "title": "Changes in release v23.02.29",
+    "url": "https://github.com/huizebruin/s0tool/discussions/117",
+    "created_at": "2023-03-17T13:04:26Z",
+    "author": "Gyosa3",
+    "body": "Hi, I am running your box on my water meter and it's great :)\r\n\r\nI was taken by surprise with the latest version, as I clicked \"update\" without checking the release note. I digested the change to \"watermeter flow\", that's a better name, but I seem to have missed what happened with the pulse sensor.\r\n\r\n\"wijziging van pulse_counter naar pulse_meter\"\r\n\r\nAm I right if I understand that you have completely removed it both in the web page and in the HA device/entities?  Just to be sure my setup is not going wrong...\r\n\r\nAlso, I received your setup with an initial meterstand of about 8m3, while my water meter was new, and I have not found a way to change the value to match my meter. In your docs it says that you can change the value in \"Developer Tools\" and set the state of that sensor, but that does not update the value in the device, probably because a sensor is read-only in HA?\r\n\r\nDo you have any other method to write the value in the board itself? Shall I crate a new issue in Github for this maybe?\r\n\r\nThanks!!"
+  },
+  {
+    "title": "OTA update",
+    "url": "https://github.com/huizebruin/s0tool/discussions/126",
+    "created_at": "2023-07-14T10:14:30Z",
+    "author": "marconr9",
+    "body": "Hi,\r\n\r\nQuestion how does the OTA update works  on the website of the sensor and which file do I need to upload."
+  },
+  {
+    "title": "kwh meter not working",
+    "url": "https://github.com/huizebruin/s0tool/discussions/128",
+    "created_at": "2023-07-26T08:52:05Z",
+    "author": "AppleFlapp",
+    "body": "Hello,\r\n\r\nNot sure if this is the right place for this but I give it a shot.\r\n\r\nYesterday I started using the pulse meter function of the S0 tool. But I have a few issues.\r\nkWh sensor status is going nuts switching on and off and on and off and...\r\n\r\nAnother issue is that the entity Actuele Energie is not stable. Even when there is no load the value fluctuates. \r\nPull up resistor also installed. This already did improve the flutcation of the Actuele Energie but it is still not ok.\r\n\r\nAnd nothing changes when there is a load. Actuele Energie keeps doing what was described above.\r\nActuele meterstand stays on what it is set to.\r\n\r\nWhen I disconnect the + line to the kWh meter pulse output the Actuele energie is counting up as well as the \r\nActuele meterstad but still without load. \r\n\r\nI am using the Eastron SDM120D MID.\r\n\r\nProgramming the ESP was done via the website. \r\n\r\nI use the kWh meter to read out the use of an outlet socket.\r\n\r\nAnyone who can help? I'm not an expert in this yet.\r\n\r\nI see a few possible options at the moment.\r\n1. Something in the code is wrong.\r\n2. ESP board pin D5 is end of life.\r\n3. The Eastron pulse output is not working."
+  },
+  {
+    "title": "Why pulse_meter is better of pulse_counter",
+    "url": "https://github.com/huizebruin/s0tool/discussions/134",
+    "created_at": "2023-09-07T13:34:02Z",
+    "author": "array81",
+    "body": "I noticed that in \"recent\" times the sensor was changed from pulse_counter to pulse_meter in the water meter.\r\nWhy?\r\nI use an NPN sensor on my water meter, the meter has a metal pointer. At each turn I count a pulse and therefore a liter. Wouldn't it be better to use the pulse_counter sensor?\r\n"
+  },
+  {
+    "title": "color of cables for npm sensor connection",
+    "url": "https://github.com/huizebruin/s0tool/discussions/137",
+    "created_at": "2023-11-23T18:01:12Z",
+    "author": "spidermas59",
+    "body": "hello,\r\n\r\n\r\nin your plan you show only two cables with the NPM sensor. on the one I bought, there are 3 cables. I connected it following your doc and not using the black cable that comes out of the npm sensor but the pulse does not report any information.\r\n\r\ncan you confirm that you should only use 2 cables on the NPM sensor?\r\n\r\n![image](https://github.com/huizebruin/s0tool/assets/132600744/836d7c38-0286-405e-8c0a-982c14a4f182)\r\n\r\n![image](https://github.com/huizebruin/s0tool/assets/132600744/0d4252c3-deb5-4a93-8036-9466d2ab1b6d)\r\n\r\n"
+  },
+  {
+    "title": "3.6.1",
+    "url": "https://github.com/huizebruin/s0tool/discussions/194",
+    "created_at": "2024-06-30T08:37:21Z",
+    "author": "huizebruin",
+    "body": "## What's changed\r\n\r\nNo ESPHome code changed but more for the config for Github.\r\n\r\n- Dev @huizebruin (#192)\r\n\r\nHuizebruin \r\n\r\n## \ud83d\udea8 Breaking changes\r\n\r\n## \u2728 New features\r\n\r\n\r\n## \ud83d\udc1b Bug fixes\r\n\r\n<details>\r\n<summary>10 changes</summary>\r\n\r\n- Dev @huizebruin (#182)\r\n- Dev @huizebruin (#183)\r\n- Update build.yml @huizebruin (#184)\r\n- Dev @huizebruin (#185)\r\n- Vdate to project\\_version @huizebruin (#186)\r\n- get version from esphome S0tool code @huizebruin (#187)\r\n- Small github update @huizebruin (#188)\r\n- try again @huizebruin (#189)\r\n- try again @huizebruin (#190)\r\n- 3.6.1 @huizebruin (#191)\r\n</details>\r\n\r\n## \ud83d\ude80 Enhancements\r\n\r\n- Update basis.yaml @huizebruin (#181)\r\n\r\n## \ud83e\uddf0 Maintenance\r\n\r\n<details>\r\n<summary>0 changes</summary>\r\n\r\n\r\n</details>\r\n\r\n## \ud83d\udcda Documentation\r\n\r\n## \u2b06\ufe0f Dependency updates\r\n\r\n<details>\r\n<summary>0 changes</summary>\r\n\r\n\r\n</details>\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/3.6.0...3.6.1\r\n\r\n **Contributors**: @ImgBotApp, @dependabot, @dependabot[bot], @github-actions[bot], @huizebruin, @imgbot and @jelmerkk \r\n\r\n## What's Changed\r\n* Update basis.yaml by @huizebruin in https://github.com/huizebruin/s0tool/pull/181\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/182\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/183\r\n* Update build.yml by @huizebruin in https://github.com/huizebruin/s0tool/pull/184\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/185\r\n* Vdate to project_version by @huizebruin in https://github.com/huizebruin/s0tool/pull/186\r\n* get version from esphome S0tool code by @huizebruin in https://github.com/huizebruin/s0tool/pull/187\r\n* Small github update by @huizebruin in https://github.com/huizebruin/s0tool/pull/188\r\n* try again by @huizebruin in https://github.com/huizebruin/s0tool/pull/189\r\n* try again by @huizebruin in https://github.com/huizebruin/s0tool/pull/190\r\n* 3.6.1 by @huizebruin in https://github.com/huizebruin/s0tool/pull/191\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/192\r\n\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/v3.6.0...0.1.0\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.1'>3.6.1</a>.</em>"
+  },
+  {
+    "title": "Manual update",
+    "url": "https://github.com/huizebruin/s0tool/discussions/225",
+    "created_at": "2024-08-18T15:10:49Z",
+    "author": "array81",
+    "body": "In the past (I think about 1 year ago) I used rge s0tool code to create my Water Meter.\r\nAt the time I found the code on github but I didn't realize that it was possible to install the code with the wizard so I created an esphome device and manually added the code extrapolating it from what I found on this repository. Now update the device using the official code but I have two problems. First: I would have to update the device via wireless because its access via USB and PC is complicated. Second: if possible I would like to keep the \"history\" on Home Assistant, i.e. I would like HA not to notice the change and continue to see it as the same device.\r\nIs there a way to do what is indicated? If so, how should I proceed?\r\n\r\nHere's my code:\r\n\r\n```\r\nsubstitutions:\r\n  name: \"water-meter\"\r\n  friendly_name: \"Water Meter\"\r\n  device_description: Contatore acqua\r\n\r\nesphome:\r\n  name: ${name}\r\n\r\nesp8266:\r\n  board: d1_mini\r\n  restore_from_flash : True\r\n\r\n# Enable logging\r\nlogger:\r\n\r\n# Enable Home Assistant API\r\napi:\r\n  encryption:\r\n    key: \"xxxxxx\"\r\n  services:\r\n    - service: meterstand_water\r\n      variables:\r\n        meter_value: float\r\n      then:\r\n        - globals.set:\r\n            id: initial_water_usage\r\n            value: !lambda \"return ( meter_value - (id(total_water_pulses)) * atof(id(select_pulse_water).state.c_str()) ) ;\"\r\n        - globals.set:\r\n            id: total_water_pulses\r\n            value:  \"0\"  \r\n\r\nota:\r\n  password: \"xxx\"\r\n\r\nwifi:\r\n  ssid: !secret wifi_ssid\r\n  password: !secret wifi_password\r\n\r\n  # Enable fallback hotspot (captive portal) in case wifi connection fails\r\n  ap:\r\n    ssid: \"${name} Fallback Hotspot\"\r\n    password: \"xxx\"\r\n\r\ncaptive_portal:\r\n    \r\n# Enable Web server\r\nweb_server:\r\n  port: 80\r\n  \r\n#  restart button  #\r\nbutton:  \r\n  - platform: restart\r\n    name: \"Restart device\"\r\n    \r\n# Factory Reset Switch from ESPHome v2022.09    \r\n  - platform: factory_reset\r\n    name: Reset to factory settings   \r\n\r\ntext_sensor:\r\n  - platform: version\r\n    name: \"ESPHome Version\"\r\n\r\nglobals:\r\n  - id: initial_water_usage\r\n    type: float\r\n    restore_value: yes      \r\n    initial_value: '010' \r\n\r\n  - id: total_water_pulses\r\n    type: int\r\n    restore_value: yes\r\n    \r\nselect:\r\n  # water per m3 rate\r\n  - platform: template\r\n    name: \"Pulserate water per m3\"\r\n    id: select_pulse_water\r\n    optimistic: true\r\n    options:\r\n      - \"0.0001\"\r\n      - \"0.0005\"\r\n      - \"0.001\"  \r\n      - \"0.01\"  \r\n      - \"0.1\"                   \r\n    initial_option: \"0.001\"\r\n    restore_value: yes\r\n    on_value:\r\n      then:\r\n        - logger.log:\r\n            format: \"Chosen option: %s \"\r\n            args: [\"x.c_str()\"]\r\n\r\nbinary_sensor:\r\n  - platform: gpio\r\n    id: water_sensor_status\r\n    name: Water Proximity Sensor Status\r\n    internal: False\r\n    pin:\r\n      number: D2\r\n      inverted: true\r\n      mode:\r\n        input: true\r\n    on_press:\r\n      - then:\r\n          lambda: id(total_water_pulses) += 1;  \r\n\r\n  - platform: status\r\n    name: \"${friendly_name} Status\"\r\n\r\nsensor:\r\n# watermeter pulsen\r\n  - platform: pulse_meter #pulse_counter\r\n    internal_filter_mode: \"PULSE\"\r\n    internal_filter: 50ms  \r\n    pin: D2\r\n    id: watermeter_pulse_flow\r\n    name: \"Watermeter Flow\"\r\n    state_class: measurement\r\n    unit_of_measurement: \"l/min\"    \r\n    accuracy_decimals: 1\r\n    icon: \"mdi:water-pump\"\r\n    filters:\r\n      lambda: return x * atof(id(select_pulse_water).state.c_str()) * 1000;\r\n\r\n# Total watermeter     \r\n    total:\r\n      id: watermeter_pulse_meter_total\r\n      name: \"Watermeter Total\"\r\n      state_class: \"total_increasing\"\r\n      device_class: water\r\n      icon: mdi:water\r\n      unit_of_measurement: \"m\u00b3\"\r\n      accuracy_decimals: 3\r\n      filters:\r\n        - multiply: 0.001\r\n      # filters:\r\n      #  lambda: return x * atof(id(select_pulse_water).state.c_str());\r\n\r\n      \r\n# Watermeter stand bij benadering\r\n  - platform: template\r\n    id: watermeter_total\r\n    name: \"Watermeter Stand\"\r\n    state_class: \"total_increasing\"\r\n    device_class: water\r\n    icon: mdi:water\r\n    unit_of_measurement: \"m\u00b3\"\r\n    update_interval: 30s\r\n    accuracy_decimals: 3\r\n    lambda: return id(initial_water_usage) + (id(total_water_pulses) * atof(id(select_pulse_water).state.c_str()));\r\n\r\n# Waterpulses  only web interface for debugging\r\n  - platform: template\r\n    id: watermeter_pulse_flow_total\r\n    name: \"Watermeter Flow Total\"\r\n    state_class: \"total_increasing\"\r\n    accuracy_decimals: 0\r\n    lambda: return id(total_water_pulses);\r\n    internal: True\r\n\r\n  - platform: wifi_signal\r\n    name: \"WiFi Signal\"\r\n    update_interval: 60s\r\n\r\n  - platform: uptime\r\n    name: \"Uptime\"\r\n    icon: mdi:clock-outline\r\n    update_interval: 60s\r\n```"
+  },
+  {
+    "title": "Multiple watermeter sensors",
+    "url": "https://github.com/huizebruin/s0tool/discussions/226",
+    "created_at": "2024-08-25T18:12:47Z",
+    "author": "maciej871",
+    "body": "Hi,\r\nI built your water meter and it's great! But I have a question, how do I add two such sensors to Home Assistant? I have two meters: one for hot water and one for cold water. I would like to measure water consumption from individual meters and total. How do I add a second sensor and how do I configure it?\r\nThanks for your help."
+  },
+  {
+    "title": "Release 3.6.2",
+    "url": "https://github.com/huizebruin/s0tool/discussions/233",
+    "created_at": "2024-09-27T19:46:22Z",
+    "author": "huizebruin",
+    "body": "## What's Changed\r\n\r\n- #208 [ImgBot] Optimize images @imgbot\r\n- #216 update Bump esphome/build-action from 3.2.0 to 4.0.1 @huizebruin\r\n- #217 Update build.yml @huizebruin\r\n- #218 back @huizebruin\r\n- #219 update project_version to project-version @huizebruin\r\n- #229 Fix typo licence to license @scns\r\n- #230 Use esphome build workflow @jesserockz\r\n- #231 Fix code scanning alert - Inclusion of functionality from an untrusted source - 3.5.1.slim.min.js @scns\r\n\r\n## \u2728 New features\r\n\r\n- #198 3.6.1 @huizebruin\r\n\r\n## \ud83d\udc1b Bug fixes\r\n\r\n- #195 Apply fixes from CodeFactor @huizebruin\r\n- #198 3.6.1 @huizebruin\r\n- #199 Update release-drafter.yml @huizebruin\r\n- #200 try again 2 @huizebruin\r\n- #201 Update build.yml @huizebruin\r\n- #205 fixes and new site @huizebruin\r\n\r\n## \ud83e\uddf0 Maintenance\r\n\r\n- #207 Website update s0tool.nl @huizebruin\r\n- #232 Update version of JS and CSS files and add Integrity checks @scns\r\n\r\n## \ud83d\udcda Documentation\r\n\r\n- #196 Remove codefactor @huizebruin\r\n- #205 fixes and new site @huizebruin\r\n- #207 Website update s0tool.nl @huizebruin\r\n- #212 Dev @huizebruin\r\n\r\n## \u2b06\ufe0f Dependency updates\r\n\r\n<details>\r\n<summary>8 changes</summary>\r\n\r\n- #197 Bump esphome/build-action from 3.1.0 to 3.2.0 @dependabot\r\n- #202 Bump release-drafter/release-drafter from 5 to 6 @dependabot\r\n- #204 Bump actions/upload-artifact from 4.3.3 to 4.3.4 @dependabot\r\n- #206 Bump actions/upload-artifact from 4.3.3 to 4.3.4 @dependabot\r\n- #215 Bump actions/upload-artifact from 4.3.4 to 4.3.5 @dependabot\r\n- #222 Bump actions/upload-artifact from 4.3.4 to 4.3.5 @dependabot\r\n- #224 Bump actions/upload-artifact from 4.3.5 to 4.3.6 @dependabot\r\n- #227 Bump actions/upload-artifact from 4.3.6 to 4.4.0 @dependabot\r\n</details>\r\n\r\n**Full Changelog**: https://github.com/$REPO/compare/3.6.1...$LATEST_TAG\r\n\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.2'>Release 3.6.2</a>.</em>"
+  },
+  {
+    "title": "Release v3.6.3",
+    "url": "https://github.com/huizebruin/s0tool/discussions/235",
+    "created_at": "2024-09-28T17:19:59Z",
+    "author": "huizebruin",
+    "body": "## What's Changed\r\n\r\n- Disable function of HTTP updates for esphome.\r\n- Small Github updates.\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/3.6.2...3.6.3\r\n\r\n _To receive a notification on new releases, click on **Watch** > **Custom** > **Releases** on the top._\r\n\r\n _Be sure to \ud83c\udf1f this repository for updates! Its a hobby project . Flash it go to the link https://s0tool.nl_\r\n\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.3'>Release v3.6.3</a>.</em>"
+  },
+  {
+    "title": "Working S0 kWh meters",
+    "url": "https://github.com/huizebruin/s0tool/discussions/250",
+    "created_at": "2025-05-18T08:24:15Z",
+    "author": "huizebruin",
+    "body": "These meters have a standard **S0 pulse output** (open collector) and work with the S0tool:\r\n\r\n| Brand        | Model                 | Compatibility | Notes                            |\r\n|--------------|------------------------|----------------|----------------------------------|\r\n| Eastron      | SDM120 / SDM220        | \u2705 Compatible   | S0 pulse terminals               |\r\n| ABB          | B23 / B24 series       | \u2705 Compatible   | External S0 wiring required      |\r\n| Schneider    | iEM3000 series         | \u2705 Compatible   | Needs S0 connection setup        |\r\n| Carlo Gavazzi| EM24 / EM340           | \u2705 Compatible   | Pulse settings configurable      |\r\n| Finder       | 7E.23 / 7E.36 series   | \u2705 Compatible   | DIN rail mountable               |\r\n"
+  },
+  {
+    "title": "Release v3.6.5",
+    "url": "https://github.com/huizebruin/s0tool/discussions/257",
+    "created_at": "2025-07-16T18:10:52Z",
+    "author": "huizebruin",
+    "body": "## What's Changed\r\n\r\n- #240 [ImgBot] Optimize images @[imgbot[bot]](https://github.com/apps/imgbot)\r\n- #243 license.html missing @huizebruin\r\n- #244 Create renovate.json @huizebruin\r\n- #247 Create autoassign.yml @huizebruin\r\n\r\n## \ud83d\udc1b Bug fixes\r\n\r\n- #239 Fix for flash page @huizebruin\r\n- #256 3.6.5 @huizebruin\r\n\r\n## \ud83e\uddf0 Maintenance\r\n\r\n- #242 Update Installation.html @huizebruin\r\n- #245 Update build.yml @huizebruin\r\n- #256 3.6.5 @huizebruin\r\n\r\n## \ud83d\udcda Documentation\r\n\r\n- #239 Fix for flash page @huizebruin\r\n- #241 Update Installation.html @huizebruin\r\n- #242 Update Installation.html @huizebruin\r\n\r\n## \u2b06\ufe0f Dependency updates\r\n\r\n- #245 Update build.yml @huizebruin\r\n- #246 Update dependabot.yml @huizebruin\r\n- #248 Bump actions/checkout from 4.2.0 to 4.2.2 @[dependabot[bot]](https://github.com/apps/dependabot)\r\n- #249 Bump pozil/auto-assign-issue from 1 to 2 @[dependabot[bot]](https://github.com/apps/dependabot)\r\n- #256 3.6.5 @huizebruin\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/3.6.4...3.6.5\r\n\r\n _To receive a notification on new releases, click on **Watch** > **Custom** > **Releases** on the top._\r\n _Be sure to \ud83c\udf1f this repository for updates! _\r\n \r\n _Its a hobby project . Flash it go to the link http://s0tool.nl/Installation.html_\r\n\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.5'>Release v3.6.5</a>.</em>"
+  },
+  {
+    "title": "S0Tool stopped working",
+    "url": "https://github.com/huizebruin/s0tool/discussions/265",
+    "created_at": "2025-08-11T09:30:23Z",
+    "author": "Gilbertonl",
+    "body": "The tool stopped working. If i try to reinstall i get the same error\r\nThis is the output from my log:\r\n\r\n```\r\nINFO Reading configuration /config/esphome/s0tool-s0-watermeter-3806bd.yaml...\r\nINFO Updating https://github.com/huizebruin/s0tool/@main\r\nINFO Detected timezone 'Europe/Amsterdam'\r\nFailed config\r\n\r\nbinary_sensor.gpio: [source /data/packages/b59da29a/esphome/components/s0-watermeter.yaml:51]\r\n  platform: gpio\r\n  id: water_sensor_status\r\n  name: Water sensor status\r\n  internal: False\r\n  \r\n  [use_interrupt] is an invalid option for [binary_sensor.gpio]. Please check the indentation.\r\n  use_interrupt: False\r\n  pin: \r\n    number: D2\r\n    allow_other_uses: True\r\n    inverted: True\r\n    mode: \r\n      input: True\r\n  on_press: \r\n```"
+  },
+  {
+    "title": "\ud83d\ude80 Website redesign help wanted!",
+    "url": "https://github.com/huizebruin/s0tool/discussions/272",
+    "created_at": "2025-08-23T21:06:29Z",
+    "author": "huizebruin",
+    "body": "I'm looking for a fresh layout for https://s0tool.nl \ud83d\udca1\nThe site runs on GitHub Pages (static folder) and is fully open source.\n\n\ud83d\udc49 Got ideas or want to contribute?\nDesigns, code, UX\u2014everything is welcome!\n\n\ud83d\udd17 Repo: https://github.com/huizebruin/s0tool\n\n#HTML #CSS #WebDev #GitHub #OpenSource #FrontEnd #UX #WebsiteDesign"
+  },
+  {
+    "title": "using another senser",
+    "url": "https://github.com/huizebruin/s0tool/discussions/277",
+    "created_at": "2025-09-26T11:51:39Z",
+    "author": "bkbartk",
+    "body": "Hello,\r\nDo you think it would be possible to use this sensor\r\nhttps://domoticx.net/webshop/water-flow-meter-1-30l-min-3-4-dn20-kunststof-3-pin-jst-sm-yf-s403/\r\ninstead of the default one?\r\nIn my use case, I want to measure the water uses of the laundry machine separate.\r\n\r\nI know 450 pulses per Liter, so I have to modify the yaml a bit."
+  },
+  {
+    "title": "\ud83d\udc4b Welcome!",
+    "url": "https://github.com/huizebruin/s0tool/discussions/278",
+    "created_at": "2025-10-13T15:32:08Z",
+    "author": "huizebruin",
+    "body": "\r\nWe\u2019re using Discussions as a place to connect with other members of our community. We hope that you:\r\n\r\nAsk questions you\u2019re wondering about.\r\nShare ideas.\r\nEngage with other community members.\r\nWelcome others and are open-minded. Remember that this is a community we\r\nbuild together \ud83d\udcaa.\r\nTo get started, comment below with an introduction of yourself and tell us about what you do with this community."
+  },
+  {
+    "title": "S0tool 3.6.9 Update: Improved Flow & Energy Data Handling",
+    "url": "https://github.com/huizebruin/s0tool/discussions/309",
+    "created_at": "2026-03-26T19:39:51Z",
+    "author": "huizebruin",
+    "body": "Date: March 8, 2026\r\n\r\nBody:\r\nWe\u2019re excited to announce the release of S0tool 3.6.9! This update focuses on improving data consistency and reliability for S0tool sensors, ensuring smoother integration with Home Assistant\u2019s Energy Dashboard.\r\n\r\nKey improvements include:\r\n\r\n* Standardized flow unit: Flow readings are now consistently shown as L/min, limited to 2 decimal places.\r\n* kWh meter filtering: Added a maximum filter to reduce spikes caused by irregular pulses.\r\n* YAML standardization: File extensions updated from .yml to .yaml to follow common ESPHome and Home Assistant conventions.\r\n\r\nThis update enhances both accuracy and compatibility, making your energy and water monitoring more reliable than ever.\r\n\r\nTested on:\r\n\r\nWater meters & S0 counters\r\nESPHome (v202)\r\nHome Assistant (v202)\r\n\r\nFor detailed configuration examples, refer to the configuration.yaml snippet included in the release."
+  }
+]
