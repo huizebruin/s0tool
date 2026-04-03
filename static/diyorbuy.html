@@ -115,8 +115,7 @@
                 src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
           <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img
                 src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
-          <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img
-                src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+          <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" style="height:32px;" alt="Support S0tool on Ko-fi"></a></li>
         </ul>
       </div>
     </aside>
@@ -185,8 +184,87 @@
         </div>
       </section>
 
+
+<style>
+  /* This creates the zoom effect */
+  .schema-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    overflow: hidden;
+    /* Keeps the zoom inside the card */
+  }
+
+  .schema-card:hover {
+    transform: translateY(-5px);
+    /* Lifts the card up slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent) !important;
+  }
+
+  .img-container {
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .img-container img {
+    transition: transform 0.4s ease;
+    width: 100%;
+    display: block;
+  }
+
+  /* The actual zoom on the image */
+  .schema-card:hover .img-container img {
+    transform: scale(1.15);
+  }
+</style>
+
+<section>
+  <h2><i class="bi bi-diagram-3" style="color:var(--accent);"></i> Wiring Schematics</h2>
+  <div
+    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+
+    <div class="schema-card">
+      <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Water Meter (NPN)</h3>
+      <a href="./assets/s0tool-npn-water.png" target="_blank" class="img-container">
+        <img src="./assets/s0tool-npn-water.png" alt="Water meter schematic">
+      </a>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">Connection to <strong>D2</strong> with a 10K resistor.
+      </p>
+    </div>
+
+    <div class="schema-card">
+      <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">kWh Meter (S0)</h3>
+      <a href="./assets/s0tool-s0 port.png" target="_blank" class="img-container">
+        <img src="./assets/s0tool-s0 port.png" alt="kWh Meter schematic">
+      </a>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">Connection to <strong>D5</strong> (Ports 20/21).</p>
+    </div>
+
+    <div class="schema-card">
+      <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Complete S0tool PCB</h3>
+      <a href="./assets/s0tool-complete.png" target="_blank" class="img-container">
+        <img src="./assets/s0tool-complete.png" alt="S0tool PCB detail">
+      </a>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">Detailed overview of s0 port and npn connections.</p>
+    </div>
+
+  </div>
+      <center>
+        <p style="text-align:center;font-size:0.85rem;margin-top:0.5rem;">Click image to enlarge</p>
+      </center>
+
+</section>
+
+
+
       <section>
-        <h2><i class="bi bi-diagram-3" style="color:var(--accent);"></i> Wiring Schematic</h2>
+        <h2><i class="bi bi-diagram-3" style="color:var(--accent);"></i> Wiring Schematic wemos d1 and npn sensor</h2>
         <a href="./assets/npn-watermeter-wemosd1.png" target="_blank">
           <img src="./assets/npn-watermeter-wemosd1.png" alt="S0tool DIY Wiring Diagram"
             style="max-width:280px;width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block;margin:0 auto;">

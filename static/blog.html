@@ -4,32 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>S0tool Blog - Updates, Tutorials & Community Posts</title>
-  <meta name="description" content="Read the latest blog posts from the S0tool community. Updates, tutorials, compatible meters, and user stories.">
+  <title>S0tool Blog — Updates, Tutorials & ESPHome Tips</title>
+  <meta name="description"
+    content="Read the latest S0tool updates, ESPHome tutorials, compatible meter guides, and community stories. Stay up to date with Home Assistant energy monitoring.">
   <meta name="author" content="Huizebruin">
 
   <link rel="canonical" href="https://s0tool.nl/blog.html">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://s0tool.nl/blog.html">
+  <meta property="og:title" content="S0tool Blog — Updates, Tutorials & ESPHome Tips">
+  <meta property="og:description"
+    content="Latest S0tool updates, ESPHome tutorials and community stories about Home Assistant energy monitoring.">
+  <meta property="og:image" content="https://s0tool.nl/assets/header.png">
+  <meta property="og:site_name" content="S0tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://s0tool.nl/blog.html">
+  <meta name="twitter:title" content="S0tool Blog — Updates, Tutorials & ESPHome Tips">
+  <meta name="twitter:description" content="Latest S0tool updates, ESPHome tutorials and community stories.">
+  <meta name="twitter:image" content="https://s0tool.nl/assets/header.png">
+
+  <!-- Structured data -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://s0tool.nl"
-        },{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "item": "https://s0tool.nl/blog.html"
-        }]
-      }
-      </script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "S0tool Blog",
+    "url": "https://s0tool.nl/blog.html",
+    "description": "Updates, tutorials and community stories about S0tool for Home Assistant",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Huizebruin",
+      "url": "https://huizebruin.nl",
+      "sameAs": "https://github.com/huizebruin"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://s0tool.nl" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://s0tool.nl/blog.html" }
+      ]
+    }
+  }
+  </script>
+
   <script>try { var t = localStorage.getItem("s0tool-theme"); var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }</script>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
@@ -90,13 +111,12 @@
               src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
         <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img
               src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
-        <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img
-              src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="32px" alt="Ko-fi"></a></li>
+        <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" style="height:32px;" alt="Support S0tool on Ko-fi"></a></li>
       </ul>
     </div>
   </aside>
   <main>
-<main>
+
 <section>
   <h1><i class="bi bi-journal-text" style="color:var(--accent);"></i> S0tool Blog</h1>
   <p>Latest updates, tutorials, compatible meters, and stories shared by the community.</p>
@@ -110,51 +130,58 @@
 </section>
 
 <script>
-fetch("/blog_feed.json")
-  .then(res => res.json())
-  .then(posts => {
-    const container = document.getElementById("blog-posts");
-    container.innerHTML = "";
-    posts.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)); // newest first
-    posts.forEach(post => {
-      const section = document.createElement("section");
-      section.classList.add("blog-post");
+  fetch("/blog_feed.json")
+    .then(res => res.json())
+    .then(posts => {
+      const container = document.getElementById("blog-posts");
+      container.innerHTML = "";
+      posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-      section.innerHTML = `
-    <article>
-      <header>
-        <h2>
-          <a href="${post.url}" target="_blank" rel="noopener">
-            ${post.title}
-          </a>
-        </h2>
-        <p class="meta">
-          by ${post.author} |
-          <time datetime="${post.created_at}">
-            ${new Date(post.created_at).toLocaleDateString()}
-          </time>
-        </p>
-      </header>
+      // Structured data voor alle posts tegelijk
+      const blogSchema = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "blogPost": posts.slice(0, 10).map(post => ({
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "author": { "@type": "Person", "name": post.author },
+          "datePublished": post.created_at,
+          "url": post.url
+        }))
+      };
+      const schemaTag = document.createElement("script");
+      schemaTag.type = "application/ld+json";
+      schemaTag.textContent = JSON.stringify(blogSchema);
+      document.head.appendChild(schemaTag);
 
-      <div class="content">
-        <p>${post.body.substring(0, 250).replace(/\n/g, '<br>')}...</p>
-      </div>
-
-      <footer>
-        <a href="${post.url}" target="_blank" rel="noopener" class="read-more">
-          Read more →
-        </a>
-      </footer>
-    </article>
-  `;
-
-      container.appendChild(section);
+      posts.forEach(post => {
+        const section = document.createElement("section");
+        section.classList.add("blog-post");
+        section.innerHTML = `
+        <article>
+          <header>
+            <h2><a href="${post.url}" target="_blank" rel="noopener">${post.title}</a></h2>
+            <p class="meta">
+              by ${post.author} |
+              <time datetime="${post.created_at}">
+                ${new Date(post.created_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            </p>
+          </header>
+          <div class="content">
+            <p>${post.body.substring(0, 250).replace(/\n/g, '<br>')}…</p>
+          </div>
+          <footer>
+            <a href="${post.url}" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          </footer>
+        </article>`;
+        container.appendChild(section);
+      });
+    })
+    .catch(() => {
+      document.getElementById("blog-posts").innerHTML =
+        "<p>Failed to load posts. Please try again later.</p>";
     });
-  })
-  .catch(err => {
-    document.getElementById("blog-posts").innerHTML = "<p>Failed to load posts. Please try again later.</p>";
-    console.error(err);
-  });
 </script>
 
 </main>
