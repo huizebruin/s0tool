@@ -43,7 +43,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v6
       - name: Download built firmwares
         uses: actions/download-artifact@v8.0.1
         with:
@@ -87,7 +87,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v6
       - name: 🏗️ Setup website pages
         uses: actions/configure-pages@v6.0.0
       - name: 🏗️ Deploy Firmware to GitHub Pages
