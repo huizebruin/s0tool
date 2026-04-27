@@ -42,6 +42,13 @@
     "body": "do you have an idea how I could manage that I can count my three-phase meter Eltako DSZ15D-3x80A MID the S0 pulses? \r\n\r\nhe can also blink in the display but this is not an IR LED or something?"
   },
   {
+    "title": "Changes in release v23.02.29",
+    "url": "https://github.com/huizebruin/s0tool/discussions/117",
+    "created_at": "2023-03-17T13:04:26Z",
+    "author": "Gyosa3",
+    "body": "Hi, I am running your box on my water meter and it's great :)\r\n\r\nI was taken by surprise with the latest version, as I clicked \"update\" without checking the release note. I digested the change to \"watermeter flow\", that's a better name, but I seem to have missed what happened with the pulse sensor.\r\n\r\n\"wijziging van pulse_counter naar pulse_meter\"\r\n\r\nAm I right if I understand that you have completely removed it both in the web page and in the HA device/entities?  Just to be sure my setup is not going wrong...\r\n\r\nAlso, I received your setup with an initial meterstand of about 8m3, while my water meter was new, and I have not found a way to change the value to match my meter. In your docs it says that you can change the value in \"Developer Tools\" and set the state of that sensor, but that does not update the value in the device, probably because a sensor is read-only in HA?\r\n\r\nDo you have any other method to write the value in the board itself? Shall I crate a new issue in Github for this maybe?\r\n\r\nThanks!!"
+  },
+  {
     "title": "OTA update",
     "url": "https://github.com/huizebruin/s0tool/discussions/126",
     "created_at": "2023-07-14T10:14:30Z",
@@ -70,6 +77,13 @@
     "body": "hello,\r\n\r\n\r\nin your plan you show only two cables with the NPM sensor. on the one I bought, there are 3 cables. I connected it following your doc and not using the black cable that comes out of the npm sensor but the pulse does not report any information.\r\n\r\ncan you confirm that you should only use 2 cables on the NPM sensor?\r\n\r\n![image](https://github.com/huizebruin/s0tool/assets/132600744/836d7c38-0286-405e-8c0a-982c14a4f182)\r\n\r\n![image](https://github.com/huizebruin/s0tool/assets/132600744/0d4252c3-deb5-4a93-8036-9466d2ab1b6d)\r\n\r\n"
   },
   {
+    "title": "3.6.1",
+    "url": "https://github.com/huizebruin/s0tool/discussions/194",
+    "created_at": "2024-06-30T08:37:21Z",
+    "author": "huizebruin",
+    "body": "## What's changed\r\n\r\nNo ESPHome code changed but more for the config for Github.\r\n\r\n- Dev @huizebruin (#192)\r\n\r\nHuizebruin \r\n\r\n## \ud83d\udea8 Breaking changes\r\n\r\n## \u2728 New features\r\n\r\n\r\n## \ud83d\udc1b Bug fixes\r\n\r\n<details>\r\n<summary>10 changes</summary>\r\n\r\n- Dev @huizebruin (#182)\r\n- Dev @huizebruin (#183)\r\n- Update build.yml @huizebruin (#184)\r\n- Dev @huizebruin (#185)\r\n- Vdate to project\\_version @huizebruin (#186)\r\n- get version from esphome S0tool code @huizebruin (#187)\r\n- Small github update @huizebruin (#188)\r\n- try again @huizebruin (#189)\r\n- try again @huizebruin (#190)\r\n- 3.6.1 @huizebruin (#191)\r\n</details>\r\n\r\n## \ud83d\ude80 Enhancements\r\n\r\n- Update basis.yaml @huizebruin (#181)\r\n\r\n## \ud83e\uddf0 Maintenance\r\n\r\n<details>\r\n<summary>0 changes</summary>\r\n\r\n\r\n</details>\r\n\r\n## \ud83d\udcda Documentation\r\n\r\n## \u2b06\ufe0f Dependency updates\r\n\r\n<details>\r\n<summary>0 changes</summary>\r\n\r\n\r\n</details>\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/3.6.0...3.6.1\r\n\r\n **Contributors**: @ImgBotApp, @dependabot, @dependabot[bot], @github-actions[bot], @huizebruin, @imgbot and @jelmerkk \r\n\r\n## What's Changed\r\n* Update basis.yaml by @huizebruin in https://github.com/huizebruin/s0tool/pull/181\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/182\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/183\r\n* Update build.yml by @huizebruin in https://github.com/huizebruin/s0tool/pull/184\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/185\r\n* Vdate to project_version by @huizebruin in https://github.com/huizebruin/s0tool/pull/186\r\n* get version from esphome S0tool code by @huizebruin in https://github.com/huizebruin/s0tool/pull/187\r\n* Small github update by @huizebruin in https://github.com/huizebruin/s0tool/pull/188\r\n* try again by @huizebruin in https://github.com/huizebruin/s0tool/pull/189\r\n* try again by @huizebruin in https://github.com/huizebruin/s0tool/pull/190\r\n* 3.6.1 by @huizebruin in https://github.com/huizebruin/s0tool/pull/191\r\n* Dev by @huizebruin in https://github.com/huizebruin/s0tool/pull/192\r\n\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/v3.6.0...0.1.0\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.1'>3.6.1</a>.</em>"
+  },
+  {
     "title": "Manual update",
     "url": "https://github.com/huizebruin/s0tool/discussions/225",
     "created_at": "2024-08-18T15:10:49Z",
@@ -84,11 +98,32 @@
     "body": "Hi,\r\nI built your water meter and it's great! But I have a question, how do I add two such sensors to Home Assistant? I have two meters: one for hot water and one for cold water. I would like to measure water consumption from individual meters and total. How do I add a second sensor and how do I configure it?\r\nThanks for your help."
   },
   {
+    "title": "Release 3.6.2",
+    "url": "https://github.com/huizebruin/s0tool/discussions/233",
+    "created_at": "2024-09-27T19:46:22Z",
+    "author": "huizebruin",
+    "body": "## What's Changed\r\n\r\n- #208 [ImgBot] Optimize images @imgbot\r\n- #216 update Bump esphome/build-action from 3.2.0 to 4.0.1 @huizebruin\r\n- #217 Update build.yml @huizebruin\r\n- #218 back @huizebruin\r\n- #219 update project_version to project-version @huizebruin\r\n- #229 Fix typo licence to license @scns\r\n- #230 Use esphome build workflow @jesserockz\r\n- #231 Fix code scanning alert - Inclusion of functionality from an untrusted source - 3.5.1.slim.min.js @scns\r\n\r\n## \u2728 New features\r\n\r\n- #198 3.6.1 @huizebruin\r\n\r\n## \ud83d\udc1b Bug fixes\r\n\r\n- #195 Apply fixes from CodeFactor @huizebruin\r\n- #198 3.6.1 @huizebruin\r\n- #199 Update release-drafter.yml @huizebruin\r\n- #200 try again 2 @huizebruin\r\n- #201 Update build.yml @huizebruin\r\n- #205 fixes and new site @huizebruin\r\n\r\n## \ud83e\uddf0 Maintenance\r\n\r\n- #207 Website update s0tool.nl @huizebruin\r\n- #232 Update version of JS and CSS files and add Integrity checks @scns\r\n\r\n## \ud83d\udcda Documentation\r\n\r\n- #196 Remove codefactor @huizebruin\r\n- #205 fixes and new site @huizebruin\r\n- #207 Website update s0tool.nl @huizebruin\r\n- #212 Dev @huizebruin\r\n\r\n## \u2b06\ufe0f Dependency updates\r\n\r\n<details>\r\n<summary>8 changes</summary>\r\n\r\n- #197 Bump esphome/build-action from 3.1.0 to 3.2.0 @dependabot\r\n- #202 Bump release-drafter/release-drafter from 5 to 6 @dependabot\r\n- #204 Bump actions/upload-artifact from 4.3.3 to 4.3.4 @dependabot\r\n- #206 Bump actions/upload-artifact from 4.3.3 to 4.3.4 @dependabot\r\n- #215 Bump actions/upload-artifact from 4.3.4 to 4.3.5 @dependabot\r\n- #222 Bump actions/upload-artifact from 4.3.4 to 4.3.5 @dependabot\r\n- #224 Bump actions/upload-artifact from 4.3.5 to 4.3.6 @dependabot\r\n- #227 Bump actions/upload-artifact from 4.3.6 to 4.4.0 @dependabot\r\n</details>\r\n\r\n**Full Changelog**: https://github.com/$REPO/compare/3.6.1...$LATEST_TAG\r\n\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.2'>Release 3.6.2</a>.</em>"
+  },
+  {
+    "title": "Release v3.6.3",
+    "url": "https://github.com/huizebruin/s0tool/discussions/235",
+    "created_at": "2024-09-28T17:19:59Z",
+    "author": "huizebruin",
+    "body": "## What's Changed\r\n\r\n- Disable function of HTTP updates for esphome.\r\n- Small Github updates.\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/3.6.2...3.6.3\r\n\r\n _To receive a notification on new releases, click on **Watch** > **Custom** > **Releases** on the top._\r\n\r\n _Be sure to \ud83c\udf1f this repository for updates! Its a hobby project . Flash it go to the link https://s0tool.nl_\r\n\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.3'>Release v3.6.3</a>.</em>"
+  },
+  {
     "title": "Working S0 kWh meters",
     "url": "https://github.com/huizebruin/s0tool/discussions/250",
     "created_at": "2025-05-18T08:24:15Z",
     "author": "huizebruin",
     "body": "These meters have a standard **S0 pulse output** (open collector) and work with the S0tool:\r\n\r\n| Brand        | Model                 | Compatibility | Notes                            |\r\n|--------------|------------------------|----------------|----------------------------------|\r\n| Eastron      | SDM120 / SDM220        | \u2705 Compatible   | S0 pulse terminals               |\r\n| ABB          | B23 / B24 series       | \u2705 Compatible   | External S0 wiring required      |\r\n| Schneider    | iEM3000 series         | \u2705 Compatible   | Needs S0 connection setup        |\r\n| Carlo Gavazzi| EM24 / EM340           | \u2705 Compatible   | Pulse settings configurable      |\r\n| Finder       | 7E.23 / 7E.36 series   | \u2705 Compatible   | DIN rail mountable               |\r\n"
+  },
+  {
+    "title": "Release v3.6.5",
+    "url": "https://github.com/huizebruin/s0tool/discussions/257",
+    "created_at": "2025-07-16T18:10:52Z",
+    "author": "huizebruin",
+    "body": "## What's Changed\r\n\r\n- #240 [ImgBot] Optimize images @[imgbot[bot]](https://github.com/apps/imgbot)\r\n- #243 license.html missing @huizebruin\r\n- #244 Create renovate.json @huizebruin\r\n- #247 Create autoassign.yml @huizebruin\r\n\r\n## \ud83d\udc1b Bug fixes\r\n\r\n- #239 Fix for flash page @huizebruin\r\n- #256 3.6.5 @huizebruin\r\n\r\n## \ud83e\uddf0 Maintenance\r\n\r\n- #242 Update Installation.html @huizebruin\r\n- #245 Update build.yml @huizebruin\r\n- #256 3.6.5 @huizebruin\r\n\r\n## \ud83d\udcda Documentation\r\n\r\n- #239 Fix for flash page @huizebruin\r\n- #241 Update Installation.html @huizebruin\r\n- #242 Update Installation.html @huizebruin\r\n\r\n## \u2b06\ufe0f Dependency updates\r\n\r\n- #245 Update build.yml @huizebruin\r\n- #246 Update dependabot.yml @huizebruin\r\n- #248 Bump actions/checkout from 4.2.0 to 4.2.2 @[dependabot[bot]](https://github.com/apps/dependabot)\r\n- #249 Bump pozil/auto-assign-issue from 1 to 2 @[dependabot[bot]](https://github.com/apps/dependabot)\r\n- #256 3.6.5 @huizebruin\r\n\r\n**Full Changelog**: https://github.com/huizebruin/s0tool/compare/3.6.4...3.6.5\r\n\r\n _To receive a notification on new releases, click on **Watch** > **Custom** > **Releases** on the top._\r\n _Be sure to \ud83c\udf1f this repository for updates! _\r\n \r\n _Its a hobby project . Flash it go to the link http://s0tool.nl/Installation.html_\r\n\n\n<hr /><em>This discussion was created from the release <a href='https://github.com/huizebruin/s0tool/releases/tag/3.6.5'>Release v3.6.5</a>.</em>"
   },
   {
     "title": "S0Tool stopped working",
@@ -98,6 +133,13 @@
     "body": "The tool stopped working. If i try to reinstall i get the same error\r\nThis is the output from my log:\r\n\r\n```\r\nINFO Reading configuration /config/esphome/s0tool-s0-watermeter-3806bd.yaml...\r\nINFO Updating https://github.com/huizebruin/s0tool/@main\r\nINFO Detected timezone 'Europe/Amsterdam'\r\nFailed config\r\n\r\nbinary_sensor.gpio: [source /data/packages/b59da29a/esphome/components/s0-watermeter.yaml:51]\r\n  platform: gpio\r\n  id: water_sensor_status\r\n  name: Water sensor status\r\n  internal: False\r\n  \r\n  [use_interrupt] is an invalid option for [binary_sensor.gpio]. Please check the indentation.\r\n  use_interrupt: False\r\n  pin: \r\n    number: D2\r\n    allow_other_uses: True\r\n    inverted: True\r\n    mode: \r\n      input: True\r\n  on_press: \r\n```"
   },
   {
+    "title": "\ud83d\ude80 Website redesign help wanted!",
+    "url": "https://github.com/huizebruin/s0tool/discussions/272",
+    "created_at": "2025-08-23T21:06:29Z",
+    "author": "huizebruin",
+    "body": "I'm looking for a fresh layout for https://s0tool.nl \ud83d\udca1\nThe site runs on GitHub Pages (static folder) and is fully open source.\n\n\ud83d\udc49 Got ideas or want to contribute?\nDesigns, code, UX\u2014everything is welcome!\n\n\ud83d\udd17 Repo: https://github.com/huizebruin/s0tool\n\n#HTML #CSS #WebDev #GitHub #OpenSource #FrontEnd #UX #WebsiteDesign"
+  },
+  {
     "title": "using another senser",
     "url": "https://github.com/huizebruin/s0tool/discussions/277",
     "created_at": "2025-09-26T11:51:39Z",
@@ -105,10 +147,24 @@
     "body": "Hello,\r\nDo you think it would be possible to use this sensor\r\nhttps://domoticx.net/webshop/water-flow-meter-1-30l-min-3-4-dn20-kunststof-3-pin-jst-sm-yf-s403/\r\ninstead of the default one?\r\nIn my use case, I want to measure the water uses of the laundry machine separate.\r\n\r\nI know 450 pulses per Liter, so I have to modify the yaml a bit."
   },
   {
+    "title": "\ud83d\udc4b Welcome!",
+    "url": "https://github.com/huizebruin/s0tool/discussions/278",
+    "created_at": "2025-10-13T15:32:08Z",
+    "author": "huizebruin",
+    "body": "\r\nWe\u2019re using Discussions as a place to connect with other members of our community. We hope that you:\r\n\r\nAsk questions you\u2019re wondering about.\r\nShare ideas.\r\nEngage with other community members.\r\nWelcome others and are open-minded. Remember that this is a community we\r\nbuild together \ud83d\udcaa.\r\nTo get started, comment below with an introduction of yourself and tell us about what you do with this community."
+  },
+  {
     "title": "S0tool 3.6.9 Update: Improved Flow & Energy Data Handling",
     "url": "https://github.com/huizebruin/s0tool/discussions/309",
     "created_at": "2026-03-26T19:39:51Z",
     "author": "huizebruin",
-    "body": "Date: March 8, 2026\r\n\r\n\r\nWe\u2019re excited to announce the release of S0tool 3.6.9! This update focuses on improving data consistency and reliability for S0tool sensors, ensuring smoother integration with Home Assistant\u2019s Energy Dashboard.\r\n\r\nKey improvements include:\r\n\r\n* Standardized flow unit: Flow readings are now consistently shown as L/min, limited to 2 decimal places.\r\n* kWh meter filtering: Added a maximum filter to reduce spikes caused by irregular pulses.\r\n* YAML standardization: File extensions updated from .yml to .yaml to follow common ESPHome and Home Assistant conventions.\r\n\r\nThis update enhances both accuracy and compatibility, making your energy and water monitoring more reliable than ever.\r\n\r\nTested on:\r\n\r\nWater meters & S0 counters\r\nESPHome (v202)\r\nHome Assistant (v202)\r\n\r\nFor detailed configuration examples, refer to the configuration.yaml snippet included in the release."
+    "body": "Date: March 8, 2026\r\n\r\nWe\u2019re excited to announce the release of S0tool 3.6.9! This update focuses on improving data consistency and reliability for S0tool sensors, ensuring smoother integration with Home Assistant\u2019s Energy Dashboard.\r\n\r\nKey improvements include:\r\n\r\n* Standardized flow unit: Flow readings are now consistently shown as L/min, limited to 2 decimal places.\r\n* kWh meter filtering: Added a maximum filter to reduce spikes caused by irregular pulses.\r\n* YAML standardization: File extensions updated from .yml to .yaml to follow common ESPHome and Home Assistant conventions.\r\n\r\nThis update enhances both accuracy and compatibility, making your energy and water monitoring more reliable than ever.\r\n\r\nTested on:\r\n\r\nWater meters & S0 counters\r\nESPHome (v2026.3.1)\r\nHome Assistant (v2026.3.0)\r\n\r\nFor detailed configuration examples, refer to the configuration.yaml snippet included in the release."
+  },
+  {
+    "title": "Making S0tool ESPHome configs multi-language (NL \u2192 EN)",
+    "url": "https://github.com/huizebruin/s0tool/discussions/326",
+    "created_at": "2026-04-27T18:23:13Z",
+    "author": "huizebruin",
+    "body": "Hi all,\r\n\r\nI\u2019m developing a DIY S0 pulse reader (S0tool) using ESPHome. Right now, most of the entity names and labels in my YAML are in Dutch, but I\u2019d like to make the project more accessible for international users by supporting English (and possibly other languages).\r\n\r\nI\u2019m running into the limitation that ESPHome doesn\u2019t really support multi-language setups natively, so I\u2019m looking for a clean and scalable approach.\r\n\r\nCurrent situation:\r\n\r\nExisting config is largely Dutch\r\nUsed by both Dutch and non-Dutch users\r\nI want to avoid maintaining separate full configs per language if possible\r\nWhat I\u2019m looking for:\r\n\r\nBest practice for handling multiple languages in ESPHome\r\nA maintainable structure (not lots of hardcoded if/else in lambdas)\r\nIdeally something that works nicely with Home Assistant, but doesn\u2019t fully depend on it\r\nQuestions:\r\n\r\nIs it better to standardize everything to English and leave translations to Home Assistant?\r\nAre substitutions/packages per language the only viable approach?\r\nHow are others handling this in public ESPHome projects?\r\nAny examples or suggestions would be appreciated!\r\n\r\nThanks!\r\n\r\nhttps://github.com/huizebruin/s0tool/issues/324\r\n"
   }
 ]
