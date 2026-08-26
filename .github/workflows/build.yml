@@ -30,7 +30,7 @@ jobs:
         esphome/puls-water-internal.yaml
         esphome/kwh-water-test.yaml
         esphome/pulscounter_flux.yaml
-      esphome-version: 2026.6.0
+      esphome-version: 2026.8.0
       release-summary: ${{ github.event_name == 'release' && github.event.release.body || '' }}
       release-url: ${{ github.event_name == 'release' && github.event.release.html_url || '' }}
       release-version: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
@@ -61,14 +61,14 @@ jobs:
           mkdir output
           cp -R static/* output/
           cp -R firmwares/* output/
-      - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
-        run: |-
-          for device in firmwares/*; do
-            device=$(basename $device)
-            jq --arg device "$device" \
-                '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
-                firmwares/$device/manifest.json > output/$device-manifest.json
-          done
+      # - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
+      #   run: |-
+      #     for device in firmwares/*; do
+      #       device=$(basename $device)
+      #       jq --arg device "$device" \
+      #           '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
+      #           firmwares/$device/manifest.json > output/$device-manifest.json
+      #     done
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
         with:
