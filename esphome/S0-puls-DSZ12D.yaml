@@ -27,6 +27,6 @@ packages:
     ref: main
     files:
       - esphome/components/basis.yaml
-      - esphome/components/dsz12d.yaml
+      - esphome/components/DSZ12D.yaml
       # - esphome/components/s0tool-dsz12d-update.yaml
     refresh: 0d
