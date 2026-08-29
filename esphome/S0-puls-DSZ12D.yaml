@@ -19,7 +19,7 @@ esp8266:
   restore_from_flash: true  
 
 dashboard_import:
-  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-dsz12d.yaml
+  package_import_url: github://huizebruin/s0tool/esphome/S0-puls-DSZ12D.yaml
 
 packages:
   remote_package:
