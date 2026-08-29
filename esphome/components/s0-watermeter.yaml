@@ -4,8 +4,8 @@
 # © Huizebruin.nl
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
-  services:
-    - service: meterstand_water
+  actions:
+    - action: meterstand_water
       variables:
         meter_value: float
       then:
@@ -17,7 +17,7 @@ api:
         - globals.set:
             id: total_water_pulses
             value:  "0"
-            
+
 
 globals:
   - id: initial_water_usage

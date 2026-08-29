@@ -3,8 +3,8 @@
 
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
-  services:
-    - service: meterstand_kwh
+  actions:
+    - action: meterstand_kwh
       variables:
         meter_value: float
       then:

@@ -4,8 +4,8 @@
 # © Huizebruin.nl
 #  # ⬇ Enable Home Assistant API ⬇ # 
 api:
-  services:
-    - service: meterstand_gas
+  actions:
+    - action: meterstand_gas
       variables:
         meter_value: float
       then:
@@ -17,7 +17,7 @@ api:
         - globals.set:
             id: total_gas_pulses
             value:  "0"
-            
+
 
 globals:
   - id: initial_gas_usage
@@ -28,7 +28,7 @@ globals:
     type: int
     restore_value: yes
     initial_value: '0'
-    
+
 select:
   # ⬇ gas per m3 rate ⬇ #
   - platform: template
