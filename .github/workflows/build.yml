@@ -22,7 +22,7 @@ jobs:
         esphome/watermeter.yaml
         esphome/pulscounter.yaml
         esphome/S0-puls-kwhpuls.yaml
-        esphome/S0-puls-DSZ12D.yaml
+        esphome/S0-puls-dsz12d.yaml
         esphome/S0-puls-LEM022SJ.yaml
         esphome/s0-watermeter.yaml
         esphome/wsz15d32a.yaml
