@@ -65,9 +65,11 @@ jobs:
         run: |-
           for device in firmwares/*; do
             device=$(basename $device)
-            jq --arg device "$device" \
-                '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
-                firmwares/$device/manifest.json > output/$device-manifest.json
+            if [ -f "firmwares/$device/manifest.json" ]; then
+              jq --arg device "$device" \
+                  '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
+                  firmwares/$device/manifest.json > output/$device-manifest.json
+            fi
           done
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
