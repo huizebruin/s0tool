@@ -166,5 +166,12 @@
     "created_at": "2026-04-27T18:23:13Z",
     "author": "huizebruin",
     "body": "Hi all,\r\n\r\nI\u2019m developing a DIY S0 pulse reader (S0tool) using ESPHome. Right now, most of the entity names and labels in my YAML are in Dutch, but I\u2019d like to make the project more accessible for international users by supporting English (and possibly other languages).\r\n\r\nI\u2019m running into the limitation that ESPHome doesn\u2019t really support multi-language setups natively, so I\u2019m looking for a clean and scalable approach.\r\n\r\nCurrent situation:\r\n\r\nExisting config is largely Dutch\r\nUsed by both Dutch and non-Dutch users\r\nI want to avoid maintaining separate full configs per language if possible\r\nWhat I\u2019m looking for:\r\n\r\nBest practice for handling multiple languages in ESPHome\r\nA maintainable structure (not lots of hardcoded if/else in lambdas)\r\nIdeally something that works nicely with Home Assistant, but doesn\u2019t fully depend on it\r\nQuestions:\r\n\r\nIs it better to standardize everything to English and leave translations to Home Assistant?\r\nAre substitutions/packages per language the only viable approach?\r\nHow are others handling this in public ESPHome projects?\r\nAny examples or suggestions would be appreciated!\r\n\r\nThanks!\r\n\r\nhttps://github.com/huizebruin/s0tool/issues/324\r\n"
+  },
+  {
+    "title": "firmware problems",
+    "url": "https://github.com/huizebruin/s0tool/discussions/344",
+    "created_at": "2026-09-01T21:34:59Z",
+    "author": "huizebruin",
+    "body": "Currently, we are experiencing issues with the build file used to build the ESPHome S0Tool firmware. So far, I have not been able to get it working properly.\n\nAs a result, it is currently not possible to flash new boards using the web flasher.\n\nIf anyone is able to identify and fix the issue, I would really appreciate the help. Please let me know if you have any ideas or a working solution."
   }
 ]
