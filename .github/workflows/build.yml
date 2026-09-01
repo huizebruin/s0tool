@@ -77,7 +77,13 @@ jobs:
               echo "Warning: No manifest.json found for $device"
             fi
           done
-
+      - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: github-pages
+        path: output
+        retention-days: 1
+    
   deploy:
     if: github.ref == 'refs/heads/main'
     name: 🏗️ Deploy to GitHub Pages 🚀
