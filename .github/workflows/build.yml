@@ -59,8 +59,8 @@ jobs:
       - name: Copy files
         run: |-
           mkdir output
-          cp -R static/* output/
-          cp -R firmwares/* output/
+          cp -RL static/* output/
+          cp -RL firmwares/* output/
       - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
         run: |-
           for device in firmwares/*; do
