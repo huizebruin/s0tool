@@ -285,7 +285,7 @@ From Home Assistant v2022.11.X, water meters can be added to the Energy Dashboar
 
 | Energy Dashboard | S0tool Dashboard |
 |:---:|:---:|
-| ![Water Energy Dashboard](./static/assets/water-energydashboard.jpg) | ![S0tool Dashboard](./static/assets/s0tool-dashboard.jpg) |
+| ![Water Energy Dashboard](./static/assets/water-energydashboard.png) | ![S0tool Dashboard](./static/assets/s0tool-dashboard.jpg) |
 
 ### Adding to Energy Dashboard
 
@@ -481,7 +481,6 @@ Made with ❤️ for the Home Assistant community
 
 <h2>Star History</h2>
 
-[![Star History Chart](https://api.star-history.com/svg?repos=huizebruin/s0tool&type=Date)](https://www.star-history.com/#huizebruin/s0tool&Date)
 
 </div>
 
