@@ -58,12 +58,11 @@ jobs:
         with:
           path: firmwares
 
-      - name: Prepare output (flatten, copy files, write manifests, debug)
+      - name: Flatten downloaded artifacts (remove version subfolders)
         run: |-
           set -euo pipefail
           shopt -s nullglob
-
-          echo "=== Flattening downloaded artifacts (remove version subfolders) ==="
+          echo "Flattening firmwares/*/* -> firmwares/* (remove intermediate version folders)"
           for device_dir in firmwares/*; do
             [ -d "$device_dir" ] || continue
             for sub in "$device_dir"/*; do
@@ -74,21 +73,45 @@ jobs:
               fi
             done
           done
-          echo "Flatten complete."
+          echo "Flatten complete. Current layout:"
           ls -laR firmwares || true
 
-          echo
-          echo "=== Copying static/ and firmwares/ -> output/ (follow symlinks) ==="
+      - name: Copy files (follow symlinks, avoid links/hardlinks)
+        run: |-
+          set -euo pipefail
           mkdir -p output
+
+          echo "Copying static/ -> output/ (follow symlinks)"
           if [ -d static ]; then
             rsync -rL --delete --exclude='.git' static/ output/ || true
           fi
+
+          echo "Copying firmwares/ -> output/ (follow symlinks)"
           if [ -d firmwares ]; then
             rsync -rL --delete firmwares/ output/ || true
           fi
 
-          echo
-          echo "=== Ensure per-device manifest.json under output/<device>/manifest.json ==="
+          echo "Listing any symlinks in output (should be none):"
+          find output -type l -print || true
+
+          # Remove any symlinks just in case
+          find output -type l -exec echo "Removing symlink:" {} \; -exec rm -vf {} \; || true
+
+          # Report total size in KB and fail early if > 10GB (Pages limit)
+          size_kb=$(du -sk output | cut -f1 || echo 0)
+          echo "Total output size (KB): $size_kb"
+          max_kb=$((10 * 1024 * 1024))
+          if [ "$size_kb" -ge "$max_kb" ]; then
+            echo "ERROR: artifact size >= 10GB (limit for Pages). Aborting upload."
+            exit 1
+          fi
+
+          echo "Files copied, size OK."
+
+      - name: Copy manifest files to per-device folders and modify paths
+        run: |-
+          set -euo pipefail
+          echo "Ensuring per-device manifest.json under output/<device>/manifest.json"
           for device_dir in firmwares/*; do
             [ -d "$device_dir" ] || continue
             device=$(basename "$device_dir")
@@ -103,25 +126,12 @@ jobs:
             fi
           done
 
-          echo
-          echo "=== Remove any symlinks in output (safety) ==="
-          find output -type l -print -exec rm -vf {} \; || true
-
-          echo
-          echo "=== Report output size (KB) and check limit ==="
-          size_kb=$(du -sk output | cut -f1 || echo 0)
-          echo "Total output size (KB): $size_kb"
-          max_kb=$((10 * 1024 * 1024))
-          if [ "$size_kb" -ge "$max_kb" ]; then
-            echo "ERROR: artifact size >= 10GB (limit for Pages). Aborting upload."
-            exit 1
-          fi
-
-          echo
-          echo "=== Debug: list output contents ==="
+      - name: Debug: list output contents
+        run: |-
+          echo "=== Output tree ==="
           ls -laR output || true
           echo
-          echo "=== Debug: manifests found (per-device) ==="
+          echo "=== Manifests found (per-device) ==="
           for m in output/*/manifest.json; do
             if [ -f "$m" ]; then
               echo "---- $m ----"
@@ -129,44 +139,11 @@ jobs:
             fi
           done
           echo "=== end debug ==="
-            - name: Normalize output (dereference symlinks & break hardlinks)
-        run: |-
-          set -euo pipefail
-          echo "Preparing clean output dir (output_clean)..."
-          rm -rf output_clean
-          mkdir -p output_clean
 
-          # Copy everything, dereferencing symlinks (-L). This creates real files instead of symlinks.
-          echo "Copying files (dereference symlinks)..."
-          cp -aL output/. output_clean/ || { echo "cp failed"; exit 1; }
-
-          # Remove any symlinks left, just in case
-          echo "Removing leftover symlinks (if any)..."
-          find output_clean -type l -print -exec rm -vf {} \; || true
-
-          # Break hardlinks: find files with link count >1 and rewrite them to new inodes
-          echo "Breaking hardlinks (convert to unique files)..."
-          while IFS= read -r -d '' file; do
-            links=$(stat -c %h "$file" 2>/dev/null || echo 1)
-            if [ "$links" -gt 1 ]; then
-              tmp="$(mktemp)"
-              cat "$file" > "$tmp"
-              mv -f "$tmp" "$file"
-              echo "Rewrote (broke hardlink): $file"
-            fi
-          done < <(find output_clean -type f -print0)
-
-          # Final checks
-          echo "Final verification:"
-          echo "  Any symlinks?"; find output_clean -type l -print || echo "None"
-          echo "  Any hardlinks (files with link count >1)?"
-          find output_clean -type f -links +1 -print || echo "None"
-          echo "Output clean, ready to upload."
-          
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
         with:
-          path: output_clean
+          path: output
 
   deploy:
     if: github.ref == 'refs/heads/main'
