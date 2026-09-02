@@ -1,8 +1,10 @@
+
 name: Build
 
 permissions:
-  contents: read
-  pull-requests: write
+  contents: read        # typically needed for checkout, adjust as required
+  pages: write          # allow publishing to GitHub Pages
+  id-token: write       # allow OIDC/id-token usage
 
 on:
   push:
