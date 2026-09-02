@@ -1,24 +1,30 @@
 name: Build
+
 permissions:
   contents: read
   pull-requests: write
-  
-# Build the ESPHome firmwares for the S0tool project.
+
 on:
   push:
     branches:
       - main
   pull_request:
   workflow_dispatch:
+    inputs:
+      bypass-yaml-check:
+        description: 'Bypass YAML change check (force build/publish)'
+        type: boolean
+        required: false
+        default: false
   release:
     types: [published]
 
 jobs:
-  build:
-    name: 🏗️ Build firmware 🛠️
-    uses: esphome/workflows/.github/workflows/build.yml@main
+  build-and-publish:
+    uses: ./.github/workflows/reusable-build.yml
     with:
-      files: |
+      device-name: s0tool
+      yaml-files: |
         esphome/watermeter.yaml
         esphome/pulscounter.yaml
         esphome/S0-puls-kwhpuls.yaml
@@ -31,75 +37,7 @@ jobs:
         esphome/kwh-water-test.yaml
         esphome/pulscounter_flux.yaml
       esphome-version: 2026.8.0
-      release-summary: ${{ github.event_name == 'release' && github.event.release.body || '' }}
-      release-url: ${{ github.event_name == 'release' && github.event.release.html_url || '' }}
-      release-version: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
-
-  consolidate:
-    name: Consolidate firmwares 🚀
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v7
-      - name: Download built firmwares
-        uses: actions/download-artifact@v8.0.1
-        with:
-          path: firmwares
-      - name: Remove intermediate version folder
-        run: |-
-          for d in firmwares/*/*; do
-            if [ -d "$d" ]; then
-              mv $d/* $d/../
-              rm -rf $d
-            fi
-          done
-      - name: Copy files
-        run: |-
-          mkdir output
-          cp -RL static/* output/
-          cp -RL firmwares/* output/
-      - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
-        run: |-
-          for device in firmwares/*; do
-            if [ ! -d "$device" ]; then
-              continue
-            fi
-            device=$(basename $device)
-            manifest_file="firmwares/$device/manifest.json"
-            if [ -f "$manifest_file" ]; then
-              jq --arg device "$device" \
-                  '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
-                  "$manifest_file" > output/$device-manifest.json
-            else
-              echo "Warning: No manifest.json found for $device"
-            fi
-          done
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: output
-          retention-days: 1
-    
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    name: 🏗️ Deploy to GitHub Pages 🚀
-    runs-on: ubuntu-latest
-    needs: consolidate
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-      - name: 🏗️ Setup website pages
-        uses: actions/configure-pages@v6.0.0
-      - name: 🏗️ Deploy Firmware to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5.0.0
+      check-yaml-changes: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.bypass-yaml-check == 'true') }}
+      publish-to-pages: true
+      has-installer: true
+      installer-path: static

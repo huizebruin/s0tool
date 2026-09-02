@@ -1,0 +1,119 @@
+name: Build and Publish (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      device-name:
+        required: true
+        type: string
+      yaml-files:
+        required: true
+        type: string
+      firmware-names:
+        required: false
+        type: string
+      core-yaml-path:
+        required: false
+        type: string
+      esphome-version:
+        required: false
+        type: string
+      check-yaml-changes:
+        required: false
+        type: boolean
+      publish-to-pages:
+        required: false
+        type: boolean
+      has-installer:
+        required: false
+        type: boolean
+      installer-path:
+        required: false
+        type: string
+      release-summary:
+        required: false
+        type: string
+      release-url:
+        required: false
+        type: string
+      release-version:
+        required: false
+        type: string
+
+jobs:
+  build:
+    name: 🏗️ Build firmware 🛠️
+    uses: esphome/workflows/.github/workflows/build.yml@main
+    with:
+      files: ${{ inputs.yaml-files }}
+      esphome-version: ${{ inputs.esphome-version }}
+      release-summary: ${{ inputs.release-summary }}
+      release-url: ${{ inputs.release-url }}
+      release-version: ${{ inputs.release-version }}
+
+  consolidate:
+    name: Consolidate firmwares 🚀
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v7
+      - name: Download built firmwares
+        uses: actions/download-artifact@v8.0.1
+        with:
+          path: firmwares
+      - name: Remove intermediate version folder
+        run: |-
+          for d in firmwares/*/*; do
+            if [ -d "$d" ]; then
+              mv $d/* $d/../
+              rm -rf $d
+            fi
+          done
+      - name: Copy files
+        run: |-
+          mkdir output
+          cp -RL static/* output/ || true
+          cp -RL firmwares/* output/ || true
+      - name: Copy manifest files to root and modify paths
+        run: |-
+          for device in firmwares/*; do
+            if [ ! -d "$device" ]; then
+              continue
+            fi
+            device=$(basename $device)
+            manifest_file="firmwares/$device/manifest.json"
+            if [ -f "$manifest_file" ]; then
+              jq --arg device "$device" \
+                  '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
+                  "$manifest_file" > output/$device-manifest.json
+            else
+              echo "Warning: No manifest.json found for $device"
+            fi
+          done
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: output
+          retention-days: 1
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    name: 🏗️ Deploy to GitHub Pages 🚀
+    runs-on: ubuntu-latest
+    needs: consolidate
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: 🏗️ Setup website pages
+        uses: actions/configure-pages@v6.0.0
+      - name: 🏗️ Deploy Firmware to GitHub Pages
+        uses: actions/deploy-pages@v5.0.0
