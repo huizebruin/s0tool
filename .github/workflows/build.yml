@@ -58,11 +58,12 @@ jobs:
         with:
           path: firmwares
 
-      - name: Flatten downloaded artifacts (remove version subfolders)
+      - name: Prepare output (flatten, copy files, write manifests, debug)
         run: |-
           set -euo pipefail
           shopt -s nullglob
-          echo "Flattening firmwares/*/* -> firmwares/* (remove intermediate version folders)"
+
+          echo "=== Flattening downloaded artifacts (remove version subfolders) ==="
           for device_dir in firmwares/*; do
             [ -d "$device_dir" ] || continue
             for sub in "$device_dir"/*; do
@@ -73,45 +74,21 @@ jobs:
               fi
             done
           done
-          echo "Flatten complete. Current layout:"
+          echo "Flatten complete."
           ls -laR firmwares || true
 
-      - name: Copy files (follow symlinks, avoid links/hardlinks)
-        run: |-
-          set -euo pipefail
+          echo
+          echo "=== Copying static/ and firmwares/ -> output/ (follow symlinks) ==="
           mkdir -p output
-
-          echo "Copying static/ -> output/ (follow symlinks)"
           if [ -d static ]; then
             rsync -rL --delete --exclude='.git' static/ output/ || true
           fi
-
-          echo "Copying firmwares/ -> output/ (follow symlinks)"
           if [ -d firmwares ]; then
             rsync -rL --delete firmwares/ output/ || true
           fi
 
-          echo "Listing any symlinks in output (should be none):"
-          find output -type l -print || true
-
-          # Remove any symlinks just in case
-          find output -type l -exec echo "Removing symlink:" {} \; -exec rm -vf {} \; || true
-
-          # Report total size in KB and fail early if > 10GB (Pages limit)
-          size_kb=$(du -sk output | cut -f1 || echo 0)
-          echo "Total output size (KB): $size_kb"
-          max_kb=$((10 * 1024 * 1024))
-          if [ "$size_kb" -ge "$max_kb" ]; then
-            echo "ERROR: artifact size >= 10GB (limit for Pages). Aborting upload."
-            exit 1
-          fi
-
-          echo "Files copied, size OK."
-
-      - name: Copy manifest files to per-device folders and modify paths
-        run: |-
-          set -euo pipefail
-          echo "Ensuring per-device manifest.json under output/<device>/manifest.json"
+          echo
+          echo "=== Ensure per-device manifest.json under output/<device>/manifest.json ==="
           for device_dir in firmwares/*; do
             [ -d "$device_dir" ] || continue
             device=$(basename "$device_dir")
@@ -126,12 +103,25 @@ jobs:
             fi
           done
 
-      - name: Debug: list output contents
-        run: |-
-          echo "=== Output tree ==="
+          echo
+          echo "=== Remove any symlinks in output (safety) ==="
+          find output -type l -print -exec rm -vf {} \; || true
+
+          echo
+          echo "=== Report output size (KB) and check limit ==="
+          size_kb=$(du -sk output | cut -f1 || echo 0)
+          echo "Total output size (KB): $size_kb"
+          max_kb=$((10 * 1024 * 1024))
+          if [ "$size_kb" -ge "$max_kb" ]; then
+            echo "ERROR: artifact size >= 10GB (limit for Pages). Aborting upload."
+            exit 1
+          fi
+
+          echo
+          echo "=== Debug: list output contents ==="
           ls -laR output || true
           echo
-          echo "=== Manifests found (per-device) ==="
+          echo "=== Debug: manifests found (per-device) ==="
           for m in output/*/manifest.json; do
             if [ -f "$m" ]; then
               echo "---- $m ----"
