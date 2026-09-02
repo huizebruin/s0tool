@@ -2,7 +2,7 @@ name: Build
 permissions:
   contents: read
   pull-requests: write
-  
+
 # Build the ESPHome firmwares for the S0tool project.
 on:
   push:
@@ -44,10 +44,12 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v6
+
       - name: Download built firmwares
         uses: actions/download-artifact@v8.0.1
         with:
           path: firmwares
+
       - name: Remove intermediate version folder
         run: |-
           for d in firmwares/*/*; do
@@ -56,19 +58,34 @@ jobs:
               rm -rf $d
             fi
           done
+
       - name: Copy files
         run: |-
-          mkdir output
-          cp -R static/* output/
-          cp -R firmwares/* output/
-      - name: Copy manifest files to root and modify paths # This is required so that older firmwares can update to newer firmwares with new manifest paths
-        run: |- for device in firmwares/*; do device=$(basename "$device") mkdir -p "output/$device" jq --arg device "$device"
-          '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .'
-          "firmwares/$device/manifest.json" > "output/$device/manifest.json" done
-                - name: Upload GitHub Pages artifact
-                  uses: actions/upload-pages-artifact@v5.0.0
-                  with:
-                    path: output
+          mkdir -p output
+          cp -R static/* output/ || true
+          cp -R firmwares/* output/ || true
+
+      - name: Copy manifest files to per-device folders and modify paths
+        run: |-
+          # Ensure jq is available (ubuntu-latest includes jq)
+          set -euo pipefail
+          for device_dir in firmwares/*; do
+            [ -d "$device_dir" ] || continue
+            device=$(basename "$device_dir")
+            mkdir -p "output/$device"
+            if [ -f "firmwares/$device/manifest.json" ]; then
+              jq --arg device "$device" \
+                '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
+                "firmwares/$device/manifest.json" > "output/$device/manifest.json"
+            else
+              echo "Warning: firmwares/$device/manifest.json not found, skipping manifest for $device"
+            fi
+          done
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: output
 
   deploy:
     if: github.ref == 'refs/heads/main'
