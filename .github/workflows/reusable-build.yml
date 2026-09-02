@@ -77,22 +77,37 @@ jobs:
           mkdir output
           cp -RL static/* output/ || true
           cp -RL firmwares/* output/ || true
-      - name: Copy manifest files to root and modify paths
-        run: |-
-          for device in firmwares/*; do
-            if [ ! -d "$device" ]; then
-              continue
-            fi
-            device=$(basename $device)
-            manifest_file="firmwares/$device/manifest.json"
-            if [ -f "$manifest_file" ]; then
-              jq --arg device "$device" \
-                  '.builds[].ota.path |= $device + "/" + . | (.builds[].parts // [])[].path |= $device + "/" + .' \
-                  "$manifest_file" > output/$device-manifest.json
-            else
-              echo "Warning: No manifest.json found for $device"
-            fi
-          done
+      - name: Copy files (follow symlinks, avoid links/hardlinks)
+        run: |
+          set -euo pipefail
+          mkdir -p output
+      
+          echo "Copying static/ -> output/ (follow symlinks)"
+          if [ -d static ]; then
+            rsync -rL --delete --exclude='.git' static/ output/ || true
+          fi
+      
+          echo "Copying firmwares/ -> output/ (follow symlinks)"
+          if [ -d firmwares ]; then
+            rsync -rL --delete firmwares/ output/ || true
+          fi
+      
+          echo "Listing any symlinks in output (should be none):"
+          find output -type l -print || true
+      
+          # Remove any symlinks just in case (they shouldn't exist after rsync -L, but be safe)
+          find output -type l -exec echo "Removing symlink:" {} \; -exec rm -vf {} \; || true
+      
+          # Report total size in KB and fail early if > 10GB (10 * 1024 * 1024 KB)
+          size_kb=$(du -sk output | cut -f1 || echo 0)
+          echo "Total output size (KB): $size_kb"
+          max_kb=$((10 * 1024 * 1024))
+          if [ "$size_kb" -ge "$max_kb" ]; then
+            echo "ERROR: artifact size >= 10GB (limit for Pages). Aborting upload."
+            exit 1
+          fi
+      
+          echo "Output prepared, size OK."
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
