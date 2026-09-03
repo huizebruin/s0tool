@@ -49,6 +49,15 @@ jobs:
         uses: actions/download-artifact@v8.0.1
         with:
           path: firmwares
+          # Each device artifact already embeds its own name as the
+          # top-level folder inside the artifact (so that combined manifests
+          # get <name>/<version>/ paths). Without merge-multiple, download
+          # v8 wraps every artifact in an extra <artifact-name>/ folder on
+          # top of that, giving firmwares/<name>/<name>/<version>/... This
+          # was the cause of the extra dev-<date> folder breaking the
+          # manifest links below. merge-multiple restores the intended
+          # single-nesting layout: firmwares/<name>/<version>/...
+          merge-multiple: true
 
       - name: Remove intermediate version folder
         run: |-
@@ -65,14 +74,6 @@ jobs:
           cp -R static/* output/ || true
           cp -R firmwares/* output/ || true
 
-      - name: Remove intermediate version folder
-        run: |-
-          for d in firmwares/*/*/*; do
-            if [ -d "$d" ]; then
-              mv "$d"/* "${d%/*/*}/"
-              rm -rf "${d%/*}"
-            fi
-          done
       - name: Copy manifest files to per-device folders and modify paths
         run: |-
           # Ensure jq is available (ubuntu-latest includes jq)
