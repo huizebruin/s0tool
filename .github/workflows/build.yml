@@ -66,13 +66,13 @@ jobs:
           cp -R firmwares/* output/ || true
 
       - name: Remove intermediate version folder
-  run: |-
-    for d in firmwares/*/*/*; do
-      if [ -d "$d" ]; then
-        mv "$d"/* "${d%/*/*}/"
-        rm -rf "${d%/*}"
-      fi
-    done
+        run: |-
+          for d in firmwares/*/*/*; do
+            if [ -d "$d" ]; then
+              mv "$d"/* "${d%/*/*}/"
+              rm -rf "${d%/*}"
+            fi
+          done
       - name: Copy manifest files to per-device folders and modify paths
         run: |-
           # Ensure jq is available (ubuntu-latest includes jq)
