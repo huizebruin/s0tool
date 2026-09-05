@@ -5,8 +5,8 @@
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl version ${project_version} - date ${date}.
-  project_version: "3.6.9" # From 23-06-2024 new version
-  date: "29-08-2026"
+  project_version: "3.6.10" # From 23-06-2024 new version
+  date: "05-09-2026"
 
 preferences:
   flash_write_interval: 120min

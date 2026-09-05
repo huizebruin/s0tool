@@ -391,6 +391,36 @@
 <section id="configuration">
   <h2>⚙️ Configuration & Troubleshooting</h2>
 
+  <h3>Utility Meter Helpers (Hourly / Daily / Weekly / Monthly)</h3>
+  <p>Home Assistant's built-in <code>utility_meter</code> integration can break your S0tool water total down into
+    quarter-hourly, hourly, daily, weekly, and monthly consumption — handy for spotting leaks or comparing usage
+    over time.</p>
+  <p>Create <code>utility_meter/utility.yaml</code>:</p>
+  <div class="yaml-block">
+    <button class="copy-btn" onclick="copyYaml(this)">Copy YAML</button>
+    <pre><code class="yaml">utility_meter:
+  # Water meter tracking
+  waterverbruik_kwartier:
+    source: sensor.watermeter_total
+    cycle: quarter-hourly
+  waterverbruik_per_uur:
+    source: sensor.watermeter_total
+    cycle: hourly
+  waterverbruik_dag:
+    source: sensor.watermeter_total
+    cycle: daily
+  waterverbruik_week:
+    source: sensor.watermeter_total
+    cycle: weekly
+  waterverbruik_maand:
+    source: sensor.watermeter_total
+    cycle: monthly</code></pre>
+  </div>
+  <p>Then include it in <code>configuration.yaml</code>:</p>
+  <pre><code class="yaml">utility_meter: !include utility_meter/utility.yaml</code></pre>
+  <p><a href="https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml" target="_blank"
+      rel="noopener">View the full utility.yaml on GitHub →</a></p>
+
   <h3>Automatic Update Notifications & Sensors</h3>
   
       <p>Include this package in <code>configuration.yaml</code>:</p>

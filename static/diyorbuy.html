@@ -141,7 +141,22 @@
         <div class="warn-box">
           <strong>Note:</strong> Compatible only with <strong>Wemos D1 Mini V1 or V3.0 (ESP8266)</strong>. You will also
           need a USB cable and 5V/1A power adapter.<br>
-          Minimum ESPHome: 2026.1.x — Minimum Home Assistant: 2026.1.x
+          Minimum ESPHome: 2026.8.0 — Minimum Home Assistant: 2026.8.x
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-arrow-left-right" style="color:var(--accent);"></i> Alternative: Cyble Sensor V2</h2>
+        <p>Can't get hold of a 5V NPN sensor? A <strong>Cyble Sensor V2</strong> reed switch works with S0tool too —
+          it just needs the pull-up resistor wired the other way around.</p>
+        <ol>
+          <li>Connect the 10K&#8486; resistor between <code>GND</code> and <code>D2</code> (not <code>5V</code> and
+            <code>D2</code> as with the NPN sensor above).</li>
+          <li>Connect the Cyble sensor's two wires to <code>D2</code> and <code>GND</code>.</li>
+        </ol>
+        <div class="warn-box">
+          <strong>Note:</strong> The resistor placement for the Cyble sensor is different from the standard NPN
+          wiring — double-check your connections before powering on.
         </div>
       </section>
 
@@ -297,6 +312,53 @@
             style="max-width:200px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
           <img src="./assets/s0tool-s0-kwh-poort.jpg" alt="S0tool kWh Ready"
             style="max-width:200px;width:100%;border-radius:var(--radius);border:1px solid var(--border);">
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="bi bi-cart" style="color:var(--accent);"></i> Don't Have a kWh Meter Yet?</h2>
+        <p>Any meter with an S0 pulse output works. Solar panels, heat pumps, and standalone energy meters all
+          qualify &mdash; here are a few known-good options:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Rating</th>
+                <th>Pulse Rate</th>
+                <th>Where to Buy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>45A kWh Meter</strong></td>
+                <td>1000 imp/kWh</td>
+                <td><a href="https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Fsdm120d-mid-1-fase-kwh-meter-met-puls-uitgang%2F9200000112029366%2F&name=SDM120D%20MID"
+                    target="_blank" rel="noopener">Bol.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>40A kWh Meter</strong></td>
+                <td>2000 imp/kWh</td>
+                <td><a href="https://partner.bol.com/click/click?p=2&t=url&s=1097464&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fnl%2Fnl%2Fp%2Felektronische-wattmeter-greenblue-gb173-voor-zowel-prive-als-handel-industrie%2F9200000115897616%2F&name=Elektronische%20wattmeter%20GreenBlue%20GB173"
+                    target="_blank" rel="noopener">Bol.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>32A kWh Meter</strong></td>
+                <td>2000 imp/kWh</td>
+                <td><a href="https://amzn.to/3P6CSg0" target="_blank" rel="noopener">Amazon</a></td>
+              </tr>
+              <tr>
+                <td><strong>40A kWh Meter</strong></td>
+                <td>1000 imp/kWh</td>
+                <td><a href="https://amzn.to/3oV08ms" target="_blank" rel="noopener">Amazon</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tip-box" style="margin-top:1rem;">
+          <strong>Understanding pulse rates:</strong> a higher imp/kWh rating means finer resolution.
+          <strong>2000 imp/kWh</strong> = 0.0005 kWh per pulse (more accurate), while
+          <strong>1000 imp/kWh</strong> = 0.001 kWh per pulse. Either works with S0tool &mdash; just make sure the
+          pulse multiplier in your ESPHome config matches the meter you buy.
         </div>
       </section>
 

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S0tool - CI/CD & Build Workflow | ESPHome Automation</title>
+    <meta name="description"
+        content="Learn about S0tool's automated CI/CD pipeline using GitHub Actions. Automatic firmware builds, testing, and deployment to GitHub Pages.">
+    <link rel="canonical" href="https://s0tool.nl/ci-cd.html">
+    <script>try { var t = localStorage.getItem("s0tool-theme"); var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); } catch (e) { }</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <nav class="custom-navbar">
+        <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+        <ul class="navbar-links" id="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="diyorbuy.html">DIY or Buy</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="troubleshooting.html">Troubleshooting</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="releases.html">Releases</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="license.html">License</a></li>
+        </ul>
+        <div class="navbar-right">
+            <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+            <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="layout">
+        <aside class="custom-sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+                <div class="sidebar-label">Documentation</div>
+            </div>
+        </aside>
+
+        <main>
+            <section class="hero" style="padding:2rem 1.5rem;">
+                <div class="hero-eyebrow">Automated • Continuous • Reliable</div>
+                <h1>CI/CD Pipeline</h1>
+                <p>S0tool uses GitHub Actions to automate firmware builds, testing, and deployment. Every push triggers
+                    a complete pipeline that compiles all device configurations.</p>
+            </section>
+
+            <section id="overview">
+                <h2><i class="bi bi-gear"></i> Overview</h2>
+                <p>The S0tool CI/CD pipeline automatically:</p>
+                <ul>
+                    <li>Compiles ESPHome firmware for all device configurations</li>
+                    <li>Tests changes on every pull request</li>
+                    <li>Deploys updates to GitHub Pages</li>
+                    <li>Creates releases with compiled binaries</li>
+                    <li>Maintains consistency across devices</li>
+                </ul>
+            </section>
+
+            <section id="workflow">
+                <h2><i class="bi bi-diagram-3"></i> Workflow Triggers</h2>
+                <p>The pipeline starts automatically on:</p>
+                <ul>
+                    <li><strong>Push to main</strong> - Compiles and deploys</li>
+                    <li><strong>Pull requests</strong> - Tests changes before merge</li>
+                    <li><strong>Releases</strong> - Creates release builds</li>
+                    <li><strong>Manual dispatch</strong> - On-demand builds</li>
+                </ul>
+            </section>
+
+            <section id="stages">
+                <h2><i class="bi bi-hammer"></i> Pipeline Stages</h2>
+
+                <div style="margin:2rem 0;">
+                    <h3>Stage 1: Build Firmware 🏗️</h3>
+                    <p>ESPHome compiles all device configurations using the official ESPHome workflow.</p>
+                    <ul>
+                        <li>Runs on Ubuntu Latest</li>
+                        <li>ESPHome Version: 2026.8.0</li>
+                        <li>Compiles 11 device configurations</li>
+                        <li>Generates binary artifacts</li>
+                    </ul>
+                </div>
+
+                <div style="margin:2rem 0;">
+                    <h3>Stage 2: Consolidate Artifacts 📦</h3>
+                    <p>Downloads and organizes all compiled binaries into a clean folder structure.</p>
+                    <ul>
+                        <li>Merges artifacts from parallel builds</li>
+                        <li>Removes intermediate version folders</li>
+                        <li>Copies static website files</li>
+                        <li>Prepares output for deployment</li>
+                    </ul>
+                </div>
+
+                <div style="margin:2rem 0;">
+                    <h3>Stage 3: Deploy to GitHub Pages 🚀</h3>
+                    <p>Deploys the complete site with firmware to GitHub Pages.</p>
+                    <ul>
+                        <li>Only runs on main branch pushes</li>
+                        <li>Uploads to GitHub Pages environment</li>
+                        <li>Makes firmware available instantly</li>
+                        <li>Public URL: https://s0tool.nl</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="builds">
+                <h2><i class="bi bi-box"></i> Device Configurations</h2>
+                <p>The build system compiles firmware for these configurations:</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Configuration</th>
+                                <th>Purpose</th>
+                                <th>File</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Water Meter</td>
+                                <td>NPN sensor water meter reading</td>
+                                <td>watermeter.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>Pulse Counter</td>
+                                <td>Generic pulse counting</td>
+                                <td>pulscounter.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>S0 Pulse + kWh</td>
+                                <td>Combined energy monitoring</td>
+                                <td>S0-puls-kwhpuls.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>DSZ12D Meter</td>
+                                <td>DSZ12D three-phase meter</td>
+                                <td>S0-puls-DSZ12D.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>LEM022SJ Meter</td>
+                                <td>LEM022SJ energy meter</td>
+                                <td>S0-puls-LEM022SJ.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>Water Meter (Alt)</td>
+                                <td>Alternative water configuration</td>
+                                <td>s0-watermeter.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>WSZ15D32A</td>
+                                <td>WSZ15D32A meter support</td>
+                                <td>wsz15d32a.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>SDM72D</td>
+                                <td>Three-phase power meter</td>
+                                <td>sdm72d.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>Water (Internal)</td>
+                                <td>Internal pulse meter</td>
+                                <td>puls-water-internal.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>kWh + Water Test</td>
+                                <td>Dual meter testing</td>
+                                <td>kwh-water-test.yaml</td>
+                            </tr>
+                            <tr>
+                                <td>Pulse Counter (Flux)</td>
+                                <td>Flux-based counting</td>
+                                <td>pulscounter_flux.yaml</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="deploy">
+                <h2><i class="bi bi-cloud-arrow-up"></i> Deployment</h2>
+
+                <h3>What Gets Deployed</h3>
+                <ul>
+                    <li>Static website (HTML, CSS, JS)</li>
+                    <li>Firmware binaries for all devices</li>
+                    <li>Installation tools</li>
+                    <li>Web-based flashing interface</li>
+                </ul>
+
+                <h3>Deployment Permissions</h3>
+                <ul>
+                    <li><code>pages:write</code> - Write to GitHub Pages</li>
+                    <li><code>id-token:write</code> - Generate auth tokens</li>
+                    <li><code>contents:read</code> - Read repository</li>
+                </ul>
+
+                <h3>Files Copied During Deployment</h3>
+                <ul>
+                    <li>Everything from <code>static/</code> folder</li>
+                    <li>All compiled firmware binaries</li>
+                    <li>Organized by device name</li>
+                </ul>
+            </section>
+
+            <section style="background:var(--bg-secondary);padding:2rem;border-radius:0.5rem;margin:2rem 0;">
+                <h2><i class="bi bi-github"></i> View the Workflow</h2>
+                <p>The complete CI/CD configuration is available on GitHub:</p>
+                <a href="https://github.com/huizebruin/s0tool/blob/main/.github/workflows/build.yml" target="_blank"
+                    rel="noopener" class="btn btn-primary" style="margin-top:1rem;"><i class="bi bi-github"></i> View
+                    build.yml on GitHub</a>
+
+                <div
+                    style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border-color);font-size:0.9rem;">
+                    <p style="margin:0.5rem 0;"><strong>File Path:</strong> <code>.github/workflows/build.yml</code></p>
+                    <p style="margin:0.5rem 0;"><strong>Engine:</strong> ESPHome 2026.8.0</p>
+                    <p style="margin:0.5rem 0;"><strong>Platform:</strong> Ubuntu Latest</p>
+                </div>
+            </section>
+
+            <section style="text-align:center;">
+                <h2>Want to Learn More?</h2>
+                <p>Check out the GitHub repository or join our community:</p>
+                <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;">
+                    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"
+                        class="btn btn-secondary"><i class="bi bi-github"></i> GitHub Repo</a>
+                    <a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener" class="btn btn-secondary"><i
+                            class="bi bi-discord"></i> Discord</a>
+                    <a href="contributing.html" class="btn btn-secondary"><i class="bi bi-file-earmark-text"></i>
+                        Contributing</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="custom-footer">
+        <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+        <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl — All rights reserved</div>
+        <div>
+            <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> —
+            <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -176,6 +176,24 @@
   <p>S0tool appears automatically under <em>Settings &rarr; Devices &amp; Services</em> if on the same network.</p>
 </section>
 
+<section id="manual-wifi-setup">
+  <h2><i class="bi bi-wifi" style="color:var(--accent);"></i> No Chrome or Edge? Manual Wi&#8209;Fi Setup</h2>
+  <p>The browser installer above needs Web Serial support (Chrome, Edge, or Opera on desktop). If you're on
+    Firefox, Safari, or a mobile browser, flash the firmware once via the <a href="troubleshooting.html">ESPHome
+    dashboard in Home Assistant</a> instead, then set up Wi&#8209;Fi manually:</p>
+  <ol>
+    <li>Power on the S0tool. On first boot (or after a factory reset) it starts its own Wi&#8209;Fi access point
+      named <strong>S0tool</strong>.</li>
+    <li>On your phone or laptop, connect to that <strong>S0tool</strong> Wi&#8209;Fi network.</li>
+    <li>Open a browser and go to <code>192.168.4.1</code>.</li>
+    <li>Enter your home Wi&#8209;Fi (2.4&nbsp;GHz) network name and password.</li>
+    <li>The device restarts and joins your network &mdash; Home Assistant will then auto-discover it as above.</li>
+  </ol>
+  <div class="tip-box"><strong>Tip:</strong> This same captive portal reappears any time the device can't reach
+    the configured Wi&#8209;Fi network, so it's also a quick way to move the S0tool onto a different network
+    later.</div>
+</section>
+
 </main>
 </div>
 <footer class="custom-footer">
