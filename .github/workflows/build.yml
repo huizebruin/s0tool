@@ -46,7 +46,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Download built firmwares
-        uses: actions/download-artifact@v8.0.1
+        uses: actions/download-artifact@v8.0.2
         with:
           path: firmwares
           # Each device artifact already embeds its own name as the
