@@ -27,5 +27,5 @@ packages:
     files:
       - esphome/components/basis.yaml
       - esphome/components/kwhpuls.yaml
-      # - esphome/components/s0tool-kwh-puls-update.yaml
+      - esphome/components/update.yaml
     refresh: 0d

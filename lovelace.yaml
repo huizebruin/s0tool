@@ -1,11 +1,17 @@
 #------------------------# deze code via kaart plaatsen #------------------------#
+# Toont alleen een melding wanneer er een nieuwe firmware beschikbaar is.
+# Vervang update.s0tool_firmware door de naam van jouw update-entiteit
+# (Instellingen > Apparaten & diensten > ESPHome > jouw S0tool > "Firmware").
 
 type: conditional
 conditions:
-  - entity: sensor.s0tool_gelijk_github
-    state_not: 'true'
+  - entity: update.s0tool_firmware
+    state: "on"
 card:
-  type: markdown
-  content: De s0tool is niet up to date met de GitHub versie.
+  type: tile
+  entity: update.s0tool_firmware
+  name: S0tool firmware
+  features:
+    - type: update-actions
 
 #------------------------#

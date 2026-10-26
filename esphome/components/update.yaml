@@ -1,0 +1,30 @@
+# Delen en bewerken mag maar laat deze eerste regels staan.
+# Source: https://s0tool.nl
+# Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
+# © https://huizebruin.nl & https://s0tool.nl
+#
+# Firmware updates as a native Home Assistant update entity.
+# De manifest wordt per device gepubliceerd door de GitHub build-workflow
+# (dezelfde die de web-installer op s0tool.nl gebruikt):
+#   https://s0tool.nl/<name>/manifest.json
+# Vereist: http_request (staat in basis.yaml).
+
+ota:
+  - platform: http_request
+    id: ota_http_request
+
+update:
+  - platform: http_request
+    id: update_http_request
+    name: "Firmware"
+    source: https://s0tool.nl/${name}/manifest.json
+    update_interval: 6h
+
+button:
+  - platform: template
+    id: check_for_update_button
+    name: "Check for firmware update"
+    device_class: update
+    entity_category: diagnostic
+    on_press:
+      - component.update: update_http_request

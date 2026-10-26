@@ -28,5 +28,5 @@ packages:
     files:
       - esphome/components/basis.yaml
       - esphome/components/LEM022SJ.yaml
-      # - esphome/components/s0tool-lem022sj-update.yaml
+      - esphome/components/update.yaml
     refresh: 0d

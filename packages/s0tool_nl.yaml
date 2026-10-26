@@ -1,5 +1,5 @@
 #s0tool_package:
-# Check for updates https://gist.github.com/huizebruin/93552a7595cd74fc6206876fd1a359be
+# Firmware updates: native update entity from the device itself (Settings > Updates), no REST sensor needed.
 #------------------------# s0tool template sensoren. #------------------------#
 # s0tool sensor watt naar kw
 template:
@@ -28,23 +28,6 @@ template:
         device_class: water
         icon: mdi:gauge
         state: "{{ 428.730 + states.sensor.watermeter_totaal.state | float }}"
-
-  - binary_sensor:
-      - name: s0tool update beschikbaar
-        unique_id: s0tool_up_to_date
-        state: >
-          {% set a = states('sensor.s0tool_versie_github') %}
-          {% set b = states('sensor.s0tool_versie') %}
-          {{ version(a) > version(b) }}
-        device_class: update
-
-sensor:
-  - platform: rest
-    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
-    name: s0tool_versie_github
-    unique_id: s0tool_github_version
-    value_template: '{{ value_json.tag_name }}'
-    scan_interval: 3600
 
 utility_meter:
   energy:

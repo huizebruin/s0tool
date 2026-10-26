@@ -20,26 +20,8 @@ s0tool_package:
         unit_of_measurement: L
         icon_template: mdi:water
 
-#sensor:
-  #####################################################
-  ### Toegevoegd om van de s0Tool de versie info uit github op te halen
-  #####################################################
-  - platform: rest
-    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
-    name: s0tool_version_github
-    unique_id: s0tool_github_version
-    value_template: '{{ value_json.tag_name }}'
-    scan_interval: 3600
-
-  template:
-      - binary_sensor:
-          - name: "s0Tool update online"
-            unique_id: s0tool_up_to_date
-            state: >
-              {% set a = states('sensor.s0tool_versie_github') %}
-              {% set b = states('sensor.s0tool_versie') %}
-              {{ version(a) > version(b) }}
-            device_class: update
+# Firmware updates: the S0tool now exposes a native update entity (Settings > Updates).
+# The old GitHub REST sensor and "update" template binary_sensor are no longer needed.
 
   customize:
     binary_sensor.water_sensor_status:

@@ -125,7 +125,12 @@
       </section>
 
       <section>
-        <h2><i class="bi bi-arrow-repeat" style="color:var(--accent);"></i> Updating via ESPHome</h2>
+        <h2><i class="bi bi-arrow-repeat" style="color:var(--accent);"></i> Updating</h2>
+        <h3>From Home Assistant</h3>
+        <p>New firmware appears as a normal update under <strong>Settings &rarr; System &rarr; Updates</strong>
+          (entity <em>Firmware</em> on your S0tool device). Click <strong>Install</strong> to update over Wi-Fi.
+          Use the <em>Check for firmware update</em> button on the device to check right away.</p>
+        <h3>From the ESPHome dashboard</h3>
         <ol>
           <li>Open the <strong>ESPHome</strong> add-on in Home Assistant.</li>
           <li>Locate your S0tool device and click the <strong>three dots</strong> menu.</li>
@@ -391,12 +396,12 @@
 <section id="configuration">
   <h2>⚙️ Configuration & Troubleshooting</h2>
 
-  <h3>Automatic Update Notifications & Sensors</h3>
+  <h3>Template Sensors</h3>
   
       <p>Include this package in <code>configuration.yaml</code>:</p>
       <pre><code class="yaml">homeassistant:
         packages: !include_dir_merge_named packages/</code></pre>
-<p>Use the following YAML package for S0tool sensors and update checks.
+<p>Use the following YAML package for the S0tool template sensors. Firmware updates need no extra YAML: the device provides its own update entity (see Updating above).
    Copy it directly to
   <code>packages/s0tool.yaml</code> in Home Assistant config folder.
 </p>
@@ -430,25 +435,6 @@ template:
         device_class: water
         icon: mdi:gauge
         state: "{{ 428.730 + states.sensor.watermeter_total.state | float }}"
-
-# Binary sensor for S0tool updates
-  - binary_sensor:
-      - name: "S0tool Update Available"
-        unique_id: s0tool_up_to_date
-        state: >
-          {% set a = states('sensor.s0tool_version_github') %}
-          {% set b = states('sensor.s0tool_version') %}
-          {{ version(a) > version(b) }}
-        device_class: update
-
-# REST sensor to fetch latest GitHub release
-sensor:
-  - platform: rest
-    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
-    name: s0tool_version_github
-    unique_id: s0tool_github_version
-    value_template: '{{ value_json.tag_name }}'
-    scan_interval: 3600
 </code></pre>
   </div>
 

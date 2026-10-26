@@ -28,5 +28,5 @@ packages:
       - esphome/components/basis.yaml
       - esphome/components/wsz15d32a.yaml
       - esphome/components/watermeter.yaml
-      # - esphome/components/s0tool-wsz15d32a-update.yaml
+      - esphome/components/update.yaml
 #     refresh: 0d 
