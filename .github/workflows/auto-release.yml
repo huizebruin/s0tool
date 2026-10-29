@@ -1,0 +1,78 @@
+name: Auto release
+
+# Maakt automatisch een release (en tag) zodra project_version in
+# esphome/components/basis.yaml verandert. De release start daarna
+# build.yml (release: published), die de firmware bouwt.
+# Release-notities (EN + NL) komen uit CHANGELOG.en.md en CHANGELOG.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "esphome/components/basis.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Versie uit basis.yaml lezen
+        id: ver
+        run: |
+          VERSION=$(grep -E '^\s*project_version:' esphome/components/basis.yaml \
+            | head -n1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+          if [ -z "$VERSION" ]; then
+            echo "::error::Geen project_version gevonden in basis.yaml"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Versie: $VERSION"
+
+      - name: Bestaat de tag al?
+        id: tag
+        run: |
+          git fetch --tags --quiet
+          if git rev-parse -q --verify "refs/tags/${{ steps.ver.outputs.version }}" >/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Tag bestaat al, niets te doen."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Release-notities (EN + NL) uit de changelogs
+        if: steps.tag.outputs.exists == 'false'
+        run: |
+          V="${{ steps.ver.outputs.version }}"
+          sect() { awk -v v="$V" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' "$1"; }
+          sect CHANGELOG.md > nl.md
+          sect CHANGELOG.en.md > en.md
+          [ -s nl.md ] || { echo "::error::Geen sectie [$V] in CHANGELOG.md"; exit 1; }
+          [ -s en.md ] || { echo "::error::No section [$V] in CHANGELOG.en.md"; exit 1; }
+          {
+            echo "## 🇬🇧 English"; cat en.md
+            echo; echo "---"; echo
+            echo "## 🇳🇱 Nederlands"; cat nl.md
+            echo; echo "---"; echo
+            echo "**Full Changelog**: https://github.com/${{ github.repository }}/commits/$V"
+          } > notes.md
+          cat notes.md
+
+      - name: Release maken
+        if: steps.tag.outputs.exists == 'false'
+        env:
+          # Met een PAT (secret RELEASE_TOKEN) start de release ook build.yml.
+          # Met alleen GITHUB_TOKEN wordt de release wel gemaakt, maar start er
+          # GEEN build (beperking van GitHub).
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          V="${{ steps.ver.outputs.version }}"
+          gh release create "$V" \
+            --target "${{ github.sha }}" \
+            --title "Release v$V" \
+            --notes-file notes.md \
+            --latest
