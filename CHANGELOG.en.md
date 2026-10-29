@@ -14,9 +14,12 @@ first, otherwise the release fails with a clear error.
 ### Changed
 - **Minimum versions:** Home Assistant and ESPHome **2026.8** or newer. The firmware is built with ESPHome 2026.8.0.
 - Documentation and CI/CD updated for ESPHome 2026.8.
+- **Navigation:** link to the CI/CD page on every s0tool.nl page.
 
 ### Added
 - **New CI/CD page** on s0tool.nl, explaining building and releases, with project badges.
 - **Cyble Sensor V2:** wiring on the *DIY or buy* page (10K resistor between `GND` and `D2`).
 - **kWh meters:** table of known S0 meters and an explanation of pulses per kWh.
 - **Utility meters:** troubleshooting section on hourly, daily, weekly and monthly consumption in Home Assistant.
+- **Manual Wi-Fi setup** on the installation page, for browsers without Web Serial (Firefox, Safari, mobile): connect to the `S0tool` access point and open `192.168.4.1`.
+- **Automatic releases:** a release (with bilingual notes) is created automatically when `project_version` in `basis.yaml` changes.

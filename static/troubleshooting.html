@@ -402,19 +402,19 @@
     <pre><code class="yaml">utility_meter:
   # Water meter tracking
   waterverbruik_kwartier:
-    source: sensor.watermeter_total
+    source: sensor.watermeter_totaal
     cycle: quarter-hourly
   waterverbruik_per_uur:
-    source: sensor.watermeter_total
+    source: sensor.watermeter_totaal
     cycle: hourly
   waterverbruik_dag:
-    source: sensor.watermeter_total
+    source: sensor.watermeter_totaal
     cycle: daily
   waterverbruik_week:
-    source: sensor.watermeter_total
+    source: sensor.watermeter_totaal
     cycle: weekly
   waterverbruik_maand:
-    source: sensor.watermeter_total
+    source: sensor.watermeter_totaal
     cycle: monthly</code></pre>
   </div>
   <p>Then include it in <code>configuration.yaml</code>:</p>
@@ -449,7 +449,7 @@ template:
   - sensor:
       - name: "water_consumption_liters_s0tool"
         unique_id: s0tool_water_liters
-        state: "{{ (states('sensor.watermeter_total') | float * 1000) | int }}"
+        state: "{{ (states('sensor.watermeter_totaal') | float * 1000) | int }}"
         unit_of_measurement: L
         icon: mdi:water
 
@@ -460,7 +460,7 @@ template:
         unit_of_measurement: m³
         device_class: water
         icon: mdi:gauge
-        state: "{{ 428.730 + states.sensor.watermeter_total.state | float }}"
+        state: "{{ 428.730 + states.sensor.watermeter_totaal.state | float }}"
 
 # Binary sensor for S0tool updates
   - binary_sensor:
