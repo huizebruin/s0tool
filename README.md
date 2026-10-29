@@ -54,7 +54,7 @@ The **S0tool** is an ESPHome-based device that transforms regular water and ener
 
 ### 📰 Latest Updates
 
-**🎉 Latest Firmware Updated!** (05/09/2026)
+**🎉 Latest Firmware Updated!** (29/10/2026)
 Visit [https://s0tool.nl](https://s0tool.nl) for complete documentation and guides.
 
 **🇳🇱 Dutch Version**
