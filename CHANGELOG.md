@@ -9,11 +9,12 @@ Een nieuwe release wordt automatisch gemaakt zodra `project_version` in
 `esphome/components/basis.yaml` verandert. Voeg dan eerst hier (en in `CHANGELOG.en.md`) een
 sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmelding.
 
-## [3.6.10] - 2026-09-05
+## [3.6.10] - 2026-10-29
 
 ### Gewijzigd
 - **Minimale versies:** Home Assistant en ESPHome minimaal **2026.8**. De firmware wordt gebouwd met ESPHome 2026.8.0.
 - Documentatie en CI/CD bijgewerkt voor ESPHome 2026.8.
+- **Eltako DSZ15DE-3x80A:** de WSZ15D32A-configuratie en de keuzelijst op de installatiepagina noemen nu ook dit meter-model.
 - **Navigatie:** link naar de CI/CD-pagina op alle pagina's van s0tool.nl.
 
 ### Toegevoegd
