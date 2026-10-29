@@ -1,9 +1,12 @@
 name: Auto release
 
 # Maakt automatisch een release (en tag) zodra project_version in
-# esphome/components/basis.yaml verandert. De release start daarna
-# build.yml (release: published), die de firmware bouwt.
-# Release-notities (EN + NL) komen uit CHANGELOG.en.md en CHANGELOG.md.
+# esphome/components/basis.yaml verandert.
+#
+# Release-notities = EN + NL uit CHANGELOG.en.md / CHANGELOG.md
+#                    + de Release Drafter-lijst (.github/release-drafter.yml)
+#
+# De release start daarna build.yml (release: published), die de firmware bouwt.
 
 on:
   push:
@@ -14,6 +17,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: read
+
+concurrency:
+  group: release-drafter
+  cancel-in-progress: false
 
 jobs:
   release:
@@ -44,7 +52,7 @@ jobs:
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Release-notities (EN + NL) uit de changelogs
+      - name: Changelog EN + NL
         if: steps.tag.outputs.exists == 'false'
         run: |
           V="${{ steps.ver.outputs.version }}"
@@ -53,26 +61,46 @@ jobs:
           sect CHANGELOG.en.md > en.md
           [ -s nl.md ] || { echo "::error::Geen sectie [$V] in CHANGELOG.md"; exit 1; }
           [ -s en.md ] || { echo "::error::No section [$V] in CHANGELOG.en.md"; exit 1; }
+
+      - name: Release Drafter (zelfde indeling als altijd)
+        if: steps.tag.outputs.exists == 'false'
+        id: drafter
+        uses: release-drafter/release-drafter@v7.10.0
+        with:
+          tag: ${{ steps.ver.outputs.version }}
+          name: Release v${{ steps.ver.outputs.version }}
+          version: ${{ steps.ver.outputs.version }}
+          commitish: ${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Notities samenstellen
+        if: steps.tag.outputs.exists == 'false'
+        env:
+          DRAFT_BODY: ${{ steps.drafter.outputs.body }}
+        run: |
           {
             echo "## 🇬🇧 English"; cat en.md
+            echo; echo "## 🇳🇱 Nederlands"; cat nl.md
             echo; echo "---"; echo
-            echo "## 🇳🇱 Nederlands"; cat nl.md
-            echo; echo "---"; echo
-            echo "**Full Changelog**: https://github.com/${{ github.repository }}/commits/$V"
+            printf '%s\n' "$DRAFT_BODY"
           } > notes.md
           cat notes.md
 
-      - name: Release maken
+      - name: Concept publiceren als release
         if: steps.tag.outputs.exists == 'false'
         env:
           # Met een PAT (secret RELEASE_TOKEN) start de release ook build.yml.
           # Met alleen GITHUB_TOKEN wordt de release wel gemaakt, maar start er
           # GEEN build (beperking van GitHub).
           GH_TOKEN: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          RELEASE_ID: ${{ steps.drafter.outputs.id }}
         run: |
           V="${{ steps.ver.outputs.version }}"
-          gh release create "$V" \
-            --target "${{ github.sha }}" \
-            --title "Release v$V" \
-            --notes-file notes.md \
-            --latest
+          gh api -X PATCH "repos/${{ github.repository }}/releases/$RELEASE_ID" \
+            -f tag_name="$V" \
+            -f name="Release v$V" \
+            -f target_commitish="${{ github.sha }}" \
+            -F body=@notes.md \
+            -F draft=false \
+            -F make_latest=true
