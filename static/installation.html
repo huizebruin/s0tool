@@ -85,16 +85,17 @@
 <nav class="custom-navbar">
   <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
   <ul class="navbar-links" id="navbar-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="diyorbuy.html">DIY or Buy</a></li>
-    <li><a href="installation.html">Installation</a></li>
-    <li><a href="troubleshooting.html">Troubleshooting</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="community.html">Community</a></li>
-    <li><a href="releases.html">Releases</a></li>
-    <li><a href="contributing.html">Contributing</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="license.html">License</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="diyorbuy.html">DIY or Buy</a></li>
+      <li><a href="installation.html">Installation</a></li>
+      <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="releases.html">Releases</a></li>
+      <li><a href="contributing.html">Contributing</a></li>
+      <li><a href="ci-cd.html">CI/CD</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="license.html">License</a></li>
   </ul>
   <div class="navbar-right">
     <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
@@ -159,7 +160,7 @@
     <div class="config-card special"><img src="./assets/dsz12d.jpg" alt="DSZ12D"><h5>DSZ12D</h5><p>Special config for DSZ12D</p><input type="radio" name="type" value="s0tool-dsz12d" id="r-dsz12d"><label for="r-dsz12d">Select</label></div>
     <div class="config-card special"><img src="./assets/lem022sj.jpg" alt="LEM022SJ"><h5>LEM022SJ</h5><p>400 impulse config</p><input type="radio" name="type" value="s0tool-lem022sj" id="r-lem022sj"><label for="r-lem022sj">Select</label></div>
     <div class="config-card special"><img src="./assets/nopicturefound.png" alt="Flux"><h5>Flux &amp; Puls</h5><p>Flux and puls meters</p><input type="radio" name="type" value="s0tool-fluxandpuls" id="r-flux"><label for="r-flux">Select</label></div>
-    <div class="config-card special"><img src="./assets/wsz15d32a.jpg" alt="wsz15d32a"><h5>wsz15d32a + Water</h5><p>Combined config</p><input type="radio" name="type" value="s0tool-wsz15d32a" id="r-wsz"><label for="r-wsz">Select</label></div>
+    <div class="config-card special"><img src="./assets/wsz15d32a.jpg" alt="wsz15d32a"><h5>wsz15d32a / Eltako DSZ15DE-3x80A + Water</h5><p>Combined config</p><input type="radio" name="type" value="s0tool-wsz15d32a" id="r-wsz"><label for="r-wsz">Select</label></div>
     <div class="config-card special"><img src="./assets/sdm72d.jpg" alt="sdm72d"><h5>sdm72d + Water</h5><p>Combined config</p><input type="radio" name="type" value="s0tool-sdm72d" id="r-sdm"><label for="r-sdm">Select</label></div>
     <div class="config-card special"><img src="./assets/nopicturefound.png" alt="S0 Water"><h5>S0 Watermeter</h5><p>Special S0 config</p><input type="radio" name="type" value="s0tool-s0-watermeter" id="r-s0wm"><label for="r-s0wm">Select</label></div>
     <div class="config-card special"><img src="./assets/npn-kwh-s0.jpg" alt="Internal"><h5>Puls Water Internal</h5><p>Internal resistor D2 &amp; D5</p><input type="radio" name="type" value="s0tool-puls-water-internal" id="r-pwi"><label for="r-pwi">Select</label></div>
@@ -174,6 +175,24 @@
   <p>After Wi-Fi setup the installer offers a direct link to add the device to Home Assistant.</p>
   <h3 style="color:var(--text);margin:1rem 0 0.5rem;">Option 2 &mdash; Auto Discovery</h3>
   <p>S0tool appears automatically under <em>Settings &rarr; Devices &amp; Services</em> if on the same network.</p>
+</section>
+
+<section id="manual-wifi-setup">
+  <h2><i class="bi bi-wifi" style="color:var(--accent);"></i> No Chrome or Edge? Manual Wi&#8209;Fi Setup</h2>
+  <p>The browser installer above needs Web Serial support (Chrome, Edge, or Opera on desktop). If you're on
+    Firefox, Safari, or a mobile browser, flash the firmware once via the <a href="troubleshooting.html">ESPHome
+    dashboard in Home Assistant</a> instead, then set up Wi&#8209;Fi manually:</p>
+  <ol>
+    <li>Power on the S0tool. On first boot (or after a factory reset) it starts its own Wi&#8209;Fi access point
+      named <strong>S0tool</strong>.</li>
+    <li>On your phone or laptop, connect to that <strong>S0tool</strong> Wi&#8209;Fi network.</li>
+    <li>Open a browser and go to <code>192.168.4.1</code>.</li>
+    <li>Enter your home Wi&#8209;Fi (2.4&nbsp;GHz) network name and password.</li>
+    <li>The device restarts and joins your network &mdash; Home Assistant will then auto-discover it as above.</li>
+  </ol>
+  <div class="tip-box"><strong>Tip:</strong> This same captive portal reappears any time the device can't reach
+    the configured Wi&#8209;Fi network, so it's also a quick way to move the S0tool onto a different network
+    later.</div>
 </section>
 
 </main>

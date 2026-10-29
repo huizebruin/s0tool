@@ -10,7 +10,7 @@ esphome:
   name_add_mac_suffix: true
   comment: '${device_description}'
   project:
-    name: "huizebruin.${name}"
+    name: "huizebruin.${name}-Eltako-DSZ15DE-3x80A"
     version: "${project_version}"
   min_version: 2026.8.0
 esp8266:
