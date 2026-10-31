@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S0tool - Translations | Dutch, English, German, French entity names</title>
+    <meta name="description"
+        content="Show your S0tool entities in Dutch, English, German or French in Home Assistant. One line of configuration, entity IDs stay the same.">
+    <link rel="canonical" href="https://s0tool.nl/translations.html">
+    <script>try { var t = localStorage.getItem("s0tool-theme"); var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); } catch (e) { }</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <nav class="custom-navbar">
+        <div class="navbar-brand"><a href="index.html">S0tool<span style="color:var(--text-muted)">.nl</span></a></div>
+        <ul class="navbar-links" id="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diyorbuy.html">DIY or Buy</a></li>
+        <li><a href="installation.html">Installation</a></li>
+        <li><a href="translations.html">Translations</a></li>
+        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="releases.html">Releases</a></li>
+        <li><a href="contributing.html">Contributing</a></li>
+        <li><a href="ci-cd.html">CI/CD</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="license.html">License</a></li>
+        </ul>
+        <div class="navbar-right">
+            <button class="theme-toggle-btn" title="Toggle theme"><i class="theme-icon bi bi-moon-fill"></i></button>
+            <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="layout">
+        <aside class="custom-sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-logo"><img src="./assets/s0tool-logo.jpg" alt="S0tool Logo"></div>
+                <div class="sidebar-label">Documentation</div>
+                <ul class="sidebar-badges">
+                    <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/commit-activity/m/huizebruin/s0tool.svg" alt="Activity"></a></li>
+                    <li><a href="https://esphome.io" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome" alt="ESPHome"></a></li>
+                    <li><a href="https://github.com/huizebruin/s0tool/commits/main" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/last-commit/huizebruin/s0tool.svg?style=flat" alt="Last commit"></a>
+                    </li>
+                    <li><a href="https://github.com/huizebruin/s0tool/issues" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/issues/huizebruin/s0tool.svg?style=flat" alt="Issues"></a></li>
+                    <li><a href="https://github.com/huizebruin/s0tool/stargazers" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/stars/huizebruin/s0tool.svg?style=flat" alt="Stars"></a></li>
+                    <li><a href="https://github.com/huizebruin/s0tool/network/members" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/forks/huizebruin/s0tool.svg?style=flat" alt="Forks"></a></li>
+                    <li><a href="https://github.com/huizebruin/s0tool/graphs/contributors" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/contributors/huizebruin/s0tool.svg?style=flat"
+                                alt="Contributors"></a>
+                    </li>
+                    <li><a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/discord/723629686093119650.svg?logo=discord&color=00d4aa" alt="Discord"></a>
+                    </li>
+                    <li><a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/license/huizebruin/s0tool.svg?style=flat" alt="License"></a></li>
+                    <li><a href="https://github.com/huizebruin/s0tool/releases/" target="_blank" rel="noopener"><img
+                                src="https://img.shields.io/github/release/huizebruin/s0tool.svg?style=flat" alt="Release"></a></li>
+                    <li style="margin-top:0.4rem;"><a href="https://ko-fi.com/W7W4QU9ZX" target="_blank" rel="noopener"><img
+                                src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" style="height:32px;"
+                                alt="Support S0tool on Ko-fi"></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <section class="hero" style="padding:2rem 1.5rem;">
+                <div class="hero-eyebrow">Nederlands • English • Deutsch • Français</div>
+                <h1>Translations</h1>
+                <p>Show your S0tool in your own language. Pick a language file, add one line to Home Assistant and
+                    every sensor gets a name you can read. Nothing is re-flashed and nothing breaks.</p>
+            </section>
+
+            <section id="how-it-works">
+                <h2><i class="bi bi-translate"></i> How it works</h2>
+                <p>The S0tool entities are named in Dutch by default, for example <code>Actuele energie</code> and
+                    <code>Totaal opgebracht</code>. The translation files change only the <strong>displayed name</strong>
+                    (<code>friendly_name</code>) in Home Assistant. The <strong>entity IDs stay the same</strong>.</p>
+                <div class="tip-box"><strong>Safe to use:</strong> your dashboards, utility meters, templates and the Energy
+                    dashboard keep working, because they use the entity IDs. The firmware is not touched, so you do not
+                    need to update or re-flash your S0tool.</div>
+            </section>
+
+            <section id="quick-start">
+                <h2><i class="bi bi-lightning-charge"></i> Quick start</h2>
+                <ol>
+                    <li>Download the translations and copy the <code>s0tool_translations</code> folder to your Home Assistant
+                        <code>config/</code> folder.</li>
+                    <li>Add <strong>one</strong> language to your <code>configuration.yaml</code>:</li>
+                </ol>
+                <pre><code class="yaml">homeassistant:
+  customize: !include s0tool_translations/s0tool_eng.yaml</code></pre>
+                <ol start="3">
+                    <li>Restart Home Assistant, or run <em>Developer tools &rarr; YAML &rarr; Reload customizations</em>.</li>
+                </ol>
+                <p>To switch language, use another file name. To go back to Dutch, remove the lines.</p>
+                <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1rem;">
+                    <a href="s0tool_translations.zip" class="btn btn-primary" download><i class="bi bi-download"></i> Download translations (.zip)</a>
+                    <a href="https://github.com/huizebruin/s0tool/tree/main/s0tool_translations" target="_blank" rel="noopener"
+                        class="btn btn-secondary"><i class="bi bi-github"></i> View on GitHub</a>
+                </div>
+            </section>
+
+            <section id="languages">
+                <h2><i class="bi bi-globe2"></i> Available languages</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Language</th>
+                                <th>File</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nederlands (default names)</td>
+                                <td><a href="https://github.com/huizebruin/s0tool/blob/main/s0tool_translations/s0tool_nl.yaml" target="_blank" rel="noopener"><code>s0tool_nl.yaml</code></a></td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td><a href="https://github.com/huizebruin/s0tool/blob/main/s0tool_translations/s0tool_eng.yaml" target="_blank" rel="noopener"><code>s0tool_eng.yaml</code></a></td>
+                            </tr>
+                            <tr>
+                                <td>Deutsch</td>
+                                <td><a href="https://github.com/huizebruin/s0tool/blob/main/s0tool_translations/s0tool_de.yaml" target="_blank" rel="noopener"><code>s0tool_de.yaml</code></a></td>
+                            </tr>
+                            <tr>
+                                <td>Français</td>
+                                <td><a href="https://github.com/huizebruin/s0tool/blob/main/s0tool_translations/s0tool_fr.yaml" target="_blank" rel="noopener"><code>s0tool_fr.yaml</code></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top:0.8rem;">Each file translates the same 49 entities: the ESPHome sensors, the version
+                    sensors, the template sensors and the utility meters.</p>
+            </section>
+
+            <section id="examples">
+                <h2><i class="bi bi-eye"></i> What it looks like</h2>
+                <p>The entity ID is the same in every language. Only the name you see changes.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Entity ID</th>
+                                <th>Nederlands</th>
+                                <th>English</th>
+                                <th>Deutsch</th>
+                                <th>Français</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>sensor.actuele_energie</code></td>
+                                <td>Actuele energie</td>
+                                <td>Current power</td>
+                                <td>Aktuelle Leistung</td>
+                                <td>Puissance actuelle</td>
+                            </tr>
+                            <tr>
+                                <td><code>sensor.totaal_opgebracht</code></td>
+                                <td>Totaal opgebracht</td>
+                                <td>Total energy</td>
+                                <td>Gesamtenergie</td>
+                                <td>Énergie totale</td>
+                            </tr>
+                            <tr>
+                                <td><code>sensor.actuele_meterstand</code></td>
+                                <td>Actuele meterstand</td>
+                                <td>Current meter reading</td>
+                                <td>Aktueller Zählerstand</td>
+                                <td>Index du compteur actuel</td>
+                            </tr>
+                            <tr>
+                                <td><code>sensor.watermeter_totaal</code></td>
+                                <td>watermeter Totaal</td>
+                                <td>Water meter total</td>
+                                <td>Wasserzähler gesamt</td>
+                                <td>Compteur d'eau total</td>
+                            </tr>
+                            <tr>
+                                <td><code>sensor.watermeter_stand</code></td>
+                                <td>watermeter stand</td>
+                                <td>Water meter reading</td>
+                                <td>Wasserzähler Stand</td>
+                                <td>Index du compteur d'eau</td>
+                            </tr>
+                            <tr>
+                                <td><code>sensor.watermeter_flow</code></td>
+                                <td>watermeter flow</td>
+                                <td>Water meter flow</td>
+                                <td>Wasserzähler Durchfluss</td>
+                                <td>Débit du compteur d'eau</td>
+                            </tr>
+                            <tr>
+                                <td><code>number.pulsrate_kwh</code></td>
+                                <td>Pulsrate kWh</td>
+                                <td>Pulse rate kWh</td>
+                                <td>Impulsrate kWh</td>
+                                <td>Taux d'impulsions kWh</td>
+                            </tr>
+                            <tr>
+                                <td><code>select.pulsrate_water_per_m3</code></td>
+                                <td>Pulsrate water per m3</td>
+                                <td>Pulse rate water per m3</td>
+                                <td>Impulsrate Wasser pro m3</td>
+                                <td>Taux d'impulsions eau par m3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="good-to-know">
+                <h2><i class="bi bi-info-circle"></i> Good to know</h2>
+                <ul>
+                    <li>Only what you see in <strong>Home Assistant</strong> changes. The ESPHome web interface of the device (port 80) keeps its names.</li>
+                    <li>Use <strong>one</strong> language file at a time. Already have a customize file? Copy the entries you want into it.</li>
+                    <li>Entities that contain your device name in the ID (<code>... online sinds</code>, <code>... IP-adres</code>, <code>... Mac-adres</code>)
+                        are included as commented examples at the bottom of each file. Adjust them to your device name.</li>
+                    <li>Some views in newer Home Assistant versions, such as the device page, show the entity's own name instead of
+                        <code>friendly_name</code>. Rename the entity under <em>Settings &rarr; Entities</em> in that case.</li>
+                </ul>
+            </section>
+
+            <section id="add-language">
+                <h2><i class="bi bi-plus-circle"></i> Add your language</h2>
+                <p>Missing your language, or want a better translation? It is a small, friendly contribution:</p>
+                <ol>
+                    <li>Copy <code>s0tool_eng.yaml</code> to <code>s0tool_&lt;code&gt;.yaml</code>, for example <code>s0tool_es.yaml</code>.</li>
+                    <li>Translate the <code>friendly_name</code> values. Do <strong>not</strong> change the entity IDs (the lines ending in <code>:</code>).</li>
+                    <li>Update the header comment and send a pull request.</li>
+                </ol>
+            </section>
+
+            <section style="text-align:center;">
+                <h2>Want to Learn More?</h2>
+                <p>Check out the GitHub repository or join our community:</p>
+                <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;">
+                    <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener"
+                        class="btn btn-secondary"><i class="bi bi-github"></i> GitHub Repo</a>
+                    <a href="https://discord.gg/AskpfnY" target="_blank" rel="noopener" class="btn btn-secondary"><i
+                            class="bi bi-discord"></i> Discord</a>
+                    <a href="contributing.html" class="btn btn-secondary"><i class="bi bi-file-earmark-text"></i>
+                        Contributing</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="custom-footer">
+        <div>Affiliated links on this site support <a href="https://s0tool.nl" rel="noopener">S0tool.nl</a></div>
+        <div>&copy; 2021&ndash;<span class="current-year">2026</span> s0tool.nl — All rights reserved</div>
+        <div>
+            <a href="https://esphome.io" target="_blank" rel="noopener">ESPHome</a> —
+            <a href="https://github.com/huizebruin/s0tool" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
