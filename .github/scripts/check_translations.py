@@ -1,22 +1,29 @@
 #!/usr/bin/env python3
-"""Check (and optionally rebuild) the S0tool translation files.
+"""Check and build the S0tool translation files.
 
 The language files in s0tool_translations/ are the single source of truth.
-Two generated files are published on the website and must follow them:
+Two website files are GENERATED from them and are not committed to git:
 
   static/s0tool_translations.zip   download of the whole folder
   static/s0tool_translations.json  data for the language picker on translations.html
 
+The site build (.github/workflows/build.yml) generates them on every build, so nobody
+has to remember to update them.
+
 Usage:
   python3 .github/scripts/check_translations.py          check only (used by CI)
-  python3 .github/scripts/check_translations.py --fix    rebuild the zip + json, then check
+  python3 .github/scripts/check_translations.py --build  check, then write the zip + json
+                                                         (to preview the website locally)
 
-Needs PyYAML (pip install pyyaml). Exit code 1 means something must be fixed.
+Needs PyYAML (pip install pyyaml). Exit code 1 means something must be fixed;
+in that case --build writes nothing.
 """
 from __future__ import annotations
 
 import argparse
+import io
 import json
+import os
 import re
 import sys
 import zipfile
@@ -158,42 +165,32 @@ def zip_members(root: Path) -> dict[str, bytes]:
     }
 
 
-def build_zip(root: Path):
-    out = root / ZIP_PATH
-    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as zf:
+def zip_bytes(root: Path) -> bytes:
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
         for name, data in zip_members(root).items():
             info = zipfile.ZipInfo(name, ZIP_DATE)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
             zf.writestr(info, data)
+    return buf.getvalue()
 
 
-def check_generated(root: Path, langs: dict, errors: list[str]):
-    fix = f"run: python3 .github/scripts/check_translations.py --fix  (then commit {ZIP_PATH} and {JSON_PATH})"
-    jpath = root / JSON_PATH
-    if not jpath.exists():
-        errors.append(f"{JSON_PATH} is missing; {fix}")
-    elif jpath.read_text(encoding="utf-8") != build_json(langs):
-        errors.append(f"{JSON_PATH} is out of date with {FOLDER}/; {fix}")
-    zpath = root / ZIP_PATH
-    if not zpath.exists():
-        errors.append(f"{ZIP_PATH} is missing; {fix}")
-        return
-    try:
-        with zipfile.ZipFile(zpath) as zf:
-            have = {n: zf.read(n) for n in zf.namelist() if not n.endswith("/")}
-    except zipfile.BadZipFile:
-        errors.append(f"{ZIP_PATH} is not a valid zip; {fix}")
-        return
-    want = zip_members(root)
-    if have != want:
-        diff = sorted(set(have) ^ set(want)) or sorted(n for n in want if have.get(n) != want[n])
-        errors.append(f"{ZIP_PATH} is out of date ({', '.join(diff)}); {fix}")
+def write_outputs(root: Path, langs: dict):
+    """Write both generated files. Everything is built first, so a failure never leaves one half-updated."""
+    jtext = build_json(langs)
+    zdata = zip_bytes(root)
+    out = root / "static"
+    out.mkdir(exist_ok=True)
+    for path, payload in ((root / JSON_PATH, jtext.encode("utf-8")), (root / ZIP_PATH, zdata)):
+        tmp = path.with_name(path.name + ".tmp")
+        tmp.write_bytes(payload)
+        os.replace(tmp, path)
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--fix", action="store_true", help="rebuild the zip and json from s0tool_translations/")
+    ap.add_argument("--build", action="store_true", help="after a successful check, write the website zip and json")
     ap.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2], help="repository root")
     args = ap.parse_args()
     root: Path = args.root
@@ -203,25 +200,19 @@ def main() -> int:
     langs = load_languages(root, errors)
     check_content(langs, errors, warnings)
 
-    if args.fix:
-        if errors:
-            print("Fix these problems first, then run --fix again:")
-        else:
-            (root / JSON_PATH).write_text(build_json(langs), encoding="utf-8")
-            build_zip(root)
-            print(f"Rebuilt {ZIP_PATH} and {JSON_PATH}")
-    if not errors:
-        check_generated(root, langs, errors)
-
     for w in warnings:
         print(f"::warning::{w}")
     for e in errors:
         print(f"::error::{e}")
     if errors:
-        print(f"\n{len(errors)} problem(s) found.")
+        print(f"\n{len(errors)} problem(s) found." + (" Nothing was built." if args.build else ""))
         return 1
+
     n = len(langs[REFERENCE]["data"])
-    print(f"OK: {len(langs)} languages ({', '.join(language_order(langs))}), {n} entities each; zip and json are up to date.")
+    print(f"OK: {len(langs)} languages ({', '.join(language_order(langs))}), {n} entities each.")
+    if args.build:
+        write_outputs(root, langs)
+        print(f"Built {ZIP_PATH} and {JSON_PATH}")
     return 0
 
 

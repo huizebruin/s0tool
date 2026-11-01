@@ -1,13 +1,14 @@
 name: Translations
 
-# Checks the language files in s0tool_translations/ and that the generated
-# website files (static/s0tool_translations.zip and .json) are up to date.
-# Read-only: it never commits anything and does not touch the firmware build,
-# the release workflow or the GitHub Pages deployment.
+# Checks the language files in s0tool_translations/ and that the website files
+# (static/s0tool_translations.zip and .json) can be built from them.
+# Read-only: it commits nothing and does not touch the firmware build, the
+# release workflow or the GitHub Pages deployment. The website files are not
+# stored in git; build.yml generates them on every site build.
 #
-# Failing? Run locally and commit the result:
+# To try the same thing locally:
 #   pip install pyyaml
-#   python3 .github/scripts/check_translations.py --fix
+#   python3 .github/scripts/check_translations.py --build
 permissions:
   contents: read
 
@@ -17,13 +18,11 @@ on:
       - main
     paths:
       - "s0tool_translations/**"
-      - "static/s0tool_translations.*"
       - ".github/scripts/check_translations.py"
       - ".github/workflows/translations.yml"
   pull_request:
     paths:
       - "s0tool_translations/**"
-      - "static/s0tool_translations.*"
       - ".github/scripts/check_translations.py"
       - ".github/workflows/translations.yml"
   workflow_dispatch:
@@ -44,5 +43,8 @@ jobs:
       - name: Install PyYAML
         run: python -m pip install pyyaml
 
-      - name: Check translations
-        run: python .github/scripts/check_translations.py
+      - name: Check translations and build the website files
+        run: python .github/scripts/check_translations.py --build
+
+      - name: Show the generated files
+        run: ls -l static/s0tool_translations.zip static/s0tool_translations.json

@@ -67,6 +67,22 @@ jobs:
             fi
           done
 
+      # Generates static/s0tool_translations.zip and .json (download + language picker on
+      # translations.html) from s0tool_translations/. continue-on-error: if something is wrong
+      # with a translation, the site and firmware still deploy; the "Translations" workflow
+      # reports the problem and the picker shows a fallback message.
+      - name: Set up Python (translations)
+        continue-on-error: true
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build translation files
+        continue-on-error: true
+        run: |-
+          python3 -m pip install --quiet pyyaml
+          python3 .github/scripts/check_translations.py --build
+
       - name: Copy files
         run: |-
           mkdir -p output
