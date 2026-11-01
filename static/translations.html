@@ -12,6 +12,33 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="./assets/icon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+        /* language picker */
+        [hidden] { display: none !important; }
+        .tp-langs { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 0.4rem; }
+        .tp-langs .btn { padding: 0.55rem 1.1rem; }
+        .tp-note { color: var(--text-dim); font-size: 0.9rem; margin: 0.4rem 0 1rem; }
+        .tp-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0 1.6rem; }
+        .tp-filter { width: 100%; max-width: 26rem; margin: 0.2rem 0 0.9rem; padding: 0.6rem 0.9rem; border-radius: var(--radius);
+            border: 1px solid var(--border); background: var(--bg3); color: var(--text); font-family: var(--mono); font-size: 0.85rem; }
+        .tp-filter:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+        .tp-scroll { max-height: 26rem; overflow: auto; }
+        .tp-scroll thead th { position: sticky; top: 0; z-index: 1; }
+        #picker h3 small { font-weight: 400; color: var(--text-muted); font-size: 0.8rem; margin-left: 0.5rem; }
+        #picker #tp-app h3 { margin-top: 1.6rem; }
+        #picker #tp-app h3:first-child { margin-top: 1.2rem; }
+        #picker pre, #quick-start pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+        #picker .tp-single th:nth-child(3), #picker .tp-single td:nth-child(3) { display: none; }
+        @media (max-width: 640px) {
+            #picker .tp-scroll { max-height: 30rem; }
+            #picker table, #picker tbody, #picker tr, #picker td { display: block; }
+            #picker thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+            #picker tr { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); }
+            #picker td { border: none; padding: 0.15rem 0; }
+            #picker td[data-label]::before { content: attr(data-label) ": "; color: var(--text-muted); font-family: var(--mono); font-size: 0.72rem; }
+            #picker .tp-single td:nth-child(3) { display: none; }
+        }
+    </style>
 </head>
 
 <body>
@@ -92,6 +119,38 @@
                     need to update or re-flash your S0tool.</div>
             </section>
 
+            <section id="picker">
+                <h2><i class="bi bi-sliders"></i> Pick your language</h2>
+                <p>Choose a language to get the exact line for your <code>configuration.yaml</code> and a preview of every name.</p>
+                <div id="tp-langs" class="tp-langs" role="group" aria-label="Language"></div>
+                <p id="tp-detected" class="tp-note" hidden></p>
+                <div id="tp-app" hidden>
+                    <h3>1. Add this to configuration.yaml</h3>
+                    <pre><code id="tp-include" class="yaml"></code></pre>
+                    <p class="tp-note">Copy the <code>s0tool_translations</code> folder to your Home Assistant <code>config/</code> folder first (see Quick start below).</p>
+                    <div class="tp-actions">
+                        <button type="button" class="btn btn-primary" id="tp-copy"><i class="bi bi-clipboard"></i> <span>Copy line</span></button>
+                        <button type="button" class="btn btn-secondary" id="tp-download"><i class="bi bi-file-earmark-arrow-down"></i> <span>Download <b id="tp-filename"></b></span></button>
+                        <a href="s0tool_translations.zip" class="btn btn-secondary" download><i class="bi bi-download"></i> All languages (.zip)</a>
+                    </div>
+                    <h3>2. Preview <small id="tp-count"></small></h3>
+                    <input type="search" id="tp-filter" class="tp-filter" placeholder="Filter, for example water, kwh or sensor." aria-label="Filter entities" autocomplete="off">
+                    <div class="table-container tp-scroll">
+                        <table id="tp-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity ID</th>
+                                    <th id="tp-refhead">Default</th>
+                                    <th id="tp-colhead">Your language</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tp-rows"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <p id="tp-error" class="tp-note" hidden>The language list could not be loaded. Use the download and the language table below instead.</p>
+            </section>
+
             <section id="quick-start">
                 <h2><i class="bi bi-lightning-charge"></i> Quick start</h2>
                 <ol>
@@ -146,6 +205,7 @@
                     sensors, the template sensors and the utility meters.</p>
             </section>
 
+            <noscript>
             <section id="examples">
                 <h2><i class="bi bi-eye"></i> What it looks like</h2>
                 <p>The entity ID is the same in every language. Only the name you see changes.</p>
@@ -221,6 +281,7 @@
                     </table>
                 </div>
             </section>
+            </noscript>
 
             <section id="good-to-know">
                 <h2><i class="bi bi-info-circle"></i> Good to know</h2>
@@ -239,8 +300,10 @@
                 <p>Missing your language, or want a better translation? It is a small, friendly contribution:</p>
                 <ol>
                     <li>Copy <code>s0tool_eng.yaml</code> to <code>s0tool_&lt;code&gt;.yaml</code>, for example <code>s0tool_es.yaml</code>.</li>
-                    <li>Translate the <code>friendly_name</code> values. Do <strong>not</strong> change the entity IDs (the lines ending in <code>:</code>).</li>
-                    <li>Update the header comment and send a pull request.</li>
+                    <li>Translate the <code>friendly_name</code> values. Do <strong>not</strong> change the entity IDs (the lines ending in <code>:</code>) or the <code>icon</code> lines.</li>
+                    <li>Keep the first line in this format: <code># S0tool - Español (es)</code>.</li>
+                    <li>Run <code>python3 .github/scripts/check_translations.py --fix</code>. It rebuilds the download and the language picker on this page and checks that every language has the same entities.</li>
+                    <li>Send a pull request. The same check runs automatically on GitHub.</li>
                 </ol>
             </section>
 
@@ -270,6 +333,130 @@
     </footer>
 
     <script src="./js/script.js"></script>
+    <script>
+        (function () {
+            var $ = function (id) { return document.getElementById(id); };
+            var state = { data: null, code: null };
+            var REF = 'nl';
+
+            function find(code) {
+                var l = state.data.languages;
+                for (var i = 0; i < l.length; i++) if (l[i].code === code) return l[i];
+                return null;
+            }
+            function byHash() {
+                var h = (location.hash || '').replace('#', '').toLowerCase(), l = state.data.languages;
+                for (var i = 0; i < l.length; i++) if (l[i].code === h || l[i].lang === h) return l[i].code;
+                return null;
+            }
+            function byBrowser() {
+                var prefs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'en'];
+                var l = state.data.languages;
+                for (var i = 0; i < prefs.length; i++) {
+                    var base = String(prefs[i]).toLowerCase().split('-')[0];
+                    for (var j = 0; j < l.length; j++) if (l[j].lang === base) return l[j].code;
+                }
+                return null;
+            }
+            function copyText(text) {
+                if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+                return new Promise(function (resolve, reject) {
+                    var ta = document.createElement('textarea');
+                    ta.value = text; ta.setAttribute('readonly', '');
+                    ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+                    document.body.appendChild(ta); ta.select();
+                    var ok = false;
+                    try { ok = document.execCommand('copy'); } catch (e) { }
+                    document.body.removeChild(ta);
+                    ok ? resolve() : reject(new Error('copy failed'));
+                });
+            }
+            function flash(btn, text) {
+                var span = btn.querySelector('span'), old = span.getAttribute('data-label') || span.textContent;
+                span.setAttribute('data-label', old); span.textContent = text;
+                clearTimeout(btn._t);
+                btn._t = setTimeout(function () { span.textContent = old; }, 1800);
+            }
+            function includeLine(lang) {
+                return 'homeassistant:\n  customize: !include s0tool_translations/' + lang.file;
+            }
+            function applyFilter() {
+                var q = $('tp-filter').value.trim().toLowerCase(), rows = $('tp-rows').children, shown = 0;
+                for (var i = 0; i < rows.length; i++) {
+                    var hit = !q || rows[i].getAttribute('data-q').indexOf(q) !== -1;
+                    rows[i].hidden = !hit;
+                    if (hit) shown++;
+                }
+                $('tp-count').textContent = '(' + shown + ' of ' + rows.length + ')';
+            }
+            function render(code, fromUser) {
+                var lang = find(code); if (!lang) return;
+                state.code = code;
+                var btns = $('tp-langs').children;
+                for (var i = 0; i < btns.length; i++) {
+                    var on = btns[i].getAttribute('data-code') === code;
+                    btns[i].className = 'btn ' + (on ? 'btn-primary' : 'btn-secondary');
+                    btns[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+                }
+                $('tp-include').textContent = includeLine(lang);
+                $('tp-filename').textContent = lang.file;
+                $('tp-colhead').textContent = lang.label;
+                var single = code === REF;
+                $('tp-table').className = single ? 'tp-single' : '';
+                $('tp-refhead').textContent = single ? lang.label + ' (default)' : 'Default (' + find(REF).label + ')';
+                var tbody = $('tp-rows'); tbody.textContent = '';
+                state.data.entities.forEach(function (e) {
+                    var tr = document.createElement('tr'), a = e.names[REF] || '', b = e.names[code] || '';
+                    tr.setAttribute('data-q', (e.id + ' ' + a + ' ' + b).toLowerCase());
+                    var c1 = document.createElement('td'), k = document.createElement('code');
+                    k.textContent = e.id; c1.appendChild(k);
+                    var c2 = document.createElement('td'); c2.textContent = a;
+                    c2.setAttribute('data-label', single ? lang.label + ' (default)' : find(REF).label);
+                    var c3 = document.createElement('td'); c3.textContent = b;
+                    c3.setAttribute('data-label', lang.label);
+                    tr.appendChild(c1); tr.appendChild(c2); tr.appendChild(c3); tbody.appendChild(tr);
+                });
+                applyFilter();
+                if (fromUser) { try { history.replaceState(null, '', '#' + code); } catch (e) { } $('tp-detected').hidden = true; }
+            }
+            function init(data) {
+                state.data = data;
+                data.languages.forEach(function (l) {
+                    var b = document.createElement('button');
+                    b.type = 'button'; b.className = 'btn btn-secondary'; b.textContent = l.label;
+                    b.setAttribute('data-code', l.code); b.setAttribute('aria-pressed', 'false');
+                    b.addEventListener('click', function () { render(l.code, true); });
+                    $('tp-langs').appendChild(b);
+                });
+                var chosen = byHash(), detected = false;
+                if (!chosen) { chosen = byBrowser(); detected = !!chosen; }
+                if (!chosen) chosen = find('eng') ? 'eng' : data.languages[0].code;
+                render(chosen, false);
+                if (detected) {
+                    $('tp-detected').textContent = 'Preselected ' + find(chosen).label + ' based on your browser language. Pick another one anytime.';
+                    $('tp-detected').hidden = false;
+                }
+                $('tp-app').hidden = false;
+                $('tp-filter').addEventListener('input', applyFilter);
+                $('tp-copy').addEventListener('click', function () {
+                    var btn = this;
+                    copyText(includeLine(find(state.code))).then(function () { flash(btn, 'Copied!'); },
+                        function () { flash(btn, 'Copy failed - select the text above'); });
+                });
+                $('tp-download').addEventListener('click', function () {
+                    var l = find(state.code);
+                    var url = URL.createObjectURL(new Blob([l.yaml], { type: 'text/yaml;charset=utf-8' }));
+                    var a = document.createElement('a');
+                    a.href = url; a.download = l.file; document.body.appendChild(a); a.click();
+                    document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+                });
+            }
+            fetch('s0tool_translations.json', { cache: 'no-cache' })
+                .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+                .then(init)
+                .catch(function () { $('tp-error').hidden = false; });
+        })();
+    </script>
 </body>
 
 </html>

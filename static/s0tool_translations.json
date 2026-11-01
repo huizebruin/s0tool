@@ -1,0 +1,475 @@
+{
+ "languages": [
+  {
+   "code": "nl",
+   "lang": "nl",
+   "label": "Nederlands",
+   "file": "s0tool_nl.yaml",
+   "yaml": "# S0tool - Nederlands (nl)\n# Changes only the displayed name (friendly_name) in Home Assistant. Entity IDs stay the same,\n# so dashboards, utility meters and the Energy dashboard keep working.\n#\n# Use, in configuration.yaml (use ONE language file):\n#   homeassistant:\n#     customize: !include s0tool_translations/s0tool_nl.yaml\n# Copy this file to your Home Assistant config folder (keep the s0tool_translations/ folder).\n# Already have a customize file? Copy the entries you want into it.\n# Then restart Home Assistant or run 'Reload customizations'. More info: s0tool_translations/README.md\n\n## ESPHome entities (names from esphome/components/*.yaml)\nsensor.actuele_energie:\n  friendly_name: \"Actuele energie\"\nsensor.totaal_opgebracht:\n  friendly_name: \"Totaal opgebracht\"\nsensor.actuele_meterstand:\n  friendly_name: \"Actuele meterstand\"\nnumber.pulsrate_kwh:\n  friendly_name: \"Pulsrate kWh\"\nsensor.watermeter_flow:\n  friendly_name: \"watermeter flow\"\nsensor.watermeter_totaal:\n  friendly_name: \"watermeter Totaal\"\nsensor.watermeter_stand:\n  friendly_name: \"watermeter stand\"\nsensor.watermeter_totaal_l:\n  friendly_name: \"watermeter Totaal (L)\"\nsensor.watermeter_pulse:\n  friendly_name: \"watermeter pulse\"\nselect.pulsrate_water_per_m3:\n  friendly_name: \"Pulsrate water per m3\"\nnumber.initiele_meterstand_m3:\n  friendly_name: \"Initiële meterstand m3\"\nsensor.gasmeter_pulse:\n  friendly_name: \"gasmeter pulse\"\nsensor.gasmeter_totaal:\n  friendly_name: \"gasmeter Totaal\"\nsensor.gasmeter_stand:\n  friendly_name: \"gasmeter stand\"\nnumber.pulsrate_gas_per_m3:\n  friendly_name: \"Pulsrate gas per m3\"\n\n## Version information and template sensors (packages/s0tool_nl.yaml)\nsensor.s0tool_versie_github:\n  friendly_name: \"Laatste versie GitHub\"\n  icon: mdi:github\nsensor.s0tool_versie:\n  friendly_name: \"Huidige versie\"\n  icon: mdi:label-outline\nsensor.huidig_energie_opbrengst:\n  friendly_name: \"Huidige energieopbrengst (kW)\"\nsensor.waterverbruik_liter_s0tool:\n  friendly_name: \"Waterverbruik (L)\"\nbinary_sensor.s0tool_update_beschikbaar:\n  friendly_name: \"s0tool update beschikbaar\"\n\n## Utility meters (utility_meter/utility.yaml and packages/s0tool_nl.yaml)\nsensor.waterverbruik_per_kwartier:\n  friendly_name: \"Waterverbruik per kwartier\"\nsensor.waterverbruik_per_uur:\n  friendly_name: \"Waterverbruik per uur\"\nsensor.waterverbruik_per_dag:\n  friendly_name: \"Waterverbruik per dag\"\nsensor.waterverbruik_per_week:\n  friendly_name: \"Waterverbruik per week\"\nsensor.waterverbruik_per_maand:\n  friendly_name: \"Waterverbruik per maand\"\nsensor.waterverbruik_per_kwartaal:\n  friendly_name: \"Waterverbruik per kwartaal\"\nsensor.waterverbruik_per_jaar:\n  friendly_name: \"Waterverbruik per jaar\"\nsensor.water_per_altijd:\n  friendly_name: \"Waterverbruik totaal\"\nsensor.zonnepanelen_per_kwartier:\n  friendly_name: \"Zonnepanelen per kwartier\"\nsensor.zonnepanelen_per_uur:\n  friendly_name: \"Zonnepanelen per uur\"\nsensor.zonnepanelen_per_dag:\n  friendly_name: \"Zonnepanelen per dag\"\nsensor.zonnepanelen_per_week:\n  friendly_name: \"Zonnepanelen per week\"\nsensor.zonnepanelen_per_maand:\n  friendly_name: \"Zonnepanelen per maand\"\nsensor.zonnepanelen_per_kwartaal:\n  friendly_name: \"Zonnepanelen per kwartaal\"\nsensor.zonnepanelen_per_jaar:\n  friendly_name: \"Zonnepanelen per jaar\"\nsensor.zonnepanelen_per_altijd:\n  friendly_name: \"Zonnepanelen totaal\"\nsensor.warmtepomp_per_kwartier:\n  friendly_name: \"Warmtepomp per kwartier\"\nsensor.warmtepomp_per_uur:\n  friendly_name: \"Warmtepomp per uur\"\nsensor.warmtepomp_per_dag:\n  friendly_name: \"Warmtepomp per dag\"\nsensor.warmtepomp_per_week:\n  friendly_name: \"Warmtepomp per week\"\nsensor.warmtepomp_per_maand:\n  friendly_name: \"Warmtepomp per maand\"\nsensor.warmtepomp_per_kwartaal:\n  friendly_name: \"Warmtepomp per kwartaal\"\nsensor.warmtepomp_per_jaar:\n  friendly_name: \"Warmtepomp per jaar\"\nsensor.warmtepomp_per_altijd:\n  friendly_name: \"Warmtepomp totaal\"\nsensor.s0_per_kwartier:\n  friendly_name: \"S0 energie per kwartier\"\nsensor.s0_per_uur:\n  friendly_name: \"S0 energie per uur\"\nsensor.s0_per_dag:\n  friendly_name: \"S0 energie per dag\"\nsensor.s0_per_week:\n  friendly_name: \"S0 energie per week\"\nsensor.s0_per_maand:\n  friendly_name: \"S0 energie per maand\"\n\n## Entities with your device name in the ID cannot be listed here. Example for a device\n## called 's0tool-standard' (adjust the ID to your own device name):\n# sensor.s0tool_standard_online_sinds:\n#   friendly_name: \"s0tool-standard online sinds\"\n# sensor.s0tool_standard_ip_adres:\n#   friendly_name: \"s0tool-standard IP-adres\"\n# sensor.s0tool_standard_mac_adres:\n#   friendly_name: \"s0tool-standard Mac-adres\"\n"
+  },
+  {
+   "code": "eng",
+   "lang": "en",
+   "label": "English",
+   "file": "s0tool_eng.yaml",
+   "yaml": "# S0tool - English (en)\n# Changes only the displayed name (friendly_name) in Home Assistant. Entity IDs stay the same,\n# so dashboards, utility meters and the Energy dashboard keep working.\n#\n# Use, in configuration.yaml (use ONE language file):\n#   homeassistant:\n#     customize: !include s0tool_translations/s0tool_eng.yaml\n# Copy this file to your Home Assistant config folder (keep the s0tool_translations/ folder).\n# Already have a customize file? Copy the entries you want into it.\n# Then restart Home Assistant or run 'Reload customizations'. More info: s0tool_translations/README.md\n\n## ESPHome entities (names from esphome/components/*.yaml)\nsensor.actuele_energie:\n  friendly_name: \"Current power\"\nsensor.totaal_opgebracht:\n  friendly_name: \"Total energy\"\nsensor.actuele_meterstand:\n  friendly_name: \"Current meter reading\"\nnumber.pulsrate_kwh:\n  friendly_name: \"Pulse rate kWh\"\nsensor.watermeter_flow:\n  friendly_name: \"Water meter flow\"\nsensor.watermeter_totaal:\n  friendly_name: \"Water meter total\"\nsensor.watermeter_stand:\n  friendly_name: \"Water meter reading\"\nsensor.watermeter_totaal_l:\n  friendly_name: \"Water meter total (L)\"\nsensor.watermeter_pulse:\n  friendly_name: \"Water meter pulse\"\nselect.pulsrate_water_per_m3:\n  friendly_name: \"Pulse rate water per m3\"\nnumber.initiele_meterstand_m3:\n  friendly_name: \"Initial meter reading m3\"\nsensor.gasmeter_pulse:\n  friendly_name: \"Gas meter pulse\"\nsensor.gasmeter_totaal:\n  friendly_name: \"Gas meter total\"\nsensor.gasmeter_stand:\n  friendly_name: \"Gas meter reading\"\nnumber.pulsrate_gas_per_m3:\n  friendly_name: \"Pulse rate gas per m3\"\n\n## Version information and template sensors (packages/s0tool_nl.yaml)\nsensor.s0tool_versie_github:\n  friendly_name: \"Latest version GitHub\"\n  icon: mdi:github\nsensor.s0tool_versie:\n  friendly_name: \"Current version\"\n  icon: mdi:label-outline\nsensor.huidig_energie_opbrengst:\n  friendly_name: \"Current energy yield (kW)\"\nsensor.waterverbruik_liter_s0tool:\n  friendly_name: \"Water consumption (L)\"\nbinary_sensor.s0tool_update_beschikbaar:\n  friendly_name: \"s0tool update available\"\n\n## Utility meters (utility_meter/utility.yaml and packages/s0tool_nl.yaml)\nsensor.waterverbruik_per_kwartier:\n  friendly_name: \"Water consumption per quarter-hour\"\nsensor.waterverbruik_per_uur:\n  friendly_name: \"Water consumption per hour\"\nsensor.waterverbruik_per_dag:\n  friendly_name: \"Water consumption per day\"\nsensor.waterverbruik_per_week:\n  friendly_name: \"Water consumption per week\"\nsensor.waterverbruik_per_maand:\n  friendly_name: \"Water consumption per month\"\nsensor.waterverbruik_per_kwartaal:\n  friendly_name: \"Water consumption per quarter\"\nsensor.waterverbruik_per_jaar:\n  friendly_name: \"Water consumption per year\"\nsensor.water_per_altijd:\n  friendly_name: \"Water consumption all time\"\nsensor.zonnepanelen_per_kwartier:\n  friendly_name: \"Solar panels per quarter-hour\"\nsensor.zonnepanelen_per_uur:\n  friendly_name: \"Solar panels per hour\"\nsensor.zonnepanelen_per_dag:\n  friendly_name: \"Solar panels per day\"\nsensor.zonnepanelen_per_week:\n  friendly_name: \"Solar panels per week\"\nsensor.zonnepanelen_per_maand:\n  friendly_name: \"Solar panels per month\"\nsensor.zonnepanelen_per_kwartaal:\n  friendly_name: \"Solar panels per quarter\"\nsensor.zonnepanelen_per_jaar:\n  friendly_name: \"Solar panels per year\"\nsensor.zonnepanelen_per_altijd:\n  friendly_name: \"Solar panels all time\"\nsensor.warmtepomp_per_kwartier:\n  friendly_name: \"Heat pump per quarter-hour\"\nsensor.warmtepomp_per_uur:\n  friendly_name: \"Heat pump per hour\"\nsensor.warmtepomp_per_dag:\n  friendly_name: \"Heat pump per day\"\nsensor.warmtepomp_per_week:\n  friendly_name: \"Heat pump per week\"\nsensor.warmtepomp_per_maand:\n  friendly_name: \"Heat pump per month\"\nsensor.warmtepomp_per_kwartaal:\n  friendly_name: \"Heat pump per quarter\"\nsensor.warmtepomp_per_jaar:\n  friendly_name: \"Heat pump per year\"\nsensor.warmtepomp_per_altijd:\n  friendly_name: \"Heat pump all time\"\nsensor.s0_per_kwartier:\n  friendly_name: \"S0 energy per quarter-hour\"\nsensor.s0_per_uur:\n  friendly_name: \"S0 energy per hour\"\nsensor.s0_per_dag:\n  friendly_name: \"S0 energy per day\"\nsensor.s0_per_week:\n  friendly_name: \"S0 energy per week\"\nsensor.s0_per_maand:\n  friendly_name: \"S0 energy per month\"\n\n## Entities with your device name in the ID cannot be listed here. Example for a device\n## called 's0tool-standard' (adjust the ID to your own device name):\n# sensor.s0tool_standard_online_sinds:\n#   friendly_name: \"s0tool-standard online since\"\n# sensor.s0tool_standard_ip_adres:\n#   friendly_name: \"s0tool-standard IP address\"\n# sensor.s0tool_standard_mac_adres:\n#   friendly_name: \"s0tool-standard MAC address\"\n"
+  },
+  {
+   "code": "de",
+   "lang": "de",
+   "label": "Deutsch",
+   "file": "s0tool_de.yaml",
+   "yaml": "# S0tool - Deutsch (de)\n# Changes only the displayed name (friendly_name) in Home Assistant. Entity IDs stay the same,\n# so dashboards, utility meters and the Energy dashboard keep working.\n#\n# Use, in configuration.yaml (use ONE language file):\n#   homeassistant:\n#     customize: !include s0tool_translations/s0tool_de.yaml\n# Copy this file to your Home Assistant config folder (keep the s0tool_translations/ folder).\n# Already have a customize file? Copy the entries you want into it.\n# Then restart Home Assistant or run 'Reload customizations'. More info: s0tool_translations/README.md\n\n## ESPHome entities (names from esphome/components/*.yaml)\nsensor.actuele_energie:\n  friendly_name: \"Aktuelle Leistung\"\nsensor.totaal_opgebracht:\n  friendly_name: \"Gesamtenergie\"\nsensor.actuele_meterstand:\n  friendly_name: \"Aktueller Zählerstand\"\nnumber.pulsrate_kwh:\n  friendly_name: \"Impulsrate kWh\"\nsensor.watermeter_flow:\n  friendly_name: \"Wasserzähler Durchfluss\"\nsensor.watermeter_totaal:\n  friendly_name: \"Wasserzähler gesamt\"\nsensor.watermeter_stand:\n  friendly_name: \"Wasserzähler Stand\"\nsensor.watermeter_totaal_l:\n  friendly_name: \"Wasserzähler gesamt (L)\"\nsensor.watermeter_pulse:\n  friendly_name: \"Wasserzähler Impuls\"\nselect.pulsrate_water_per_m3:\n  friendly_name: \"Impulsrate Wasser pro m3\"\nnumber.initiele_meterstand_m3:\n  friendly_name: \"Anfangszählerstand m3\"\nsensor.gasmeter_pulse:\n  friendly_name: \"Gaszähler Impuls\"\nsensor.gasmeter_totaal:\n  friendly_name: \"Gaszähler gesamt\"\nsensor.gasmeter_stand:\n  friendly_name: \"Gaszähler Stand\"\nnumber.pulsrate_gas_per_m3:\n  friendly_name: \"Impulsrate Gas pro m3\"\n\n## Version information and template sensors (packages/s0tool_nl.yaml)\nsensor.s0tool_versie_github:\n  friendly_name: \"Neueste Version GitHub\"\n  icon: mdi:github\nsensor.s0tool_versie:\n  friendly_name: \"Aktuelle Version\"\n  icon: mdi:label-outline\nsensor.huidig_energie_opbrengst:\n  friendly_name: \"Aktueller Energieertrag (kW)\"\nsensor.waterverbruik_liter_s0tool:\n  friendly_name: \"Wasserverbrauch (L)\"\nbinary_sensor.s0tool_update_beschikbaar:\n  friendly_name: \"s0tool-Update verfügbar\"\n\n## Utility meters (utility_meter/utility.yaml and packages/s0tool_nl.yaml)\nsensor.waterverbruik_per_kwartier:\n  friendly_name: \"Wasserverbrauch pro Viertelstunde\"\nsensor.waterverbruik_per_uur:\n  friendly_name: \"Wasserverbrauch pro Stunde\"\nsensor.waterverbruik_per_dag:\n  friendly_name: \"Wasserverbrauch pro Tag\"\nsensor.waterverbruik_per_week:\n  friendly_name: \"Wasserverbrauch pro Woche\"\nsensor.waterverbruik_per_maand:\n  friendly_name: \"Wasserverbrauch pro Monat\"\nsensor.waterverbruik_per_kwartaal:\n  friendly_name: \"Wasserverbrauch pro Quartal\"\nsensor.waterverbruik_per_jaar:\n  friendly_name: \"Wasserverbrauch pro Jahr\"\nsensor.water_per_altijd:\n  friendly_name: \"Wasserverbrauch gesamt\"\nsensor.zonnepanelen_per_kwartier:\n  friendly_name: \"Solaranlage pro Viertelstunde\"\nsensor.zonnepanelen_per_uur:\n  friendly_name: \"Solaranlage pro Stunde\"\nsensor.zonnepanelen_per_dag:\n  friendly_name: \"Solaranlage pro Tag\"\nsensor.zonnepanelen_per_week:\n  friendly_name: \"Solaranlage pro Woche\"\nsensor.zonnepanelen_per_maand:\n  friendly_name: \"Solaranlage pro Monat\"\nsensor.zonnepanelen_per_kwartaal:\n  friendly_name: \"Solaranlage pro Quartal\"\nsensor.zonnepanelen_per_jaar:\n  friendly_name: \"Solaranlage pro Jahr\"\nsensor.zonnepanelen_per_altijd:\n  friendly_name: \"Solaranlage gesamt\"\nsensor.warmtepomp_per_kwartier:\n  friendly_name: \"Wärmepumpe pro Viertelstunde\"\nsensor.warmtepomp_per_uur:\n  friendly_name: \"Wärmepumpe pro Stunde\"\nsensor.warmtepomp_per_dag:\n  friendly_name: \"Wärmepumpe pro Tag\"\nsensor.warmtepomp_per_week:\n  friendly_name: \"Wärmepumpe pro Woche\"\nsensor.warmtepomp_per_maand:\n  friendly_name: \"Wärmepumpe pro Monat\"\nsensor.warmtepomp_per_kwartaal:\n  friendly_name: \"Wärmepumpe pro Quartal\"\nsensor.warmtepomp_per_jaar:\n  friendly_name: \"Wärmepumpe pro Jahr\"\nsensor.warmtepomp_per_altijd:\n  friendly_name: \"Wärmepumpe gesamt\"\nsensor.s0_per_kwartier:\n  friendly_name: \"S0-Energie pro Viertelstunde\"\nsensor.s0_per_uur:\n  friendly_name: \"S0-Energie pro Stunde\"\nsensor.s0_per_dag:\n  friendly_name: \"S0-Energie pro Tag\"\nsensor.s0_per_week:\n  friendly_name: \"S0-Energie pro Woche\"\nsensor.s0_per_maand:\n  friendly_name: \"S0-Energie pro Monat\"\n\n## Entities with your device name in the ID cannot be listed here. Example for a device\n## called 's0tool-standard' (adjust the ID to your own device name):\n# sensor.s0tool_standard_online_sinds:\n#   friendly_name: \"s0tool-standard online seit\"\n# sensor.s0tool_standard_ip_adres:\n#   friendly_name: \"s0tool-standard IP-Adresse\"\n# sensor.s0tool_standard_mac_adres:\n#   friendly_name: \"s0tool-standard MAC-Adresse\"\n"
+  },
+  {
+   "code": "fr",
+   "lang": "fr",
+   "label": "Français",
+   "file": "s0tool_fr.yaml",
+   "yaml": "# S0tool - Français (fr)\n# Changes only the displayed name (friendly_name) in Home Assistant. Entity IDs stay the same,\n# so dashboards, utility meters and the Energy dashboard keep working.\n#\n# Use, in configuration.yaml (use ONE language file):\n#   homeassistant:\n#     customize: !include s0tool_translations/s0tool_fr.yaml\n# Copy this file to your Home Assistant config folder (keep the s0tool_translations/ folder).\n# Already have a customize file? Copy the entries you want into it.\n# Then restart Home Assistant or run 'Reload customizations'. More info: s0tool_translations/README.md\n\n## ESPHome entities (names from esphome/components/*.yaml)\nsensor.actuele_energie:\n  friendly_name: \"Puissance actuelle\"\nsensor.totaal_opgebracht:\n  friendly_name: \"Énergie totale\"\nsensor.actuele_meterstand:\n  friendly_name: \"Index du compteur actuel\"\nnumber.pulsrate_kwh:\n  friendly_name: \"Taux d'impulsions kWh\"\nsensor.watermeter_flow:\n  friendly_name: \"Débit du compteur d'eau\"\nsensor.watermeter_totaal:\n  friendly_name: \"Compteur d'eau total\"\nsensor.watermeter_stand:\n  friendly_name: \"Index du compteur d'eau\"\nsensor.watermeter_totaal_l:\n  friendly_name: \"Compteur d'eau total (L)\"\nsensor.watermeter_pulse:\n  friendly_name: \"Impulsion du compteur d'eau\"\nselect.pulsrate_water_per_m3:\n  friendly_name: \"Taux d'impulsions eau par m3\"\nnumber.initiele_meterstand_m3:\n  friendly_name: \"Index initial m3\"\nsensor.gasmeter_pulse:\n  friendly_name: \"Impulsion du compteur de gaz\"\nsensor.gasmeter_totaal:\n  friendly_name: \"Compteur de gaz total\"\nsensor.gasmeter_stand:\n  friendly_name: \"Index du compteur de gaz\"\nnumber.pulsrate_gas_per_m3:\n  friendly_name: \"Taux d'impulsions gaz par m3\"\n\n## Version information and template sensors (packages/s0tool_nl.yaml)\nsensor.s0tool_versie_github:\n  friendly_name: \"Dernière version GitHub\"\n  icon: mdi:github\nsensor.s0tool_versie:\n  friendly_name: \"Version actuelle\"\n  icon: mdi:label-outline\nsensor.huidig_energie_opbrengst:\n  friendly_name: \"Rendement énergétique actuel (kW)\"\nsensor.waterverbruik_liter_s0tool:\n  friendly_name: \"Consommation d'eau (L)\"\nbinary_sensor.s0tool_update_beschikbaar:\n  friendly_name: \"Mise à jour s0tool disponible\"\n\n## Utility meters (utility_meter/utility.yaml and packages/s0tool_nl.yaml)\nsensor.waterverbruik_per_kwartier:\n  friendly_name: \"Consommation d'eau par quart d'heure\"\nsensor.waterverbruik_per_uur:\n  friendly_name: \"Consommation d'eau par heure\"\nsensor.waterverbruik_per_dag:\n  friendly_name: \"Consommation d'eau par jour\"\nsensor.waterverbruik_per_week:\n  friendly_name: \"Consommation d'eau par semaine\"\nsensor.waterverbruik_per_maand:\n  friendly_name: \"Consommation d'eau par mois\"\nsensor.waterverbruik_per_kwartaal:\n  friendly_name: \"Consommation d'eau par trimestre\"\nsensor.waterverbruik_per_jaar:\n  friendly_name: \"Consommation d'eau par an\"\nsensor.water_per_altijd:\n  friendly_name: \"Consommation d'eau au total\"\nsensor.zonnepanelen_per_kwartier:\n  friendly_name: \"Panneaux solaires par quart d'heure\"\nsensor.zonnepanelen_per_uur:\n  friendly_name: \"Panneaux solaires par heure\"\nsensor.zonnepanelen_per_dag:\n  friendly_name: \"Panneaux solaires par jour\"\nsensor.zonnepanelen_per_week:\n  friendly_name: \"Panneaux solaires par semaine\"\nsensor.zonnepanelen_per_maand:\n  friendly_name: \"Panneaux solaires par mois\"\nsensor.zonnepanelen_per_kwartaal:\n  friendly_name: \"Panneaux solaires par trimestre\"\nsensor.zonnepanelen_per_jaar:\n  friendly_name: \"Panneaux solaires par an\"\nsensor.zonnepanelen_per_altijd:\n  friendly_name: \"Panneaux solaires au total\"\nsensor.warmtepomp_per_kwartier:\n  friendly_name: \"Pompe à chaleur par quart d'heure\"\nsensor.warmtepomp_per_uur:\n  friendly_name: \"Pompe à chaleur par heure\"\nsensor.warmtepomp_per_dag:\n  friendly_name: \"Pompe à chaleur par jour\"\nsensor.warmtepomp_per_week:\n  friendly_name: \"Pompe à chaleur par semaine\"\nsensor.warmtepomp_per_maand:\n  friendly_name: \"Pompe à chaleur par mois\"\nsensor.warmtepomp_per_kwartaal:\n  friendly_name: \"Pompe à chaleur par trimestre\"\nsensor.warmtepomp_per_jaar:\n  friendly_name: \"Pompe à chaleur par an\"\nsensor.warmtepomp_per_altijd:\n  friendly_name: \"Pompe à chaleur au total\"\nsensor.s0_per_kwartier:\n  friendly_name: \"Énergie S0 par quart d'heure\"\nsensor.s0_per_uur:\n  friendly_name: \"Énergie S0 par heure\"\nsensor.s0_per_dag:\n  friendly_name: \"Énergie S0 par jour\"\nsensor.s0_per_week:\n  friendly_name: \"Énergie S0 par semaine\"\nsensor.s0_per_maand:\n  friendly_name: \"Énergie S0 par mois\"\n\n## Entities with your device name in the ID cannot be listed here. Example for a device\n## called 's0tool-standard' (adjust the ID to your own device name):\n# sensor.s0tool_standard_online_sinds:\n#   friendly_name: \"s0tool-standard en ligne depuis\"\n# sensor.s0tool_standard_ip_adres:\n#   friendly_name: \"s0tool-standard Adresse IP\"\n# sensor.s0tool_standard_mac_adres:\n#   friendly_name: \"s0tool-standard Adresse MAC\"\n"
+  }
+ ],
+ "entities": [
+  {
+   "id": "sensor.actuele_energie",
+   "names": {
+    "nl": "Actuele energie",
+    "eng": "Current power",
+    "de": "Aktuelle Leistung",
+    "fr": "Puissance actuelle"
+   }
+  },
+  {
+   "id": "sensor.totaal_opgebracht",
+   "names": {
+    "nl": "Totaal opgebracht",
+    "eng": "Total energy",
+    "de": "Gesamtenergie",
+    "fr": "Énergie totale"
+   }
+  },
+  {
+   "id": "sensor.actuele_meterstand",
+   "names": {
+    "nl": "Actuele meterstand",
+    "eng": "Current meter reading",
+    "de": "Aktueller Zählerstand",
+    "fr": "Index du compteur actuel"
+   }
+  },
+  {
+   "id": "number.pulsrate_kwh",
+   "names": {
+    "nl": "Pulsrate kWh",
+    "eng": "Pulse rate kWh",
+    "de": "Impulsrate kWh",
+    "fr": "Taux d'impulsions kWh"
+   }
+  },
+  {
+   "id": "sensor.watermeter_flow",
+   "names": {
+    "nl": "watermeter flow",
+    "eng": "Water meter flow",
+    "de": "Wasserzähler Durchfluss",
+    "fr": "Débit du compteur d'eau"
+   }
+  },
+  {
+   "id": "sensor.watermeter_totaal",
+   "names": {
+    "nl": "watermeter Totaal",
+    "eng": "Water meter total",
+    "de": "Wasserzähler gesamt",
+    "fr": "Compteur d'eau total"
+   }
+  },
+  {
+   "id": "sensor.watermeter_stand",
+   "names": {
+    "nl": "watermeter stand",
+    "eng": "Water meter reading",
+    "de": "Wasserzähler Stand",
+    "fr": "Index du compteur d'eau"
+   }
+  },
+  {
+   "id": "sensor.watermeter_totaal_l",
+   "names": {
+    "nl": "watermeter Totaal (L)",
+    "eng": "Water meter total (L)",
+    "de": "Wasserzähler gesamt (L)",
+    "fr": "Compteur d'eau total (L)"
+   }
+  },
+  {
+   "id": "sensor.watermeter_pulse",
+   "names": {
+    "nl": "watermeter pulse",
+    "eng": "Water meter pulse",
+    "de": "Wasserzähler Impuls",
+    "fr": "Impulsion du compteur d'eau"
+   }
+  },
+  {
+   "id": "select.pulsrate_water_per_m3",
+   "names": {
+    "nl": "Pulsrate water per m3",
+    "eng": "Pulse rate water per m3",
+    "de": "Impulsrate Wasser pro m3",
+    "fr": "Taux d'impulsions eau par m3"
+   }
+  },
+  {
+   "id": "number.initiele_meterstand_m3",
+   "names": {
+    "nl": "Initiële meterstand m3",
+    "eng": "Initial meter reading m3",
+    "de": "Anfangszählerstand m3",
+    "fr": "Index initial m3"
+   }
+  },
+  {
+   "id": "sensor.gasmeter_pulse",
+   "names": {
+    "nl": "gasmeter pulse",
+    "eng": "Gas meter pulse",
+    "de": "Gaszähler Impuls",
+    "fr": "Impulsion du compteur de gaz"
+   }
+  },
+  {
+   "id": "sensor.gasmeter_totaal",
+   "names": {
+    "nl": "gasmeter Totaal",
+    "eng": "Gas meter total",
+    "de": "Gaszähler gesamt",
+    "fr": "Compteur de gaz total"
+   }
+  },
+  {
+   "id": "sensor.gasmeter_stand",
+   "names": {
+    "nl": "gasmeter stand",
+    "eng": "Gas meter reading",
+    "de": "Gaszähler Stand",
+    "fr": "Index du compteur de gaz"
+   }
+  },
+  {
+   "id": "number.pulsrate_gas_per_m3",
+   "names": {
+    "nl": "Pulsrate gas per m3",
+    "eng": "Pulse rate gas per m3",
+    "de": "Impulsrate Gas pro m3",
+    "fr": "Taux d'impulsions gaz par m3"
+   }
+  },
+  {
+   "id": "sensor.s0tool_versie_github",
+   "names": {
+    "nl": "Laatste versie GitHub",
+    "eng": "Latest version GitHub",
+    "de": "Neueste Version GitHub",
+    "fr": "Dernière version GitHub"
+   }
+  },
+  {
+   "id": "sensor.s0tool_versie",
+   "names": {
+    "nl": "Huidige versie",
+    "eng": "Current version",
+    "de": "Aktuelle Version",
+    "fr": "Version actuelle"
+   }
+  },
+  {
+   "id": "sensor.huidig_energie_opbrengst",
+   "names": {
+    "nl": "Huidige energieopbrengst (kW)",
+    "eng": "Current energy yield (kW)",
+    "de": "Aktueller Energieertrag (kW)",
+    "fr": "Rendement énergétique actuel (kW)"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_liter_s0tool",
+   "names": {
+    "nl": "Waterverbruik (L)",
+    "eng": "Water consumption (L)",
+    "de": "Wasserverbrauch (L)",
+    "fr": "Consommation d'eau (L)"
+   }
+  },
+  {
+   "id": "binary_sensor.s0tool_update_beschikbaar",
+   "names": {
+    "nl": "s0tool update beschikbaar",
+    "eng": "s0tool update available",
+    "de": "s0tool-Update verfügbar",
+    "fr": "Mise à jour s0tool disponible"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_kwartier",
+   "names": {
+    "nl": "Waterverbruik per kwartier",
+    "eng": "Water consumption per quarter-hour",
+    "de": "Wasserverbrauch pro Viertelstunde",
+    "fr": "Consommation d'eau par quart d'heure"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_uur",
+   "names": {
+    "nl": "Waterverbruik per uur",
+    "eng": "Water consumption per hour",
+    "de": "Wasserverbrauch pro Stunde",
+    "fr": "Consommation d'eau par heure"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_dag",
+   "names": {
+    "nl": "Waterverbruik per dag",
+    "eng": "Water consumption per day",
+    "de": "Wasserverbrauch pro Tag",
+    "fr": "Consommation d'eau par jour"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_week",
+   "names": {
+    "nl": "Waterverbruik per week",
+    "eng": "Water consumption per week",
+    "de": "Wasserverbrauch pro Woche",
+    "fr": "Consommation d'eau par semaine"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_maand",
+   "names": {
+    "nl": "Waterverbruik per maand",
+    "eng": "Water consumption per month",
+    "de": "Wasserverbrauch pro Monat",
+    "fr": "Consommation d'eau par mois"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_kwartaal",
+   "names": {
+    "nl": "Waterverbruik per kwartaal",
+    "eng": "Water consumption per quarter",
+    "de": "Wasserverbrauch pro Quartal",
+    "fr": "Consommation d'eau par trimestre"
+   }
+  },
+  {
+   "id": "sensor.waterverbruik_per_jaar",
+   "names": {
+    "nl": "Waterverbruik per jaar",
+    "eng": "Water consumption per year",
+    "de": "Wasserverbrauch pro Jahr",
+    "fr": "Consommation d'eau par an"
+   }
+  },
+  {
+   "id": "sensor.water_per_altijd",
+   "names": {
+    "nl": "Waterverbruik totaal",
+    "eng": "Water consumption all time",
+    "de": "Wasserverbrauch gesamt",
+    "fr": "Consommation d'eau au total"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_kwartier",
+   "names": {
+    "nl": "Zonnepanelen per kwartier",
+    "eng": "Solar panels per quarter-hour",
+    "de": "Solaranlage pro Viertelstunde",
+    "fr": "Panneaux solaires par quart d'heure"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_uur",
+   "names": {
+    "nl": "Zonnepanelen per uur",
+    "eng": "Solar panels per hour",
+    "de": "Solaranlage pro Stunde",
+    "fr": "Panneaux solaires par heure"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_dag",
+   "names": {
+    "nl": "Zonnepanelen per dag",
+    "eng": "Solar panels per day",
+    "de": "Solaranlage pro Tag",
+    "fr": "Panneaux solaires par jour"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_week",
+   "names": {
+    "nl": "Zonnepanelen per week",
+    "eng": "Solar panels per week",
+    "de": "Solaranlage pro Woche",
+    "fr": "Panneaux solaires par semaine"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_maand",
+   "names": {
+    "nl": "Zonnepanelen per maand",
+    "eng": "Solar panels per month",
+    "de": "Solaranlage pro Monat",
+    "fr": "Panneaux solaires par mois"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_kwartaal",
+   "names": {
+    "nl": "Zonnepanelen per kwartaal",
+    "eng": "Solar panels per quarter",
+    "de": "Solaranlage pro Quartal",
+    "fr": "Panneaux solaires par trimestre"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_jaar",
+   "names": {
+    "nl": "Zonnepanelen per jaar",
+    "eng": "Solar panels per year",
+    "de": "Solaranlage pro Jahr",
+    "fr": "Panneaux solaires par an"
+   }
+  },
+  {
+   "id": "sensor.zonnepanelen_per_altijd",
+   "names": {
+    "nl": "Zonnepanelen totaal",
+    "eng": "Solar panels all time",
+    "de": "Solaranlage gesamt",
+    "fr": "Panneaux solaires au total"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_kwartier",
+   "names": {
+    "nl": "Warmtepomp per kwartier",
+    "eng": "Heat pump per quarter-hour",
+    "de": "Wärmepumpe pro Viertelstunde",
+    "fr": "Pompe à chaleur par quart d'heure"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_uur",
+   "names": {
+    "nl": "Warmtepomp per uur",
+    "eng": "Heat pump per hour",
+    "de": "Wärmepumpe pro Stunde",
+    "fr": "Pompe à chaleur par heure"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_dag",
+   "names": {
+    "nl": "Warmtepomp per dag",
+    "eng": "Heat pump per day",
+    "de": "Wärmepumpe pro Tag",
+    "fr": "Pompe à chaleur par jour"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_week",
+   "names": {
+    "nl": "Warmtepomp per week",
+    "eng": "Heat pump per week",
+    "de": "Wärmepumpe pro Woche",
+    "fr": "Pompe à chaleur par semaine"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_maand",
+   "names": {
+    "nl": "Warmtepomp per maand",
+    "eng": "Heat pump per month",
+    "de": "Wärmepumpe pro Monat",
+    "fr": "Pompe à chaleur par mois"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_kwartaal",
+   "names": {
+    "nl": "Warmtepomp per kwartaal",
+    "eng": "Heat pump per quarter",
+    "de": "Wärmepumpe pro Quartal",
+    "fr": "Pompe à chaleur par trimestre"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_jaar",
+   "names": {
+    "nl": "Warmtepomp per jaar",
+    "eng": "Heat pump per year",
+    "de": "Wärmepumpe pro Jahr",
+    "fr": "Pompe à chaleur par an"
+   }
+  },
+  {
+   "id": "sensor.warmtepomp_per_altijd",
+   "names": {
+    "nl": "Warmtepomp totaal",
+    "eng": "Heat pump all time",
+    "de": "Wärmepumpe gesamt",
+    "fr": "Pompe à chaleur au total"
+   }
+  },
+  {
+   "id": "sensor.s0_per_kwartier",
+   "names": {
+    "nl": "S0 energie per kwartier",
+    "eng": "S0 energy per quarter-hour",
+    "de": "S0-Energie pro Viertelstunde",
+    "fr": "Énergie S0 par quart d'heure"
+   }
+  },
+  {
+   "id": "sensor.s0_per_uur",
+   "names": {
+    "nl": "S0 energie per uur",
+    "eng": "S0 energy per hour",
+    "de": "S0-Energie pro Stunde",
+    "fr": "Énergie S0 par heure"
+   }
+  },
+  {
+   "id": "sensor.s0_per_dag",
+   "names": {
+    "nl": "S0 energie per dag",
+    "eng": "S0 energy per day",
+    "de": "S0-Energie pro Tag",
+    "fr": "Énergie S0 par jour"
+   }
+  },
+  {
+   "id": "sensor.s0_per_week",
+   "names": {
+    "nl": "S0 energie per week",
+    "eng": "S0 energy per week",
+    "de": "S0-Energie pro Woche",
+    "fr": "Énergie S0 par semaine"
+   }
+  },
+  {
+   "id": "sensor.s0_per_maand",
+   "names": {
+    "nl": "S0 energie per maand",
+    "eng": "S0 energy per month",
+    "de": "S0-Energie pro Monat",
+    "fr": "Énergie S0 par mois"
+   }
+  }
+ ]
+}

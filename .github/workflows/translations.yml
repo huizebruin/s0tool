@@ -1,0 +1,48 @@
+name: Translations
+
+# Checks the language files in s0tool_translations/ and that the generated
+# website files (static/s0tool_translations.zip and .json) are up to date.
+# Read-only: it never commits anything and does not touch the firmware build,
+# the release workflow or the GitHub Pages deployment.
+#
+# Failing? Run locally and commit the result:
+#   pip install pyyaml
+#   python3 .github/scripts/check_translations.py --fix
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "s0tool_translations/**"
+      - "static/s0tool_translations.*"
+      - ".github/scripts/check_translations.py"
+      - ".github/workflows/translations.yml"
+  pull_request:
+    paths:
+      - "s0tool_translations/**"
+      - "static/s0tool_translations.*"
+      - ".github/scripts/check_translations.py"
+      - ".github/workflows/translations.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: 🌍 Check translations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: python -m pip install pyyaml
+
+      - name: Check translations
+        run: python .github/scripts/check_translations.py

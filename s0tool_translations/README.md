@@ -35,5 +35,14 @@ Already have your own customize file? Copy the entries you want into it instead.
 ## Add a language
 
 1. Copy `s0tool_eng.yaml` to `s0tool_<code>.yaml` (for example `s0tool_es.yaml`).
-2. Translate the `friendly_name` values. Do **not** change the entity IDs (the lines ending in `:`).
-3. Update the header comment and send a pull request.
+2. Translate the `friendly_name` values. Do **not** change the entity IDs (the lines ending in `:`) or the `icon` lines.
+3. Update the first line, which must keep this format: `# S0tool - Español (es)`.
+4. Rebuild the website files and check your work:
+
+   ```
+   pip install pyyaml
+   python3 .github/scripts/check_translations.py --fix
+   ```
+
+   This rebuilds `static/s0tool_translations.zip` and `static/s0tool_translations.json` (used by the language picker on the website) and checks that every language has exactly the same entities. Commit those two files with your translation.
+5. Send a pull request. The same check runs automatically on GitHub.
