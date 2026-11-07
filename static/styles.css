@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ── Dark theme (default) ─────────────────────────────────────── */
 :root {
@@ -1391,3 +1391,13 @@ body.show-special .config-card.special { display: flex; }
 
 .config-card p { font-size: 0.88rem; color: var(--text-dim); }
 .config-card label { font-size: 0.85rem; font-weight: 700; }
+
+/* ── Config cards: readable sans-serif instead of Space Mono ─── */
+.config-card h5 { font-family: var(--sans); font-size: 1rem; font-weight: 700; }
+.config-card p { font-family: var(--sans); font-size: 0.92rem; }
+.config-card label { font-family: var(--sans); font-size: 0.9rem; font-weight: 700; }
+.cfg-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: .06em; }
+.cfg-use { font-family: var(--sans); font-size: 1rem; font-weight: 800; }
+.cfg-tag { font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: .01em; }
+.cfg-examples { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; }
+.cfg-note { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; }
