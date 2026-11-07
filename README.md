@@ -54,7 +54,7 @@ The **S0tool** is an ESPHome-based device that transforms regular water and ener
 
 ### 📰 Latest Updates
 
-**🎉 Latest Firmware Updated!** (29/10/2026)
+**🎉 Latest Firmware Updated!** (07/11/2026)
 Visit [https://s0tool.nl](https://s0tool.nl) for complete documentation and guides.
 
 **🇳🇱 Dutch Version**
@@ -191,6 +191,28 @@ Click "Configure" to complete setup.
 ---
 
 ## ⚙️ Configuration
+
+### Translations (entity names)
+
+The entities are named in Dutch by default (`Actuele energie`, `Totaal opgebracht`, ...). Use the files in [`s0tool_translations/`](s0tool_translations/) to show them in your own language in Home Assistant: **Nederlands, English, Deutsch, Français**. Only the displayed name changes; the entity IDs stay the same, so dashboards, utility meters and the Energy dashboard keep working.
+
+1. Copy the `s0tool_translations` folder to your Home Assistant `config/` folder.
+2. Add one language to `configuration.yaml`:
+
+```yaml
+homeassistant:
+  customize: !include s0tool_translations/s0tool_eng.yaml
+```
+
+3. Restart Home Assistant, or run **Developer tools → YAML → Reload customizations**.
+
+| Dutch (default) | English | Deutsch | Français |
+|---|---|---|---|
+| Actuele energie | Current power | Aktuelle Leistung | Puissance actuelle |
+| Totaal opgebracht | Total energy | Gesamtenergie | Énergie totale |
+| watermeter Totaal | Water meter total | Wasserzähler gesamt | Compteur d'eau total |
+
+See [`s0tool_translations/README.md`](s0tool_translations/README.md) for details and how to add another language.
 
 ### Home Assistant Utility Meters
 

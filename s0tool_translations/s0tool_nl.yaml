@@ -1,0 +1,125 @@
+# S0tool - Nederlands (nl)
+# Changes only the displayed name (friendly_name) in Home Assistant. Entity IDs stay the same,
+# so dashboards, utility meters and the Energy dashboard keep working.
+#
+# Use, in configuration.yaml (use ONE language file):
+#   homeassistant:
+#     customize: !include s0tool_translations/s0tool_nl.yaml
+# Copy this file to your Home Assistant config folder (keep the s0tool_translations/ folder).
+# Already have a customize file? Copy the entries you want into it.
+# Then restart Home Assistant or run 'Reload customizations'. More info: s0tool_translations/README.md
+
+## ESPHome entities (names from esphome/components/*.yaml)
+sensor.actuele_energie:
+  friendly_name: "Actuele energie"
+sensor.totaal_opgebracht:
+  friendly_name: "Totaal opgebracht"
+sensor.actuele_meterstand:
+  friendly_name: "Actuele meterstand"
+number.pulsrate_kwh:
+  friendly_name: "Pulsrate kWh"
+sensor.watermeter_flow:
+  friendly_name: "watermeter flow"
+sensor.watermeter_totaal:
+  friendly_name: "watermeter Totaal"
+sensor.watermeter_stand:
+  friendly_name: "watermeter stand"
+sensor.watermeter_totaal_l:
+  friendly_name: "watermeter Totaal (L)"
+sensor.watermeter_pulse:
+  friendly_name: "watermeter pulse"
+select.pulsrate_water_per_m3:
+  friendly_name: "Pulsrate water per m3"
+number.initiele_meterstand_m3:
+  friendly_name: "Initiële meterstand m3"
+sensor.gasmeter_pulse:
+  friendly_name: "gasmeter pulse"
+sensor.gasmeter_totaal:
+  friendly_name: "gasmeter Totaal"
+sensor.gasmeter_stand:
+  friendly_name: "gasmeter stand"
+number.pulsrate_gas_per_m3:
+  friendly_name: "Pulsrate gas per m3"
+
+## Version information and template sensors (packages/s0tool_nl.yaml)
+sensor.s0tool_versie_github:
+  friendly_name: "Laatste versie GitHub"
+  icon: mdi:github
+sensor.s0tool_versie:
+  friendly_name: "Huidige versie"
+  icon: mdi:label-outline
+sensor.huidig_energie_opbrengst:
+  friendly_name: "Huidige energieopbrengst (kW)"
+sensor.waterverbruik_liter_s0tool:
+  friendly_name: "Waterverbruik (L)"
+binary_sensor.s0tool_update_beschikbaar:
+  friendly_name: "s0tool update beschikbaar"
+
+## Utility meters (utility_meter/utility.yaml and packages/s0tool_nl.yaml)
+sensor.waterverbruik_per_kwartier:
+  friendly_name: "Waterverbruik per kwartier"
+sensor.waterverbruik_per_uur:
+  friendly_name: "Waterverbruik per uur"
+sensor.waterverbruik_per_dag:
+  friendly_name: "Waterverbruik per dag"
+sensor.waterverbruik_per_week:
+  friendly_name: "Waterverbruik per week"
+sensor.waterverbruik_per_maand:
+  friendly_name: "Waterverbruik per maand"
+sensor.waterverbruik_per_kwartaal:
+  friendly_name: "Waterverbruik per kwartaal"
+sensor.waterverbruik_per_jaar:
+  friendly_name: "Waterverbruik per jaar"
+sensor.water_per_altijd:
+  friendly_name: "Waterverbruik totaal"
+sensor.zonnepanelen_per_kwartier:
+  friendly_name: "Zonnepanelen per kwartier"
+sensor.zonnepanelen_per_uur:
+  friendly_name: "Zonnepanelen per uur"
+sensor.zonnepanelen_per_dag:
+  friendly_name: "Zonnepanelen per dag"
+sensor.zonnepanelen_per_week:
+  friendly_name: "Zonnepanelen per week"
+sensor.zonnepanelen_per_maand:
+  friendly_name: "Zonnepanelen per maand"
+sensor.zonnepanelen_per_kwartaal:
+  friendly_name: "Zonnepanelen per kwartaal"
+sensor.zonnepanelen_per_jaar:
+  friendly_name: "Zonnepanelen per jaar"
+sensor.zonnepanelen_per_altijd:
+  friendly_name: "Zonnepanelen totaal"
+sensor.warmtepomp_per_kwartier:
+  friendly_name: "Warmtepomp per kwartier"
+sensor.warmtepomp_per_uur:
+  friendly_name: "Warmtepomp per uur"
+sensor.warmtepomp_per_dag:
+  friendly_name: "Warmtepomp per dag"
+sensor.warmtepomp_per_week:
+  friendly_name: "Warmtepomp per week"
+sensor.warmtepomp_per_maand:
+  friendly_name: "Warmtepomp per maand"
+sensor.warmtepomp_per_kwartaal:
+  friendly_name: "Warmtepomp per kwartaal"
+sensor.warmtepomp_per_jaar:
+  friendly_name: "Warmtepomp per jaar"
+sensor.warmtepomp_per_altijd:
+  friendly_name: "Warmtepomp totaal"
+sensor.s0_per_kwartier:
+  friendly_name: "S0 energie per kwartier"
+sensor.s0_per_uur:
+  friendly_name: "S0 energie per uur"
+sensor.s0_per_dag:
+  friendly_name: "S0 energie per dag"
+sensor.s0_per_week:
+  friendly_name: "S0 energie per week"
+sensor.s0_per_maand:
+  friendly_name: "S0 energie per maand"
+
+## Entities with your device name in the ID cannot be listed here. Example for a device
+## called 's0tool-standard' (adjust the ID to your own device name):
+# sensor.s0tool_standard_online_sinds:
+#   friendly_name: "s0tool-standard online sinds"
+# sensor.s0tool_standard_ip_adres:
+#   friendly_name: "s0tool-standard IP-adres"
+# sensor.s0tool_standard_mac_adres:
+#   friendly_name: "s0tool-standard Mac-adres"

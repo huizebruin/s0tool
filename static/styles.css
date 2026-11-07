@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ── Dark theme (default) ─────────────────────────────────────── */
 :root {
@@ -1361,3 +1361,43 @@ body.show-special .special { display: initial; }
 
 
 
+
+/* ── Config card extra info ───────────────────────────────────── */
+.config-card { display: flex; flex-direction: column; }
+body.show-special .config-card.special { display: flex; }
+.config-card img { margin-left: auto; margin-right: auto; }
+.config-info {
+  flex: 1 1 auto; margin-top: 0.7rem; padding-top: 0.7rem;
+  border-top: 1px solid var(--border); text-align: left;
+}
+.cfg-label { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-dim); }
+.cfg-use { font-size: 0.95rem; font-weight: 800; color: var(--text); margin: 0.15rem 0 0.55rem; line-height: 1.3; }
+.cfg-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: 0.5rem; }
+.cfg-tag {
+  font-family: var(--mono); font-size: 0.8rem; font-weight: 700; line-height: 1.3; padding: 2px 9px;
+  border-radius: 5px; border: 1.5px solid var(--border); color: var(--text-dim);
+}
+.cfg-tag--water { border-color: var(--accent2); color: color-mix(in srgb, var(--accent2) 65%, var(--text)); background: color-mix(in srgb, var(--accent2) 12%, transparent); }
+.cfg-tag--kwh   { border-color: var(--accent3); color: color-mix(in srgb, var(--accent3) 60%, var(--text)); background: color-mix(in srgb, var(--accent3) 14%, transparent); }
+.cfg-examples { margin: 0 0 0.5rem; padding-left: 1.1rem; font-size: 0.9rem; line-height: 1.45; color: var(--text); }
+.cfg-note { font-size: 0.84rem; line-height: 1.4; color: var(--text); }
+.config-card label { margin-top: auto; padding-top: 0.6rem; }
+
+/* Special configurations: 3 per row, like the standard ones (2 on small screens) */
+#special-configurations .config-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 600px) {
+  #special-configurations .config-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.config-card p { font-size: 0.88rem; color: var(--text-dim); }
+.config-card label { font-size: 0.85rem; font-weight: 700; }
+
+/* ── Config cards: readable sans-serif instead of Space Mono ─── */
+.config-card h5 { font-family: var(--sans); font-size: 1rem; font-weight: 700; }
+.config-card p { font-family: var(--sans); font-size: 0.92rem; }
+.config-card label { font-family: var(--sans); font-size: 0.9rem; font-weight: 700; }
+.cfg-label { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: .06em; }
+.cfg-use { font-family: var(--sans); font-size: 1rem; font-weight: 800; }
+.cfg-tag { font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: .01em; }
+.cfg-examples { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; }
+.cfg-note { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; }
