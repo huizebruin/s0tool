@@ -9,6 +9,18 @@ Een nieuwe release wordt automatisch gemaakt zodra `project_version` in
 `esphome/components/basis.yaml` verandert. Voeg dan eerst hier (en in `CHANGELOG.en.md`) een
 sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmelding.
 
+## [3.6.11] - 2026-11-07
+
+### Toegevoegd
+- **Vertalingen voor Home Assistant** in `s0tool_translations/`: Nederlands, English, Deutsch en Français (49 entiteiten per taal). Alleen de weergegeven naam verandert, de entity-ID's blijven gelijk, dus dashboards, utility meters en het Energy-dashboard blijven werken.
+- **Nieuwe pagina Translations** op s0tool.nl met taalkiezer en download (zip), in het menu van alle pagina's.
+- **Controle van de vertalingen:** `check_translations.py` en de workflow *Translations* controleren dat de bestanden geldige YAML zijn en dezelfde entiteiten bevatten. De downloadbestanden worden bij elke site-build automatisch gemaakt.
+
+### Gewijzigd
+- **Installatiepagina:** elke configuratiekaart toont nu waarvoor je hem gebruikt, de pinnen (D2/D5), voorbeeldmeters en de standaard imp/kWh.
+- `esp8266_store_log_strings_in_flash` uitgecommentarieerd in `basis.yaml`: ESPHome negeert deze optie en wijst hem vanaf 2027.4.0 af.
+- README: uitleg over de vertalingen.
+
 ## [3.6.10] - 2026-10-29
 
 ### Gewijzigd
