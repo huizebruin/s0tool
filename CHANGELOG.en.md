@@ -17,7 +17,8 @@ first, otherwise the release fails with a clear error.
 - **Translation checks:** `check_translations.py` and the *Translations* workflow verify that the files are valid YAML and contain the same entities. The download files are generated automatically on every site build.
 
 ### Changed
-- **Installation page:** every configuration card now shows what it is for, the pins (D2/D5), example meters and the default imp/kWh.
+- **Improved installation page:** every configuration card now shows what it is for, the pins (D2/D5), example meters and the default imp/kWh, so it is easier to pick the right configuration. The Translations link is also in the menu.
+- **Website updated with a better typeface:** the configuration cards now use a clearly readable sans-serif font (DM Sans) instead of Space Mono.
 - `esp8266_store_log_strings_in_flash` commented out in `basis.yaml`: ESPHome ignores this option and will reject it from 2027.4.0.
 - README: explanation of the translations.
 

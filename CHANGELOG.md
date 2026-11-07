@@ -17,7 +17,8 @@ sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmeldin
 - **Controle van de vertalingen:** `check_translations.py` en de workflow *Translations* controleren dat de bestanden geldige YAML zijn en dezelfde entiteiten bevatten. De downloadbestanden worden bij elke site-build automatisch gemaakt.
 
 ### Gewijzigd
-- **Installatiepagina:** elke configuratiekaart toont nu waarvoor je hem gebruikt, de pinnen (D2/D5), voorbeeldmeters en de standaard imp/kWh.
+- **Installatiepagina verbeterd:** elke configuratiekaart toont nu waarvoor je hem gebruikt, de pinnen (D2/D5), voorbeeldmeters en de standaard imp/kWh, zodat je makkelijker de juiste configuratie kiest. Ook de Translations-link staat in het menu.
+- **Website bijgewerkt met een beter lettertype:** de configuratiekaarten gebruiken nu een duidelijk leesbaar schreefloos lettertype (DM Sans) in plaats van Space Mono.
 - `esp8266_store_log_strings_in_flash` uitgecommentarieerd in `basis.yaml`: ESPHome negeert deze optie en wijst hem vanaf 2027.4.0 af.
 - README: uitleg over de vertalingen.
 
