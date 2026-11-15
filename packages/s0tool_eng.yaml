@@ -1,3 +1,8 @@
+# ============================================================================
+# OLDER FILE: English display names for the DUTCH entity IDs (sensor.actuele_energie, ...).
+# For the English Standard (s0tool-standard-eng, English entity IDs) use
+# packages/s0tool_standard_eng.yaml instead.
+# ============================================================================
 s0tool_package:
   sensor:
 #------------------------# s0tool template sensoren. #------------------------#

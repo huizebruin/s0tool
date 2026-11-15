@@ -1,0 +1,97 @@
+# ============================================================================
+# FOR THE ENGLISH STANDARD  (firmware: s0tool-standard-eng, entity IDs in English)
+# Using the Dutch Standard (s0tool-standard, entity IDs like sensor.actuele_energie)?
+# Use packages/s0tool_nl.yaml instead.
+# ============================================================================
+# Check for updates https://gist.github.com/huizebruin/93552a7595cd74fc6206876fd1a359be
+#------------------------# s0tool template sensors. #------------------------#
+# s0tool sensor watt to kW
+template:
+  - sensor:
+      - name: "current-energy-output"
+        state: "{{ (states('sensor.current_power')| int / 1000) | round(2) }}"
+        icon: mdi:flash
+        unit_of_measurement: "kW"
+        # friendly_name: "Current Energy Output"
+        unique_id: s0tool_W_to_kW_eng
+
+# s0tool sensor m3 to L
+  - sensor:
+      - name: "water-usage-liter-s0tool"
+        unique_id: s0toolwaterliterha_eng
+        # friendly_name: Water usage liter
+        state: "{{ (states('sensor.water_meter_total') | float * 1000) | int }}"
+        unit_of_measurement: L
+        icon: mdi:water
+
+  - sensor:
+      - name: Water Meter Reading
+        unique_id: water-meter-running-total_eng
+        state_class: total_increasing
+        unit_of_measurement: m³
+        device_class: water
+        icon: mdi:gauge
+        # 428.730 is an example starting reading: replace it with your own meter reading
+        state: "{{ 428.730 + states.sensor.water_meter_total.state | float }}"
+
+  - binary_sensor:
+      - name: s0tool update available
+        unique_id: s0tool_up_to_date_eng
+        state: >
+          {% set a = states('sensor.s0tool_version_github') %}
+          {% set b = states('sensor.s0tool_version') %}
+          {{ version(a) > version(b) }}
+        device_class: update
+
+sensor:
+  - platform: rest
+    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    name: s0tool_version_github
+    unique_id: s0tool_github_version_eng
+    value_template: '{{ value_json.tag_name }}'
+    scan_interval: 3600
+
+utility_meter:
+  energy:
+    s0_per_quarter_hour:
+      source: sensor.total_energy
+      cycle: quarter-hourly
+      unique_id: s0quarter_eng
+    s0_per_hour:
+      source: sensor.total_energy
+      cycle: hourly
+      unique_id: s0hour_eng      
+    s0_per_day:
+      source: sensor.total_energy
+      cycle: daily
+      unique_id: s0day_eng      
+    s0_per_week:
+      source: sensor.total_energy
+      cycle: weekly
+      unique_id: s0week_eng      
+    s0_per_month:
+      source: sensor.total_energy
+      cycle: monthly
+      unique_id: s0month_eng      
+  
+  water:
+    water_usage_per_quarter_hour:
+      source: sensor.water_meter_total
+      cycle: quarter-hourly
+      unique_id: waterquarter_eng
+    water_usage_per_hour:
+      source: sensor.water_meter_total
+      cycle: hourly
+      unique_id: waterhour_eng
+    water_usage_per_day:
+      source: sensor.water_meter_total
+      cycle: daily  
+      unique_id: waterdaily_eng  
+    water_usage_per_week:
+      source: sensor.water_meter_total
+      cycle: weekly
+      unique_id: waterweek_eng
+    water_usage_per_month:
+      source: sensor.water_meter_total
+      cycle: monthly
+      unique_id: watermonth_eng

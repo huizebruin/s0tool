@@ -1,3 +1,8 @@
+# ============================================================================
+# VOOR DE NEDERLANDSE STANDAARD / FOR THE DUTCH STANDARD
+# (firmware: s0tool-standard, entity IDs like sensor.actuele_energie)
+# Using the English Standard (s0tool-standard-eng)? Use utility_meter/utility_eng.yaml instead.
+# ============================================================================
 #utility_meter:
 
 ### watermeter  S0 meter

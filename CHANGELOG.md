@@ -14,6 +14,8 @@ sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmeldin
 ### Toegevoegd
 - **Nieuwe configuratie `s0tool-standard-eng`:** de Standard (watermeter + kWh) met Engelse entiteitsnamen voor buitenlandse gebruikers (`esphome/pulscounter_eng.yaml`, `basis_eng.yaml`, `kwhpuls_eng.yaml`, `watermeter_eng.yaml`). Entity-ID's zijn hier Engels (bijvoorbeeld `sensor.current_power`), dus de bestaande Nederlandse Home Assistant packages en utility meters passen er niet automatisch bij. De namen van de diagnostische sensoren (`s0tool online since`, `s0tool IP address`, `s0tool MAC address`) bevatten bewust niet de apparaatnaam, zodat ze beter te vertalen zijn.
 - De Engelse Home Assistant-acties heten `meter_reading_water` en `meter_reading_kwh`.
+- **Home Assistant-bestanden voor de Engelse Standard:** `packages/s0tool_standard_eng.yaml` en `utility_meter/utility_eng.yaml` met Engelse entity-ID's. De Nederlandse bestanden (`packages/s0tool_nl.yaml`, `utility_meter/utility.yaml`) blijven voor de Nederlandse Standard en hebben nu een kop die dat aangeeft.
+- **README:** sectie "Which Standard do you have?" en voor utility meters, updatemeldingen en het aanpassen van meterstanden een Nederlandse en een Engelse variant.
 
 ### Gewijzigd
 - **Installatiepagina:** "Standard (English entity names)" is nu de standaard voorgeselecteerde configuratie, de bestaande kaart heet "Standard (Dutch entity names)".
