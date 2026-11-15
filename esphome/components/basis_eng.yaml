@@ -53,7 +53,7 @@ sensor:
 
   - platform: template
     id: S0tool_uptime_timestamp
-    name: "${name} online since"
+    name: "s0tool online since"
     device_class: "timestamp"
     accuracy_decimals: 0
     update_interval: never
@@ -68,7 +68,7 @@ sensor:
 # ⬇ version connection information sensors for in ha ⬇ #
   # WiFi signal
   - platform: wifi_signal
-    name: "${name} - WiFi Signal"
+    name: "s0tool WiFi signal"
     update_interval: 120s
 
 text_sensor:
@@ -83,19 +83,19 @@ text_sensor:
 
   - platform: wifi_info
     ip_address:
-      name: "${name} IP address"
+      name: "s0tool IP address"
       id: s0tool_ip_address
       icon: mdi:ip-network
 
     mac_address:
-      name: "${name} MAC address"
+      name: "s0tool MAC address"
       id: s0tool_mac_address
       icon: mdi:folder-key-network-outline
 
 #  restart button  #
 button:
   - platform: restart
-    name: "${name} Restart device"
+    name: "s0tool restart device"
     entity_category: diagnostic
 
 # Factory Reset Switch from ESPHome v2022.09
