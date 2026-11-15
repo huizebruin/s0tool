@@ -9,6 +9,16 @@ Een nieuwe release wordt automatisch gemaakt zodra `project_version` in
 `esphome/components/basis.yaml` verandert. Voeg dan eerst hier (en in `CHANGELOG.en.md`) een
 sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmelding.
 
+## [3.6.12] - 2026-11-15
+
+### Toegevoegd
+- **Nieuwe configuratie `s0tool-standard-eng`:** de Standard (watermeter + kWh) met Engelse entiteitsnamen voor buitenlandse gebruikers (`esphome/pulscounter_eng.yaml`, `basis_eng.yaml`, `kwhpuls_eng.yaml`, `watermeter_eng.yaml`). Entity-ID's zijn hier Engels (bijvoorbeeld `sensor.current_power`), dus de bestaande Nederlandse Home Assistant packages en utility meters passen er niet automatisch bij. De namen van de diagnostische sensoren (`s0tool online since`, `s0tool IP address`, `s0tool MAC address`) bevatten bewust niet de apparaatnaam, zodat ze beter te vertalen zijn.
+- De Engelse Home Assistant-acties heten `meter_reading_water` en `meter_reading_kwh`.
+
+### Gewijzigd
+- **Installatiepagina:** "Standard (English entity names)" is nu de standaard voorgeselecteerde configuratie, de bestaande kaart heet "Standard (Dutch entity names)".
+- De nieuwe configuratie wordt meegebouwd in `build.yml` en staat in de tabel op de CI/CD-pagina.
+
 ## [3.6.11] - 2026-11-07
 
 ### Toegevoegd
