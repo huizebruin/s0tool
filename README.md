@@ -204,6 +204,8 @@ There are two versions of the Standard firmware (water meter + kWh). Pick the fi
 | Home Assistant package | [`packages/s0tool_nl.yaml`](packages/s0tool_nl.yaml) | [`packages/s0tool_standard_eng.yaml`](packages/s0tool_standard_eng.yaml) |
 | Adjust meter actions | `meterstand_water`, `meterstand_kwh` | `meter_reading_water`, `meter_reading_kwh` |
 
+> **Only the Standard** (water meter + kWh) exists in a Dutch and an English version. The other configurations (Watermeter only, kWh Meter only, DSZ12D, ...) are not available in two languages; for those you can still change the displayed names with the *Translations* below.
+>
 > The Home Assistant files of one version do **not** work with the other: the entity IDs are different. The *Translations* below only change the displayed names of the Dutch version, the IDs stay Dutch.
 > The English IDs above assume the same ID style as the Dutch ones (without a device-name prefix). If Home Assistant adds your device name in front of the ID, adjust the `sensor.` names in the English files to match.
 
