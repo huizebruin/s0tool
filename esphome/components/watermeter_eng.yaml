@@ -1,0 +1,152 @@
+# Sharing and editing is allowed, but leave these first lines alone.
+# Source: https://s0tool.nl
+# Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
+# © https://huizebruin.nl & https://s0tool.nl
+#  # ⬇ Enable Home Assistant API ⬇ #
+api:
+  actions:
+    - action: meter_reading_water
+      variables:
+        meter_value: float
+      then:
+        - globals.set:
+            id: initial_water_usage
+            value: !lambda |
+              auto option = id(Select_pulse_water).current_option();
+              return ( meter_value * atof(option.c_str()) );
+        - globals.set:
+            id: total_water_pulses
+            value:  "0"
+
+globals:
+  - id: initial_water_usage
+    type: float
+    restore_value: yes
+    initial_value: '0'
+  - id: total_water_pulses
+    type: int
+    restore_value: yes
+    initial_value: '0'
+
+select:
+  # ⬇ water per m3 rate ⬇ #
+  - platform: template
+    name: "Pulse rate water per m3"
+    id: Select_pulse_water
+    optimistic: true
+    options:
+      - "0.0001"
+      - "0.0005"
+      - "0.001"
+      - "0.01"
+      - "0.1"
+    initial_option: "0.001"
+    restore_value: yes
+    # on_value:
+    #   then:
+    #     - logger.log:
+    #         format: "Chosen option: %s "
+    #         args: ["x.c_str()"]
+
+#------------------------# Watermeter #------------------------#
+binary_sensor:
+  - platform: gpio
+    id: water_sensor_status
+    name: "Water sensor status"
+    internal: false
+    use_interrupt: false
+    pin:
+      number: D2
+      inverted: true
+      mode:
+        input: true
+      allow_other_uses: true
+    on_press:
+      - lambda: |-
+          id(total_water_pulses) += 1;
+
+#https://github.com/huizebruin/s0tool/issues/156
+number:
+  - name: Initial meter reading m3
+    platform: template
+    id: initial_water_value
+    device_class: water
+    min_value: 0
+    max_value: 100000
+    step: 0.001
+    entity_category: config
+    icon: mdi:water
+    unit_of_measurement: "m³"
+    disabled_by_default: True
+    set_action:
+      - lambda: id(total_water_pulses) = x * 1000;
+
+sensor:
+#------------------------# Watermeter #------------------------#
+# ⬇ water meter pulses ⬇ #
+  - platform: pulse_meter #pulse_counter
+    internal_filter_mode: "PULSE"
+    internal_filter: 50ms
+    pin:
+      number: D2
+      allow_other_uses: true
+    id: watermeter_flow
+    name: "water meter flow"
+    timeout: 60s
+    state_class: measurement
+    unit_of_measurement: "L/min"
+    device_class: volume_flow_rate
+    accuracy_decimals: 2
+    icon: "mdi:water-pump"
+    filters:
+      lambda: |
+        auto option = id(Select_pulse_water).current_option();
+        return x * atof(option.c_str()) * 1000;
+
+# ⬇ Water meter total ⬇ #
+    total:
+      id: sensor_pulse_meter_total
+      name: "water meter total"
+      state_class: "total_increasing"
+      device_class: water
+      icon: mdi:water
+      unit_of_measurement: "m³"
+      accuracy_decimals: 3
+      filters:
+        - multiply: 0.001
+
+
+# ⬇ Water meter reading (approximate) ⬇ #
+  - platform: template
+    id: watermeter_total
+    name: "water meter reading"
+    state_class: "total_increasing"
+    device_class: water
+    icon: mdi:water
+    unit_of_measurement: "m³"
+    # update_interval: 30s
+    accuracy_decimals: 3
+    lambda: |
+      auto option = id(Select_pulse_water).current_option();
+      return id(initial_water_usage) + (id(total_water_pulses) * atof(option.c_str()));
+
+# ⬇ Waterpulses  only web interface for debugging ⬇ #
+  - platform: template
+    id: watermeter_flow_total
+    name: "water meter flow total"
+    state_class: "total_increasing"
+    accuracy_decimals: 0
+    lambda: return id(total_water_pulses);
+    internal: True
+
+# ⬇ Water meter total in liters ⬇
+  - platform: template
+    name: "water meter total (L)"
+    unit_of_measurement: "L"
+    accuracy_decimals: 0
+    icon: mdi:water
+    lambda: |-
+      return id(sensor_pulse_meter_total).state * 1000;
+    # update_interval: 10s
+    state_class: "total_increasing"
+    device_class: water
