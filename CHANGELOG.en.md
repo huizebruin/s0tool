@@ -19,7 +19,7 @@ first, otherwise the release fails with a clear error.
 
 ### Changed
 - **Installation page:** "Standard (English entity names)" is now the preselected default configuration, and the existing card is called "Standard (Dutch entity names)".
-- The new configuration is built in `build.yml` and listed in the table on the CI/CD page.
+- The new configuration is listed in the table on the CI/CD page. It is added to `build.yml` after merging, because the firmware fetches its components via `ref: main`.
 
 ## [3.6.11] - 2026-11-07
 

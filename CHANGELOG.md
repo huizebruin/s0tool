@@ -19,7 +19,7 @@ sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmeldin
 
 ### Gewijzigd
 - **Installatiepagina:** "Standard (English entity names)" is nu de standaard voorgeselecteerde configuratie, de bestaande kaart heet "Standard (Dutch entity names)".
-- De nieuwe configuratie wordt meegebouwd in `build.yml` en staat in de tabel op de CI/CD-pagina.
+- De nieuwe configuratie staat in de tabel op de CI/CD-pagina. Hij wordt na het mergen aan `build.yml` toegevoegd, omdat de firmware zijn onderdelen via `ref: main` ophaalt.
 
 ## [3.6.11] - 2026-11-07
 
