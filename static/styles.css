@@ -98,16 +98,16 @@ code {
 .navbar-links {
   display: flex;
   list-style: none;
-  gap: 0.2rem;
+  gap: 0.1rem;
   margin: 0; padding: 0;
   flex: 1;
   justify-content: center;
 }
 .navbar-links a {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-dim);
-  padding: 0.35rem 0.7rem;
+  padding: 0.35rem 0.4rem;
   border-radius: 6px;
   transition: all var(--transition);
   white-space: nowrap;
@@ -437,8 +437,8 @@ body.show-special .special { display: initial; }
 .wiki-card i { font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
 
 /* ── Responsive ───────────────────────────────────────────────── */
-/* The 12 menu items need ~1360px; below that use the hamburger menu so the page never scrolls sideways */
-@media (max-width: 1400px) {
+/* The 12 menu items need ~1170px; below 1240px (a little margin for other fonts) use the hamburger menu so the page never scrolls sideways */
+@media (max-width: 1240px) {
   .navbar-toggle { display: block; }
   .navbar-links {
     display: none; position: absolute; top: 56px; left: 0; right: 0;
@@ -446,7 +446,7 @@ body.show-special .special { display: initial; }
     padding: 0.5rem; gap: 0.2rem; z-index: 99; justify-content: flex-start;
   }
   .navbar-links.show { display: flex; }
-  .navbar-links a { padding: 0.6rem 1rem; width: 100%; display: block; }
+  .navbar-links a { padding: 0.6rem 1rem; width: 100%; display: block; font-size: 0.78rem; }
   .navbar-brand { flex: 1; }
 }
 @media (max-width: 900px) {
