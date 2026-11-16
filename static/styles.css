@@ -98,16 +98,16 @@ code {
 .navbar-links {
   display: flex;
   list-style: none;
-  gap: 0.2rem;
+  gap: 0.1rem;
   margin: 0; padding: 0;
   flex: 1;
   justify-content: center;
 }
 .navbar-links a {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-dim);
-  padding: 0.35rem 0.7rem;
+  padding: 0.35rem 0.4rem;
   border-radius: 6px;
   transition: all var(--transition);
   white-space: nowrap;
@@ -334,7 +334,7 @@ tr:hover td { background: var(--surface); color: var(--text); }
 
 /* ── Config grid (installation) ───────────────────────────────── */
 .config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
-.config-grid.config-grid--standard { grid-template-columns: repeat(3, 1fr); }
+.config-grid.config-grid--standard { grid-template-columns: repeat(2, 1fr); } /* 4 cards: 2 x 2 */
 .config-card {
   background: var(--bg3); border: 2px solid var(--border); border-radius: var(--radius);
   padding: 1rem; text-align: center; cursor: pointer; transition: all var(--transition);
@@ -437,6 +437,18 @@ body.show-special .special { display: initial; }
 .wiki-card i { font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
 
 /* ── Responsive ───────────────────────────────────────────────── */
+/* The 12 menu items need ~1170px; below 1240px (a little margin for other fonts) use the hamburger menu so the page never scrolls sideways */
+@media (max-width: 1240px) {
+  .navbar-toggle { display: block; }
+  .navbar-links {
+    display: none; position: absolute; top: 56px; left: 0; right: 0;
+    flex-direction: column; background: var(--bg2); border-bottom: 1px solid var(--border);
+    padding: 0.5rem; gap: 0.2rem; z-index: 99; justify-content: flex-start;
+  }
+  .navbar-links.show { display: flex; }
+  .navbar-links a { padding: 0.6rem 1rem; width: 100%; display: block; font-size: 0.78rem; }
+  .navbar-brand { flex: 1; }
+}
 @media (max-width: 900px) {
   .layout { flex-direction: column; padding: 1rem; gap: 1rem; }
   .custom-sidebar { width: 100%; order: 2; }
@@ -1383,10 +1395,11 @@ body.show-special .config-card.special { display: flex; }
 .cfg-note { font-size: 0.84rem; line-height: 1.4; color: var(--text); }
 .config-card label { margin-top: auto; padding-top: 0.6rem; }
 
-/* Special configurations: 3 per row, like the standard ones (2 on small screens) */
-#special-configurations .config-grid { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 600px) {
-  #special-configurations .config-grid { grid-template-columns: repeat(2, 1fr); }
+/* Special configurations: same layout as the standard ones (2 per row, 1 per row on small phones) */
+#special-configurations .config-grid { grid-template-columns: repeat(2, 1fr); }
+#special-configurations .config-card { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  #special-configurations .config-grid { grid-template-columns: 1fr; }
 }
 
 .config-card p { font-size: 0.88rem; color: var(--text-dim); }
@@ -1401,3 +1414,9 @@ body.show-special .config-card.special { display: flex; }
 .cfg-tag { font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: .01em; }
 .cfg-examples { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; }
 .cfg-note { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; }
+
+/* Standard configurations (4 cards): 2 per row, 1 per row on small phones. min-width:0 stops long text from widening the page */
+.config-grid--standard .config-card { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  .config-grid.config-grid--standard { grid-template-columns: 1fr; }
+}
