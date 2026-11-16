@@ -437,6 +437,18 @@ body.show-special .special { display: initial; }
 .wiki-card i { font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
 
 /* ── Responsive ───────────────────────────────────────────────── */
+/* The 12 menu items need ~1360px; below that use the hamburger menu so the page never scrolls sideways */
+@media (max-width: 1400px) {
+  .navbar-toggle { display: block; }
+  .navbar-links {
+    display: none; position: absolute; top: 56px; left: 0; right: 0;
+    flex-direction: column; background: var(--bg2); border-bottom: 1px solid var(--border);
+    padding: 0.5rem; gap: 0.2rem; z-index: 99; justify-content: flex-start;
+  }
+  .navbar-links.show { display: flex; }
+  .navbar-links a { padding: 0.6rem 1rem; width: 100%; display: block; }
+  .navbar-brand { flex: 1; }
+}
 @media (max-width: 900px) {
   .layout { flex-direction: column; padding: 1rem; gap: 1rem; }
   .custom-sidebar { width: 100%; order: 2; }
