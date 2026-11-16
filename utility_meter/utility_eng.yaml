@@ -1,0 +1,82 @@
+# ============================================================================
+# FOR THE ENGLISH STANDARD  (firmware: s0tool-standard-eng, entity IDs in English)
+# Using the Dutch Standard (s0tool-standard, entity IDs like sensor.actuele_energie)?
+# Use utility_meter/utility.yaml instead.
+# ============================================================================
+#utility_meter:
+
+### water meter
+  water_usage_per_quarter_hour:
+    source: sensor.water_meter_total
+    cycle: quarter-hourly
+  water_usage_per_hour:
+    source: sensor.water_meter_total
+    cycle: hourly
+  water_usage_per_day:
+    source: sensor.water_meter_total
+    cycle: daily    
+  water_usage_per_week:
+    source: sensor.water_meter_total
+    cycle: weekly
+  water_usage_per_month:
+    source: sensor.water_meter_total
+    cycle: monthly
+  water_usage_per_quarter:
+    source: sensor.water_meter_total
+    cycle: quarterly
+  water_usage_per_year:
+    source: sensor.water_meter_total
+    cycle: yearly   
+  water_per_all_time:  
+    source: sensor.water_meter_total
+    
+### solar panels (S0 meter)
+  solar_panels_per_quarter_hour:
+    source: sensor.total_energy
+    cycle: quarter-hourly
+  solar_panels_per_hour:
+    source: sensor.total_energy
+    cycle: hourly
+  solar_panels_per_day:
+    source: sensor.total_energy
+    cycle: daily
+  solar_panels_per_week:
+    source: sensor.total_energy
+    cycle: weekly
+  solar_panels_per_month:
+    source: sensor.total_energy
+    cycle: monthly 
+  solar_panels_per_quarter:
+    source: sensor.total_energy
+    cycle: quarterly
+  solar_panels_per_year:
+    source: sensor.total_energy
+    cycle: yearly   
+  solar_panels_per_all_time:
+    source: sensor.total_energy  
+
+  
+### if you have a heat pump connected to the S0tool
+  heat_pump_per_quarter_hour:
+    source: sensor.total_energy
+    cycle: quarter-hourly
+  heat_pump_per_hour:
+    source: sensor.total_energy
+    cycle: hourly
+  heat_pump_per_day:
+    source: sensor.total_energy
+    cycle: daily
+  heat_pump_per_week:
+    source: sensor.total_energy
+    cycle: weekly
+  heat_pump_per_month:
+    source: sensor.total_energy
+    cycle: monthly 
+  heat_pump_per_quarter:
+    source: sensor.total_energy
+    cycle: quarterly
+  heat_pump_per_year:
+    source: sensor.total_energy
+    cycle: yearly 
+  heat_pump_per_all_time:
+    source: sensor.total_energy 

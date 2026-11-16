@@ -1,3 +1,8 @@
+# ============================================================================
+# VOOR DE NEDERLANDSE STANDAARD / FOR THE DUTCH STANDARD
+# (firmware: s0tool-standard, entity IDs like sensor.actuele_energie)
+# Using the English Standard (s0tool-standard-eng)? Use packages/s0tool_standard_eng.yaml instead.
+# ============================================================================
 #s0tool_package:
 # Check for updates https://gist.github.com/huizebruin/93552a7595cd74fc6206876fd1a359be
 #------------------------# s0tool template sensoren. #------------------------#

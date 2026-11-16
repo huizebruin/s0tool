@@ -192,6 +192,23 @@ Click "Configure" to complete setup.
 
 ## ⚙️ Configuration
 
+### Which Standard do you have? (Dutch or English entity names)
+
+There are two versions of the Standard firmware (water meter + kWh). Pick the files in this README that belong to **your** version:
+
+| | 🇳🇱 Dutch Standard | 🇬🇧 English Standard |
+|---|---|---|
+| Firmware | `s0tool-standard` | `s0tool-standard-eng` |
+| Entity names / IDs | `sensor.actuele_energie`, `sensor.totaal_opgebracht`, `sensor.watermeter_totaal` | `sensor.current_power`, `sensor.total_energy`, `sensor.water_meter_total` |
+| Utility meters | [`utility_meter/utility.yaml`](utility_meter/utility.yaml) | [`utility_meter/utility_eng.yaml`](utility_meter/utility_eng.yaml) |
+| Home Assistant package | [`packages/s0tool_nl.yaml`](packages/s0tool_nl.yaml) | [`packages/s0tool_standard_eng.yaml`](packages/s0tool_standard_eng.yaml) |
+| Adjust meter actions | `meterstand_water`, `meterstand_kwh` | `meter_reading_water`, `meter_reading_kwh` |
+
+> **Only the Standard** (water meter + kWh) exists in a Dutch and an English version. The other configurations (Watermeter only, kWh Meter only, DSZ12D, ...) are not available in two languages; for those you can still change the displayed names with the *Translations* below.
+>
+> The Home Assistant files of one version do **not** work with the other: the entity IDs are different. The *Translations* below only change the displayed names of the Dutch version, the IDs stay Dutch.
+> The English IDs above assume the same ID style as the Dutch ones (without a device-name prefix). If Home Assistant adds your device name in front of the ID, adjust the `sensor.` names in the English files to match.
+
 ### Translations (entity names)
 
 The entities are named in Dutch by default (`Actuele energie`, `Totaal opgebracht`, ...). Use the files in [`s0tool_translations/`](s0tool_translations/) to show them in your own language in Home Assistant: **Nederlands, English, Deutsch, Français**. Only the displayed name changes; the entity IDs stay the same, so dashboards, utility meters and the Energy dashboard keep working.
@@ -216,7 +233,12 @@ See [`s0tool_translations/README.md`](s0tool_translations/README.md) for details
 
 ### Home Assistant Utility Meters
 
+- 🇳🇱 **Dutch Standard** (`s0tool-standard`): use [`utility_meter/utility.yaml`](utility_meter/utility.yaml)
+- 🇬🇧 **English Standard** (`s0tool-standard-eng`): use [`utility_meter/utility_eng.yaml`](utility_meter/utility_eng.yaml)
+
 **1. Create utility meter configuration:**
+
+*(🇳🇱 example for the Dutch Standard; for the English Standard use the same layout with `sensor.water_meter_total` and the names from `utility_eng.yaml`)*
 
 Create folder: `config/utility_meter/`
 
@@ -248,7 +270,7 @@ utility_meter:
 utility_meter: !include utility_meter/utility.yaml
 ```
 
-[📁 View Complete Utility Meter Config](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml)
+[📁 View Complete Utility Meter Config 🇳🇱](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility.yaml) · [📁 🇬🇧 English version](https://github.com/huizebruin/s0tool/blob/main/utility_meter/utility_eng.yaml)
 
 ### Update Notifications
 
@@ -259,13 +281,16 @@ homeassistant:
   packages: !include_dir_merge_named packages/
 ```
 
-Create `packages/s0tool.yaml`:
+Create `packages/s0tool.yaml`. Ready-made files with this and more (template sensors and utility meters):
+[🇳🇱 `packages/s0tool_nl.yaml`](packages/s0tool_nl.yaml) for the Dutch Standard, [🇬🇧 `packages/s0tool_standard_eng.yaml`](packages/s0tool_standard_eng.yaml) for the English Standard.
+
+🇳🇱 **Dutch Standard:**
 
 ```yaml
 sensor:
   - platform: rest
     resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
-    name: s0tool_version_github
+    name: s0tool_versie_github
     unique_id: s0tool_github_version
     value_template: '{{ value_json.tag_name }}'
     scan_interval: 3600
@@ -277,6 +302,28 @@ template:
         state: >
           {% set a = states('sensor.s0tool_versie_github') %}
           {% set b = states('sensor.s0tool_versie') %}
+          {{ version(a) > version(b) }}
+        device_class: update
+```
+
+🇬🇧 **English Standard:**
+
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.github.com/repos/huizebruin/s0tool/releases/latest
+    name: s0tool_version_github
+    unique_id: s0tool_github_version_eng
+    value_template: '{{ value_json.tag_name }}'
+    scan_interval: 3600
+
+template:
+  - binary_sensor:
+      - name: "s0tool update available"
+        unique_id: s0tool_up_to_date_eng
+        state: >
+          {% set a = states('sensor.s0tool_version_github') %}
+          {% set b = states('sensor.s0tool_version') %}
           {{ version(a) > version(b) }}
         device_class: update
 ```
@@ -381,11 +428,23 @@ Check compatibility: [GitHub Discussion #250](https://github.com/huizebruin/s0to
 
 ### Water Meter
 
+🇳🇱 **Dutch Standard:**
+
 [![Adjust Water Meter](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_water)
+
+🇬🇧 **English Standard:**
+
+[![Adjust Water Meter (English)](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meter_reading_water)
 
 ### kWh Meter
 
+🇳🇱 **Dutch Standard:**
+
 [![Adjust kWh Meter](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meterstand_kwh)
+
+🇬🇧 **English Standard:**
+
+[![Adjust kWh Meter (English)](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=ESPHome%3A+s0tool_meter_reading_kwh)
 
 ### All Meters
 

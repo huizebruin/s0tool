@@ -1,0 +1,119 @@
+
+# Sharing and editing is allowed, but leave these first lines alone.
+# Source: https://s0tool.nl
+# Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
+# © https://huizebruin.nl & https://s0tool.nl
+substitutions:
+  device_description: ${name} made by s0tool.nl version ${project_version} - date ${date}.
+  project_version: "3.6.12"
+  date: "15-11-2026"
+
+preferences:
+  flash_write_interval: 120min
+
+improv_serial:
+
+wifi:
+  ap:
+
+web_server:
+  port: 80
+  version: 3
+
+captive_portal:
+
+# ⬇ Enable logging ⬇ #
+logger:
+  level: debug #INFO
+  tx_buffer_size: 200  #16-07-2025 tx_buffer_size to 200 bytes for ESPHome v2025.7.x
+  # esp8266_store_log_strings_in_flash: false   is ignored and will be rejected in 2027.4.0.
+
+ota:
+  - platform: esphome
+    id: ota_esphome
+  # - platform: http_request
+  #   id: ota_http_request
+
+http_request:
+  verify_ssl: false
+
+time:
+  - platform: homeassistant
+    id: time_homeassistant
+    on_time_sync:
+      - component.update: S0tool_uptime_timestamp
+
+# https://esphome.io/components/safe_mode  need for ESPHome v2024.6.x
+safe_mode:
+
+sensor:
+#------------------------#  sensoren #------------------------#
+  - platform: uptime
+    id: S0tool_uptime
+
+  - platform: template
+    id: S0tool_uptime_timestamp
+    name: "s0tool online since"
+    device_class: "timestamp"
+    accuracy_decimals: 0
+    update_interval: never
+    icon: 'mdi:clock-start'
+    entity_category: diagnostic
+    lambda: |-
+      static float timestamp = (
+        id(time_homeassistant).utcnow().timestamp - id(S0tool_uptime).state
+      );
+      return timestamp;
+
+# ⬇ version connection information sensors for in ha ⬇ #
+  # WiFi signal
+  - platform: wifi_signal
+    name: "s0tool WiFi signal"
+    update_interval: 120s
+
+text_sensor:
+  - platform: template
+    name: "s0tool_version"
+    id: s0tool_version
+    icon: 'mdi:alpha-v-circle-outline'
+    update_interval: 6h
+    entity_category: diagnostic
+    lambda: |-
+      return {"${project_version}"};
+
+  - platform: wifi_info
+    ip_address:
+      name: "s0tool IP address"
+      id: s0tool_ip_address
+      icon: mdi:ip-network
+
+    mac_address:
+      name: "s0tool MAC address"
+      id: s0tool_mac_address
+      icon: mdi:folder-key-network-outline
+
+#  restart button  #
+button:
+  - platform: restart
+    name: "s0tool restart device"
+    entity_category: diagnostic
+
+# Factory Reset Switch from ESPHome v2022.09
+  - platform: factory_reset
+    name: "Restart with Factory Default Settings"
+    entity_category: diagnostic
+    disabled_by_default: True
+
+  # safe mode button
+  - platform: safe_mode
+    name: "Safe Mode"
+    entity_category: diagnostic
+    disabled_by_default: True
+
+  # - platform: template
+  #   id: check_for_update_button
+  #   name: Check for firmware update
+  #   device_class: update
+  #   on_press:
+  #     then:
+  #       - component.update: update_http_request
