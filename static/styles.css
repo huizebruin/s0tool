@@ -1383,10 +1383,11 @@ body.show-special .config-card.special { display: flex; }
 .cfg-note { font-size: 0.84rem; line-height: 1.4; color: var(--text); }
 .config-card label { margin-top: auto; padding-top: 0.6rem; }
 
-/* Special configurations: 3 per row, like the standard ones (2 on small screens) */
-#special-configurations .config-grid { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 600px) {
-  #special-configurations .config-grid { grid-template-columns: repeat(2, 1fr); }
+/* Special configurations: same layout as the standard ones (2 per row, 1 per row on small phones) */
+#special-configurations .config-grid { grid-template-columns: repeat(2, 1fr); }
+#special-configurations .config-card { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  #special-configurations .config-grid { grid-template-columns: 1fr; }
 }
 
 .config-card p { font-size: 0.88rem; color: var(--text-dim); }
