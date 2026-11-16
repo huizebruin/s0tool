@@ -334,7 +334,7 @@ tr:hover td { background: var(--surface); color: var(--text); }
 
 /* ── Config grid (installation) ───────────────────────────────── */
 .config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
-.config-grid.config-grid--standard { grid-template-columns: repeat(3, 1fr); }
+.config-grid.config-grid--standard { grid-template-columns: repeat(2, 1fr); } /* 4 cards: 2 x 2 */
 .config-card {
   background: var(--bg3); border: 2px solid var(--border); border-radius: var(--radius);
   padding: 1rem; text-align: center; cursor: pointer; transition: all var(--transition);
@@ -1401,3 +1401,9 @@ body.show-special .config-card.special { display: flex; }
 .cfg-tag { font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: .01em; }
 .cfg-examples { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; }
 .cfg-note { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; }
+
+/* Standard configurations (4 cards): 2 per row, 1 per row on small phones. min-width:0 stops long text from widening the page */
+.config-grid--standard .config-card { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  .config-grid.config-grid--standard { grid-template-columns: 1fr; }
+}
