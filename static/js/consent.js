@@ -1,19 +1,34 @@
 /* S0tool cookie consent
-   Loaded in <head> of every page that used Google Analytics: <script src="./js/consent.js"></script>
+   Loaded in <head> of every page: <script src="./js/consent.js"></script>
    - Google Analytics is only loaded AFTER the visitor clicks Accept.
    - Until then gtag() is a no-op, so no data is sent and no cookies are set.
-   - The choice is kept in localStorage; the footer link "Cookie settings" re-opens the banner.
+   - The choice is kept in the visitor's own browser (localStorage) as {"v":2,"choice":"granted|denied","ts":"<ISO time>"}.
+     It never leaves the browser. VERSION is the version of the banner text: raise it when the text or the purposes
+     change and everybody is asked again. A value without a version (older banner) counts as "no choice yet".
+   - The footer link "Cookie settings" re-opens the banner; "Privacy statement" links to privacy.html / privacy-nl.html.
 */
 (function () {
   var GA_ID = 'G-9HB5QGY82J';
   var KEY = 's0tool-cookie-consent';
+  var VERSION = 2;
   var loaded = false;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () {};            // no-op until consent is given
 
-  function getChoice() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
-  function setChoice(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function getChoice() {
+    var raw = null;
+    try { raw = localStorage.getItem(KEY); } catch (e) { return null; }
+    if (!raw) return null;
+    try {
+      var o = JSON.parse(raw);
+      if (o && o.v === VERSION && (o.choice === 'granted' || o.choice === 'denied')) return o.choice;
+    } catch (e) {}
+    return null;
+  }
+  function setChoice(v) {
+    try { localStorage.setItem(KEY, JSON.stringify({ v: VERSION, choice: v, ts: new Date().toISOString() })); } catch (e) {}
+  }
 
   function loadAnalytics() {
     if (loaded) return;
@@ -48,15 +63,20 @@
     en: {
       title: 'Cookies',
       body: 'We use Google Analytics cookies to measure how this site is used, so we can improve it. They are only set if you accept. Without them the site works exactly the same.',
-      accept: 'Accept', decline: 'Decline', settings: 'Cookie settings'
+      accept: 'Accept', decline: 'Decline', settings: 'Cookie settings',
+      privacy: 'Privacy statement', privacyUrl: './privacy.html'
     },
     nl: {
       title: 'Cookies',
       body: 'We gebruiken Google Analytics-cookies om te meten hoe deze website wordt gebruikt, zodat we hem kunnen verbeteren. Ze worden alleen geplaatst als je accepteert. Zonder deze cookies werkt de site precies hetzelfde.',
-      accept: 'Accepteren', decline: 'Weigeren', settings: 'Cookie-instellingen'
+      accept: 'Accepteren', decline: 'Weigeren', settings: 'Cookie-instellingen',
+      privacy: 'Privacyverklaring', privacyUrl: './privacy-nl.html'
     }
   };
-  var lang = ((document.documentElement.lang || navigator.language || 'en') + '').toLowerCase().indexOf('nl') === 0 ? 'nl' : 'en';
+  // Language: the page's own language if it is Dutch, otherwise the visitor's browser language (pages are lang="en").
+  var pageLang = (document.documentElement.lang || '').toLowerCase();
+  var browserLang = (navigator.language || '').toLowerCase();
+  var lang = (pageLang.indexOf('nl') === 0 || browserLang.indexOf('nl') === 0) ? 'nl' : 'en';
   var T = TEXT[lang];
 
   var css =
@@ -67,6 +87,7 @@
     '#s0-consent[hidden]{display:none}' +
     '#s0-consent .s0c-text{flex:1 1 320px;min-width:0}' +
     '#s0-consent .s0c-text strong{display:block;margin-bottom:.15rem}' +
+    '#s0-consent .s0c-link{color:var(--accent,#007a8a);text-decoration:underline;white-space:nowrap}' +
     '#s0-consent .s0c-btns{display:flex;gap:.6rem;flex:0 0 auto}' +
     '#s0-consent .btn{cursor:pointer;min-width:7rem;justify-content:center}';
 
@@ -81,12 +102,15 @@
     el.setAttribute('aria-label', T.title);
     el.hidden = true;
     el.innerHTML =
-      '<div class="s0c-text"><strong></strong><span></span></div>' +
+      '<div class="s0c-text"><strong></strong><span></span> <a class="s0c-link"></a></div>' +
       '<div class="s0c-btns">' +
       '<button type="button" class="btn btn-secondary" data-s0c="denied"></button>' +
       '<button type="button" class="btn btn-primary" data-s0c="granted"></button></div>';
     el.querySelector('strong').textContent = T.title;
     el.querySelector('span').textContent = T.body;
+    var pl = el.querySelector('.s0c-link');
+    pl.textContent = T.privacy;
+    pl.href = T.privacyUrl;
     el.querySelector('[data-s0c="denied"]').textContent = T.decline;
     el.querySelector('[data-s0c="granted"]').textContent = T.accept;
     el.addEventListener('click', function (e) {
@@ -103,12 +127,19 @@
   function init() {
     var banner = buildBanner();
     var choice = getChoice();
-    if (choice === 'granted') loadAnalytics();
-    else if (choice !== 'denied') banner.hidden = false;
+    if (choice === 'granted') {
+      loadAnalytics();
+    } else {
+      removeAnalytics();                       // no valid consent: make sure no analytics cookies are left
+      if (choice !== 'denied') banner.hidden = false;
+    }
 
     var footer = document.querySelector('.custom-footer');
     if (footer) {
       var d = document.createElement('div');
+      var p = document.createElement('a');
+      p.href = T.privacyUrl;
+      p.textContent = T.privacy;
       var a = document.createElement('a');
       a.href = '#';
       a.textContent = T.settings;
@@ -118,6 +149,8 @@
         var b = banner.querySelector('.btn-primary');
         if (b) b.focus();
       });
+      d.appendChild(p);
+      d.appendChild(document.createTextNode(' · '));
       d.appendChild(a);
       footer.appendChild(d);
     }
