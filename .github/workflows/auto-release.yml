@@ -65,7 +65,7 @@ jobs:
       - name: Release Drafter (zelfde indeling als altijd)
         if: steps.tag.outputs.exists == 'false'
         id: drafter
-        uses: release-drafter/release-drafter@v7.10.0
+        uses: release-drafter/release-drafter@v7.11.0
         with:
           tag: ${{ steps.ver.outputs.version }}
           name: Release v${{ steps.ver.outputs.version }}
