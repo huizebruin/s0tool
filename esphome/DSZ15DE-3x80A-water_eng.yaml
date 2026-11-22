@@ -1,0 +1,32 @@
+# Sharing and editing is allowed, but leave these first lines alone.
+# Source: https://s0tool.nl
+# Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
+# © https://huizebruin.nl & https://s0tool.nl
+substitutions:
+  name: s0tool-DSZ15DE-3x80A-water
+
+esphome:
+  name: ${name}
+  name_add_mac_suffix: true
+  comment: '${device_description}'
+  project:
+    name: "huizebruin.${name}"
+    version: "${project_version}"
+  min_version: 2026.8.0
+esp8266:
+  board:  d1_mini
+  restore_from_flash: true
+
+dashboard_import:
+  package_import_url: github://huizebruin/s0tool/esphome/DSZ15DE-3x80A-water_eng.yaml
+
+packages:
+  remote_package:
+    url: https://github.com/huizebruin/s0tool/
+    ref: main
+    files:
+      - esphome/components/basis_eng.yaml
+      - esphome/components/kwhpuls_DSZ15DE.yaml
+      - esphome/components/watermeter_eng.yaml
+      # - esphome/components/s0tool-standard-eng-update.yaml
+    refresh: 0d
