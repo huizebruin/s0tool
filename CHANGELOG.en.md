@@ -9,6 +9,18 @@ A new release is created automatically when `project_version` in
 `esphome/components/basis.yaml` changes. Add a `## [x.y.z]` section here (and in `CHANGELOG.md`)
 first, otherwise the release fails with a clear error.
 
+## [3.6.13] - 2026-11-22
+
+### Added
+- **New configuration `s0tool-dsz15de-3x80a-water`:** the Eltako DSZ15DE-3x80A (kWh) with a water meter, with English entity names (`esphome/DSZ15DE-3x80A-water_eng.yaml`, `esphome/components/kwhpuls_DSZ15DE.yaml`). The S0 input uses a 30 ms filter for this meter's short pulses, default 2000 imp/kWh (adjustable 10-4000). Entity IDs are English, like `s0tool-standard-eng`.
+- **Installation page:** new "DSZ15DE-3x80A-water" card with a photo of the meter.
+- The new configuration is added to `build.yml`, so the firmware and manifest are built automatically.
+
+### Changed
+- **ESPHome 2026.11:** the firmware is built with ESPHome 2026.11.0 (was 2026.10.0).
+- `tx_buffer_size: 200` commented out in `basis.yaml` and `basis_eng.yaml`: the logger now uses ESPHome's default buffer size again.
+- **Installation page:** the "Puls Water Internal" card pointed to a manifest that did not exist (`s0tool-puls-water-internal`) and now uses the real name `s0tool-standard-internal`. The "Flux & Puls" card is removed: it had no firmware, "Standard Flux" covers this.
+
 ## [3.6.12] - 2026-11-15
 
 ### Added

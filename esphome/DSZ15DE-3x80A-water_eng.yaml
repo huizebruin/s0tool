@@ -3,7 +3,7 @@
 # Source File: https://github.com/huizebruin/s0tool/tree/main/esphome
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
-  name: s0tool-DSZ15DE-3x80A-water
+  name: s0tool-dsz15de-3x80a-water
 
 esphome:
   name: ${name}
