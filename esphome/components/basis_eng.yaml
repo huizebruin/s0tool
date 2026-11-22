@@ -5,7 +5,7 @@
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl version ${project_version} - date ${date}.
-  project_version: "3.6.12"
+  project_version: "3.6.13"
   date: "15-11-2026"
 
 preferences:

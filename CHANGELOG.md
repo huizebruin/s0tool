@@ -9,6 +9,17 @@ Een nieuwe release wordt automatisch gemaakt zodra `project_version` in
 `esphome/components/basis.yaml` verandert. Voeg dan eerst hier (en in `CHANGELOG.en.md`) een
 sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmelding.
 
+## [3.6.13] - 2026-11-22
+
+### Toegevoegd
+- **Nieuwe configuratie `s0tool-dsz15de-3x80a-water`:** de Eltako DSZ15DE-3x80A (kWh) met een watermeter, met Engelse entiteitsnamen (`esphome/DSZ15DE-3x80A-water_eng.yaml`, `esphome/components/kwhpuls_DSZ15DE.yaml`). De S0-ingang gebruikt een filter van 30 ms voor de korte pulsen van deze meter, standaard 2000 imp/kWh (instelbaar 10-4000). Entity-ID's zijn Engels, net als bij `s0tool-standard-eng`.
+- **Installatiepagina:** nieuwe kaart "DSZ15DE-3x80A-water" met foto van de meter.
+- De nieuwe configuratie is toegevoegd aan `build.yml`, zodat de firmware en het manifest automatisch worden gebouwd.
+
+### Gewijzigd
+- **ESPHome 2026.11:** de firmware wordt gebouwd met ESPHome 2026.11.0 (was 2026.10.0).
+- `tx_buffer_size: 200` uitgecommentarieerd in `basis.yaml` en `basis_eng.yaml`: de logger gebruikt nu weer de standaard buffergrootte van ESPHome.
+
 ## [3.6.12] - 2026-11-15
 
 ### Toegevoegd
