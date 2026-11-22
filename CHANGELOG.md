@@ -19,6 +19,7 @@ sectie `## [x.y.z]` toe, anders mislukt de release met een duidelijke foutmeldin
 ### Gewijzigd
 - **ESPHome 2026.11:** de firmware wordt gebouwd met ESPHome 2026.11.0 (was 2026.10.0).
 - `tx_buffer_size: 200` uitgecommentarieerd in `basis.yaml` en `basis_eng.yaml`: de logger gebruikt nu weer de standaard buffergrootte van ESPHome.
+- **Installatiepagina:** de kaart "Puls Water Internal" wees naar een manifest dat niet bestond (`s0tool-puls-water-internal`) en gebruikt nu de echte naam `s0tool-standard-internal`. De kaart "Flux & Puls" is verwijderd: die had geen firmware, "Standard Flux" dekt dit.
 
 ## [3.6.12] - 2026-11-15
 
