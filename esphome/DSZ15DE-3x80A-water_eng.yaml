@@ -23,7 +23,7 @@ dashboard_import:
 packages:
   remote_package:
     url: https://github.com/huizebruin/s0tool/
-    ref: 3.6.13  # TEMP: test build on branch, change back to main before merge
+    # ref: main
     files:
       - esphome/components/basis_eng.yaml
       - esphome/components/kwhpuls_DSZ15DE.yaml
