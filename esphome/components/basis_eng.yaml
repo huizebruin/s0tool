@@ -5,8 +5,8 @@
 # © https://huizebruin.nl & https://s0tool.nl
 substitutions:
   device_description: ${name} made by s0tool.nl version ${project_version} - date ${date}.
-  project_version: "3.6.12"
-  date: "15-11-2026"
+  project_version: "3.6.13"
+  date: "23-11-2026"
 
 preferences:
   flash_write_interval: 120min
@@ -25,7 +25,7 @@ captive_portal:
 # ⬇ Enable logging ⬇ #
 logger:
   level: debug #INFO
-  tx_buffer_size: 200  #16-07-2025 tx_buffer_size to 200 bytes for ESPHome v2025.7.x
+  # tx_buffer_size: 200  #16-07-2025 tx_buffer_size to 200 bytes for ESPHome v2025.7.x  #  is ignored and will be rejected in 2026.11.0.
   # esp8266_store_log_strings_in_flash: false   is ignored and will be rejected in 2027.4.0.
 
 ota:
