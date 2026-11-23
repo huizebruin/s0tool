@@ -12,7 +12,7 @@ first, otherwise the release fails with a clear error.
 ## [3.6.13] - 2026-11-22
 
 ### Added
-- **New configuration `s0tool-dsz15de-3x80a-water`:** the Eltako DSZ15DE-3x80A (kWh) with a water meter, with English entity names (`esphome/DSZ15DE-3x80A-water_eng.yaml`, `esphome/components/kwhpuls_DSZ15DE.yaml`). The S0 input uses a 30 ms filter for this meter's short pulses, default 2000 imp/kWh (adjustable 10-4000). Entity IDs are English, like `s0tool-standard-eng`.
+- **New configuration `s0tool-dsz15de-water`:** the Eltako DSZ15DE-3x80A (kWh) with a water meter, with English entity names (`esphome/DSZ15DE-3x80A-water_eng.yaml`, `esphome/components/kwhpuls_DSZ15DE.yaml`). The S0 input uses a 30 ms filter for this meter's short pulses, default 2000 imp/kWh (adjustable 10-4000). Entity IDs are English, like `s0tool-standard-eng`.
 - **Installation page:** new "DSZ15DE-3x80A-water" card with a photo of the meter.
 - The new configuration is added to `build.yml`, so the firmware and manifest are built automatically.
 
