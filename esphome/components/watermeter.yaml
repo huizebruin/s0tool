@@ -2,6 +2,19 @@
 # Bron : https://www.huizebruin.nl
 # Bron File : https://github.com/huizebruin/s0tool/tree/main/esphome
 # © Huizebruin.nl
+
+# ⬇ Flow-afstelling (standaard = NPN-sensor / hoge pulsfrequentie) ⬇ #
+# Overschrijf in je eigen device-YAML (substitutions bovenaan winnen van deze standaardwaarden).
+# Voorbeeld voor reedcontact met 1 puls per liter (bijv. Zenner MNK-P):
+#   substitutions:
+#     water_timeout: 5min
+#     water_filter: 50ms
+#     water_filter_mode: EDGE
+substitutions:
+  water_timeout: 60s
+  water_filter: 50ms
+  water_filter_mode: PULSE
+
 #  # ⬇ Enable Home Assistant API ⬇ #
 api:
   actions:
@@ -85,14 +98,14 @@ sensor:
 #------------------------# Watermeter #------------------------#
 # ⬇ watermeter pulsen ⬇ #
   - platform: pulse_meter #pulse_counter
-    internal_filter_mode: "PULSE"
-    internal_filter: 50ms
+    internal_filter_mode: "${water_filter_mode}"
+    internal_filter: ${water_filter}
     pin:
       number: D2
       allow_other_uses: true
     id: watermeter_flow
     name: "watermeter flow"
-    timeout: 60s
+    timeout: ${water_timeout}
     state_class: measurement
     unit_of_measurement: "L/min"
     device_class: volume_flow_rate
