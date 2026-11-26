@@ -15,10 +15,11 @@
   --surface: #dce3f0;
   --surface2: #e8eef5;
   --border: #c8d3e8;
-  --accent: #00707f;
+  --accent: #006878;
   --accent2: #2563eb;
   --accent3: #d97706;
-  --accent-dim: rgba(0, 122, 138, 0.10);
+  --accent-dim: rgba(0, 104, 120, 0.10);
+  --on-accent: #ffffff;
   --text: #1e293b;
   --text-dim: #4a5568;
   --text-muted: #5a6b82;
@@ -40,6 +41,7 @@
   --border: #2e3650;
   --accent: #00d4aa;
   --accent-dim: rgba(0, 212, 170, 0.12);
+  --on-accent: #0f1117;
   --text: #e8eaf0;
   --text-dim: #8892a4;
   --text-muted: #7d889d;
@@ -241,7 +243,7 @@ section h2:first-child { margin-bottom: 1rem; }
   transition: all var(--transition);
   white-space: nowrap;
 }
-.btn-primary  { background: var(--accent); color: #0f1117; }
+.btn-primary  { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover  { opacity: 1; filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,212,170,0.3); }
 .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent); opacity: 1; transform: translateY(-1px); }
@@ -249,7 +251,7 @@ section h2:first-child { margin-bottom: 1rem; }
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-family: var(--mono); font-size: 0.82rem; font-weight: 700;
   padding: 0.6rem 1.2rem; border-radius: var(--radius);
-  background: var(--accent); color: #0f1117;
+  background: var(--accent); color: var(--on-accent);
   border: none; cursor: pointer; text-decoration: none;
   transition: all var(--transition); margin-top: 0.5rem;
 }
@@ -309,7 +311,7 @@ tr:hover td { background: var(--surface); color: var(--text); }
   color: var(--text-dim); cursor: pointer; transition: all var(--transition);
 }
 .tab:hover { border-color: var(--accent); color: var(--accent); }
-.tab.active { background: var(--accent); color: #0f1117; border-color: var(--accent); }
+.tab.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeIn 0.25s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
